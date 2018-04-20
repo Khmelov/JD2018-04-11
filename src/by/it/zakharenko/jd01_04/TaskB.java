@@ -47,16 +47,16 @@ public class TaskB {
         System.out.println(summa);
 
 
-        int sum = 0;
-        float sred = 0.0;
+        double sum = 0.0;
+        double sred = 0.0;
 
         for (int j = 0; j < 4; j++) {
             for (int i = 0; i < n; i++) {
                 sum = sum + wage[i][j];
-                sred = sum / 12;
+                sred = sum / 12.0;
             }
 
         }
-        System.out.printf("%.4d \n", sred);
+        System.out.printf("%.4f \n", sred);
     }
 }
