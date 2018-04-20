@@ -35,7 +35,7 @@ public class TaskA {
         double x=12.1;
         for (double a=-5; a<=12; a+=3.75){
             double f=exp(a*x)-3.45*a;
-            System.out.printf("For a=%5.2f f=%g\n",a,f);
+            System.out.printf("For  a=%5.2f  f=%g\n",a,f);
         }
     }
 
