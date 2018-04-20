@@ -38,7 +38,7 @@ public class TaskB {
         System.out.println("----------------------------------------------------------");
 
         System.out.printf("%-10s%-10d\n","Итого",sum);
-        System.out.printf("%-10s%-10d\n","Средняя",
+
 
 
 
