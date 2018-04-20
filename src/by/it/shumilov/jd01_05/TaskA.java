@@ -12,7 +12,7 @@ public class TaskA {
     private static void step3() {
         double x = 12.1;
 
-        for (int i = -5; i < 12; i+=3.75) {
+        for (int i = -5; i <= 12; i+=3.75) {
             double z = exp(x*i) - 3.45*i;
             System.out.printf("For a=%5.2f f=%g\n", i, z);
         }
