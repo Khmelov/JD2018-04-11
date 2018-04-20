@@ -38,7 +38,7 @@ public class TaskB {
             all = all + sum;
         }
         System.out.println("--------------------------------------------------------");
-        avg = Math.round(all / (n * 4));
+        avg = (double) all / ((double)n * 4.0);
 
         System.out.printf("%-9s%-10s%n", "Итого", all);
         System.out.printf("%-9s%-10.4f%n", "Средняя", avg);
