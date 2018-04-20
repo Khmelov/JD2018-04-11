@@ -10,11 +10,10 @@ public class TaskA {
     }
 
     private static void step3() {
-        double x = 12.1;
-
-        for (int i = -5; i <= 12; i+=3.75) {
-            double z = exp(x*i) - 3.45*i;
-            System.out.printf("For a=%5.2f f=%g\n", i, z);
+        double x=12.1;
+        for (double a=-5; a<=12; a=a+3.75){
+            double f=exp(a*x)-(3.45*a);
+            System.out.printf("For a=%6.2f F=%g\n",a,f);
         }
     }
 
