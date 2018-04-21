@@ -10,6 +10,5 @@ public class Main {
         Args argsObject=new Args ();
         argsObject.showArgs(args);
 
-        }
     }
-
+}

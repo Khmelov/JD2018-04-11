@@ -1,6 +1,5 @@
 package by.it.obmetko.jd01_02;
 
-
 import java.util.Scanner;
 
 public class TaskA {

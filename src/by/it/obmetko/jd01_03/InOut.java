@@ -22,7 +22,7 @@ public class InOut {
             System.out.printf("%s[% -3d]=%-10.4f ",name,i,arr[i]);
             if ((i+1)%columnCount==0 || i+1==arr.length)
                 System.out.println();
-            
+
         }
     }
 
