@@ -37,7 +37,18 @@ public class TaskC {
         System.out.println();
 
         //sort B!!!!!!
+        Arrays.sort(masB);
+        int dual = (int) Math.ceil(masB.length/2.0);
+        int[] masC = new  int[masB.length];
+
+        for (int i = 0; i < masB.length; i++) {
+            if(i%2 == 0) masC[i] = masB[i/2];
+            else masC[i] = masB[(i-1)/2+dual];
+        }
+
         System.out.println("Massiv B (index to cols)");
+        printArrayPsevdo(masC,"B", 2);
+
     }
 
     private static void step1() {
@@ -79,7 +90,11 @@ public class TaskC {
 
     static  void  printArrayPsevdo(int[] arr, String name, int columnCount){
         int plus = 0;
-        System.out.println("╔═══════════╦═══════════╦═══════════╦═══════════╦═══════════╗");
+        System.out.print("╔═══════════");
+        for (int i = 0; i < columnCount - 1; i++) {
+            System.out.print("╦═══════════");
+        }
+        System.out.println("╗");
         if (arr.length%columnCount != 0) plus = columnCount - arr.length%columnCount;
         for (int i = 0; i < arr.length; i++) {
 
@@ -88,7 +103,12 @@ public class TaskC {
             if((i+1)%columnCount == 0){
                 System.out.println("║");
                 if(arr.length-i+plus >columnCount ){
-                    System.out.println("╠═══════════╬═══════════╬═══════════╬═══════════╬═══════════╣");
+                    System.out.print("╠═══════════");
+                    for (int r = 0; r < columnCount - 1; r++) {
+                        System.out.print("╬═══════════");
+                    }
+                    System.out.println("╣");
+                    //System.out.println("╠═══════════╬═══════════╬═══════════╬═══════════╬═══════════╣");
                 }
             }
 
@@ -98,7 +118,12 @@ public class TaskC {
             System.out.print("║           ");
         }
         if(plus>0) System.out.println("║");
-        System.out.println("╚═══════════╩═══════════╩═══════════╩═══════════╩═══════════╝");
+        System.out.print("╚═══════════");
+        for (int r = 0; r < columnCount - 1; r++) {
+            System.out.print("╩═══════════");
+        }
+        System.out.println("╝");
+        //System.out.println("╚═══════════╩═══════════╩═══════════╩═══════════╩═══════════╝");
 
     }
 }
