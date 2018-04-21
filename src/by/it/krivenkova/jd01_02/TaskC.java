@@ -91,6 +91,46 @@ public class TaskC {
         return sum;
     }
 
+    static int[][] step3(int[][] mas) {
+        int max = Integer.MIN_VALUE;
+        for (int[] row : mas)
+            for (int element : row)
+                if (element > max) max = element;
+        boolean[] delCol = new boolean[mas[0].length];
+        boolean[] delRow = new boolean[mas.length];
+        //заполним маркеры удаления
+        for (int i = 0; i < mas.length; i++) {
+            for (int j = 0; j < mas[i].length; j++) {
+                if (mas[i][j] == max) {
+                    delRow[i] = true;
+                    delCol[j] = true;
+                }
+            }
+        }
+        //вычисляем размер массива
+        int rr = 0;
+        int cc = 0;
+        for (boolean b : delRow) if (!b) rr++;
+        for (boolean b : delCol) if (!b) cc++;
+        int[][] m = new int[rr][cc];
+
+        //заполним ответ
+        int ii = 0;
+        for (int i = 0; i < mas.length; i++) {
+            int jj = 0;
+            for (int j = 0; j < mas[i].length; j++) {
+                if (!delCol[j] && !delRow[i]) {
+                    m[ii][jj] = mas[i][j];
+                    jj++;
+                }
+            }
+            if (!delRow[i]) ii++;
+        }
+        return m;
+    }
+
+
+
    /* static int[][] step3(int[][] mas) {
         System.out.println("Max  " + mas.length);
         int max = mas.length;
@@ -154,49 +194,4 @@ int k = 0;
         return mas;
     }*/
 
-    static int[][] step3(int[][] mas) {
-        int max = Integer.MIN_VALUE;
-        for (int[] row : mas) {
-            for (int element : row) {
-                if (element > max) max = element;
-            }
-        }
-
-        boolean[] delCol = new boolean[mas[0].length];
-        boolean[] delRow = new boolean[mas.length];
-        for (int i = 0; i < mas.length; i++) {
-            for (int j = 0; j < mas[i].length; j++) {
-                if (mas[i][j] == max) {
-                    delRow[i] = true;
-                    delCol[i] = true;
-                }
-
-            }
-        }
-
-        int rr=0, cc=0;
-        for (boolean b : delCol) {
-            if (!b) rr++;
-        }
-        for (boolean b : delRow) {
-            if (!b) cc++;
-        }
-
-        int[][] m= new int[rr][cc];
-
-        int ii=0, jj=0;
-        for (int i = 0; i < mas.length; i++) {
-            jj = 0;
-            for (int j = 0; j < mas[i].length; j++) {
-                if (!delCol[j] && !delRow[j]) {
-                    m[ii][jj] = mas[i][j];
-                    jj++;
-                }
-            }
-            if (!delRow[i]) ii++;
-        }
-
-
-                return m;
-    }
 }

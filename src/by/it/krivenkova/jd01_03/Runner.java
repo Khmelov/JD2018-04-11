@@ -11,5 +11,18 @@ public class Runner {
         InOut.printArray(array);
         System.out.println("Formatted output");
         InOut.printArray(array, "V",3);
+
+
+        System.out.println("Sorted array");
+        Helper.sort(array);
+        InOut.printArray(array);
+
+        double min = Helper.findMin(array);
+        System.out.println("Minimum = " + min);
+
+        double max = Helper.findMax(array);
+        System.out.println("Maximum = " + max);
+
+
     }
 }

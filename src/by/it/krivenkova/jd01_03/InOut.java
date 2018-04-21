@@ -10,6 +10,9 @@ package by.it.krivenkova.jd01_03;
         }
         return res;
     }
+     /*
+      * @param  arr входной массив
+      */
     static void printArray(double[ ] arr){
         for (double element : arr) {
             System.out.print(element + "  ");
