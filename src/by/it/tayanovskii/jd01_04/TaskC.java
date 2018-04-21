@@ -30,72 +30,73 @@ public class TaskC {
         InOut.printArray(array, "V", 5);
         double first = array[0];
         double last = array[array.length - 1];
-        //mergeSort(array);
-        Arrays.sort(array);
+        mergeSort(array);
         InOut.printArray(array, "V", 4);
-        System.out.println("first element=" + binarySearch(array,first));
-        System.out.println("last element=" + binarySearch(array,last));
+        System.out.println("first element=" + binarySearch(array, first));
+        System.out.println("last element=" + binarySearch(array, last));
 
 
     }
 
-    private static void mergeSort(double[ ] array)
-    {
-
-        mergeSort(array,0,array.length-1);
-
-    }
-
-    private static double[ ] mergeSort(double[ ] array, int left, int right)
-    {
+    private static void mergeSort(double[] array) {
 
 
-        if(left<right) {
-            int m = (left + right) / 2;
-            return merge(mergeSort(array, left, m), mergeSort(array, m + 1, right));
+        double[] temp = mergeSort(array, 0, array.length-1);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = temp[i];
         }
-        else return array;
 
     }
 
-    private static double[ ] merge(double[ ] part1, double[ ] part2)
-    {
+    private static double[] mergeSort(double[] array, int left, int right) {
+
+
+
+        if (left < right) {
+            int m = (left + right) / 2;
+            return merge(mergeSort(array, left, m), mergeSort(array, m +1, right));
+        }
+        double[] result = new double[1];
+        result[0] = array[left];
+        return result;
+
+    }
+
+    private static double[] merge(double[] part1, double[] part2) {
 
 
         int len_1 = part1.length, len_2 = part2.length;
-        int a = 0, b = 0, len = len_1 + len_2; // a, b - счетчики в массивах
-        double[] result = new double[len];
-        for (int i = 0; i < len; i++) {
-            if (b < len_2 && a < len_1) {
-                if (part1[a] > part2[b]) result[i] = part2[b++];
-                else result[i] = part1[a++];
-            } else if (b < len_2) {
-                result[i] = part2[b++];
-            } else {
-                result[i] = part2[a++];
-            }
+        int len_res = len_1 + len_2;
+        int i_1 = 0, i_2 = 0;
+
+        double result[] = new double[len_res];
+
+        for (int i = 0; i < len_res; i++) {
+            if (i_2 < len_2 && i_1 < len_1) {
+                if (part1[i_1] > part2[i_2]) result[i] = part2[i_2++];
+                else result[i] = part1[i_1++];
+            } else if (i_2 < len_2)
+                result[i] = part2[i_2++];
+            else result[i] = part1[i_1++];
         }
         return result;
 
     }
 
-    static int binarySearch(double[ ] array, double value)
-    {
+    static int binarySearch(double[] array, double value) {
 
         int l = 0;
-        int r = array.length-1;
-        while( l <= r )
-        {
-            int m = ( l + r ) / 2;
+        int r = array.length - 1;
+        while (l <= r) {
+            int m = (l + r) / 2;
 
-            if( array[m]==value) return m;
-            else if(array[m]> value) r = m-1;
-            else l=m+1;
+            if (array[m] == value) return m;
+            else if (array[m] > value) r = m - 1;
+            else l = m + 1;
         }
         return -1;
 
     }
-
 
 
 }
