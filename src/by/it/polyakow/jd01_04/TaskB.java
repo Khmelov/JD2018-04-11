@@ -23,6 +23,7 @@ public class TaskB {
         System.out.println("----------------------------------------------------------");
         int num=0;
         int sum=0;
+        double mid=0;
         for (int i = 0; i < mas.length; i++) {
             System.out.printf("%-10s", fam[i]+":");
             for (int j = 0; j < mas[0].length; j++) {
@@ -31,6 +32,7 @@ public class TaskB {
                 
             }
             sum= sum+num;
+            mid=sum/12;
             System.out.printf("%-10d\n",num);
             System.out.println();
 
@@ -38,7 +40,7 @@ public class TaskB {
         System.out.println("----------------------------------------------------------");
 
         System.out.printf("%-10s%-10d\n","Итого",sum);
-
+        System.out.printf("%-9s%-9.6f\n","Средняя",mid);
 
 
 
