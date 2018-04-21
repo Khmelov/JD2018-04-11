@@ -44,12 +44,6 @@ class InOut {
         System.out.println();
     }
 
-    /**
-     *
-     * @param matrix - исходная матрица
-     * @param columnCount - количество столбцов для вывода в печать
-     */
-
     static void printMatrix(double[][] matrix, int columnCount) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {

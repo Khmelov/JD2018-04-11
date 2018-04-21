@@ -9,6 +9,24 @@ public class TaskB {
         System.out.println("Enter month pls from 1 to 12");
         int month = scanner.nextInt();
         step2(month);
+        System.out.println("Enter 3 numbers");
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
+        double c = scanner.nextDouble();
+        step3(a, b, c);
+    }
+
+    private static void step3(double a, double b, double c) {
+        double discriminant = Math.pow(b, 2) - 4*a*c;
+        System.out.println(discriminant);
+        if (discriminant < 0)
+            System.out.println("корней нет");
+        if (discriminant == 0)
+            System.out.println((-b - Math.sqrt(discriminant))/ (2*a));
+        if (discriminant > 0) {
+            System.out.println((-b - Math.sqrt(discriminant))/ (2*a));
+            System.out.println((-b + Math.sqrt(discriminant))/ (2*a));
+        }
     }
 
     private static void step2(int month) {
