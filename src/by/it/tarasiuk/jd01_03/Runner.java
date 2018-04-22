@@ -20,8 +20,5 @@ public class Runner {
 
         System.out.println("Sorted array: ");
         InOut.printArray(Helper.sort(array));
-
-
-
     }
 }

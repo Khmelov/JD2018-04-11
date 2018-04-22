@@ -14,7 +14,7 @@ public class TaskA {
         step3(mas);
     }
 
-    static void step1(int[] mas) {
+    private static void step1(int[] mas) {
         int min=mas[0];
         int max=mas[0];
         for (int element:mas) {
@@ -25,10 +25,10 @@ public class TaskA {
         System.out.println(max);
     }
 
-    static void step2(int[] mas) {
+    private static void step2(int[] mas) {
         double sum=0;
-        for (int elementmin:mas ){
-            sum+=elementmin;
+        for (int element:mas ){
+            sum+=element;
         }
         double avg=sum/mas.length;
 
@@ -38,7 +38,7 @@ public class TaskA {
         System.out.println();
     }
 
-    static void step3(int[] mas) {
+    private static void step3(int[] mas) {
         int min=mas[0];
         for (int element:mas) {
             if (min > element) min = element;
@@ -48,3 +48,4 @@ public class TaskA {
         }
     }
 }
+

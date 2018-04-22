@@ -13,7 +13,6 @@ public class InOut {
         for (int i = 0; i < strArr.length; i++) {
             res[i]=Double.parseDouble(strArr[i]);
         }
-
         return res;
     }
 
@@ -25,8 +24,6 @@ public class InOut {
         for (double element:arr
                 ) {
             System.out.print(element + " ");
-
-
         }
         System.out.println();
     }
@@ -45,8 +42,7 @@ public class InOut {
                 System.out.println();
         }
         System.out.println();
-
     }
-
 }
+
 

@@ -15,14 +15,14 @@ public class TaskB {
         double c=scanner.nextDouble();
         step3(a, b, c);
     }
-    static void step1() {
+    private static void step1() {
         int j = 1;
         for (int i = 1; i <= 25; i++) {
             System.out.print(j++ + " ");
             if (i % 5 == 0) System.out.println();
         }
     }
-    static void step2(int month) {
+    private static void step2(int month) {
         switch (month) {
             case 1:
                 System.out.println("январь");
@@ -64,7 +64,7 @@ public class TaskB {
                 System.out.println("нет такого месяца");
         }
     }
-    static void step3(double a, double b, double c) {
+    private static void step3(double a, double b, double c) {
 
         double x1, x2, discriminant = (b * b) - 4 * (a * c);
         if (discriminant > 0){
@@ -79,5 +79,6 @@ public class TaskB {
         else System.out.println("корней нет");
     }
 }
+
 
 

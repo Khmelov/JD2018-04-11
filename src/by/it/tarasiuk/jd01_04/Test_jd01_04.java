@@ -1,11 +1,12 @@
 package by.it.tarasiuk.jd01_04;
 
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.util.Arrays;
-
 import org.junit.Test;
+
+import java.io.*;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -294,6 +295,8 @@ public class Test_jd01_04 {
 
             @Override
             public void write(int b) throws IOException {
+                if (pos==0 && b=='\r') //пропуск \r (чтобы win mac и linux одинаково работали
+                    return;
                 if (pos == 0) { //определим кодировку https://ru.wikipedia.org/wiki/UTF-8
                     if ((b & 0b11110000) == 0b11110000) bytes = new byte[4];
                     else if ((b & 0b11100000) == 0b11100000) bytes = new byte[3];

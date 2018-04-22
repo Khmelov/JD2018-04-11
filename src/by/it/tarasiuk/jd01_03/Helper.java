@@ -77,11 +77,11 @@ public class Helper {
      * @return возвращается матрица(двумерный массив типа double) = левая матрица * правая матрица
      */
     static double[ ][ ] mul(double[ ][ ] matrixLeft, double[ ][ ] matrixRight){
-        double[][] mulMleftMright=new double[matrixLeft.length][matrixRight[0].length];
+        double[][] mulMLeftMRight=new double[matrixLeft.length][matrixRight[0].length];
         for (int i = 0; i < matrixLeft.length; i++)
             for (int j = 0; j < matrixRight[0].length; j++)
                 for (int k = 0; k < matrixRight.length; k++)
-                    mulMleftMright[i][j] = mulMleftMright[i][j] + matrixLeft[i][k] * matrixRight[k][j];
-        return mulMleftMright;
+                    mulMLeftMRight[i][j] = mulMLeftMRight[i][j] + matrixLeft[i][k] * matrixRight[k][j];
+        return mulMLeftMRight;
     }
 }
