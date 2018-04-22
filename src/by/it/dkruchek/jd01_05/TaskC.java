@@ -76,7 +76,7 @@ public class TaskC {
             if (v > 3.5){
                 newArray[newArrayIndex] = v;
                 newArrayIndex++;
-                newArrMultiplied += v;
+                newArrMultiplied *= v;
             }
         }
         System.out.println("Массив А");
