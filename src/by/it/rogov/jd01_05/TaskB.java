@@ -33,15 +33,15 @@ public class TaskB {
             if (x > -2 && x <= -1) {
                 b = sin(pow(i, 2));
                 a = log10(abs(b + 2.74));
-                System.out.printf("При x/2=%3.2f a = %g\n" ,x, a);
+                System.out.printf("При x/2=%3.2f a = %g\n", x, a);
             } else if (x > -1 && x < 0.2) {
                 b = cos(pow(i, 2));
                 a = log10(abs(b + 2.74));
-                System.out.printf("При x/2=%3.2f a = %g\n" ,x, a);
+                System.out.printf("При x/2=%3.2f a = %g\n", x, a);
             } else if (x == 0.2) {
                 b = 1.0 / tan(pow(i, 2));
                 a = log10(abs(b + 2.74));
-                System.out.printf("При x/2=%3.2f a = %g\n" ,x, a);
+                System.out.printf("При x/2=%3.2f a = %g\n", x, a);
             } else {
                 System.out.println("for x/2= " + x + " count not definde ");
             }
