@@ -1,13 +1,13 @@
-package by.it.kashayed.jd01_02;
+package by.it.kashayed.jd01_01;
 
 import java.util.Scanner;
 
-public class TaskA {
+public class MyFirstClass {
     public static void main (String[] args){
         Scanner scanner = new Scanner(System.in);
         int[]mas = new int[10];
         for (int i = 0; i < mas.length; i++) {
-            mas[i] = scanner.nextInt();
+           mas[i] = scanner.nextInt();
         }
         step1(mas);
         step2(mas);
@@ -26,7 +26,7 @@ public class TaskA {
         for (int i = mas.length-1; i >=0 ; i--) {
             if (mas[i] == x){
                 z=i;
-                System.out.print(z + " ");
+                System.out.println(z);
             }
         }
 
@@ -36,7 +36,7 @@ public class TaskA {
         double x = 0;
         double y = 0;
         for (int i = 0; i < mas.length; i++) {
-            x = x + mas[i];
+           x = x + mas[i];
         }
         y = x/mas.length;
         for (int element : mas){
