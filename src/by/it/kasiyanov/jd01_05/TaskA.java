@@ -30,11 +30,19 @@ public class TaskA {
         double a = 1.21;
         double b = 0.371;
 
-        tan(pow((a + b),2));
+        double y = tan(pow((a + b),2)) - cbrt(a + 1.5) + a * pow(b,5) - b / log(a * a);
 
+        System.out.println("y=" + y);
 
     }
 
     private static void step3() {
+        double x = 12.1;
+        double f;
+
+        for (double a = -5; a <= 12; a = a + 3.75) {
+            f = exp(a * x) - 3.45 * a;
+            System.out.printf("При a=%6.2f f=%g%n", a, f);
+        }
     }
 }
