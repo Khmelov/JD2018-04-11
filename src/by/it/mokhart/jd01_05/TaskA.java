@@ -28,9 +28,12 @@ public class TaskA {
         y=y-b/log(a*a);
         System.out.println("y = " +y);
     }
-
     public static void step3() {
-
+        double x = 12.1;
+        for (double a = -5; a <=12 ; a +=3.75) {
+            double f = pow(E, a*x) - 3.45*a;
+            System.out.printf("For a = %5.2f f = %g\n", a, f);
+        }
     }
 
 }
