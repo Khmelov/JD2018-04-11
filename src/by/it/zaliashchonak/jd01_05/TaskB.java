@@ -1,5 +1,7 @@
 package by.it.zaliashchonak.jd01_05;
 
+import java.util.Locale;
+
 import static java.lang.Math.*;
 
 /**
@@ -8,6 +10,11 @@ import static java.lang.Math.*;
 public class TaskB {
 
     public static void main(String[] args) {
+
+//       String s = null;
+//       System.out.println(s+s);
+//       StringBuffer ab = new StringBuffer();
+
         step4();
         step5();
     }
