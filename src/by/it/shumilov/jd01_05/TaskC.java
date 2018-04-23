@@ -86,6 +86,7 @@ public class TaskC {
         }
         System.out.println();
         System.out.println("Среднее геометрическое: " + pow(umn,1.0/arr.length));
+        System.out.println();
     }
 
     static  void  printArrayPsevdo(int[] arr, String name, int columnCount){
