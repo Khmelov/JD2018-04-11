@@ -16,7 +16,7 @@ public class TaskA2 {
                 count =1;
             }
             else count++;
-            System.out.println(word+" = "+count);
+            System.out.println(word+"="+count);
         }
     }
 
