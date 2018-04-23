@@ -20,6 +20,5 @@ public class TaskA2 {
             } else count++;
         }
         // String[] slovar = new String[words.length];
-
     }
 }

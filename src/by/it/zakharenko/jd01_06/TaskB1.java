@@ -10,7 +10,7 @@ public class TaskB1 {
         return g1.indexOf(first) < 0 && g1.indexOf(last) >= 0;
 
     }
-
+    
     public static void main(String[] args) {
         String[] words = Poem.text.split("[а-яёА-ЯЁ] +");
         for (String word : words) {
