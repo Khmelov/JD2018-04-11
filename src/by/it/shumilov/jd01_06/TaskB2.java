@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class TaskB2 {
     public static void main(String[] args) {
-        String[] mas1  = Poem.text.split("[.?]{1,}");
+        String[] mas1  = Poem.text.split("[.!?]{1,}");
         Pattern pa = Pattern.compile("[\\p{Punct}\\p{Blank}\\n]+");
         Matcher ma ;
         String[] arr =new String[mas1.length];
