@@ -21,6 +21,9 @@ public class TaskB {
             for (int j = 0; j < 4; j++) {
                 salary[i][j] = scanner.nextInt();
             }
+
+
+
         }
         System.out.println(String.format("%60s", " ").replace(' ', '_'));
         System.out.printf("\n%10s%10s%10s%10s%10s%10s", "Фамилия", "Квартал1", "Квартал2", "Квартал3", "Квартал4", "Итого");
