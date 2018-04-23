@@ -1,5 +1,7 @@
-package by.it._tasks_.jd01_06;
+package by.it.shumilov.jd01_06;
 
+
+import by.it.shumilov.jd01_06.Poem;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

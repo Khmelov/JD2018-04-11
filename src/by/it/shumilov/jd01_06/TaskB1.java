@@ -1,6 +1,7 @@
-package by.it._tasks_.jd01_06;
+package by.it.shumilov.jd01_06;
 
 
+import by.it.shumilov.jd01_06.Poem;
 
 public class TaskB1 {
     private final static  String gl = "уеэоаыяиюёУЕЭОАЫЯИЮЁ";
