@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"by.it.lanevich.jd01_01"},{"l":"by.it.lanevich.jd01_02"},{"l":"by.it.lanevich.jd01_03"}]
