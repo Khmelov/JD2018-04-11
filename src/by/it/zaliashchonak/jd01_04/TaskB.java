@@ -20,7 +20,6 @@ public class TaskB {
             System.out.println("Введите зарплату для " + surnames[i]);
             for (int j = 0; j < 4; j++) {
                 salary[i][j] = scanner.nextInt();
-
             }
 
 
