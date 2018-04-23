@@ -1,5 +1,6 @@
 package by.it.kasiyanov.jd01_04;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TaskC  {
@@ -24,21 +25,18 @@ public class TaskC  {
     static void mergeSort(double[ ] array){
         int left = 0;
         int right = array.length;
+        double newArray[] = new double[array.length];
+
+        newArray = mergeSort(array, left, right);
 
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+            array[i] = newArray[i];
         }
-        System.out.println();
 
-        array = mergeSort(array, left, right);
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
     }
 
     private static double[ ]mergeSort(double[ ] array, int left, int right){
+
         if(left >= (right - 1)){
             return array;
         }
@@ -83,7 +81,7 @@ public class TaskC  {
         return array;
     }
 
-    static int binarySearch(double[ ] array, double value){
+    /*static int binarySearch(double[ ] array, double value){
         int left = 0;
         int right = array.length;
         int res;
@@ -93,21 +91,21 @@ public class TaskC  {
             return m;
         }
         else if (array[m+1] <= value) {
-            /*double part2[] = new double[array.length - m];
-            for (int i = 0; i < part2.length; i++) {
-                int j = i + m;
-                part2[i] = array[j];
-            }
-            res = binarySearch(part2, value);*/
+//            double part2[] = new double[array.length - m];
+//            for (int i = 0; i < part2.length; i++) {
+//                int j = i + m;
+//                part2[i] = array[j];
+//            }
+//            res = binarySearch(part2, value);
             left = m + 1;
             res = binarySearch(array, value, left, right);
         }
         else if(array[m-1] >= value ) {
-            /*double part1[] = new double[m];
-            for (int i = 0; i < part1.length; i++) {
-                part1[i] = array[i];
-            }
-            res = binarySearch(part1, value);*/
+//            double part1[] = new double[m];
+//            for (int i = 0; i < part1.length; i++) {
+//                part1[i] = array[i];
+//            }
+//            res = binarySearch(part1, value);
             right = m - 1;
             res = binarySearch(array, value, left, right);
         }
@@ -115,9 +113,9 @@ public class TaskC  {
             return (-1);
         }
         return res;
-    }
+    }*/
 
-    private static int binarySearch(double[ ] array, double value, int left, int right){
+    /*private static int binarySearch(double[ ] array, double value, int left, int right){
         if (left > right){
             return (-1);
         }
@@ -134,9 +132,9 @@ public class TaskC  {
             return binarySearch(array, value, m + 1, right);
         }
         return m;
-    }
+    }*/
 
-     /*static int binarySearch(double[ ] array, double value){
+     static int binarySearch(double[ ] array, double value){
         int left = 0;
         int right = array.length;
         boolean again = true;
@@ -147,14 +145,14 @@ public class TaskC  {
                 again = false;
                 return m;
             }
-            else if(array[m+1] <= value){
+            else if(array[m] <= value){
                 left = m + 1;
             }
-            else if (array[m-1] >= value){
+            else {
                 right = m - 1;
             }
         }
         return (-1);
-    }*/
+    }
 
 }
