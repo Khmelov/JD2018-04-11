@@ -14,9 +14,11 @@ public class TaskB1 {
     }
     private static boolean check(String word){
 
-        ///еще вариант
+        /* /еще вариант */
         char first = word.charAt(0);
         char last = word.charAt(word.length()-1);
+
+
 
         return  gl.indexOf(first)<0 && gl.indexOf(last)>=0;
     }

@@ -12,6 +12,14 @@ public class TaskC1 {
         }
 
     }
+
+    /**
+     * Функция добавления пробелов в строку
+     * @param s Строка в которой необходимо добавить пробелы
+     * @param max длина к которой необходимо преобразовать строку
+     * @return Возврашает отформатированную строку
+     *
+     * */
     private  static String plusGap(String s,int max){
         String[] words = s.split(" ");
         int nAll = (max-s.length())/(words.length-1);
@@ -28,7 +36,7 @@ public class TaskC1 {
         for (int i = 1; i < nOst+1; i++) {
             stroka += "  " + g + words[i];
         }
-        //if(nOst == 0) nOst = 1;
+
         for (int i = nOst+1; i < words.length; i++) {
             stroka += " " + g + words[i];
         }

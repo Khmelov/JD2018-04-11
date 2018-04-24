@@ -21,6 +21,9 @@ public class TaskB2 {
         String buf;
         int start = 0;
         int finish = arr.length - 1;
+
+
+
         do{
             for (int i = start; i < finish ; i++) {
                 if(arr[i].length()> arr[i+1].length()) {
