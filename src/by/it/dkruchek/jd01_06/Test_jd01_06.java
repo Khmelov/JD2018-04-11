@@ -335,7 +335,7 @@ public class Test_jd01_06 {
 
     @Test(timeout = 5000)
     public void testTaskB2() throws Exception {
-        System.out.println("Ожидается:\n" +
+        System. out.println("Ожидается:\n" +
                 "Там королевич мимоходом Пленяет грозного царя\n" +
                 "Там ступа с Бабою Ягой Идёт бредёт сама собой\n" +
                 "У лукоморья дуб зелёный Златая цепь на дубе том\n" +
