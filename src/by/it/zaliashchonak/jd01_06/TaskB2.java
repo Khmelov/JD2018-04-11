@@ -1,7 +1,6 @@
 package by.it.zaliashchonak.jd01_06;
 
 
-
 public class TaskB2 {
 
     public static void main(String[] args) {
@@ -19,6 +18,7 @@ public class TaskB2 {
                     sent[i] = sent[i + 1];
                     sent[i + 1] = temp;
                     flag = true;
+
                 }
             }
             last--;
