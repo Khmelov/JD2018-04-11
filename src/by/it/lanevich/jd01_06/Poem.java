@@ -1,6 +1,6 @@
-package by.it._tasks_.jd01_06;
+package by.it.lanevich.jd01_06;
 
-public class Poem {
+class Poem {
     static final String text=
             "У лукоморья дуб зелёный,\n" +
             "Златая цепь на дубе том.\n" +
@@ -35,4 +35,5 @@ public class Poem {
             "У моря видел дуб зелёный,\n" +
             "Под ним сидел, и кот учёный\n" +
             "Свои мне сказки говорил.";
+    public static CharSequence txt;
 }
