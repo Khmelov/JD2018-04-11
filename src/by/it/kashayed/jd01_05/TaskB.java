@@ -16,17 +16,17 @@ public class TaskB {
         for (double x = -6; x<2 ; x+=0.5) {
             double q=x/2;
             if(-2<q&&q<=-1){
-               a=log(abs(sin(pow(x,2))+2.74));
+               a=log10(abs(sin(pow(x,2))+2.74));
                 System.out.println(a);
 
             }
             if(-1<q&&q<0.2){
-                a=log(abs(cos(pow(x,2))+2.74));
+                a=log10(abs(cos(pow(x,2))+2.74));
                 System.out.println(a);
 
             }
             if(q==0.2){
-                a=log(abs(1.0/(tan(pow(x,2)))+2.74));
+                a=log10(abs(1.0/(tan(pow(x,2)))+2.74));
                 System.out.println(a);
 
             }
