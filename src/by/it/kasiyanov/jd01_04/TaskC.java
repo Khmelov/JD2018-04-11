@@ -1,6 +1,5 @@
 package by.it.kasiyanov.jd01_04;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class TaskC  {
@@ -8,7 +7,6 @@ public class TaskC  {
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
         buildOneDimArray(line);
-
     }
 
     static void buildOneDimArray(String line){
@@ -81,71 +79,16 @@ public class TaskC  {
         return array;
     }
 
-    /*static int binarySearch(double[ ] array, double value){
-        int left = 0;
-        int right = array.length;
-        int res;
-        int m = (right - left) / 2;
-
-        if(value == array[m]){
-            return m;
-        }
-        else if (array[m+1] <= value) {
-//            double part2[] = new double[array.length - m];
-//            for (int i = 0; i < part2.length; i++) {
-//                int j = i + m;
-//                part2[i] = array[j];
-//            }
-//            res = binarySearch(part2, value);
-            left = m + 1;
-            res = binarySearch(array, value, left, right);
-        }
-        else if(array[m-1] >= value ) {
-//            double part1[] = new double[m];
-//            for (int i = 0; i < part1.length; i++) {
-//                part1[i] = array[i];
-//            }
-//            res = binarySearch(part1, value);
-            right = m - 1;
-            res = binarySearch(array, value, left, right);
-        }
-        else {
-            return (-1);
-        }
-        return res;
-    }*/
-
-    /*private static int binarySearch(double[ ] array, double value, int left, int right){
-        if (left > right){
-            return (-1);
-        }
-        int m = (right - left) / 2;
-        System.out.println(m);
-
-        if (array[m] == value){
-            return m;
-        }
-        else if (array[m-1] >= value){
-            return binarySearch(array, value, left, m - 1);
-        }
-        else if (array[m+1] <= value){
-            return binarySearch(array, value, m + 1, right);
-        }
-        return m;
-    }*/
-
      static int binarySearch(double[ ] array, double value){
         int left = 0;
         int right = array.length;
-        boolean again = true;
 
-        while(left <= right && again){
-            int m = (right - left) / 2;
+        while(left <= right ){
+            int m = (right + left) / 2;
             if(value == array[m]){
-                again = false;
                 return m;
             }
-            else if(array[m] <= value){
+            else if(array[m] < value){
                 left = m + 1;
             }
             else {
