@@ -22,3 +22,4 @@ public class Scalar extends AbstractVar {
         // return "Это скаляр";
     }
 }
+
