@@ -1,10 +1,6 @@
 package by.it.zaliashchonak.jd01_05;
 
-<<<<<<< HEAD
 import java.util.Locale;
-
-=======
->>>>>>> origin/master
 import static java.lang.Math.*;
 
 /**
@@ -13,14 +9,6 @@ import static java.lang.Math.*;
 public class TaskB {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-
-//       String s = null;
-//       System.out.println(s+s);
-//       StringBuffer ab = new StringBuffer();
-
-=======
->>>>>>> origin/master
         step4();
         step5();
     }
