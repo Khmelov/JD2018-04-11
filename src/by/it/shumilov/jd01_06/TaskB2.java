@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class TaskB2 {
     public static void main(String[] args) {
         StringBuilder text = new StringBuilder(Poem.text);
-        int dots = text.indexOf("...");
+        int dots = text.indexOf("..."); 
         text.replace(dots, dots+3, ",");
         String[] mas1  = text.toString().split("[.!?]{1}");
         Pattern pa = Pattern.compile("[\\p{Punct}\\p{Blank}\\n]+");
