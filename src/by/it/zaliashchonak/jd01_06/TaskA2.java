@@ -1,26 +1,45 @@
 package by.it.zaliashchonak.jd01_06;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-/**
- * Created by Andrey on 23.04.2018.
- */
 public class TaskA2 {
-    public static void main(String[] args) {
-        String[] words=Poem.text.split("[^а-яёА-ЯЁ]+");
-        Arrays.sort(words);
-        String word = words[0];
-        int count=1;
-        for (int i = 0; i < words.length; i++) {
-            if (!word.equals(words[i])){
-                System.out.println(word + "=" + count);
-                word=words[i];
-                count = 1;
-            } else  count++;
+
+    private static String[] w = new String[0];
+    private static int[] count = new int[0];
+
+    private static int pos(String word) {
+        for (int i = 0; i < w.length; i++) {
+            if (word.equals(w[i]))
+                return i;
+
         }
-        System.out.println(word + "=" + count);
-
-
+        return -1;
     }
+
+
+    public static void main(String[] args) {
+        Pattern pattern = Pattern.compile("[а-яА-ЯёЁ]+");
+        Matcher matcher = pattern.matcher(Poem.text);
+        while (matcher.find()) {
+            String word = matcher.group();
+            int p = pos(word);
+            if (p >= 0) {
+                count[p]++;
+            } else {
+                int last = w.length;
+                w = Arrays.copyOf(w, last + 1);
+                count = Arrays.copyOf(count, last + 1);
+                w[last] = word;
+                count[last] = 1;
+
+            }
+        }
+        for (int i = 0; i < w.length; i++) {
+            System.out.println(w[i] + "=" + count[i]);
+
+        }
+    }
+
 }
