@@ -16,6 +16,7 @@ import static org.junit.Assert.fail;
 //поставьте курсор на следующую строку и нажмите Ctrl+Shift+F10
 public class Test_jd01_06 {
 
+
     @Test(timeout = 5000)
     public void testTaskA1() throws Exception {
         System.out.println("Ожидается:\n" +
