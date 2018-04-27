@@ -1,4 +1,8 @@
 package by.it.sharin.jd01_07;
 
-public abstract class AbstractVar {
+abstract class AbstractVar {
+    @Override
+    public String toString() {
+        return "Это класс AbstractVar";
+    }
 }
