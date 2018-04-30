@@ -12,6 +12,7 @@ public class TaskC2 {
 
         String[] words = text.split("[^а-яА-ЯёЁ]+");
         String randomText="";
+        counter=0;
         while (randomText.length() <= 100000) {
 
             randomIndexWord[counter] = new Random().nextInt(words.length);
