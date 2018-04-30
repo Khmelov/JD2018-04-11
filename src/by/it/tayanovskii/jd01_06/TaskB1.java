@@ -1,5 +1,8 @@
 package by.it.tayanovskii.jd01_06;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class TaskB1 {
 
     private final static String gl="уеэоаыяиюёУЕЭОАЫЯИЮЁ";
@@ -10,6 +13,8 @@ public class TaskB1 {
         return gl.indexOf(first)<0 && gl.indexOf(last)>=0;
     }
 
+
+
     public static void main(String[] args) {
 
         String[] words = Poem.text.split("[^а-яёА-ЯЁ]+");
@@ -18,5 +23,9 @@ public class TaskB1 {
                 System.out.println(word);
         }
 
+
     }
+
+
+
 }
