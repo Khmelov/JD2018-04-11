@@ -12,22 +12,24 @@ public class TaskB {
             System.out.println(y);
         }
 
-        double a = 0;
-        double b = 0;
+        double a;
+        double b;
 
-        for (double x = -5.5; x < 2; x+= 0.5) {
+        for (double x = -5.5; x < 2; x += 0.5) {
 
-            if ( x/2 > -2 && )
+            if (x/2 > -2 && x/2 <= -1)
                 b = sin(x * x);
-            else if (-2 < x && x < 0.4)
+            else if (-1 < x/2 && x/2 < 0.2)
                 b = cos(x * x);
-            else if (x == 0.4)
+            else if (x/2 == 0.2)
                 b = atan(x * x);
-            else
-            {
+            else {
+                System.out.println("x/2 = " + x/2);
                 System.out.println("Корней нет");
+                continue;
             }
-a=log(abs(b+2.74));
+            a = log10(abs(b + 2.74));
+            System.out.println("x/2 = " + x/2);
             System.out.println("a=" + a);
 
         }
