@@ -24,4 +24,19 @@ class Vector extends  AbstractVar{
         }
 
     }
+
+    Vector(double[ ] value)
+    {
+        this.value=new double[value.length];
+        for (int i = 0; i < value.length; i++) {
+            this.value[i]=value[i];
+        }
+    }
+
+    Vector (Vector otherVector)
+    {
+        this.value = otherVector.value;
+    }
+
+
 }
