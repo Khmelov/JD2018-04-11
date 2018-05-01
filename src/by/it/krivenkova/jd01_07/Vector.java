@@ -1,11 +1,21 @@
 package by.it.krivenkova.jd01_07;
 
-public class Vector {
+public class Vector extends AbstractVar{
     private double[]  value;
+
+    Vector(){}
+
+    Vector(double[] value){
+        this.value = value;
+    }
+
+    Vector(Vector vector){
+        this.value = vector.value;
+    }
 
     Vector(String strVector){
         String[] strValues = strVector
-                .replaceAll("\\{[]","")
+                .replaceAll("[{}]","")
                 .trim()
                 .split(",\\s*");
         value = new double[strValues.length];
@@ -19,7 +29,10 @@ public class Vector {
         StringBuilder sb = new StringBuilder("{");
         String delimiter = "";
         for (double element : value){
-     //      sb.append(delimiter)
+           sb.append(delimiter).append(element);
+           delimiter = ", ";
         }
+       sb.append("}");
+            return sb.toString();
     }
 }
