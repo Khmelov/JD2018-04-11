@@ -1,11 +1,15 @@
-package by.it._tasks_.jd01_07;
+package by.it.kasiyanov.jd01_07;
 
 
 import org.junit.Test;
 
 import java.io.*;
-import java.lang.reflect.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+
 import static org.junit.Assert.*;
+
 @SuppressWarnings("all")
 
 //поставьте курсор на следующую строку и нажмите Ctrl+Shift+F10
