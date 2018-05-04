@@ -1,6 +1,4 @@
-package by.it.kasiyanov.jd01_07;
-
-import java.util.Arrays;
+package by.it.kasiyanov.jd01_08;
 
 class Vector extends AbstractVar {
     private double [] value;

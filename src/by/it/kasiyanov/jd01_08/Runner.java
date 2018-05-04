@@ -1,4 +1,4 @@
-package by.it.kasiyanov.jd01_07;
+package by.it.kasiyanov.jd01_08;
 
 public class Runner {
     public static void main(String[] args) {
