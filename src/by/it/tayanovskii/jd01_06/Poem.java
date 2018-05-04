@@ -1,4 +1,4 @@
-package by.it.zakharenko.jd01_06;
+package by.it.tayanovskii.jd01_06;
 
 class Poem {
     static final String text=
@@ -36,4 +36,3 @@ class Poem {
             "Под ним сидел, и кот учёный\n" +
             "Свои мне сказки говорил.";
 }
-
