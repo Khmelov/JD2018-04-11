@@ -1,14 +1,13 @@
 package by.it.akhmelev.jd01_03;
 
-class InOut {
 
+class InOut {
     static double[] getArray(String line) {
-        line = line.trim();
-        String[] strArr = line.split(" ");
+        //1,2,3,4.5
+        String[] strArr = line.trim().split(" ");
         double[] res = new double[strArr.length];
-        for (int i = 0; i < strArr.length; i++) {
+        for (int i = 0; i < strArr.length; i++)
             res[i] = Double.parseDouble(strArr[i]);
-        }
         return res;
     }
 
@@ -20,10 +19,9 @@ class InOut {
     }
 
     static void printArray(double[ ] arr, String name, int columnCount){
-        // V[ 5 ]=123.456   V[.....
         for (int i = 0; i < arr.length; i++) {
             System.out.printf("%s[% -3d]=%-10.4f ",name,i,arr[i]);
-            if ((i+1)%columnCount==0 || i+1==arr.length)
+            if (((i+1)%columnCount==0) || (i+1==arr.length))
                 System.out.println();
         }
     }
