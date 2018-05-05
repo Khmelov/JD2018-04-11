@@ -12,7 +12,9 @@ public class Matrix extends Var {
     }
 
     public Matrix (String strMatrix) {
+
         String[] array = strMatrix.replaceAll("\\{\\{|}}", "").trim().split("},\\s?\\{");
+
         String[] line = array[0].trim().split(",\\s?");
         value = new double[array.length][line.length];
         for (int i = 0; i < array.length; i++) {
