@@ -1,15 +1,14 @@
-package by.it.dkruchek.jd01_08;
+package by.it.akhmelev.jd01_07;
 
-/**
- * Created by Dmitriy.Kruchek on 4/25/2018.
- */
 public abstract class AbstractVar {
+
+//    public void abstrPubMeth(){
+//        System.out.println("pubMeth");
+//    }
 
 
     @Override
     public String toString() {
-
         return "Это абстрактная переменная";
-
     }
 }
