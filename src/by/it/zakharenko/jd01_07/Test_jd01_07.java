@@ -1,5 +1,4 @@
-package by.it.dkruchek.jd01_07;
-
+package by.it.zakharenko.jd01_07;
 
 import org.junit.Test;
 
