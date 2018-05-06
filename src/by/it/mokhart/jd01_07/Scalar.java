@@ -1,6 +1,5 @@
 package by.it.mokhart.jd01_07;
 
-import java.util.Scanner;
 
 public class Scalar extends AbstractVar {
     private double value;
@@ -22,3 +21,4 @@ public class Scalar extends AbstractVar {
         return Double.toString(value);
     }
 }
+
