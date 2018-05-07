@@ -1,11 +1,17 @@
 package by.it.akhmelev.jd01_01;
-public class Args {
 
-    void showArgs(String[] ar){
-        for (String a : ar) {
-            System.out.println(a);
+class Args {
+
+    private String[] args;
+
+    Args(String[] args) {
+        this.args = args;
+    }
+
+    void print(){
+        for (int i = 0; i < args.length; i++) {
+            System.out.println(i+args[i]);
         }
 
     }
-
 }
