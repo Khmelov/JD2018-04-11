@@ -1,21 +1,29 @@
 package by.it.akhmelev.jd01_06;
 
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
-class TaskA2 {
+public class TaskA2 {
     public static void main(String[] args) {
-        Pattern p=Pattern.compile("[А-яЁё]+");
-        Matcher m=p.matcher(Poem.text);
-        HashMap<String,Integer> hm=new HashMap<>();
-        while (m.find()){
-            if (hm.containsKey(m.group())){
-                hm.put(m.group(),hm.get(m.group())+1);
-            }
-            else
-                hm.put(m.group(),1);
+        //
+        String[] words = Poem.text.split("[^а-яёА-ЯЁ]+");
+        Arrays.sort(words);
+        for (String word : words) {
+            System.out.println(word);
         }
-        System.out.println(hm);
+        System.out.println("===================");
+        String word = words[0];
+        //оптимизируйте цикл, для дедубликации кода
+        int count = 1;
+        for (int i = 1; i < words.length; i++) {
+            if (!word.equals(words[i])) {
+                System.out.println(word + "=" + count);
+                word = words[i];
+                count = 1;
+            } else count++;
+        }
+        System.out.println(word + "=" + count);
     }
+//        String[] slovar=new String[words.length];
+//        int[] count=new int[words.length];
+
 }

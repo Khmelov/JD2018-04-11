@@ -1,22 +1,21 @@
 package by.it.akhmelev.jd01_06;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+public class TaskB1 {
 
-class TaskB1 {
+    private final static String gl="уеэоаыяиюёУЕЭОАЫЯИЮЁ";
 
-    private static boolean ok(String word){
-        String glas="уеэоаыяиюёУЕЭОАЫЯИЮЁ";
-        return (glas.indexOf(word.charAt(0))<0 &&
-                glas.indexOf(word.charAt(word.length()-1))>=0);
+    private static boolean check(String word){
+        //придумайте свой вариант.
+        char first = word.charAt(0);
+        char last = word.charAt(word.length() - 1);
+        return gl.indexOf(first)<0 && gl.indexOf(last)>=0;
     }
 
     public static void main(String[] args) {
-        Pattern p=Pattern.compile("[А-яЁё]+");
-        Matcher m=p.matcher(Poem.text);
-        while (m.find()){
-            if (ok(m.group()))
-                System.out.println(m.group());
+        String[] words = Poem.text.split("[^а-яёА-ЯЁ]+");
+        for (String word : words) {
+            if (check(word))
+                System.out.println(word);
         }
     }
 }

@@ -1,6 +1,6 @@
-package by.it._tasks_.jd01_06;
+package by.it._examples_.jd01_09.lambda;
 
-public class Poem {
+class Poem {
     static final String text=
             "У лукоморья дуб зелёный,\n" +
             "Златая цепь на дубе том.\n" +
