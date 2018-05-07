@@ -1,11 +1,6 @@
 package by.it.kurmaz.jd01_09;
 
-
-import java.util.regex.Pattern;
-
 public abstract class Var implements Operation {
-
-
 
     static Var createVar(String line) {
         if (line.matches(Patterns.SCALAR))
