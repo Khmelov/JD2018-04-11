@@ -144,6 +144,25 @@ class Matrix extends Var {
             return new Scalar(sum);
         }
 
+        if (other instanceof Vector) {
+            double[][] matrix = new double[value.length][value[0].length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[0].length; j++) {
+                    matrix[i][j] = value[i][j];
+                }
+            }
+            double [] res = new double[((Vector) other).getValue().length];
+            double[] vector = Arrays.copyOf(((Vector) other).getValue(),((Vector) other).getValue().length);
+                for (int i = 0; i < matrix.length; i++) {
+                    for (int i1 = 0; i1 < vector.length; i1++) {
+                        res[i] = res[i] + matrix[i][i1] * vector[i1];
+                    }
+                }
+            return new Vector(res);
+        }
+
+
+
         // переделать умножение матрицу на матрицу...
         if (other instanceof Matrix) {
             double[][] matrix1 = new double[value.length][value[0].length];
@@ -158,14 +177,20 @@ class Matrix extends Var {
                     matrix2[i][j] = ((Matrix) other).getValue()[i][j];
                 }
             }
-            for (int i = 0; i < matrix1.length; i++) {
-                for (int j = 0; j < matrix1[0].length; j++) {
-                    matrix1[i][j] = matrix1[i][j] - matrix2[i][j];
+            int m = matrix1.length;
+            int n= matrix2[0].length;
+            int o= matrix2.length;
+            double[][] res=new double[m][n];
+            for (int i = 0; i < m; i++) {
+                for (int i1 = 0; i1 < n; i1++) {
+                    for (int i2 = 0; i2 < o; i2++) {
+                        res[i][i1] = res[i][i1] + matrix1[i][i2] * matrix2[i2][i1];
+                    }
                 }
             }
-            return new Matrix(matrix1);
+            return new Matrix(res);
         } else
-            return super.mul(other);
+            return null;
 
     }
 
