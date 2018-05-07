@@ -18,13 +18,29 @@ class Matrix extends Var {
 
     Matrix(String strMatrix) {
 
-        Pattern pattern = Pattern.compile("[{}]{2,}");
-        Matcher matcher = pattern.matcher(strMatrix);
-        while (matcher.find()) {
-            strMatrix = matcher.replaceAll("");
+//        Pattern pattern = Pattern.compile("[{}]{2,}");
+//        Matcher matcher = pattern.matcher(strMatrix);
+//        while (matcher.find()) {
+//            strMatrix = matcher.replaceAll("");
+//        }
+//
+//        String[] s = strMatrix.split("},\\{");
+//
+//        double[][] m = new double[s.length][s.length];
+//        for (int i = 0; i < s.length; i++) {
+//            String[] str = s[i].split(",");
+//            for (int j = 0; j < str.length; j++) {
+//                m[i][j] = Double.parseDouble(str[j]);
+//            }
+//        }
+        String[] s = strMatrix.split("},");
+        Pattern pattern = Pattern.compile("[{}]");
+        for (int i = 0; i < s.length; i++) {
+            Matcher matcher = pattern.matcher(s[i]);
+            while (matcher.find()) {
+                s[i] = matcher.replaceAll("");
+            }
         }
-
-        String[] s = strMatrix.split("},\\{");
 
         double[][] m = new double[s.length][s.length];
         for (int i = 0; i < s.length; i++) {
@@ -33,6 +49,7 @@ class Matrix extends Var {
                 m[i][j] = Double.parseDouble(str[j]);
             }
         }
+
         this.value = m;
     }
 
@@ -43,9 +60,7 @@ class Matrix extends Var {
         if (other instanceof Scalar) {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value.length; j++) {
-                    res[i][j] = value[i][j];
-                }
+                System.arraycopy(value[i], 0, res[i], 0, value.length);
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -58,9 +73,7 @@ class Matrix extends Var {
         } else {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value.length; j++) {
-                    res[i][j] = value[i][j];
-                }
+                System.arraycopy(value[i], 0, res[i], 0, value.length);
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -80,9 +93,7 @@ class Matrix extends Var {
         if (other instanceof Scalar) {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value.length; j++) {
-                    res[i][j] = value[i][j];
-                }
+                System.arraycopy(value[i], 0, res[i], 0, value.length);
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -99,9 +110,7 @@ class Matrix extends Var {
         } else {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value.length; j++) {
-                    res[i][j] = value[i][j];
-                }
+                System.arraycopy(value[i], 0, res[i], 0, value.length);
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -119,9 +128,7 @@ class Matrix extends Var {
         if (other instanceof Scalar) {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value.length; j++) {
-                    res[i][j] = value[i][j];
-                }
+                System.arraycopy(value[i], 0, res[i], 0, value.length);
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -143,9 +150,7 @@ class Matrix extends Var {
         } else {
             double[][] cop = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value.length; j++) {
-                    cop[i][j] = value[i][j];
-                }
+                System.arraycopy(value[i], 0, cop[i], 0, value.length);
             }
 
 
@@ -174,10 +179,10 @@ class Matrix extends Var {
     public String toString() {
         StringBuilder sb = new StringBuilder("{{");
         String delimiter = "";
-        for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < value[i].length; j++) {
+        for (double[] aValue : value) {
+            for (double anAValue : aValue) {
 
-                sb.append(delimiter).append(value[i][j]);
+                sb.append(delimiter).append(anAValue);
                 delimiter = ", ";
             }
             sb.append("}");
