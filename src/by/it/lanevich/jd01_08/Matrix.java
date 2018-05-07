@@ -7,9 +7,6 @@ import java.util.regex.Pattern;
 class Matrix extends Var {
     private double[][] value;
 
-    public double[][] getValue() {
-        return value;
-    }
 
     Matrix(double[][] value) {
         this.value = value;
@@ -46,7 +43,9 @@ class Matrix extends Var {
         if (other instanceof Scalar) {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                System.arraycopy(value[i], 0, res[i], 0, value.length);
+                for (int j = 0; j < value.length; j++) {
+                    res[i][j] = value[i][j];
+                }
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -59,11 +58,13 @@ class Matrix extends Var {
         } else {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                System.arraycopy(value[i], 0, res[i], 0, value.length);
+                for (int j = 0; j < value.length; j++) {
+                    res[i][j] = value[i][j];
+                }
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
-                    res[i][j] = res[i][j] + value[i][j];
+                    res[i][j] = res[i][j] + ((Matrix) other).value[i][j];
                 }
             }
             return new Matrix(res);
@@ -79,7 +80,9 @@ class Matrix extends Var {
         if (other instanceof Scalar) {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                System.arraycopy(value[i], 0, res[i], 0, value.length);
+                for (int j = 0; j < value.length; j++) {
+                    res[i][j] = value[i][j];
+                }
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -96,11 +99,13 @@ class Matrix extends Var {
         } else {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                System.arraycopy(value[i], 0, res[i], 0, value.length);
+                for (int j = 0; j < value.length; j++) {
+                    res[i][j] = value[i][j];
+                }
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
-                    res[i][j] = res[i][j] - value[i][j];
+                    res[i][j] = res[i][j] - ((Matrix) other).value[i][j];
                 }
             }
             return new Matrix(res);
@@ -114,7 +119,9 @@ class Matrix extends Var {
         if (other instanceof Scalar) {
             double[][] res = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                System.arraycopy(value[i], 0, res[i], 0, value.length);
+                for (int j = 0; j < value.length; j++) {
+                    res[i][j] = value[i][j];
+                }
             }
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res.length; j++) {
@@ -136,7 +143,9 @@ class Matrix extends Var {
         } else {
             double[][] cop = new double[value.length][value.length];
             for (int i = 0; i < value.length; i++) {
-                System.arraycopy(value[i], 0, cop[i], 0, value.length);
+                for (int j = 0; j < value.length; j++) {
+                    cop[i][j] = value[i][j];
+                }
             }
 
 
@@ -146,7 +155,7 @@ class Matrix extends Var {
                 for (int j = 0; j < res.length; j++) {
                     for (int k = 0; k < res.length; k++) {
 
-                        res[i][j] = res[i][j] + cop[i][k] * (((Matrix) other).getValue()[k][j]);
+                        res[i][j] = res[i][j] + cop[i][k] * (((Matrix) other).value[k][j]);
                     }
 
                 }
@@ -165,10 +174,10 @@ class Matrix extends Var {
     public String toString() {
         StringBuilder sb = new StringBuilder("{{");
         String delimiter = "";
-        for (double[] aValue : value) {
-            for (int j = 0; j < aValue.length; j++) {
+        for (int i = 0; i < value.length; i++) {
+            for (int j = 0; j < value[i].length; j++) {
 
-                sb.append(delimiter).append(aValue[j]);
+                sb.append(delimiter).append(value[i][j]);
                 delimiter = ", ";
             }
             sb.append("}");
