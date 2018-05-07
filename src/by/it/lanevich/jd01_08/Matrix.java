@@ -33,7 +33,6 @@ class Matrix extends Var {
 //                m[i][j] = Double.parseDouble(str[j]);
 //            }
 //        }
-
         String[] s = strMatrix.split("},");
         Pattern pattern = Pattern.compile("[{}]");
         for (int i = 0; i < s.length; i++) {
