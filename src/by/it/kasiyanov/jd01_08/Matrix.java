@@ -1,6 +1,6 @@
 package by.it.kasiyanov.jd01_08;
 
-class Matrix extends AbstractVar {
+class Matrix extends Var {
     private double[][] value;
 
     Matrix (double[][] value){
