@@ -1,17 +1,20 @@
 package by.it.rogov.jd01_04;
 
 import java.util.Scanner;
-// доделать метод merge()
+
 
 public class TaskC {
 
     static void buildOneDimArray(String line) {
         double[] array = InOut.getArray(line);
+
+
         InOut.printArray(array, "V", 5);
         double first = array[0];
         double last = array[array.length - 1];
         mergeSort(array);
-        InOut.printArray(array, "V", 5);
+
+
         for (int i = 0; i < array.length; i++) {
             if (array[i] == first) {
                 System.out.println("Index of first element=" + i);
@@ -29,18 +32,15 @@ public class TaskC {
 
 
     static void mergeSort(double[] array) {
-
-        if (array.length == 1) {
-            System.out.println(array);
-        }
+        double[] ar = new double[array.length];
         int left;
         int right;
         left = 0;
         right = array.length - 1;
-        for (double element : mergeSort(array, left, right)) {
-            System.out.print(element + " ");
+        ar = mergeSort(array, left, right);
+        for (int i = 0; i < ar.length; i++) {
+            array[i] = ar[i];
         }
-        System.out.println();
 
 
     }
@@ -52,17 +52,17 @@ public class TaskC {
      * @return
      */
     private static double[] mergeSort(double[] array, int left, int right) {
+
+        right = right - left;
+        left = 0;
         if (left < right) {
             int s;
             s = (left + right) / 2;
             double[] array1 = new double[s - left + 1];
             double[] array2 = new double[right - s];
-            for (int i = left; i <= s; i++) {
+            for (int i = 0; i <= s; i++) {
                 array1[i] = array[i];
 
-            }
-            for (double v : array) {
-                System.out.println(v);
             }
             for (int i = s + 1; i <= right; i++) {
                 array2[i - (s + 1)] = array[i];
@@ -82,32 +82,17 @@ public class TaskC {
     private static double[] merge(double[] part1, double[] part2) {
         double[] array = new double[part1.length + part2.length];
         int i = 0, j = 0;
-        for (int i1 = 0; i1 < part1.length + part2.length; i1++) {
-            if (i1 >= part1.length + 1 && i1 >= part2.length + 1) {
-
-                return array;
-
-            } else if (i1 == part1.length + 1) {
-                array[i1] = part2[j];
-                j++;
-            } else if (i1 == part2.length + 1) {
-                array[i1] = part1[i];
-                i++;
-// когда в ммасиве остался  один элекмент программа не знала что делать.
-            } else if (part1[i] == part2[j]) {
-                array[i1] = part1[i];
-                array[i1 + 1] = part2[j];
-                i++;
-                j++;
-            } else if (part1[i] > part2[j]) {
-                array[i1] = part1[i];
-                i++;
+        while ((i + j) < (part1.length + part2.length)) {
+            if ((part2.length) != j && ((part1.length) == i || part2[j] < part1[i])) {
+                array[i + j] = part2[j++];
             } else {
-                array[i1] = part2[j];
-                j++;
+                array[i + j] = part1[i++];
             }
 
+
         }
+
+
         return array;
 
     }
@@ -116,5 +101,6 @@ public class TaskC {
         Scanner scanner = new Scanner(System.in);
         String line = scanner.nextLine();
         buildOneDimArray(line);
+
     }
 }
