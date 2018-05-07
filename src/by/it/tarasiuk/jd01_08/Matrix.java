@@ -55,8 +55,7 @@ class Matrix extends Var {
             }
             return new Matrix(res);
         }
-        else
-            return super.add(other);
+        return super.add(other);
     }
 
     @Override
@@ -85,8 +84,7 @@ class Matrix extends Var {
             }
             return new Matrix(res);
         }
-        else
-            return super.sub(other);
+        return super.sub(other);
     }
 
     @Override
@@ -133,6 +131,24 @@ class Matrix extends Var {
         }
         else
             return super.mul(other);
+    }
+
+    @Override
+    public Var div(Var other) {
+        if (other instanceof Scalar) {
+            double[][] res=new double[value.length][];
+            for (int i = 0; i < res.length; i++) {
+                res[i] = Arrays.copyOf(value[i], value[i].length);
+            }
+            for (int i = 0; i < res.length; i++) {
+                for (int j = 0; j < res[i].length; j++) {
+                    res[i][j] /= ((Scalar) other).getValue();
+                }
+            }
+            return new Matrix(res);
+        }
+        else
+            return super.div(other);
     }
 
     @Override

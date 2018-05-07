@@ -40,8 +40,7 @@ class Vector extends Var {
             }
             return new Vector(res);
         }
-        else
-            return super.add(other);
+        return super.add(other);
     }
 
     @Override
@@ -60,8 +59,7 @@ class Vector extends Var {
             }
             return new Vector(res);
         }
-        else
-            return super.sub(other);
+        return super.sub(other);
     }
 
     @Override
@@ -82,8 +80,7 @@ class Vector extends Var {
             }
             return new Scalar(sum);
         }
-        else
-            return super.mul(other);
+        return super.mul(other);
     }
 
     @Override
