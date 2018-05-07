@@ -14,6 +14,7 @@ public class TaskB2 {
             sentence[i] = sentence[i].replaceAll("[\\p{Punct}\\p{Blank}\\n]+", " ").trim();
 
         }
+
         Comparator<String> stringLengthComparator = new StringLength();
         Arrays.sort(sentence, stringLengthComparator);
         for (String s : sentence) {
