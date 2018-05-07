@@ -58,5 +58,3 @@ class Scalar extends Var implements Operation {
     }
 
 }
-
-
