@@ -1,7 +1,8 @@
-package by.it.zaliashchonak.jd01_07;
+package by.it.zaliashchonak.jd01_08;
 
 
-public class Matrix extends AbstractVar {
+
+public class Matrix extends Var {
     private double value[][];
     Matrix(double[][] value){
         this.value= value;
