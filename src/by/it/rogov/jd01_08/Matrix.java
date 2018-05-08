@@ -138,10 +138,10 @@ class Matrix extends Var {
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[0].length; j++) {
                     matrix[i][j] *= scalar;
-                    sum += matrix[i][j];
+
                 }
             }
-            return new Scalar(sum);
+            return new Matrix(matrix);
         }
 
         if (other instanceof Vector) {
