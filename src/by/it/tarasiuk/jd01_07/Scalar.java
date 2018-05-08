@@ -1,4 +1,4 @@
-package by.it.kashayed.jd01_07;
+package by.it.tarasiuk.jd01_07;
 
 class Scalar extends AbstractVar {
 
@@ -8,11 +8,12 @@ class Scalar extends AbstractVar {
         this.value = value;
     }
 
-    Scalar(String scalar){
-        this.value=Double.parseDouble(scalar);
+    Scalar(Scalar scalar) {
+        this.value=scalar.value;
     }
-    Scalar(Scalar strScalar){
-        this.value=strScalar.value;
+
+    Scalar(String strScalar) {
+        this.value=Double.parseDouble(strScalar);
     }
 
     @Override
