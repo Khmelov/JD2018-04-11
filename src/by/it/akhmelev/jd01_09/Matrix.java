@@ -1,4 +1,4 @@
-package by.it.akhmelev.jd01_08;
+package by.it.akhmelev.jd01_09;
 
 class Matrix extends Var {
 
@@ -6,6 +6,10 @@ class Matrix extends Var {
 
     public Matrix(double[][] value) {
         this.value = value;
+    }
+
+    public Matrix(String strVar) {
+        super(); //todo Create Matrix from String
     }
 
     @Override
