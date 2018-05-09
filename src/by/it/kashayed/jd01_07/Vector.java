@@ -4,21 +4,33 @@ import java.util.Arrays;
 
 class Vector extends AbstractVar{
     private double [] value;
+
     Vector(double[] value){
         this.value=value;
     }
+
     Vector(Vector vector){
         this.value=vector.value;
     }
     Vector(String strVector){
-        String [] mas = strVector.split("[, ]+");
-        double []masf=new double[mas.length];
-        for (int i = 0; i < mas.length; i++) {
-            masf[i]=Double.valueOf(mas[i]);
+        String[] strValues = strVector
+                .replaceAll("\\{|}", "")
+                .trim()
+                .split(",\\s*");
+        value=new double[strValues.length];
+        for (int i = 0; i < value.length; i++) {
+            value[i]=Double.parseDouble(strValues[i]);
         }
-        this.value=masf;
-
     }
+//    Vector(String strVector) {
+//        String [] vec = strVector.trim().split(", ");
+//        double [] got = new double[vec.length];
+//        for (int i = 0; i < got.length; i++) {
+//            got[i]=Double.parseDouble(vec[i]);
+//        }
+//        this.value=got;
+//
+//    }
 
     @Override
     public String toString() {
