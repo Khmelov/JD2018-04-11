@@ -1,6 +1,5 @@
 package by.it.kasiyanov.jd01_07;
 
-import java.util.Arrays;
 
 class Matrix extends AbstractVar {
     private double[][] value;
@@ -13,7 +12,22 @@ class Matrix extends AbstractVar {
         this.value = matrix.value;
     }
 
+    Matrix (String str){
 
+        String arr[] = str.split("},");
+        double [][] res = new double [arr.length][];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].replace("{", " ").replace("}"," ").trim();
+            String tmp[] = arr[i].split(",");
+            res [i] = new double[tmp.length];
+            for (int j = 0; j < tmp.length; j++) {
+                res[i][j] = Double.parseDouble(tmp[j]);
+            }
+        }
+        this.value = res;
+
+    }
 
     @Override
     public String toString() {
@@ -34,7 +48,5 @@ class Matrix extends AbstractVar {
         sb.append("}");
 
         return sb.toString();
-
-
     }
 }
