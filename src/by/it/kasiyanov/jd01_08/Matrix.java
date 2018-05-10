@@ -124,23 +124,16 @@ class Matrix extends Var {
             return new Matrix(res);
         }
         else if(other instanceof Vector && value.length == ((Vector) other).getValue().length) {
-            double[][] res = new double[value.length][];
-            for (int i = 0; i < res.length; i++) {
-                res[i] = new double[value[i].length];
-                for (int j = 0; j < res[i].length; j++) {
-                    res[i][j] = value[i][j];
-                };
-            }
-            double[] vect = Arrays.copyOf(((Vector) other).getValue(),((Vector) other).getValue().length);
+            double[] vectres = new double[((Vector) other).getValue().length];
 
-            for (int i = 0; i < res.length; i++) {
+            for (int i = 0; i < value.length; i++) {
                 double mul = 0;
-                for (int j = 0; j < res[i].length; j++) {
-                    mul = mul + value[i][j] * vect[j];
+                for (int j = 0; j < vectres.length; j++) {
+                    mul = mul + value[i][j] * ((Vector) other).getValue()[j];
                 }
-                res[i][i] = mul;
+                vectres[i] = mul;
             }
-            return new Matrix(res);
+            return new Vector(vectres);
         }
         else if(other instanceof Matrix && value.length == ((Matrix) other).value[0].length) {
             double[][] res = new double[value.length][];
