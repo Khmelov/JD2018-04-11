@@ -1,4 +1,4 @@
-package by.it.zakharenko.jd01_08;
+package by.it.zakharenko.jd01_09;
 
 import java.util.Arrays;
 
@@ -92,7 +92,8 @@ public class Matrix extends Var {
     @Override
     public Var mul(Var other) {
 
-        if (other instanceof Scalar) {
+        if (other instanceof Scalar)
+        {
             double matrix[][] = new double[this.value.length][];
             for (int i = 0; i < this.value.length; i++)
                 matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
@@ -114,8 +115,7 @@ public class Matrix extends Var {
             return new Vector(result);
         }
 
-        else if (other instanceof Matrix)
-        {
+        else if (other instanceof Matrix) {
             double matrix[][] = new double[this.value.length][((Matrix) other).value[0].length];
             for (int i = 0; i < matrix.length; i++)
                 for (int j = 0; j < matrix[i].length; j++)
@@ -166,5 +166,3 @@ public class Matrix extends Var {
     }
 
 }
-
-
