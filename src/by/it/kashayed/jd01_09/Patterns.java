@@ -1,8 +1,8 @@
 package by.it.kashayed.jd01_09;
 
 public class Patterns {
-    final static String OPERATION="[-+/*]";
-    final static String SCALAR ="-?[0-9]+\\.?[0-9]";
-    final static String VECTOR = "\\{(-?[0-9]+\\.?[0-9]*.?)+} ";
-    final static String MATRIX = "\\{\\{(-?[0-9]+\\.?[0-9]*.?)+},\\{[0-9]+\\.?,[0-9]+\\.?}\\}";
+     static final String OPERATION="[-+/*]";
+     static final String SCALAR ="-?[0-9]+\\.?[0-9]*";
+     static final String VECTOR = "\\{((-?[0-9]+\\.?[0-9]*),?)+\\}";
+     static final String MATRIX = "\\{(\\{((-?[0-9]+\\.?[0-9]*),?)+\\},?)+\\}";
 }

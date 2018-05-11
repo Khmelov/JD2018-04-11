@@ -11,15 +11,13 @@ public class Vector extends Var {
             }
             return new Vector(add);
         }
-
-//                    else if(other instanceof Scalar){
-//                        double [] p = new double[this.value.length];
-//            for (int i = 0; i < p.length; i++) {
-//                p[i]=this.value[i]+4;
-//            }
-//                        return new Vector(p);        //как реализовать сложение на скаляр
-//
-//                    }
+            else if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]+((Scalar)other).value;
+            }
+            return new Vector(p);        //как реализовать сложение на скаляр
+        }
         else return other.add(this);
     }
 
@@ -32,6 +30,13 @@ public class Vector extends Var {
             }
             return new Vector(sub);
         }
+        else if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]-((Scalar)other).value;
+            }
+            return new Vector(p);        //как реализовать сложение на скаляр
+        }
 
         else return other.add(this);
     }
@@ -43,11 +48,25 @@ public class Vector extends Var {
                        this.value[1]*((Vector) other).value[1]+this.value[2]*((Vector) other).value[2];
             return new Scalar(sub);
         }
+        else if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]*((Scalar)other).value;
+            }
+            return new Vector(p);        //как реализовать сложение на скаляр
+        }
         else return other.add(this);
     }
 
     @Override
     public Var div(Var other) {
+        if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]/((Scalar)other).value;
+            }
+            return new Vector(p);        //как реализовать сложение на скаляр
+        }
         return super.div(other);
     }
 

@@ -1,7 +1,6 @@
 package by.it.kashayed.jd01_08;
 
 public class Scalar extends Var {
-
     @Override
     public Var add(Var other) {
         if (other instanceof Scalar){
@@ -38,7 +37,7 @@ public class Scalar extends Var {
         else return super.add(this);
     }
 
-    private double value;
+    public double value;
 
     Scalar (double value){
         this.value=value;

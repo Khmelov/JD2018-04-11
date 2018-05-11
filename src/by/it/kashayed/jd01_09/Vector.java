@@ -1,78 +1,103 @@
 package by.it.kashayed.jd01_09;
 
-import java.util.Arrays;
-
-class Vector extends Var {
-
-    private double[] value;
-
-    Vector(Vector otherVector) {
-        this.value = Arrays.copyOf(otherVector.value,
-                otherVector.value.length
-        );
-    }
-
-    Vector(double[] value) {
-        this.value = value;
-    }
-
-    Vector(String strVector) {
-        String[] strValues = strVector
-                .replaceAll("\\{|}", "")
-                .trim()
-                .split(",\\s*");
-        value = new double[strValues.length];
-        for (int i = 0; i < value.length; i++) {
-            value[i] = Double.parseDouble(strValues[i]);
-        }
-    }
-
+public class Vector extends Var {
 
     @Override
     public Var add(Var other) {
-        if (other instanceof Scalar){
-            double[] vector=Arrays.copyOf(this.value,this.value.length);
-            double scalar=((Scalar)other).getValue();
-            for (int i = 0; i < vector.length; i++) {
-                vector[i]+=scalar;
+        if(other instanceof Vector){
+            double add [] = new double [this.value.length];
+            for (int i = 0; i < add.length; i++) {
+                add[i] = this.value[i]+((Vector) other).value[i];
             }
-            return new Vector(vector);
+            return new Vector(add);
         }
-        else if (other instanceof Vector) {
-            double[] vector=Arrays.copyOf(this.value,this.value.length);
-            for (int i = 0; i < vector.length; i++) {
-                vector[i]+=((Vector)other).value[i];
+        else if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]+((Scalar)other).value;
             }
-            return new Vector(vector);
+            return new Vector(p);        //как реализовать сложение на скаляр
         }
-        else
-            return super.add(other);
+        else return other.add(this);
     }
 
     @Override
     public Var sub(Var other) {
-        return super.sub(other);
+        if(other instanceof Vector){
+            double sub [] = new double [3];
+            for (int i = 0; i < sub.length; i++) {
+                sub[i] = this.value[i]-((Vector) other).value[i];
+            }
+            return new Vector(sub);
+        }
+        else if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]-((Scalar)other).value;
+            }
+            return new Vector(p);
+        }
+
+        else return other.add(this);
     }
 
     @Override
     public Var mul(Var other) {
-        return super.mul(other);
+        if(other instanceof Vector){
+            double sub = this.value[0]*((Vector) other).value[0]+
+                    this.value[1]*((Vector) other).value[1]+this.value[2]*((Vector) other).value[2];
+            return new Scalar(sub);
+        }
+        else if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]*((Scalar)other).value;
+            }
+            return new Vector(p);
+        }
+        else return other.add(this);
     }
 
     @Override
     public Var div(Var other) {
+        if(other instanceof Scalar){
+            double [] p = new double[this.value.length];
+            for (int i = 0; i < p.length; i++) {
+                p[i]=this.value[i]/((Scalar)other).value;
+            }
+            return new Vector(p);
+        }
         return super.div(other);
+    }
+
+    private double [] value;
+    Vector(double[] value){
+        this.value=value;
+    }
+    Vector(Vector vector){
+        this.value=vector.value;
+    }
+    Vector(String strVector){
+        String[] strValues = strVector
+                .replaceAll("\\{|}", "")
+                .trim()
+                .split(",\\s*");
+        value=new double[strValues.length];
+        for (int i = 0; i < value.length; i++) {
+            value[i]=Double.parseDouble(strValues[i]);
+        }
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("{");
-        String delimiter = "";
-        for (double element : value) {
-            sb.append(delimiter).append(element);
-            delimiter = ", ";
+
+        StringBuilder stringBuilder = new StringBuilder("{");
+        String delimetr = "";
+        for (double v : value) {
+            stringBuilder.append(delimetr).append(v);
+            delimetr=", ";
         }
-        sb.append('}');
-        return sb.toString();
+        stringBuilder.append("}");
+        return stringBuilder.toString();
     }
 }
