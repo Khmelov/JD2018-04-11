@@ -1,6 +1,4 @@
-package by.it.shumilov.jd01_08;
-
-import java.util.Arrays;
+package by.it.shumilov.jd01_09;
 
 class Matrix extends Var {
 
@@ -57,7 +55,7 @@ class Matrix extends Var {
 
     @Override
     public Var add(Var other) {
-        if(other instanceof  Scalar) {
+        if(other instanceof Scalar) {
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
             for (double[] re : res) {
@@ -68,7 +66,7 @@ class Matrix extends Var {
             return new Matrix(res);
         }
 
-        else if(other instanceof  Matrix){
+        else if(other instanceof Matrix){
             if((this.value.length == ((Matrix) other).value.length) && (this.value[0].length == ((Matrix) other).value[0].length)){
                 double[][] res = this.getValue();
 
@@ -107,7 +105,7 @@ class Matrix extends Var {
     @Override
     public Var mul(Var other) {
 
-        if(other instanceof  Scalar) {
+        if(other instanceof Scalar) {
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
             for (double[] re : res) {
@@ -117,7 +115,7 @@ class Matrix extends Var {
             }
             return new Matrix(res);
         }
-        else if (other instanceof  Vector){
+        else if (other instanceof Vector){
 
             return new Vector((Matrix)this.mul(new Matrix((Vector) other)));
         }
@@ -141,7 +139,7 @@ class Matrix extends Var {
 
     @Override
     public Var div(Var other) {
-        if(other instanceof  Scalar) {
+        if(other instanceof Scalar) {
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
             for (double[] re : res) {
