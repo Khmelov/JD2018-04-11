@@ -1,12 +1,19 @@
-package by.it.akhmelev.jd01_08;
+package by.it.kashayed.jd01_09;
 
-class Var implements Operation{
+
+
+public class Var implements Operation{
 
 //    public void abstrPubMeth(){
 //        System.out.println("pubMeth");
 //    }
-
-
+    static Var createVar(String operand){
+        operand = operand.trim().replace("\\s", "");
+        if (operand.matches(Patterns.SCALAR)) return new Scalar(operand);
+        if (operand.matches(Patterns.VECTOR)) return new Vector(operand);
+        else
+        return null;
+    }
     @Override
     public String toString() {
         return "Это абстрактная переменная";
