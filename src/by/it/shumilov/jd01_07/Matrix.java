@@ -1,8 +1,14 @@
 package by.it.shumilov.jd01_07;
 
+import java.util.Arrays;
+
 class Matrix extends AbstractVar {
 
     private  double[][] value;
+
+    public double[][] getValue() {
+        return value;
+    }
 
     Matrix(String strValue){
         String[] strCols = strValue.split("(\\}\\,\\p{Blank}*\\{)");
@@ -23,7 +29,14 @@ class Matrix extends AbstractVar {
     }
 
     Matrix(Matrix objMatrix){
-        this.value = objMatrix.value;
+        double[][] res = new double[objMatrix.value.length][objMatrix.value[0].length];
+        for (int i = 0; i < objMatrix.value.length; i++) {
+            res[i] = Arrays.copyOf(objMatrix.value[0],
+                    objMatrix.value[0].length);
+        }
+        this.value = res;
+//        this.value = Arrays.copyOf(objMatrix.value,
+//                objMatrix.value.length );
     }
 
     @Override
