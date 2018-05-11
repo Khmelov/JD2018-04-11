@@ -1,7 +1,5 @@
 package by.it.dkruchek.jd01_09;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 /**
  * Created by Dmitriy.Kruchek on 5/7/2018.
  */
