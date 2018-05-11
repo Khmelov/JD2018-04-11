@@ -1,4 +1,6 @@
-package by.it.rogov.jd01_08;
+package by.it.rogov.jd01_09;
+
+
 
 
 import java.util.Arrays;
@@ -160,7 +162,6 @@ class Matrix extends Var {
                 }
             return new Vector(res);
         }
-
 
 
         // переделать умножение матрицу на матрицу...
