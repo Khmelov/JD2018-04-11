@@ -1,6 +1,6 @@
 package by.it.akhmelev.jd01_08;
 
-public class Var implements Operation{
+class Var implements Operation{
 
 //    public void abstrPubMeth(){
 //        System.out.println("pubMeth");

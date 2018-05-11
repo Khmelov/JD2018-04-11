@@ -1,8 +1,6 @@
 package by.it.zaliashchonak.jd01_07;
 
-/**
- * Created by Andrey on 04.05.2018.
- */
+
 public class Matrix extends AbstractVar {
     private double value[][];
     Matrix(double[][] value){
