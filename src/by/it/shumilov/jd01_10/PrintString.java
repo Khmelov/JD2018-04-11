@@ -6,9 +6,12 @@ public class PrintString {
     public static void main(String[] args) {
         Class<String> stringClass = String.class;
 
-        Method[] methods = stringClass.getMethods();
+        Method[] methods = stringClass.getDeclaredMethods();
 
-
+        for (Method method : methods) {
+            if (method.toString().lastIndexOf("static") < 0)
+                System.out.println(method.getName());
+        }
 
 
     }
