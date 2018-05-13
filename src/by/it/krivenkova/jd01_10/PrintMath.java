@@ -12,9 +12,14 @@ public class PrintMath {
             int modifiers = m.getModifiers();
             if (Modifier.isPublic(modifiers)){
                 //if ((modifiers & Modifier.PUBLIC) == Modifier.PUBLIC){
-                System.out.println(m);
+               String res = m.toString().replaceAll("java.lang.Math.","");
+                System.out.println(res);
             }
         }
-        //Field f = structMath.getDeclaredFields();
+        Field[] fields = structMath.getFields();
+        for (Field field : fields){
+            String res = field.toString().replaceAll("java.lang.Math.","");
+            System.out.println(res);
+        }
     }
 }
