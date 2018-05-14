@@ -18,7 +18,7 @@ public class TaskC {
             if(j%5 == 0 && j != 0){
                 System.out.println();
             }
-            System.out.printf("A[%3d] = %-10.4g ", j, masA[j]);
+            System.out.printf("A[%3d] = %-10.5f ", j, masA[j]);
         }
         System.out.println();
         System.out.println();
