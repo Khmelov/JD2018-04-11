@@ -8,6 +8,7 @@ import java.util.ListIterator;
 
 public class ListA<T> implements List<T> {
 
+    @SuppressWarnings("all")
     private T[] array = (T[]) new Object[]{};
     private int size = 0;
 
