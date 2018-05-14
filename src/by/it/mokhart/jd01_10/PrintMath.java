@@ -1,5 +1,6 @@
 package by.it.mokhart.jd01_10;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
@@ -12,8 +13,14 @@ public class PrintMath {
         for (Method method : methods) {
             int methodsMod = method.getModifiers();
             if ((methodsMod & Modifier.PUBLIC) == Modifier.PUBLIC) {
-                System.out.println(method);
+                String out = method.toString().replaceAll("java.lang.Math.","");
+                System.out.println(out);
             }
+        }
+        Field[] fields = mathStructure.getFields();
+        for (Field field : fields) {
+                String out = field.toString().replaceAll("java.lang.Math.","");
+                System.out.println(out);
         }
     }
 }
