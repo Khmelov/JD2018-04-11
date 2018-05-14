@@ -1,4 +1,4 @@
-package by.it.mokhart.jd01_07;
+package by.it.kasiyanov.jd01_07;
 
 
 import org.junit.Test;
