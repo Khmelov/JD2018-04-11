@@ -90,6 +90,44 @@ public class Matrix extends Var {
     }
 
     @Override
+    public Var mul(Var other) {
+
+        if (other instanceof Scalar) {
+            double matrix[][] = new double[this.value.length][];
+            for (int i = 0; i < this.value.length; i++)
+                matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
+            double scalar = ((Scalar) other).getValue();
+            for (int i = 0; i < matrix.length; i++) {
+                for (int i1 = 0; i1 < matrix[i].length; i1++) {
+                    matrix[i][i1] *= scalar;
+                }
+            }
+            return new Matrix(matrix);
+        }
+
+        else if (other instanceof Vector)
+        {
+            double result[] = new double[((Vector) other).getValue().length];
+            for (int i = 0; i < this.value.length; i++)
+                for (int j = 0; j < result.length; j++)
+                    result[i] += (this.value[i][j] * ((Vector) other).getValue()[j]);
+            return new Vector(result);
+        }
+
+        else if (other instanceof Matrix)
+        {
+            double matrix[][] = new double[this.value.length][((Matrix) other).value[0].length];
+            for (int i = 0; i < matrix.length; i++)
+                for (int j = 0; j < matrix[i].length; j++)
+                    for (int k = 0; k < matrix[i].length; k++)
+                        matrix[i][j] += (this.value[i][k] * ((Matrix) other).value[k][j]);
+
+            return new Matrix(matrix);
+        }
+        return super.mul(other);
+    }
+
+    @Override
     public Var div(Var other) {
         if (other instanceof Scalar) {
             double[][] matrix = new double[this.value.length][];

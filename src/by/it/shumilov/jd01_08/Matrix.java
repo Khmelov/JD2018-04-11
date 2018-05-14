@@ -50,15 +50,8 @@ class Matrix extends Var {
     }
 
     Matrix(Matrix objMatrix){
-        /*double[][] res = new double[objMatrix.value.length][objMatrix.value[0].length];
-        for (int i = 0; i < objMatrix.value.length; i++) {
-            res[i] = Arrays.copyOf(objMatrix.value[i],
-                    objMatrix.value[i].length);
-        }
-        this.value = res;*/
         this.value = objMatrix.getValue();
-//        this.value = Arrays.copyOf(objMatrix.value,
-//                objMatrix.value.length );
+
     }
 
 
@@ -67,17 +60,11 @@ class Matrix extends Var {
         if(other instanceof  Scalar) {
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
-
-            /*for (int i = 0; i < this.value.length; i++) {
-                res[i] = Arrays.copyOf(this.value[0], this.value[0].length);
-            }*/
-
             for (double[] re : res) {
                 for (int i = 0; i < re.length; i++) {
                     re[i] += scalar;
                 }
             }
-
             return new Matrix(res);
         }
 
@@ -89,15 +76,12 @@ class Matrix extends Var {
                     for (int j = 0; j < res[0].length; j++) {
                         res[i][j]+=((Matrix) other).value[i][j];
                     }
-
                 }
                 return new Matrix(res);
             }
             else
                 return super.add(other);
-
         }
-
         else
             return super.add(other);
     }
@@ -108,21 +92,16 @@ class Matrix extends Var {
 
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
-
-            /*for (int i = 0; i < this.value.length; i++) {
-                res[i] = Arrays.copyOf(this.value[0], this.value[0].length);
-            }*/
-
             for (double[] re : res) {
                 for (int i = 0; i < re.length; i++) {
                     re[i] -= scalar;
                 }
             }
 
-        return new Matrix(res);
+            return new Matrix(res);
         }
         else
-        return this.add(other.mul(new Scalar(-1)));
+            return this.add(other.mul(new Scalar(-1)));
     }
 
     @Override
@@ -131,17 +110,11 @@ class Matrix extends Var {
         if(other instanceof  Scalar) {
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
-
-            /*for (int i = 0; i < this.value.length; i++) {
-                res[i] = Arrays.copyOf(this.value[0], this.value[0].length);
-            }*/
-
             for (double[] re : res) {
                 for (int i = 0; i < re.length; i++) {
                     re[i] *= scalar;
                 }
             }
-
             return new Matrix(res);
         }
         else if (other instanceof  Vector){
@@ -153,7 +126,6 @@ class Matrix extends Var {
             double[][] res = new double[this.value.length][((Matrix) other).value[0].length];
             double sum;
             for (int i = 0; i < this.value.length; i++) {
-
                 for (int j = 0; j < ((Matrix) other).value[0].length; j++) {
                     sum = 0;
                     for (int k = 0; k < this.value[0].length; k++) {
