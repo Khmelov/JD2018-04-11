@@ -2,34 +2,55 @@ package by.it.krivenkova.jd01_11;
 
 import java.util.*;
 
+public class ListB<T> implements List<T> {
 
-public class ListA<T> implements List<T> {
-
-    @SuppressWarnings("all")
-    private T[] array = (T[]) new Object[]{};
+    private T[] elements = (T[]) new Object[]{};
     private int size = 0;
 
+
     @Override
-    public boolean add(T element) {
-        if (size == array.length)
-            array = Arrays.copyOf(array, array.length * 3 / 2 + 1);
-        array[size++] = element;
-        return true;
+    public boolean add(T t) {
+        if (size == elements.length)
+            elements = Arrays.copyOf(elements,(size*3)/2+1);
+        elements[size++] = t;
+        return false;
     }
 
+    @Override
+    public void add(int index, T element) {
+        if (size == elements.length)
+            elements = Arrays.copyOf(elements,(size*3)/2+1);
+        System.arraycopy(elements, index, elements, index+1, size-index);
+        elements[index] = element;
+        size++;
+    }
 
     @Override
     public T remove(int index) {
-        T deleted = array[index];
-        System.arraycopy(array, index + 1, array, index, size - (index + 1));
+        T del = elements[index];
+        System.arraycopy(elements,index+1, elements, index, size-1-index);
         size--;
-        return deleted;
+        return del;
     }
-
 
     @Override
     public T get(int index) {
-        return array[index];
+        return elements[index];
+    }
+
+    @Override
+    public T set(int index, T element) {
+        T ind = elements[index];
+        elements[index] = element;
+        return ind;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        for (T a : c) {
+            add(a);
+        }
+        return false;
     }
 
     @Override
@@ -37,57 +58,39 @@ public class ListA<T> implements List<T> {
         StringBuilder sb = new StringBuilder("[");
         String delimiter = "";
         for (int i = 0; i < size; i++) {
-            T element = array[i];
-            sb.append(delimiter).append(element);
+            sb.append(delimiter).append(elements[i]);
             delimiter = ", ";
         }
         sb.append("]");
         return sb.toString();
     }
 
+
+
+
+
+
+
+
     @Override
-    public boolean remove(Object o) {
-        int i = indexOf(o);
-        if (i > -1) {
-            remove(i);
-            return true;
-        }
+    public boolean addAll(int index, Collection<? extends T> c) {
         return false;
     }
 
     @Override
-    public int indexOf(Object o) {
-        if (o == null)
-            for (int i = 0; i < size; i++) {
-                if (array[i] == null)
-                    return i;
-            }
-        else
-            for (int i = 0; i < size; i++) {
-                if (o.equals(array[i]))
-                    return i;
-            }
-        return -1;
-    }
-
-    @Override
     public int size() {
-        return size;
+        return 0;
     }
 
     @Override
     public boolean isEmpty() {
-        return size==0;
+        return false;
     }
 
     @Override
     public boolean contains(Object o) {
-        return indexOf(o)>-1;
+        return false;
     }
-
-    ///Task A ---------------------------------------
-
-
 
     @Override
     public Iterator<T> iterator() {
@@ -105,17 +108,12 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends T> c) {
         return false;
     }
 
@@ -135,16 +133,9 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
-        return null;
+    public int indexOf(Object o) {
+        return 0;
     }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
-
-
 
     @Override
     public int lastIndexOf(Object o) {
@@ -166,3 +157,4 @@ public class ListA<T> implements List<T> {
         return null;
     }
 }
+
