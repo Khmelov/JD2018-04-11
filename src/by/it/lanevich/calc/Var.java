@@ -1,5 +1,7 @@
 package by.it.lanevich.calc;
 
+import java.util.Map;
+
 abstract class Var implements Operation {
 
     static Var createVar(String operand){
@@ -13,6 +15,7 @@ abstract class Var implements Operation {
         return null;
 
     }
+
 
     @Override
     public Var add(Var other) {

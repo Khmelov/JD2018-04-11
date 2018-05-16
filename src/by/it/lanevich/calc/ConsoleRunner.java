@@ -1,5 +1,6 @@
 package by.it.lanevich.calc;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleRunner {
@@ -15,7 +16,6 @@ public class ConsoleRunner {
            printer.print(result);
 
         }
-
     }
 
 }
