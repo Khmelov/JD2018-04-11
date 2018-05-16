@@ -1,4 +1,4 @@
-package by.it.gavrilchik.jd01_08;
+package by.it.gavrilchik.jd01_09;
 
 public class Scalar extends Var {
 
