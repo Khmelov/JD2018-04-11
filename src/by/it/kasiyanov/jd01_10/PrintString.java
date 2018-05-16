@@ -10,9 +10,7 @@ public class PrintString {
         for (Method method : methods) {
             int methodMod = method.getModifiers();
             if (!Modifier.isStatic(methodMod)) {
-                /*String[] methodName = method.toString().split("java.lang.String.");
-                System.out.println(methodName[1]);*/
-                System.out.println(method.toString());
+                System.out.println(method.getName());
             }
         }
 
