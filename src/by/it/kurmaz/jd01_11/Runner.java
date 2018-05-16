@@ -1,37 +1,34 @@
 package by.it.kurmaz.jd01_11;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Runner {
     public static void main(String[] args) {
-        List<String> mylist = new ListB<>();
-        List<String> arList = new ArrayList<>();
-        mylist.add("First");
-        arList.add("First");
-        mylist.add("Second");
-        arList.add("Second");
-        mylist.add("Third");
-        arList.add("Third");
-        System.out.println("Mylist: " + mylist +"\nArList: " + arList);
-        mylist.add(3, "Fourth");
-        arList.add(3, "Fourth");
-        mylist.add(0, "Start");
-        arList.add(0, "Start");
-        System.out.println("Mylist: " + mylist +"\nArList: " + arList);
-        mylist.remove("Start");
-        arList.remove("Start");
-        mylist.remove(3);
-        arList.remove(3);
-        System.out.println("Mylist: " + mylist +"\nArList: " + arList);
-        System.out.println("Mylist: " + mylist.get(0) +"\nArList: " + arList.get(0));
-        mylist.set(2, "replace");
-        arList.set(2, "replace");
-        System.out.println("Set Mylist: " + mylist +"\nArList: " + arList);
-        List<String> addition = new ArrayList<>();
-        addition.add("uno"); addition.add("duo"); addition.add("tres");
-        mylist.addAll(addition);
-        arList.addAll(addition);
-        System.out.println("AddAll Mylist: " + mylist +"\nArList: " + arList);
+        Set<String> mySet = new SetC<>();
+        Set<String> hashSet = new HashSet<>();
+
+        mySet.add("First"); mySet.add("Second"); mySet.add("Third");
+        hashSet.add("First"); hashSet.add("Second"); hashSet.add("Third");
+        System.out.println("Add Myset: " + mySet + "\nHashSet: " + hashSet);
+
+        mySet.remove("Second");
+        hashSet.remove("Second");
+        System.out.println("Remove Myset: " + mySet + "\nHashSet: " + hashSet+ "\nSize: " + mySet.size() + " hashset size: " + hashSet.size());
+
+        List<String> addSet = new ArrayList<>(); addSet.add("Fourth"); addSet.add("Fifth"); addSet.add("First"); addSet.add(null); addSet.add(null);
+        mySet.addAll(addSet);
+        hashSet.addAll(addSet);
+        System.out.println("AddAll Myset: " + mySet + "\nHashSet: " + hashSet + "\nSize: " + mySet.size());
+
+        System.out.println(mySet.containsAll(addSet));
+
+        mySet.removeAll(addSet);
+        hashSet.removeAll(addSet);
+        System.out.println("Remove Myset: " + mySet + "\nHashSet: " + hashSet + "\nSize: " + mySet.size() + " hashset size: " + hashSet.size());
+
+
     }
 }
