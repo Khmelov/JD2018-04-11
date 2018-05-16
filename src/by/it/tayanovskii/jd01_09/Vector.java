@@ -51,17 +51,60 @@ class Vector extends Var {
 
     @Override
     public Var sub(Var other) {
-        return super.sub(other);
+
+        if (other instanceof Scalar){
+            double[] vector=Arrays.copyOf(this.value,this.value.length);
+            double scalar=((Scalar)other).getValue();
+            for (int i = 0; i < vector.length; i++) {
+                vector[i]-=scalar;
+            }
+            return new Vector(vector);
+        }
+        else if (other instanceof Vector) {
+            double[] vector=Arrays.copyOf(this.value,this.value.length);
+            for (int i = 0; i < vector.length; i++) {
+                vector[i]-=((Vector)other).value[i];
+            }
+            return new Vector(vector);
+        }
+        else
+            return super.sub(other);
     }
 
     @Override
     public Var mul(Var other) {
-        return super.mul(other);
+        if (other instanceof Scalar){
+            double[] vector=Arrays.copyOf(this.value,this.value.length);
+            double scalar=((Scalar)other).getValue();
+            for (int i = 0; i < vector.length; i++) {
+                vector[i]*=scalar;
+            }
+            return new Vector(vector);
+        }
+        else if (other instanceof Vector) {
+            double[] vector=Arrays.copyOf(this.value,this.value.length);
+            double scalar=0;
+            for (int i = 0; i < vector.length; i++) {
+                scalar+=vector[i]*((Vector)other).value[i];
+            }
+            return new Scalar(scalar);
+        }
+        else
+            return super.mul(other);
     }
 
     @Override
     public Var div(Var other) {
-        return super.div(other);
+        if (other instanceof Scalar){
+            double[] vector=Arrays.copyOf(this.value,this.value.length);
+            double scalar=((Scalar)other).getValue();
+            for (int i = 0; i < vector.length; i++) {
+                vector[i]/=scalar;
+            }
+            return new Vector(vector);
+        }
+        else
+            return super.div(other);
     }
 
     @Override
@@ -74,5 +117,9 @@ class Vector extends Var {
         }
         sb.append('}');
         return sb.toString();
+    }
+
+    public double[] getValue() {
+        return value;
     }
 }

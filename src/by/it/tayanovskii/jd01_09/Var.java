@@ -1,11 +1,16 @@
 package by.it.tayanovskii.jd01_09;
 
-public class Var implements Operation{
+class Var implements Operation{
 
-//    public void abstrPubMeth(){
-//        System.out.println("pubMeth");
-//    }
-
+    static Var createVar(String strVar){
+        if (strVar.matches(Patterns.SCALAR))
+            return new Scalar(strVar);
+        else if (strVar.matches(Patterns.VECTOR))
+            return new Vector(strVar);
+        else if (strVar.matches(Patterns.MATRIX))
+            return new Matrix(strVar);
+        return null; //todo Generate Some Error
+    }
 
     @Override
     public String toString() {
