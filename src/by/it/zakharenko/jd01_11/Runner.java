@@ -26,8 +26,6 @@ public class Runner {
         mySet.add("Word_1"); hashSet.add("Word_1");
         mySet.add("Word_2"); hashSet.add("Word_2");
         mySet.add("Word_3"); hashSet.add("Word_3");
-       // arrayList.add("Word_4"); myList.add("Word_4");
-       // arrayList.add("Word_5"); myList.add("Word_5");
         System.out.println(hashSet);
         System.out.println(mySet);
     }
