@@ -1,6 +1,19 @@
-package by.it.gavrilchik.jd01_08;
+package by.it.gavrilchik.jd01_09;
 
-abstract class Var implements Operation{
+abstract class Var implements Operation {
+
+    static Var createVar(String operand) {
+        operand=operand.trim().replace("\\s+", "");
+        if (operand.matches(Patterns.SCALAR))
+            return new Scalar(operand);
+        if (operand.matches(Patterns.VECTOR))
+            return new Vector(operand);
+       // if (operand.matches(Patterns.MATRIX))
+         //   return new Matrix(operand);
+        return null;
+
+    }
+
     @Override
     public Var add(Var other) {
         System.out.println("Операция сложеия"+this+"+"+other+"невозможна");
