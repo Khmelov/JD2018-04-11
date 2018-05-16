@@ -23,6 +23,9 @@ public class ListA<T> implements List<T> {
 
     @Override
     public T remove(int index) {
+        if(index>size){
+            return null; // TODO: 16.05.2018  
+        }
         T deleted = array[index];
         System.arraycopy(array, index + 1, array, index, size - (index + 1));
         size--;
