@@ -8,6 +8,19 @@ public class SetC<T> implements Set<T> {
     private T[] array = (T[]) new Object[]{};
     private int size = 0;
 
+    //реализация toString()
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        String delimiter = "";
+        for (int i = 0; i < size; i++) {
+            sb.append(delimiter).append(array[i]);
+            delimiter = ", ";
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
     // метод add(T element)
     @Override
     public boolean add(T element) {
@@ -18,33 +31,17 @@ public class SetC<T> implements Set<T> {
         return false;
     }
 
-    //реализация toString()
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        String delimiter = "";
-        for (int i = 0; i < size; i++) {
-            T element = array[i];
-            sb.append(delimiter).append(element);
-            delimiter = ", ";
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-
     public int indexOf(Object o) {
         if (o == null)
             for (int i = 0; i < size; i++) {
                 if (array[i] == null)
                     return i;
             }
-        else {
+        else
             for (int i = 0; i < size; i++) {
                 if (o.equals(array[i]))
                     return i;
             }
-        }
         return -1;
     }
 
@@ -64,7 +61,7 @@ public class SetC<T> implements Set<T> {
     //метод contains(Object o)
     @Override
     public boolean contains(Object o) {
-        return indexOf(o) > 0;
+        return indexOf(o) > -1;
     }
 
     //метод size()
@@ -76,17 +73,17 @@ public class SetC<T> implements Set<T> {
     //метод isEmpty()
     @Override
     public boolean isEmpty() {
-        if (size > 0)
-            return false;
-        else
-            return true;
+        return size == 0;
     }
 
     //метод addAll(List <? > c)
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        for (T element : c) {
-            this.add(element);
+        if (c != null && c.size() != 0) {
+            for (T element : c) {
+                add(element);
+            }
+            return true;
         }
         return false;
     }
