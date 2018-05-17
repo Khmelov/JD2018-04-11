@@ -1,6 +1,16 @@
 package by.it.rogov.calc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Var implements Operation {
+
+    private static Map<String,Var> vars=new HashMap<>();
+
+    static Var saveVar (String key,Var var){
+            vars.put(key, var);
+            return var;
+    }
 
     static Var createVar(String strVar){
         if (strVar.matches(Patterns.SCALAR))
@@ -9,6 +19,8 @@ class Var implements Operation {
             return new Vector(strVar);
         else if (strVar.matches(Patterns.MATRIX))
             return new Matrix(strVar);
+        else if (vars.containsKey(strVar))
+            return vars.get(strVar);
         return null; //todo Generate Some Error
     }
 
