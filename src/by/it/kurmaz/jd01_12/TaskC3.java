@@ -4,33 +4,25 @@ import java.util.*;
 
 public class TaskC3 {
 
-    private static char[] openBrackets = new char[] {(char)40, (char)91, (char)123};
-    private static char[] closeBrackets = new char[] {(char)41, (char)93, (char)125};
+    private static Character[] openBrackets = new Character[] {(char)40, (char)91, (char)123};
+    private static Character[] closeBrackets = new Character[] {(char)41, (char)93, (char)125};
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a line to proceed");
         String line = scanner.nextLine();
         line = line.trim().replace(" ", "");
-        CharSequence[] lines = line.split("");
+        char[] split = line.toCharArray();
         ArrayList<Character> list = new ArrayList<>();
-        for (CharSequence c: lines) {
-            list.add(c.charAt(0));
+        for (char c: split) {
+            list.add(c);
         }
-        ArrayList<Character> open = new ArrayList<>();
-        ArrayList<Character> close = new ArrayList<>();
-        for (Character c: openBrackets) {
-            open.add(c);
-        }
-        for (Character c: closeBrackets) {
-            close.add(c);
-        }
-
+        ArrayList<Character> open = new ArrayList<>(Arrays.asList(openBrackets));
+        ArrayList<Character> close = new ArrayList<>(Arrays.asList(closeBrackets));
         ArrayList<Character> full= new ArrayList<>(open);
         full.addAll(close);
         list.retainAll(full);
         List<Character> checker = new LinkedList<>();
-
         for (char c: list) {
             if (open.contains(c)) {
                 int index = open.indexOf(c);
