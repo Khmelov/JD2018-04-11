@@ -84,15 +84,19 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean addAll(Collection<? extends T> c) {
 
-        
-        array=Arrays.copyOf(array,array.length+c.size());
-
+        T[] arrayNew =(T[]) c.toArray();
+        int lengthNew = arrayNew.length;
+        int flag = size;
+        arrayNew=Arrays.copyOf(array,array.length+lengthNew);
         for (int i = 0; i < array.length; i++) {
             if(!c.contains(array[i])){
-
+                arrayNew[lengthNew++]=array[i];
+                size++;
             }
-        }
 
+        }
+        array=Arrays.copyOf(arrayNew,arrayNew.length);
+        if(size>flag) return true;
 
         return false;
     }

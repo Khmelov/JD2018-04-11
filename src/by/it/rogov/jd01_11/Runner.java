@@ -39,16 +39,25 @@ public class Runner {
         System.out.println("  TaskC   ");
         Set<String> mySet=new SetC<>();
         Set<String> arraySet=new HashSet<>();
-        arraySet.add("Word_1");mySet.add("Word_1");
-        arraySet.add("Word_1");mySet.add("Word_1");
-        arraySet.add("Word_2");mySet.add("Word_2");
-        arraySet.add("Word_3");mySet.add("Word_3");
-        arraySet.add("Word_3");mySet.add("Word_3");
+        arraySet.add("Word_5");mySet.add("Word_5");
+        arraySet.add("Word_6");mySet.add("Word_6");
+        arraySet.add("Word_6");mySet.add("Word_6");
+        arraySet.add("Word_7");mySet.add("Word_7");
+        arraySet.add("Word_4");mySet.add("Word_4");
         System.out.println(arraySet);
         System.out.println(mySet);
 
-        arraySet.remove("Word_2");mySet.remove("Word_2");
+        arraySet.remove("Word_6");mySet.remove("Word_6");
         System.out.println(arraySet);
+        System.out.println(mySet);
+
+        List<String> listNew = new ArrayList<>();
+        listNew.add("Word_5");listNew.add("Word_1");
+        listNew.add("Word_2");listNew.add("Word_4");
+
+
+        arraySet.addAll(listNew);mySet.addAll(listNew);
+        System.out.println(arrayList);
         System.out.println(mySet);
     }
 }
