@@ -38,7 +38,7 @@ public class Runner {
 //TaskC
         System.out.println("  TaskC   ");
         Set<String> mySet=new SetC<>();
-        Set<String> arraySet=new HashSet<>();
+        Set<String> arraySet=new LinkedHashSet<>();
         arraySet.add("Word_5");mySet.add("Word_5");
         arraySet.add("Word_6");mySet.add("Word_6");
         arraySet.add("Word_6");mySet.add("Word_6");
@@ -55,9 +55,12 @@ public class Runner {
         listNew.add("Word_5");listNew.add("Word_1");
         listNew.add("Word_2");listNew.add("Word_4");
 
-
+        System.out.println("addAll");
+        System.out.println(arraySet);
+        System.out.println(listNew);
         arraySet.addAll(listNew);mySet.addAll(listNew);
-        System.out.println(arrayList);
+
+        System.out.println(arraySet);
         System.out.println(mySet);
     }
 }
