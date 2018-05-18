@@ -11,8 +11,7 @@ public class TaskA1 {
     private void clearBad(List<Integer> grades) {
         Iterator<Integer> iterator = grades.iterator();
         while (iterator.hasNext()) {
-            Integer value = iterator.next();
-            if (value < 4)
+            if (iterator.next() < 4)
                 iterator.remove();
         }
 
