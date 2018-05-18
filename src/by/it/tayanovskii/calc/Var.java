@@ -1,7 +1,6 @@
 package by.it.tayanovskii.calc;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class Var implements Operation {
 
@@ -24,6 +23,21 @@ class Var implements Operation {
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
         return null; //todo Generate Some Error
+    }
+
+    public static void printvar() {
+        for (Map.Entry<String, Var> entry : vars.entrySet()) {
+            System.out.println(entry.getKey() + "=" + entry.getValue());
+        }
+    }
+
+    public static void sortvar() {
+
+        Map<String, Var> sortedMap = new TreeMap<>(vars);
+        for (Map.Entry<String, Var> entry : sortedMap.entrySet()) {
+            System.out.println(entry.getKey() + "=" + entry.getValue());
+        }
+
     }
 
 
@@ -55,4 +69,6 @@ class Var implements Operation {
         System.out.println("Операция деления " + this + "+" + other + " невозможна");
         return null;
     }
+
+
 }

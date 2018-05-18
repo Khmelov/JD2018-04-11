@@ -9,8 +9,25 @@ public class ConsoleRunner {
         Parser parser=new Parser();
         Printer printer=new Printer();
         while (!(line = scanner.nextLine()).equals("end")){
-            Var var = parser.calc(line);
-            printer.print(var);
-        };
+            switch (line){
+                case "printvar":
+                {
+                    Var.printvar();
+                    break;
+
+                }
+                case  "sortvar":
+                {
+                    Var.sortvar();
+                    break;
+
+                }
+                default: {
+                    Var var = parser.calc(line);
+                    printer.print(var);
+                }
+            }
+
+        }
     }
 }
