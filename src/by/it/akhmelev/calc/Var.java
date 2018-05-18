@@ -1,4 +1,4 @@
-package by.it.rogov.calc;
+package by.it.akhmelev.calc;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,9 +7,9 @@ class Var implements Operation {
 
     private static Map<String,Var> vars=new HashMap<>();
 
-    static Var saveVar (String key,Var var){
-            vars.put(key, var);
-            return var;
+    static Var saveVar(String key, Var var) {
+        vars.put(key,var);
+        return var;
     }
 
     static Var createVar(String strVar){
@@ -52,4 +52,5 @@ class Var implements Operation {
         System.out.println("Операция деления "+this+"+"+other+" невозможна");
         return null;
     }
+
 }

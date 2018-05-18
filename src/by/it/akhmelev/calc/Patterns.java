@@ -1,4 +1,4 @@
-package by.it.rogov.calc;
+package by.it.akhmelev.calc;
 
 abstract class Patterns {
     final static String OPERATION = "[-=+*/]";
