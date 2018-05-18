@@ -20,4 +20,5 @@ public class TaskB1 {
             wordsMap.put(word, Collections.frequency(allWords, word));
         System.out.println(wordsMap.toString());
     }
+    //test
 }
