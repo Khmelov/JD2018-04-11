@@ -30,6 +30,7 @@ public class Test_jd01_13 {
         System.out.println(sb);
     }
 
+
     @Test(timeout = 1500)
     public void testTaskB() throws Exception {
         run("2\n3\n4\n55\nEND\n")
