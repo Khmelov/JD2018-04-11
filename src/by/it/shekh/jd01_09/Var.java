@@ -41,6 +41,6 @@ public abstract class Var implements Operation{
             return new Vector(strVar);
         if (strVar.matches(Patterns.MATRIX))
             return new Matrix(strVar);
-        return null;
+        return null;//todo generate some Exception
     }
 }
