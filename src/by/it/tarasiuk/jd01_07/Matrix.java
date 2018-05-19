@@ -1,8 +1,5 @@
 package by.it.tarasiuk.jd01_07;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 class Matrix extends AbstractVar {
 
@@ -17,27 +14,17 @@ class Matrix extends AbstractVar {
     }
 
     Matrix(String strMatrix) {
-        this.value=strToMat(strMatrix);
-    }
-//переделать метод, т.к. преобразавание в двумерный массив некорректно
-    private double[][] strToMat(String str) {
-        double[] mas={};
-        int i=0;
-        Pattern p = Pattern.compile("-?[\\d]+\\.?[\\d]*");
-        Matcher m = p.matcher(str);
-        while (m.find()) {
-            mas=Arrays.copyOf(mas, i+1);
-            mas[i]=Double.parseDouble(m.group());
-            i++;
-        }
-        i=0;
-        double[][] matrix=new double[2][mas.length/2];
-        for (int j = 0; j < matrix.length; j++) {
-            for (int k = 0; k < matrix[j].length; k++) {
-                matrix[j][k]=mas[i++];
+        strMatrix=strMatrix.replaceAll("[{]+","")+"},";
+        String[] lines=strMatrix.split("[}]+,");
+        this.value=new double[lines.length][];
+        String[] line;
+        for (int i = 0; i < lines.length; i++) {
+            line=lines[i].split(",");
+            this.value[i]=new double[line.length];
+            for (int j = 0; j < line.length; j++) {
+                this.value[i][j]=Double.parseDouble(line[j]);
             }
         }
-        return matrix;
     }
 
     @Override

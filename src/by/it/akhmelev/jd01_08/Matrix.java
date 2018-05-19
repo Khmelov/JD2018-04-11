@@ -1,6 +1,6 @@
 package by.it.akhmelev.jd01_08;
 
-public class Matrix extends Var {
+class Matrix extends Var {
 
     private double[][] value;
 

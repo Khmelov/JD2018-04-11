@@ -1,8 +1,7 @@
 package by.it.kurmaz.jd01_08;
 
-public abstract class Var implements Operation{
-
-
+public abstract class Var implements Operation {
+    
     @Override
     public abstract String toString();
 
