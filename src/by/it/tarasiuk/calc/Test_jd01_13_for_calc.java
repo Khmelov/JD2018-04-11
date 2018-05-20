@@ -1,4 +1,4 @@
-package by.it.tarasiuk.jd01_13;
+package by.it.tarasiuk.calc;
 
 
 import org.junit.Test;
