@@ -1,4 +1,4 @@
-package by.it.sharin.jd01_13;
+package by.it.sharin.calc;
 
 
 import org.junit.Test;
