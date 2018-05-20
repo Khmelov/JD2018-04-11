@@ -14,7 +14,7 @@ public class ConsoleRunner {
                 var = parser.calc(line);
                 printer.print(var);
             } catch (CalcException e) {
-                System.out.println(e.);
+                System.out.println(e.getMessage());
             }
 
         }

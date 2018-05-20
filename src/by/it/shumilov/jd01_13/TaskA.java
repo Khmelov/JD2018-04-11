@@ -12,12 +12,8 @@ public class TaskA {
             Integer.parseInt("привет");
         }
         catch (NumberFormatException | NullPointerException e) {
-            System.out.println(e);
-
-            String strClass;
 
             StackTraceElement[] stackTrace = e.getStackTrace();
-
             Class<TaskA> clazz = TaskA.class;  //out class
             for (int i = 0; i < stackTrace.length; i++) {
                 if (clazz.getName().equals(stackTrace[i].getClassName())) {
@@ -25,16 +21,10 @@ public class TaskA {
                     break;
                 }
             }
-
-
-
         }
-
-
     }
 
     static void printEx(Exception e){
-
         System.out.println(e.getClass().getName());
     }
 }
