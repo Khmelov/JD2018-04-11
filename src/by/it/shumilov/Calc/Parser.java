@@ -1,5 +1,7 @@
 package by.it.shumilov.Calc;
 
+import by.it._examples_.jd01_11.Generics.Demo;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +10,8 @@ class Parser {
     Var calc(String expression) throws CalcException {
         expression = expression.trim().replaceAll("\\s+", "");
         String[] operands = expression.split(Patterns.OPERATION);
+        if (operands.length < 2)
+            throw new CalcException("Неверный формат ввода:" + expression);
         Var two = Var.createVar(operands[1]);
 
         if(expression.contains("="))

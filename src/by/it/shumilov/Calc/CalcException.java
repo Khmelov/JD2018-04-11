@@ -15,11 +15,13 @@ public class CalcException extends Exception {
     }
 
     public CalcException(Throwable cause) {
+
         super(cause);
     }
 
-    @Override
+    /*@Override
     public String toString() {
+
         return this.getMessage();
-    }
+    }*/
 }

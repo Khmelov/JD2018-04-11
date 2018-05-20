@@ -99,7 +99,12 @@ class Matrix extends Var {
             return new Matrix(res);
         }
         else
-            return this.add(other.mul(new Scalar(-1)));
+            try {
+                return this.add(other.mul(new Scalar(-1)));
+            }
+            catch (CalcException e){
+                throw new CalcException("Операция вычитания " + this.toString()+ ", " + other.toString() + " невозможна");
+            }
     }
 
     @Override
@@ -119,7 +124,8 @@ class Matrix extends Var {
 
             return new Vector((Matrix)this.mul(new Matrix((Vector) other)));
         }
-        else if (this.value[0].length == ((Matrix) other).value.length){
+        else if (other instanceof Matrix){
+            if (this.value[0].length == ((Matrix) other).value.length){
 
             double[][] res = new double[this.value.length][((Matrix) other).value[0].length];
             double sum;
@@ -133,6 +139,10 @@ class Matrix extends Var {
                 }
             }
             return new Matrix(res);
+            }
+            else
+                throw new CalcException("Операция умножения невозможна: нет соответствя условию равности количества столбцов"+
+                        this.toString() + " количеству cтрок " + other.toString());
         }
         return super.add(other);
     }
@@ -142,6 +152,9 @@ class Matrix extends Var {
         if(other instanceof Scalar) {
             double scalar = ((Scalar)other). getValue();
             double[][] res = this.getValue();
+            if (scalar==0)
+
+                throw new CalcException("Деление на ноль");
             for (double[] re : res) {
                 for (int i = 0; i < re.length; i++) {
                     re[i] /= scalar;

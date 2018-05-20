@@ -12,7 +12,7 @@ class Var implements  Operation {
         return var;
     }
 
-    static Var createVar(String strVar){
+    static Var createVar(String strVar) throws CalcException {
         if(strVar.matches(Patterns.SCALAR))
             return new Scalar(strVar);
         else if(strVar.matches(Patterns.VECTOR))
@@ -21,36 +21,37 @@ class Var implements  Operation {
             return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
-        return null;  //todo generate Some error(Exc)
+        throw new CalcException("Неизвестный тип переменной " + strVar);  //todo generate Some error(Exc)
     }
 
     @Override
     public String toString() {
+
         return "Abstract";
     }
 
     @Override
     public Var add(Var other) throws CalcException {
-        System.out.println("Операция сложения "   + this + "+" + other + "невозможена");
-        return null;
+        throw new CalcException("Операция сложения "   + this + "+" + other + "невозможена");
+
     }
 
     @Override
     public Var sub(Var other) throws CalcException {
-        System.out.println("Операция вычитания "   + this + "+" + other + "невозможена");
-        return null;
+        throw new CalcException("Операция вычитания "   + this + "-" + other + "невозможена");
+
     }
 
     @Override
     public Var mul(Var other) throws CalcException {
-        System.out.println("Операция умножения "   + this + "+" + other + "невозможена");
-        return null;
+        throw new CalcException("Операция умножения "   + this + "*" + other + "невозможена");
+
     }
 
     @Override
     public Var div(Var other) throws CalcException {
-        System.out.println("Операция деления "   + this + "+" + other + "невозможена");
-        return null;
+        throw new CalcException("Операция деления "   + this + "/" + other + "невозможена");
+
     }
 }
 

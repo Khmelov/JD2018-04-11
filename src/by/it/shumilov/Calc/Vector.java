@@ -53,6 +53,8 @@ class Vector extends Var {
             return new Vector(res);
         }
         else if(other instanceof Vector){
+            if (this.value.length != ((Vector) other).value.length)
+                throw new CalcException("Операция сложения невозможна: разные длины векторов " + this.value +" и " + ((Vector) other).value);
             double[] res = Arrays.copyOf(this.value, this.value.length);
 
             for (int i = 0; i < res.length; i++) {
@@ -78,6 +80,9 @@ class Vector extends Var {
             return new Vector(res);
         }
         else if(other instanceof Vector){
+            if (this.value.length != ((Vector) other).value.length)
+                throw new CalcException("Операция вычитания невозможна: разные длины векторов " + this.value +" и " + ((Vector) other).value);
+
             double[] res = Arrays.copyOf(this.value, this.value.length);
 
             for (int i = 0; i < res.length; i++) {
@@ -102,12 +107,16 @@ class Vector extends Var {
             return new Vector(res);
         }
         else if(other instanceof Vector){
-            double[] res = Arrays.copyOf(this.value, this.value.length);
-            double answ = 0;
-            for (int i = 0; i < res.length; i++) {
-                answ += res[i]*((Vector)other).value[i];
+            if(this.value.length == ((Vector) other).value.length){
+                double[] res = Arrays.copyOf(this.value, this.value.length);
+                double answ = 0;
+                for (int i = 0; i < res.length; i++) {
+                    answ += res[i]*((Vector)other).value[i];
+                }
+                return new Scalar(answ);
             }
-            return new Scalar(answ);
+            else
+                return super.mul(other);
         }
 
         else
@@ -120,6 +129,9 @@ class Vector extends Var {
         if(other instanceof  Scalar) {
             double[] res = Arrays.copyOf(this.value, this.value.length);
             double scalar = ((Scalar)other). getValue();
+            if (scalar==0)
+
+                throw new CalcException("Деление на ноль");
             for (int i = 0; i < res.length; i++) {
                 res[i]/=scalar;
             }
