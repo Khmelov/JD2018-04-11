@@ -18,8 +18,8 @@ public class TaskA {
                     int number = element.getLineNumber();
                     System.out.printf(
                             "name: %s\n" +
-                            "class: %s\n" +
-                            "line: %d\n",
+                                    "class: %s\n" +
+                                    "line: %d\n",
                             name, className, number);
                     break;
                 }
