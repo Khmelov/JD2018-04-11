@@ -38,14 +38,14 @@ public abstract class Var implements Operation {
     }
 
 
-    static Var createVar(String strVar) {
+    static Var createVar(String strVar) throws CalcException{
         strVar = strVar.replaceAll("\\s", "").trim();
         if (strVar.matches(Patterns.SCALAR))
             return new Scalar(strVar);
-        if (strVar.matches(Patterns.VECTOR))
+        else if (strVar.matches(Patterns.VECTOR))
             return new Vector(strVar);
-        if (strVar.matches(Patterns.MATRIX))
+        else if (strVar.matches(Patterns.MATRIX))
             return new Matrix(strVar);
-        return null;//todo generate some Exception
+        else throw new CalcException("ERROR: cannot create "+strVar);//todo generate some Exception
     }
 }

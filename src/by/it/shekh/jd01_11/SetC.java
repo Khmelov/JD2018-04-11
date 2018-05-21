@@ -93,7 +93,7 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean remove(Object o) {
         int position = 0;
-        
+
         if (o == null) {
             for (int i = 0; i < size; i++) {
                 if (array[i] == null) {
