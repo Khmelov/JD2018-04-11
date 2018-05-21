@@ -23,8 +23,13 @@ public class ConsoleRunner {
 
                 }
                 default: {
-                    Var var = parser.calc(line);
-                    printer.print(var);
+                    try {
+                        Var var = parser.calc(line);
+                        printer.print(var);
+                    } catch (CalcException e) {
+                        System.out.println(e.getMessage());
+                    }
+
                 }
             }
 

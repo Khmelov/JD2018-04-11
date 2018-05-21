@@ -29,7 +29,7 @@ class Vector extends Var {
 
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other) throws CalcException {
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
@@ -50,7 +50,7 @@ class Vector extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other) throws CalcException {
 
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
@@ -72,7 +72,7 @@ class Vector extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
@@ -84,6 +84,8 @@ class Vector extends Var {
         else if (other instanceof Vector) {
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=0;
+            if (this.value.length!=((Vector) other).value.length)
+                throw new CalcException("Разные размеры векторов "+this+"*" + other);
             for (int i = 0; i < vector.length; i++) {
                 scalar+=vector[i]*((Vector)other).value[i];
             }
@@ -94,10 +96,12 @@ class Vector extends Var {
     }
 
     @Override
-    public Var div(Var other) {
+    public Var div(Var other) throws CalcException {
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
+            if (scalar==0)
+                throw new CalcException("Деление на ноль: "+this+"/"+scalar);
             for (int i = 0; i < vector.length; i++) {
                 vector[i]/=scalar;
             }

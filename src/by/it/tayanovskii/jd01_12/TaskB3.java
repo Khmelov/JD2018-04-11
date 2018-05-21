@@ -2,8 +2,7 @@ package by.it.tayanovskii.jd01_12;
 
 import java.util.*;
 
-public class TaskB2 {
-
+public class TaskB3 {
 
     private static String process(ArrayList<String> peoples) {
 
@@ -43,19 +42,18 @@ public class TaskB2 {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите имена (через пробел)");
-        String names = scanner.nextLine();
-        String[] listArray = names.split(" ");
+        List<String> listArray = new ArrayList<>();
+        for (int i = 0; i < 4095; i++) {
+            listArray.add("v"+i);
+        }
 
-        ArrayList<String> listA = new ArrayList<>(Arrays.asList(listArray));
-        LinkedList<String> listL = new LinkedList<>(Arrays.asList(listArray));
+        ArrayList<String> listA = new ArrayList<>(listArray);
+        LinkedList<String> listL = new LinkedList<>(listArray);
         String nameA = process(listA);
         System.out.println("ListArray: " + nameA);
         String nameL = process(listL);
         System.out.println("LinkedList: " + nameL);
 
     }
-
 
 }
