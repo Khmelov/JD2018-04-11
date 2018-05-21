@@ -16,7 +16,7 @@ public class TaskC {
             errCount++;
             if (errCount > 5) throw new NumberFormatException();
             Thread.sleep(100);
-            System.out.println("ERROR #:"+errCount);
+            System.out.println("ERROR #:" + errCount);
             for (int i = 0; i < arr.size(); i++) {
                 System.out.print(arr.get(arr.size() - i - 1) + " ");
             }
