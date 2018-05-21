@@ -1,10 +1,12 @@
 package by.it.obmetko.calc;
 
+
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    Var calc(String expression){
+    Var calc(String expression) throws CalcException {
         // два + три
         expression=expression.trim().replaceAll("\\s+","");
         String[] operands = expression.split(Patterns.OPERATION);
@@ -14,7 +16,7 @@ class Parser {
         }
         Var one=Var.createVar(operands[0]);
         if (one==null || two==null)
-            return null; //todo Create error
+            throw new CalcException("ERROR");
         Pattern pattern=Pattern.compile(Patterns.OPERATION);
         Matcher matcher = pattern.matcher(expression);
         if (matcher.find()){
@@ -26,6 +28,9 @@ class Parser {
                 case "/": return one.div(two);
             }
         }
-        return one; //todo Create error
+        throw new CalcException("Нет такой операции");
     }
 }
+
+
+
