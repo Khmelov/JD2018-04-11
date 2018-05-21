@@ -9,8 +9,13 @@ public class ConsoleRunner {
         Parser parser=new Parser();
         Printer printer=new Printer();
         while (!(line = scanner.nextLine()).equals("end")){
-            Var var = parser.calc(line);
-            printer.print(var);
-        };
+            Var var = null;
+            try {
+                var = parser.calc(line);
+                printer.print(var);
+            } catch (CalcException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
