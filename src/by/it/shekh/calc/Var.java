@@ -1,6 +1,15 @@
 package by.it.shekh.calc;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Var implements Operation {
+    private static Map<String, Var> vars = new HashMap<>();
+
+    static Var saveVar(String key, Var var) {
+        vars.put(key, var);
+        return var;
+    }
 
     @Override
     public String toString() {

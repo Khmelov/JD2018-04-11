@@ -76,16 +76,15 @@ public class ListB<T> implements List<T> {
 
     @Override
     public boolean isEmpty() {
-        return size==0;
+        return size == 0;
     }
 
     @Override
     public boolean contains(Object o) {
-        return indexOf(o)>-1;
+        return indexOf(o) > -1;
     }
 
     ///Task A ---------------------------------------
-
 
 
     @Override
@@ -110,7 +109,19 @@ public class ListB<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        if (c.isEmpty()) {
+            System.out.println("Попытка добавить ничего");
+            return false;
+        } else {
+            Iterator<? extends T> iterator = c.iterator();
+            while (iterator.hasNext()) {
+                if (size == array.length)
+                    array = Arrays.copyOf(array, size * 3 / 2 + 1);
+                array[size++] = iterator.next();
+            }
+            return true;
+        }
+
     }
 
     @Override
@@ -135,14 +146,40 @@ public class ListB<T> implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        return null;
+        if (index > size) {
+            System.out.println("Введен неправильный индекс");
+            return element;
+        } else {
+            T elem = array[index];
+            array[index] = element;
+            return elem;
+        }
+
     }
 
     @Override
     public void add(int index, T element) {
+        if (index >= array.length) {
+            System.out.println("Элемент будет добавлен в конец списка");
+            add(element);
+        } else {
+            size++;
+            T[] elementsArr;
+            elementsArr = Arrays.copyOf(array, array.length);
+            if (size == array.length) {
+                array = Arrays.copyOf(array, size * 3 / 2 + 1);
+            }
+            for (int i = 0; i < index; i++) {
+                array[i] = elementsArr[i];
+            }
+            array[index] = element;
+            for (int i = index + 1; i < size; i++) {
+                array[i] = elementsArr[i - 1];
+
+            }
+        }
 
     }
-
 
 
     @Override
