@@ -19,20 +19,19 @@ public class TaskA {
     public static void main(String[] args) {
         String filename = path("dataTaskA.bin");
 
-        try (DataOutputStream outputStream = new DataOutputStream(new FileOutputStream(filename))){
+        try (DataOutputStream outputStream = new DataOutputStream(new FileOutputStream(filename))) {
             for (int i = 0; i < 20; i++) {
-                outputStream.writeInt((int) (Math.random()*25));
+                outputStream.writeInt((int) (Math.random() * 25));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         List<Integer> list = new ArrayList<>();
-
         double sum = 0;
         int count = 0;
         int number;
-        try(DataInputStream inputStream = new DataInputStream(new FileInputStream(filename))) {
+        try (DataInputStream inputStream = new DataInputStream(new FileInputStream(filename))) {
 
             while (inputStream.available() > 0) {
                 number = inputStream.readInt();
@@ -44,8 +43,13 @@ public class TaskA {
             e.printStackTrace();
         }
 
+        printResult(list, sum, count);
+    }
+
+
+    private static void printResult(List<? extends Number> list, double sum, int count) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(path("resultTaskA.txt")))) {
-            for (Integer i : list) {
+            for (Number i : list) {
                 System.out.print(i + " ");
                 writer.print(i + " ");
             }
