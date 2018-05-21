@@ -33,19 +33,30 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean contains(Object o) {
 
-        for (T t : array) {
-            if(o==null){
-                if(t==null)return true;
-                return false;
-            }else{
-                if(o!=null&&t==null) return false;
-                if(o!=null&&t.equals(o)) return true;
+
+        for (int i = 0; i < size; i++) {
+
+            if (o == null) {
+
+                if (array[i] == null) {
+
+                    return true;
+
+                }
+
+
+            } else {
+
+                if (array[i] != null && array[i].equals(o))
+
+                    return true;
 
             }
 
-            }
-            return false;
         }
+
+        return false;
+    }
 
     @Override
     public boolean add(T t) {
@@ -53,9 +64,8 @@ public class SetC<T> implements Set<T> {
             if (size == array.length) {
                 array = Arrays.copyOf(array, array.length * 3 / 2 + 1);
             }
-            System.arraycopy(array,0,array,1,size);
-            array[0] = t;
-            size++;
+            array[size++] = t;
+
 
             return true;
         }
@@ -67,16 +77,43 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean remove(Object o) {
         int index = -1;
+
         for (int i = 0; i < size; i++) {
-            if (array[i].equals(o)) {
-                index = i;
+
+            if (o == null) {
+
+                if (array[i] == null) {
+
+                    index = i;
+                    break;
+
+                }
+
+            } else {
+
+                if (array[i] != null && array[i].equals(o)) {
+
+                    index = i;
+                    break;
+
+                }
+
             }
+
         }
-        if (!(index == -1)) {
-            System.arraycopy(array, index + 1, array, index, size - (index + 1));
+
+        if (index >= 0) {
+
+            if (index + 1 < size)
+
+                System.arraycopy(array, index + 1, array, index, size - index - 1);
+
             size--;
+
             return true;
+
         }
+
         return false;
     }
 
@@ -84,15 +121,9 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean addAll(Collection<? extends T> c) {
 
-        
-        array=Arrays.copyOf(array,array.length+c.size());
-
-        for (int i = 0; i < array.length; i++) {
-            if(!c.contains(array[i])){
-
-            }
+        for (T t : c) {
+            add(t);
         }
-
 
         return false;
     }
@@ -104,7 +135,7 @@ public class SetC<T> implements Set<T> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return Arrays.copyOf(array, size);
     }
 
     @Override
@@ -115,9 +146,16 @@ public class SetC<T> implements Set<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
-    }
+        for (Object o : c) {
 
+            if (!contains(o))
+
+                return false;
+
+        }
+
+        return true;
+    }
 
 
     @Override
@@ -127,11 +165,22 @@ public class SetC<T> implements Set<T> {
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        Iterator myIt = c.iterator();
+
+        for (int i = 0; i < c.size(); i++) {
+
+            remove(myIt.next());
+
+        }
+
+        return true;
     }
 
     @Override
     public void clear() {
+        System.arraycopy(array, 0, array, 0, 0);
+
+        size = 0;
 
     }
 }

@@ -34,7 +34,7 @@ public class Matrix extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         if (other instanceof Scalar){
             double matrix[][]= new double [this.value.length][];
             for (int i = 0; i < this.value.length; i++)
@@ -48,6 +48,9 @@ public class Matrix extends Var {
             return new Matrix(matrix);
         }
         else if (other instanceof Matrix){
+            if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
+                throw new CalcException("Martrices are not the same size");
+            }
             double matrix[][]= new double [this.value.length][];
             for (int i = 0; i < this.value.length; i++)
                 matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
@@ -62,18 +65,21 @@ public class Matrix extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other)  throws CalcException{
         if (other instanceof Scalar){
             return this.add(other.mul(new Scalar(-1)));
         }
         else if (other instanceof Matrix){
+            if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
+                throw new CalcException("Martrices are not the same size");
+            }
             return this.add(other.mul(new Scalar(-1)));
         }
         return super.sub(other);
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         if (other instanceof Scalar){
             double matrix[][]= new double [this.value.length][];
             for (int i = 0; i < this.value.length; i++)
@@ -94,6 +100,9 @@ public class Matrix extends Var {
             return new Vector(result);
         }
         else if (other instanceof Matrix){
+            if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
+                throw new CalcException("Martrices are not the same size");
+            }
             double matrix[][] = new double[this.value.length][((Matrix) other).value[0].length];
             for (int i = 0; i < matrix.length; i++)
                 for (int j = 0; j < matrix[i].length; j++)

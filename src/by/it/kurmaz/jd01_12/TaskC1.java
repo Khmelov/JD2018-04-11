@@ -26,8 +26,9 @@ public class TaskC1 {
         }
         System.out.println(map);
         Set<String> hash = new HashSet<>(map.values());
-        System.out.println(hash);
+        //System.out.println(hash);
         Collection<String> values = map.values();
+        //System.out.println(values);
         Iterator iter = hash.iterator();
         while (iter.hasNext()) {
             int counter = 0;
@@ -37,11 +38,12 @@ public class TaskC1 {
                 String compare = (String) iterator.next();
                 if (compare.equals(value))
                     counter++;
-                if (counter > 1)
+                if (counter > 1) {
                     iterator.remove();
+                    counter--;
+                }
             }
         }
         System.out.println(map);
     }
-
 }
