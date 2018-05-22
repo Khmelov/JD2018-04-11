@@ -1,8 +1,6 @@
 package by.it.rogov.calc;
 
 
-
-
 import java.util.Arrays;
 
 class Matrix extends Var {
@@ -44,7 +42,7 @@ class Matrix extends Var {
 
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other) throws CalcException {
         if (other instanceof Scalar) {
             double[][] matrix = new double[value.length][value[0].length];
             for (int i = 0; i < value.length; i++) {
@@ -69,6 +67,9 @@ class Matrix extends Var {
                 }
             }
             double[][] matrix2 = new double[((Matrix) other).getValue().length][((Matrix) other).getValue()[0].length];
+            if ((this.value.length != ((Matrix) other).getValue().length)||
+            (value[0].length != ((Matrix) other).getValue()[0].length))
+            throw new CalcException("Разные матрицы:" + matrix1 + "и" + matrix2);
             for (int i = 0; i < ((Matrix) other).getValue().length; i++) {
                 for (int j = 0; j < ((Matrix) other).getValue()[0].length; j++) {
                     matrix2[i][j] = ((Matrix) other).getValue()[i][j];
@@ -85,7 +86,7 @@ class Matrix extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other) throws CalcException {
         if (other instanceof Scalar) {
             double[][] matrix = new double[value.length][value[0].length];
             for (int i = 0; i < value.length; i++) {
@@ -110,6 +111,10 @@ class Matrix extends Var {
                 }
             }
             double[][] matrix2 = new double[((Matrix) other).getValue().length][((Matrix) other).getValue()[0].length];
+
+            if ((this.value.length != ((Matrix) other).getValue().length)||
+                    (value[0].length != ((Matrix) other).getValue()[0].length))
+                throw new CalcException("Разные матрицы:" + matrix1 + "и" + matrix2);
             for (int i = 0; i < ((Matrix) other).getValue().length; i++) {
                 for (int j = 0; j < ((Matrix) other).getValue()[0].length; j++) {
                     matrix2[i][j] = ((Matrix) other).getValue()[i][j];
@@ -127,7 +132,7 @@ class Matrix extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException {
         if (other instanceof Scalar) {
             double[][] matrix = new double[value.length][value[0].length];
             for (int i = 0; i < value.length; i++) {
@@ -153,13 +158,14 @@ class Matrix extends Var {
                     matrix[i][j] = value[i][j];
                 }
             }
-            double [] res = new double[((Vector) other).getValue().length];
-            double[] vector = Arrays.copyOf(((Vector) other).getValue(),((Vector) other).getValue().length);
-                for (int i = 0; i < matrix.length; i++) {
-                    for (int i1 = 0; i1 < vector.length; i1++) {
-                        res[i] = res[i] + matrix[i][i1] * vector[i1];
-                    }
+            double[] res = new double[((Vector) other).getValue().length];
+            double[] vector = Arrays.copyOf(((Vector) other).getValue(), ((Vector) other).getValue().length);
+
+            for (int i = 0; i < matrix.length; i++) {
+                for (int i1 = 0; i1 < vector.length; i1++) {
+                    res[i] = res[i] + matrix[i][i1] * vector[i1];
                 }
+            }
             return new Vector(res);
         }
 
@@ -173,15 +179,17 @@ class Matrix extends Var {
                 }
             }
             double[][] matrix2 = new double[((Matrix) other).getValue().length][((Matrix) other).getValue()[0].length];
+            if (this.value[0].length!=(((Matrix) other).getValue().length))
+                throw new CalcException("разные матрицы");
             for (int i = 0; i < ((Matrix) other).getValue().length; i++) {
                 for (int j = 0; j < ((Matrix) other).getValue()[0].length; j++) {
                     matrix2[i][j] = ((Matrix) other).getValue()[i][j];
                 }
             }
             int m = matrix1.length;
-            int n= matrix2[0].length;
-            int o= matrix2.length;
-            double[][] res=new double[m][n];
+            int n = matrix2[0].length;
+            int o = matrix2.length;
+            double[][] res = new double[m][n];
             for (int i = 0; i < m; i++) {
                 for (int i1 = 0; i1 < n; i1++) {
                     for (int i2 = 0; i2 < o; i2++) {
@@ -196,7 +204,7 @@ class Matrix extends Var {
     }
 
     @Override
-    public Var div(Var other) {
+    public Var div(Var other) throws CalcException {
         if (other instanceof Scalar) {
             double[][] matrix = new double[value.length][value[0].length];
             for (int i = 0; i < value.length; i++) {
@@ -205,6 +213,7 @@ class Matrix extends Var {
                 }
             }
             double scalar = ((Scalar) other).getValue();
+            if (scalar < 0) throw new CalcException("деление на ноль");
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[0].length; j++) {
                     matrix[i][j] /= scalar;
