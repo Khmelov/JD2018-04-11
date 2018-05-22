@@ -1,6 +1,7 @@
 package by.it.shumilov.jd01_14;
 
 import java.io.*;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,7 +9,11 @@ public class TaskB {
 
     public static void main(String[] args) {
         Pattern pat = Pattern.compile("[а-яА-ЯёЁ]+");
+        Pattern pat1 = Pattern.compile("[\\p{P}]+");
         Matcher matcher ;
+
+        int words = 0;
+        int punkts = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(path("text.txt")))){
 
@@ -16,14 +21,16 @@ public class TaskB {
                 String line = br.readLine();
                 matcher = pat.matcher(line);
                 while (matcher.find()){
-                    System.out.println(matcher.group());
+                    words++;
+                    //System.out.println(matcher.group());
                 }
 
-                /*
-                String[] ty = line.split("[а-яА-ЯёЁ]+");
-                for (String s : ty) {
-                    System.out.println(s);
-                }*/
+                matcher = pat1.matcher(line);
+                while (matcher.find()){
+                    punkts++;
+
+                }
+
 
             }
 
@@ -31,8 +38,21 @@ public class TaskB {
             e.printStackTrace();
         }
 
+        printToFile( String.format("words=%d, punctuation marks=%d",words,punkts),"resultTaskB.txt");
     }
 
+    private  static  void printToFile(String s, String file){
+        try( PrintWriter pw = new PrintWriter(new FileWriter(path(file)))){
+
+            System.out.println(s);
+            pw.print(s+"\n");
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     private  static  String path(Class<?> cl){
         String rootPrj = System.getProperty("user.dir") ;
