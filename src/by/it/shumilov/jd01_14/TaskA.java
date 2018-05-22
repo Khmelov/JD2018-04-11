@@ -76,9 +76,30 @@ public class TaskA {
 
         try (DataOutputStream dos = new DataOutputStream( new FileOutputStream(path))) {
 
-            for (int i = 0; i < col; i++) {
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+            dos.writeInt(1919164704);
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+            dos.writeInt(1919164704);
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+            dos.writeInt(1919164704);
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+            dos.writeInt(1919164704);
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+            dos.writeInt(1919164704);
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+            dos.writeInt(1919164704);
+            dos.writeInt(1214606444);
+            dos.writeInt(1864398703);
+
+           /*for (int i = 0; i < col-2; i++) {
                 dos.writeInt((int)(Math.random()*(col+1)));
-            }
+            }*/
 
         } catch (IOException e) {
             e.printStackTrace();
