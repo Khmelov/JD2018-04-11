@@ -22,7 +22,7 @@ class Var implements Operation {
             return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
-        throw  new CalcException("Невозможно создать " + strVar); //todo Generate Some Error
+        throw  new CalcException("Невозможно создать " + strVar);
     }
 
     public static void printvar() {

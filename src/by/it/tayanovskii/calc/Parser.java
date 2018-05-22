@@ -15,7 +15,7 @@ class Parser {
         }
         Var one=Var.createVar(operands[0]);
         if (one==null || two==null)
-            return null; //todo Create error
+            throw new CalcException("Неверно указан один из операндов: " + one + "\t" + two);
         Pattern pattern=Pattern.compile(Patterns.OPERATION);
         Matcher matcher = pattern.matcher(expression);
         if (matcher.find()){
@@ -27,6 +27,6 @@ class Parser {
                 case "/": return one.div(two);
             }
         }
-        return one; //todo Create error
+        throw new CalcException("Некорректная операция");
     }
 }
