@@ -23,7 +23,7 @@ public class TaskA {
         return path;
     }
 
-    private static String path(String filename) {
+    static String path(String filename) {
         return path(TaskA.class) + filename;
     }
 
