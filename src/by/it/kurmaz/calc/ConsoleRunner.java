@@ -11,11 +11,16 @@ public class ConsoleRunner {
         Parser parser = new Parser();
         System.out.println("Enter a line to calculate, or type \"end\" to exit:");
         while (!(line = scanner.nextLine()).equals("end")) {
-            Var result = parser.calc(line);
-            if (result == null)
-                printer.varPrint();
-            else
-                printer.resultPrint(result);
+            try {
+                Var result = parser.calc(line);
+                if (result == null)
+                    printer.varPrint();
+                else
+                    printer.resultPrint(result);
+            } catch (CalcException e) {
+                System.out.println(e.getMessage());
+            }
+
         }
     }
 }

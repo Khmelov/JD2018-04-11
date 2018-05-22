@@ -1,29 +1,42 @@
 package by.it.obmetko.calc;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
- class Var implements Operation {
+abstract class Var implements Operation {
+    private static Map<String, Var> vars = new HashMap<>();
 
-     private static Map<String,Var> vars=new HashMap<>();
+    public static void printVar(){
+        Set<Map.Entry<String, Var>> entries = vars.entrySet();
+        for (Map.Entry<String, Var> entry : entries) {
+            System.out.println(entry.toString());
+        }
+    }
 
-     static Var saveVar(String key, Var var) {
-         vars.put(key,var);
-         return var;
-     }
+    public static void sortVar() {
+        Comparator<Map.Entry<String, Var>> comp = (Map.Entry<String, Var> o1, Map.Entry<String, Var> o2) -> (o1.getKey().compareTo(o2.getKey()));
+        TreeSet<Map.Entry<String, Var>> sorted = new TreeSet<>(comp);
+        sorted.addAll(vars.entrySet());
+        for (Map.Entry<String, Var> entry : sorted) {
+            System.out.println(entry.toString());
+        }
+    }
+    public static Var saveVar (String nameVar, Var valueVar) {
+        vars.put(nameVar, valueVar);
+        return valueVar;
+    }
 
 
-    static Var createVar(String strVar){
+    static Var createVar(String strVar) throws CalcException {
         if (strVar.matches(Patterns.SCALAR))
             return new Scalar(strVar);
-        else if (strVar.matches(Patterns.VECTOR))
+         if (strVar.matches(Patterns.VECTOR))
             return new Vector(strVar);
-        else if (strVar.matches(Patterns.MATRIX))
+        if (strVar.matches(Patterns.MATRIX))
             return new Matrix(strVar);
-        else if (vars.containsKey(strVar))
+        if (strVar.matches(Patterns.VARNAME))
             return vars.get(strVar);
-        return null; //todo Generate Some Error
+        throw new CalcException("Ошибка обработки:" + strVar);
     }
     @Override
     public String toString() {
@@ -31,26 +44,22 @@ import java.util.Map;
     }
 
     @Override
-    public Var add(Var other) {
-        System.out.println("Операция сложения "+this+"+"+other+" невозможна");
-        return null;
+    public Var add (Var other) throws CalcException {
+        throw new CalcException("Операция сложения " + this + " " + other + " невозможна\n");
     }
 
     @Override
-    public Var sub(Var other) {
-        System.out.println("Операция вычитания "+this+"+"+other+" невозможна");
-        return null;
+    public Var sub (Var other) throws CalcException {
+        throw new CalcException("Операция вычитания " + this + " " + other + " невозможна\n");
     }
 
     @Override
-    public Var mul(Var other) {
-        System.out.println("Операция умножения "+this+"+"+other+" невозможна");
-        return null;
+    public Var mul (Var other) throws CalcException {
+        throw new CalcException("Операция умножения " + this + " " + other + " невозможна\n");
     }
 
     @Override
-    public Var div(Var other) {
-        System.out.println("Операция деления "+this+"+"+other+" невозможна");
-        return null;
+    public Var div (Var other) throws CalcException {
+        throw new CalcException("Операция деления " + this + " " + other + " невозможна\n");
     }
 }
