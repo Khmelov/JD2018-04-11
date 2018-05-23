@@ -1,12 +1,10 @@
-package by.it._tasks_.jd01_14;
-
+package by.it.tayanovskii.jd01_13;
 
 import org.junit.Test;
 
 import java.io.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.Scanner;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -14,92 +12,72 @@ import static org.junit.Assert.fail;
 @SuppressWarnings("all")
 
 //поставьте курсор на следующую строку и нажмите Ctrl+Shift+F10
-public class Test_jd01_14 {
+public class Test_jd01_13 {
 
     @Test(timeout = 1500)
     public void testTaskA() throws Exception {
-        Test_jd01_14 run = run("");
-        StringBuilder sb = new StringBuilder();
-        //читаем файл с числами
-        try (DataInputStream inp = new DataInputStream
-                (new BufferedInputStream
-                        (new FileInputStream(dir(Test_jd01_14.class) + "dataTaskA.bin"))
-                );
-        ) {
-            double sum = 0;
-            double count = 0;
-            while (inp.available() > 0) {
-                int i = inp.readInt();
-                sb.append(i + " ");
-                sum = sum + i;
-                count++;
-            }
-            run.include(sb.toString().trim()); //проверка строки из 20 чисел
-            run.include("avg=" + sum / count); //проверка вывода среднего арифметического
-
-            Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "resultTaskA.txt"));
-            //проверка соответсвия вывода и содержимого файла отчета resultTaskA.txt
-            while (scanner.hasNext()) {
-                run.include(scanner.nextLine());
-            }
-            scanner.close();
+        StringBuilder sb = new StringBuilder("\n--- all starts ---\n");
+        for (int i = 0; i < 15; i++) {
+            sb.append("run ").append(i).append(": ")
+                    .append(run("")
+                            .include("java.lang.")
+                            .include("Exception")
+                            .include("line:")
+                            .include(".TaskA")
+                            .strOut.toString());
         }
+        assertTrue("В выводе нет NumberFormatException", sb.toString().contains("NumberFormatException"));
+        assertTrue("В выводе нет NullPointerException", sb.toString().contains("NullPointerException"));
+        System.out.println(sb);
     }
+
 
     @Test(timeout = 1500)
     public void testTaskB() throws Exception {
-        Test_jd01_14 run = run("");
-        run.include("words=157"); //слов должно быть 157
-        run.include("marks=32");  //знаков должно быть 32 (исправлено 21.01.2018)
-        StringBuilder sb = new StringBuilder();
-        //читаем файл с числами
-        Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "resultTaskB.txt"));
-        //проверка соответствия вывода и содержимого файла отчета resultTaskB.txt
-        while (scanner.hasNext()) {
-            run.include(scanner.nextLine());
-        }
-        scanner.close();
+        run("2\n3\n4\n55\nEND\n")
+                .include("1.41")
+                .include("2.23")
+                .include("8.0")
+                .exclude("Exception")
+        ;
+        run("foo\nEND\n")
+                .include("NumberFormatException")
+                .exclude("ArithmeticException")
+                .include("line:")
+                .include(".jd01_13.TaskB")
+        ;
+        run("-2.0\n6.0\nEND\n")
+                .include("ArithmeticException")
+                .include("line:")
+                .include(".jd01_13.TaskB")
+                .exclude("NumberFormatException")
+        ;
     }
 
-    @Test(timeout = 1500)
+
+    @Test(timeout = 6000, expected = Exception.class)
     public void testTaskC() throws Exception {
-        Test_jd01_14 run = run("");
-        showDir(dir(Test_jd01_14.class)+"..",run);
-        Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "resultTaskC.txt"));
-        //проверка соответствия вывода и содержимого файла отчета resultTaskC.txt
-        scanner.nextLine(); //пропуск потенциально возможного dir:..
-        while (scanner.hasNext()) {
-            run.include(scanner.nextLine());
-        }
-        scanner.close();
+
+        long t = System.currentTimeMillis();
+        Test_jd01_13 instance = run("1\n2\nerr1\n3\n4\nerr2\nerr3\nerr4\nerr5\n5.0\nerr6");
+        instance.include("4.0 3.0 2.0 1.0").exclude("5.0");
+        t = System.currentTimeMillis()-t;
+        System.out.println(t);
+        assertTrue("Таймаут работает неверно. Ошибка диапазона (400 ms <= your t:"+t+" <= 2000 ms)", (t > 400 && t < 2000));
+        Method method=instance.findMethod(instance.aClass,"readData");
+        method.setAccessible(true);
+        method.invoke(null); //читаем 5.0 - ок
+        method.invoke(null); //читаем err6 - тут ждем любую ошибку
+        fail("метод readData не генерирует никаких исключений после 5 ошибок");
     }
 
-    private static void showDir(String path, Test_jd01_14 run) {
-        File p = new File(path);
-        String name = p.getName();
-        if (p.isFile()) {
-            run.include("file:" + name); //имя файла (должно быть с расширением)
-        } else if (p.isDirectory()) {
-            if (!name.equals(".") && !name.equals("..")) //fix
-                run.include("dir:" + name); //имя каталога, .git - тоже каталог
-            File[] paths = p.listFiles();
-            if (paths != null)
-                for (File iterator : paths) {
-                    showDir(iterator.getAbsolutePath(),run);
-                }
-        }
-    }
-
-    static String dir(Class cl) {
-        return System.getProperty("user.dir") + "/src/" + cl.getName().replace(cl.getSimpleName(), "").replace(".", "/");
-    }
 
     /*
-     ===========================================================================================================
-     НИЖЕ ВСПОМОГАТЕЛЬНЫЙ КОД ТЕСТОВ. НЕ МЕНЯЙТЕ В ЭТОМ ФАЙЛЕ НИЧЕГО.
-     Но изучить как он работает - можно, это всегда будет полезно.
-     ===========================================================================================================
-      */
+    ===========================================================================================================
+    НИЖЕ ВСПОМОГАТЕЛЬНЫЙ КОД ТЕСТОВ. НЕ МЕНЯЙТЕ В ЭТОМ ФАЙЛЕ НИЧЕГО.
+    Но изучить как он работает - можно, это всегда будет полезно.
+    ===========================================================================================================
+     */
     //-------------------------------  методы ----------------------------------------------------------
     private Class findClass(String SimpleName) {
         String full = this.getClass().getName();
@@ -159,11 +137,11 @@ public class Test_jd01_14 {
 
     //метод находит и создает класс для тестирования
     //по имени вызывающего его метода, testTaskA1 будет работать с TaskA1
-    private static Test_jd01_14 run(String in) {
+    private static Test_jd01_13 run(String in) {
         return run(in, true);
     }
 
-    private static Test_jd01_14 run(String in, boolean runMain) {
+    private static Test_jd01_13 run(String in, boolean runMain) {
         Throwable t = new Throwable();
         StackTraceElement trace[] = t.getStackTrace();
         StackTraceElement element;
@@ -182,11 +160,11 @@ public class Test_jd01_14 {
         System.out.println("Старт теста для " + clName);
         if (!in.isEmpty()) System.out.println("input:" + in);
         System.out.println("---------------------------------------------");
-        return new Test_jd01_14(clName, in, runMain);
+        return new Test_jd01_13(clName, in, runMain);
     }
 
     //-------------------------------  тест ----------------------------------------------------------
-    public Test_jd01_14() {
+    public Test_jd01_13() {
         //Конструктор тестов
     }
 
@@ -198,7 +176,7 @@ public class Test_jd01_14 {
     private StringWriter strOut = new StringWriter(); //накопитель строки вывода
 
     //Основной конструктор тестов
-    private Test_jd01_14(String className, String in, boolean runMain) {
+    private Test_jd01_13(String className, String in, boolean runMain) {
         //this.className = className;
         aClass = null;
         try {
@@ -225,18 +203,18 @@ public class Test_jd01_14 {
 
 
     //проверка вывода
-    private Test_jd01_14 is(String str) {
+    private Test_jd01_13 is(String str) {
         assertTrue("ERROR:Ожидается такой вывод:\n<---начало---->\n" + str + "<---конец--->",
                 strOut.toString().equals(str));
         return this;
     }
 
-    private Test_jd01_14 include(String str) {
+    private Test_jd01_13 include(String str) {
         assertTrue("ERROR:Строка не найдена: " + str + "\n", strOut.toString().contains(str));
         return this;
     }
 
-    private Test_jd01_14 exclude(String str) {
+    private Test_jd01_13 exclude(String str) {
         assertTrue("ERROR:Лишние данные в выводе: " + str + "\n", !strOut.toString().contains(str));
         return this;
     }

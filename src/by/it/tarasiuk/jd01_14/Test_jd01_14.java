@@ -1,4 +1,4 @@
-package by.it._tasks_.jd01_14;
+package by.it.tarasiuk.jd01_14;
 
 
 import org.junit.Test;
@@ -67,7 +67,7 @@ public class Test_jd01_14 {
         showDir(dir(Test_jd01_14.class)+"..",run);
         Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "resultTaskC.txt"));
         //проверка соответствия вывода и содержимого файла отчета resultTaskC.txt
-        scanner.nextLine(); //пропуск потенциально возможного dir:..
+        scanner.nextLine(); //пропуск dir:..
         while (scanner.hasNext()) {
             run.include(scanner.nextLine());
         }
@@ -76,12 +76,10 @@ public class Test_jd01_14 {
 
     private static void showDir(String path, Test_jd01_14 run) {
         File p = new File(path);
-        String name = p.getName();
         if (p.isFile()) {
-            run.include("file:" + name); //имя файла (должно быть с расширением)
+            run.include("file:" + p.getName());
         } else if (p.isDirectory()) {
-            if (!name.equals(".") && !name.equals("..")) //fix
-                run.include("dir:" + name); //имя каталога, .git - тоже каталог
+            run.include("dir:" + p.getName());
             File[] paths = p.listFiles();
             if (paths != null)
                 for (File iterator : paths) {
