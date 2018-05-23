@@ -36,6 +36,9 @@ public class Vector extends Var {
             return new Vector(res);
         } else if (other instanceof Vector) {
             Vector vector = ((Vector) other);
+            if(this.value.length!=vector.value.length){
+                throw new CalcException("Vectors are of different length");
+            }
             double[] res = Arrays.copyOf(this.value, this.value.length);
             for (int i = 0; i < res.length; i++) {
                 res[i] += vector.value[i];
@@ -56,6 +59,9 @@ public class Vector extends Var {
             return new Vector(res);
         } else if (other instanceof Vector) {
             Vector vector = ((Vector) other);
+            if(this.value.length!=vector.value.length){
+                throw new CalcException("Vectors are of different length");
+            }
             double []res=Arrays.copyOf(this.value,this.value.length);
             for (int i = 0; i <res.length ; i++) {
                 res[i]-=vector.value[i];
@@ -77,6 +83,9 @@ public class Vector extends Var {
         } else if (other instanceof Vector) {
             double mult=0;
             Vector vector = ((Vector) other);
+            if(this.value.length!=vector.value.length){
+                throw new CalcException("Vectors are of different length");
+            }
             double []res=Arrays.copyOf(this.value,this.value.length);
             for (int i = 0; i <res.length ; i++) {
                 mult+=res[i]*vector.value[i];
