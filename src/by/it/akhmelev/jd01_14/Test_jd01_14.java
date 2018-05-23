@@ -3,16 +3,7 @@ package by.it.akhmelev.jd01_14;
 
 import org.junit.Test;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.io.StringWriter;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Scanner;
@@ -76,7 +67,7 @@ public class Test_jd01_14 {
         showDir(dir(Test_jd01_14.class)+"..",run);
         Scanner scanner = new Scanner(new File(dir(Test_jd01_14.class) + "resultTaskC.txt"));
         //проверка соответствия вывода и содержимого файла отчета resultTaskC.txt
-        scanner.nextLine(); //пропуск dir:..
+        scanner.nextLine(); //пропуск потенциально возможного dir:..
         while (scanner.hasNext()) {
             run.include(scanner.nextLine());
         }
@@ -85,10 +76,12 @@ public class Test_jd01_14 {
 
     private static void showDir(String path, Test_jd01_14 run) {
         File p = new File(path);
+        String name = p.getName();
         if (p.isFile()) {
-            run.include("file:" + p.getName());
+            run.include("file:" + name); //имя файла (должно быть с расширением)
         } else if (p.isDirectory()) {
-            run.include("dir:" + p.getName());
+            if (!name.equals(".") && !name.equals("..")) //fix
+                run.include("dir:" + name); //имя каталога, .git - тоже каталог
             File[] paths = p.listFiles();
             if (paths != null)
                 for (File iterator : paths) {
