@@ -32,7 +32,7 @@ public class TaskA {
         try (PrintWriter printWriter =
                      new PrintWriter(
                              new FileWriter(path("resultTaskA.txt")))) {
-            int sum=0;
+            double sum=0;
 
             for (Integer i : list) {
                 sum+=i;
