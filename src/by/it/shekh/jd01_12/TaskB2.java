@@ -14,15 +14,11 @@ public class TaskB2 {
                 }
                 deleted = !deleted;
             }
-
         }
-
         return peoples.get(0);
     }
 
     static String process(LinkedList<String> peoples) {
-
-
         boolean deleted = false;
         while (peoples.size() > 1) {
             Iterator<String> iterator = peoples.iterator();
@@ -33,9 +29,7 @@ public class TaskB2 {
                 }
                 deleted = !deleted;
             }
-
         }
-
         return peoples.get(0);
     }
 
@@ -43,7 +37,7 @@ public class TaskB2 {
         List<String> list = Arrays.asList("w1", "w2", "w3", "w4", "w5", "w6", "w7", "w7", "w8", "w9");
         ArrayList<String> arrayList = new ArrayList<>(list);
         System.out.println(process(arrayList));
-        LinkedList<String> linkedList=new LinkedList<>(list);
+        LinkedList<String> linkedList = new LinkedList<>(list);
         System.out.println(process(linkedList));
     }
 }
