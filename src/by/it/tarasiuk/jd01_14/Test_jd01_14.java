@@ -1,4 +1,4 @@
-package by.it._tasks_.jd01_14;
+package by.it.tarasiuk.jd01_14;
 
 
 import org.junit.Test;
