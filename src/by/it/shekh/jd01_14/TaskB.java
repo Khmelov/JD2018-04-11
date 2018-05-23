@@ -39,11 +39,10 @@ public class TaskB {
                      new PrintWriter(
                              new FileWriter(path("resultTaskB.txt")))) {
 
-
             String worArr[] = str.split("[\\s?!,.\\n:;-]+");
             String newStr = str.replaceAll("[\\s]+", "");
-            String punArr[]=null;
-            punArr= newStr.trim().split("[А-Яа-яЁё]+");
+            String punArr[] = null;
+            punArr = newStr.trim().split("[А-Яа-яЁё]+");
             System.out.println("words=" + worArr.length + ", punctuation marks=" + (punArr.length - 1));
             printWriter.println("words=" + worArr.length + ", punctuation marks=" + (punArr.length - 1));
         } catch (IOException e) {
@@ -54,16 +53,7 @@ public class TaskB {
     public static void main(String[] args) {
         String fname = path("TaskB.txt");
         String fStr = "";
-        //System.out.println(fname);
         fStr = readTxtFile(fname);
         printResult(fStr);
-//        System.out.println(fStr);
-//        String worArr[] = fStr.split("[\\s?!,.\\n:;-]");
-//        String newStr = fStr.replaceAll("\\s", "");
-//        String punArr[] = newStr.split("[А-Яа-яЁё]+");
-//
-//        System.out.println("words=" + worArr.length + ", punctuation marks=" + punArr.length);
-
-
     }
 }
