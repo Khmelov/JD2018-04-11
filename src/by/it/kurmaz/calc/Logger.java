@@ -9,9 +9,7 @@ import java.util.Date;
 
 class Logger {
 
-    private static String filename = "log.txt";
-    private static Class cl = Logger.class;
-    private static Path path = Paths.get(getPath(cl) + filename);
+    private static Path path = Paths.get(getPath(Logger.class) + "log.txt");
 
     private static String getPath (Class cl) {
         String root = System.getProperty("user.dir");
@@ -28,9 +26,8 @@ class Logger {
             if (size >=1)
                 index = getIndex(size);
             if (size > 49) {
-                int remove = index - 49;
-                String removeLog = "[Log #" + remove + "]";
-                String[] logs = Files.lines(path).filter(e -> !(e.contains(removeLog))).toArray(String[]::new);
+                int removeIndex = index - 49;
+                String[] logs = Files.lines(path).filter(e -> !(e.contains("[Log #" + removeIndex + "]"))).toArray(String[]::new);
                 try (FileWriter writer = new FileWriter(path.toString())) {
                 for (String log : logs) {
                         writer.write(log + "\n");
