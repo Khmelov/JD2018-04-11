@@ -12,6 +12,7 @@ class Var implements Operation{
         return null; //todo Generate Some Error
     }
 
+
     @Override
     public String toString() {
         return "Это абстрактная переменная";
