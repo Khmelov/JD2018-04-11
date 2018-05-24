@@ -30,7 +30,6 @@ public class TaskC {
                             dir = "     ";
                         Date date = new Date(element.lastModified());
                         SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
-
                         System.out.println(formatForDateNow.format(date) + dir + element.getName());
                     }
                 }
