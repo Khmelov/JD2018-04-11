@@ -29,7 +29,7 @@ class Matrix extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other) throws CalcException {
         if (other instanceof Scalar){
             double [][] res = new double [value.length][];
             for (int i = 0; i < res.length; i++) {
@@ -44,6 +44,10 @@ class Matrix extends Var {
                 }
             }
             return new Matrix(res);
+        }
+        else if (other instanceof Matrix && (value.length != ((Matrix) other).value.length
+                || value[0].length != ((Matrix) other).value[0].length)){
+            throw new CalcException("Количество строк в первой матрице не совпадает с количеством столбцов во второй");
         }
         else if(other instanceof Matrix && value.length == ((Matrix) other).value.length
                 && value[0].length == ((Matrix) other).value[0].length) {
@@ -67,7 +71,7 @@ class Matrix extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other) throws CalcException {
         if (other instanceof Scalar){
             double [][] res = new double [value.length][];
             for (int i = 0; i < res.length; i++) {
@@ -82,6 +86,10 @@ class Matrix extends Var {
                 }
             }
             return new Matrix(res);
+        }
+        else if (other instanceof Matrix && (value.length != ((Matrix) other).value.length
+                || value[0].length != ((Matrix) other).value[0].length)){
+            throw new CalcException("Количество строк в первой матрице не совпадает с количеством столбцов во второй");
         }
         else if(other instanceof Matrix && value.length == ((Matrix) other).value.length
                 && value[0].length == ((Matrix) other).value[0].length) {
@@ -105,7 +113,7 @@ class Matrix extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException {
         if (other instanceof Scalar){
             double [][] res = new double [value.length][];
             for (int i = 0; i < res.length; i++) {
@@ -120,6 +128,13 @@ class Matrix extends Var {
                 }
             }
             return new Matrix(res);
+        }
+        else if (other instanceof Matrix && (value.length != ((Matrix) other).value.length
+                || value[0].length != ((Matrix) other).value[0].length)){
+            throw new CalcException("Количество строк в первой матрице не совпадает с количеством столбцов во второй");
+        }
+        else if(other instanceof Vector && value.length != ((Vector) other).getValue().length){
+            throw new CalcException("Количество строк в матрице не совпадает с количеством столбцов в векторе");
         }
         else if(other instanceof Vector && value.length == ((Vector) other).getValue().length) {
             double[] vectres = new double[((Vector) other).getValue().length];
@@ -176,7 +191,6 @@ class Matrix extends Var {
         sb.append("}");
 
         return sb.toString();
-
 
     }
 }
