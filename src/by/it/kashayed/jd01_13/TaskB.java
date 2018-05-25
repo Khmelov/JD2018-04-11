@@ -13,6 +13,9 @@ public class TaskB {
         while (!(s=scanner.next()).equals("END")){
             number=Double.parseDouble(s);
             sum+=number;
+            if (sum<0){
+                throw new ArithmeticException();
+            }
             sqrt =Math.sqrt(sum);
             System.out.println("String = "+s);
             System.out.println("number = "+ number);
