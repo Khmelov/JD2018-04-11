@@ -2,7 +2,7 @@ package by.it.mokhart.jd01_11;
 
 import java.util.*;
 
-public class ListA<T> implements List<T> {
+public class ListB<T> implements List<T> {
 
     private T[] elements = (T[]) new Object[]{};
     private int size = 0;
@@ -74,13 +74,37 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
+    public T set(int index, T element) {
+        T setElement = elements[index];
+        elements[index] = element;
+        return setElement;
+    }
+
+    public boolean addAll(Collection c) {
+        elements = Arrays.copyOf(elements, (size+c.size()));
+        Iterator iter = c.iterator();
+        int counter = size;
+        while (iter.hasNext()) {
+            this.set(counter, (T) iter.next());
+            counter++;
+        }
+        size+=c.size();
+        return true;
+    }
+
+    @Override
+    public boolean retainAll(Collection c) {
+        return false;
+    }
+
+    @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return (size == 0);
     }
 
     @Override
@@ -96,12 +120,6 @@ public class ListA<T> implements List<T> {
     @Override
     public Object[] toArray() {
         return new Object[0];
-    }
-
-
-    @Override
-    public boolean addAll(Collection c) {
-        return false;
     }
 
     @Override
@@ -124,13 +142,6 @@ public class ListA<T> implements List<T> {
         return 0;
     }
 
-
-
-    @Override
-    public Object set(int index, Object element) {
-        return null;
-    }
-
     @Override
     public int lastIndexOf(Object o) {
         return 0;
@@ -149,11 +160,6 @@ public class ListA<T> implements List<T> {
     @Override
     public List subList(int fromIndex, int toIndex) {
         return null;
-    }
-
-    @Override
-    public boolean retainAll(Collection c) {
-        return false;
     }
 
     @Override
