@@ -10,12 +10,14 @@ public class TaskC2 {
         TreeSet<Double> d = new TreeSet<>(Arrays.asList(15.5, 6.5, 5.5, 9.5));
 
         System.out.println(getCross(a, b));
+        System.out.println(getCross(c, d));
         System.out.println(getUnion(c, d));
+        System.out.println(getUnion(a, b));
     }
 
     @SafeVarargs
-    private static Set<? extends Number> getCross(Set<? extends Number>... set) {
-        HashSet<Number> result = new HashSet<>(set[0]);
+    private static <T extends Number>Set<T> getCross(Set<T>... set) {
+        HashSet<T> result = new HashSet<>(set[0]);
         for (int i = 1; i < set.length; i++) {
             result.retainAll(set[i]);
         }
@@ -23,8 +25,8 @@ public class TaskC2 {
     }
 
     @SafeVarargs
-    private static Set<? extends Number> getUnion(Set<? extends Number> ... set){
-        HashSet<Number> result= new HashSet<>(set[0]);
+    private static <T extends Number>Set<T> getUnion(Set<T> ... set){
+        HashSet<T> result= new HashSet<>(set[0]);
         for (int i = 1; i < set.length; i++) {
             result.addAll(set[i]);
         }

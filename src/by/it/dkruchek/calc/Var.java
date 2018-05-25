@@ -10,7 +10,7 @@ class Var implements Operation {
 
     private  static Map<String, Var> vars = new HashMap<>();
 
-    static Var createVar(String strVar){
+    static Var createVar(String strVar) throws CalcException{
         if (strVar.matches(Patterns.SCALAR)){
             return new Scalar(strVar);
         }
@@ -23,8 +23,7 @@ class Var implements Operation {
         else if (vars.containsKey(strVar)) {
             return vars.get(strVar);
         }
-        //TODO: generate some Error\Exception
-        return null;
+        else throw new CalcException("Unsupported type");
     }
 
     @Override
@@ -35,25 +34,25 @@ class Var implements Operation {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         System.out.println("Операция сложения " + this + " + " + other + " невозможна");
         return null;
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other)  throws CalcException{
         System.out.println("Операция вычитания " + this + " + " + other + " невозможна");
         return null;
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         System.out.println("Операция умножения " + this + " + " + other + " невозможна");
         return null;
     }
 
     @Override
-    public Var div(Var other) throws ArithmeticException {
+    public Var div(Var other) throws ArithmeticException, CalcException {
         System.out.println("Операция деления " + this + " + " + other + " невозможна");
         return null;
     }
