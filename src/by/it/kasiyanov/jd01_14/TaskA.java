@@ -38,7 +38,8 @@ public class TaskA {
         try (DataInputStream inp = new DataInputStream(
                 new BufferedInputStream(
                         new FileInputStream(dir(TaskA.class) + "dataTaskA.bin")));
-             PrintWriter out2 = new PrintWriter(new FileWriter(dir(TaskA.class) + "resultTaskA.txt"))
+             PrintWriter out2 = new PrintWriter(
+                     new FileWriter(dir(TaskA.class) + "resultTaskA.txt"))
         ) {
             double sum = 0;
             double count = 0;
