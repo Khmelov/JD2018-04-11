@@ -30,7 +30,7 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         if (other instanceof Scalar){
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             double scalar = ((Scalar) other).getValue();
@@ -40,6 +40,9 @@ public class Vector extends Var {
             return new Vector(vector);
         }
         else if (other instanceof Vector){
+            if (this.value.length != ((Vector) other).value.length){
+                throw new CalcException("Vectors are not the same length");
+            }
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             for (int i = 0; i < vector.length; i++) {
                 vector[i] += ((Vector) other).value[i];
@@ -50,7 +53,7 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other)  throws CalcException{
         if (other instanceof Scalar){
             return this.add(other.mul(new Scalar(-1)));
         }
@@ -61,7 +64,7 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         if (other instanceof Scalar){
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             double scalar = ((Scalar) other).getValue();
@@ -85,7 +88,7 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var div(Var other) throws ArithmeticException {
+    public Var div(Var other) throws ArithmeticException, CalcException {
         if (other instanceof Scalar){
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             double scalar = ((Scalar) other).getValue();

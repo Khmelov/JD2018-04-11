@@ -1,5 +1,7 @@
 package by.it.dkruchek.calc;
 
+import by.it._examples_.jd01_11.Generics.Demo;
+
 /**
  * Created by Dmitriy.Kruchek on 4/25/2018.
  */
@@ -29,7 +31,7 @@ public class Scalar extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         if (other instanceof Scalar) {
 
             return new Scalar(this.value + ((Scalar) other).value);
@@ -38,7 +40,7 @@ public class Scalar extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other)  throws CalcException{
         if (other instanceof Scalar) {
 
             return new Scalar(this.value - ((Scalar) other).value);
@@ -47,7 +49,7 @@ public class Scalar extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         if (other instanceof Scalar) {
 
             return new Scalar(this.value * ((Scalar) other).value);
@@ -56,10 +58,15 @@ public class Scalar extends Var {
     }
 
     @Override
-    public Var div(Var other) throws ArithmeticException {
+    public Var div(Var other) throws ArithmeticException, CalcException{
         if (other instanceof Scalar) {
-
+            if (((Scalar) other).value == 0){
+                throw new CalcException("Division by zero");
+            }
             return new Scalar(this.value / ((Scalar) other).value);
+        }
+        if (other instanceof Vector){
+            throw new CalcException("Scalar by Vector division");
         }
         return super.div(other);
     }

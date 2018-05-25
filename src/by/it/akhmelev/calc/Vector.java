@@ -29,7 +29,7 @@ class Vector extends Var {
 
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other)  throws CalcException{
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
@@ -50,7 +50,7 @@ class Vector extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other)  throws CalcException{
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
@@ -71,7 +71,7 @@ class Vector extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other)  throws CalcException{
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
@@ -82,8 +82,11 @@ class Vector extends Var {
         }
         else if (other instanceof Vector) {
             double scalar=0;
+            Vector otherVector = (Vector) other;
+            if (this.value.length!=otherVector.value.length)
+                throw new CalcException("Разные размеры векторов "+this+"*"+otherVector);
             for (int i = 0; i < this.value.length; i++) {
-                scalar+=this.value[i]*((Vector)other).value[i];
+                scalar+=this.value[i]*otherVector.value[i];
             }
             return new Scalar(scalar);
         }
@@ -92,10 +95,12 @@ class Vector extends Var {
     }
 
     @Override
-    public Var div(Var other) {
+    public Var div(Var other)  throws CalcException{
         if (other instanceof Scalar){
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
+            if (scalar==0)
+                throw new CalcException("Деление на ноль: "+this+"/"+scalar);
             for (int i = 0; i < vector.length; i++) {
                 vector[i]/=scalar;
             }

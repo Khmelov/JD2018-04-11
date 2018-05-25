@@ -5,8 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    private HashMap<String, Var> hashMap = new HashMap<>();
-    Var calc (String expression) {
+    Var calc (String expression) throws CalcException {
+        HashMap<String, Var> hashMap = new HashMap<>();
         expression = expression.trim().replaceAll("\\s+", "");
 
         if (expression.contains("=")) {
@@ -23,8 +23,7 @@ class Parser {
             String[] operands = expression.split(Patterns.OPERATION);
             Var one = Var.createVar(operands[0]);
             Var two = Var.createVar(operands[1]);
-            if ((one == null) || (two == null))
-                return null;
+
             Pattern pattern = Pattern.compile(Patterns.OPERATION);
             Matcher matcher = pattern.matcher(expression);
             if (matcher.find()) {
@@ -43,5 +42,4 @@ class Parser {
         }
         return null;
     }
-
 }

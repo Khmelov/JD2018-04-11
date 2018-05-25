@@ -5,12 +5,12 @@ package by.it.dkruchek.calc;
  */
 public interface Operation {
 
-    Var add(Var other);
+    Var add(Var other) throws CalcException;
 
-    Var sub(Var other);
+    Var sub(Var other) throws CalcException;
 
-    Var mul(Var other);
+    Var mul(Var other) throws CalcException;
 
-    Var div(Var other) throws ArithmeticException;
+    Var div(Var other) throws ArithmeticException, CalcException;
 
 }

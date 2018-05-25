@@ -19,8 +19,10 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var add(Var other) {
+    public Var add(Var other) throws CalcException {
         if (other instanceof Vector) {
+            if (this.value.length != ((Vector) other).value.length)
+                throw new CalcException("Vectors are of different length");
             double[] vector = new double[this.value.length];
             for (int i = 0; i < vector.length; i++) {
                 vector[i] = this.value[i] + ((Vector) other).value[i];
@@ -39,8 +41,10 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var sub(Var other) {
+    public Var sub(Var other) throws CalcException{
         if (other instanceof Vector) {
+            if (this.value.length != ((Vector) other).value.length)
+                throw new CalcException("Vectors are of different length");
             double[] vector = new double[this.value.length];
             for (int i = 0; i < vector.length; i++) {
                 vector[i] = this.value[i] - ((Vector) other).value[i];
@@ -59,8 +63,10 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var mul(Var other) {
+    public Var mul(Var other) throws CalcException{
         if (other instanceof Vector) {
+            if (this.value.length != ((Vector) other).value.length)
+                throw new CalcException("Vectors are of different length");
             double sum = 0;
             for (int i = 0; i < this.value.length; i++) {
                 sum += this.value[i] * ((Vector) other).value[i];
@@ -79,8 +85,10 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var div(Var other) {
+    public Var div(Var other) throws CalcException{
         if (other instanceof Scalar) {
+            if (((Scalar) other).getValue() == 0)
+                throw new CalcException("Divide by zero");
             double[] vector = new double[this.value.length];
             for (int i = 0; i < vector.length; i++) {
                 vector[i] = this.value[i] / ((Scalar) other).getValue();

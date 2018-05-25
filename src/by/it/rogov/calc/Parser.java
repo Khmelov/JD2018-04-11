@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    Var calc(String expression){
+    Var calc(String expression) throws CalcException{
         // два + три
         expression=expression.trim().replaceAll("\\s+","");
         String[] operands = expression.split(Patterns.OPERATION);
@@ -27,6 +27,6 @@ class Parser {
                 case "/": return one.div(two);
             }
         }
-        return one; //todo Create error
+        throw new CalcException("Ошибка операции "+ one);
     }
 }
