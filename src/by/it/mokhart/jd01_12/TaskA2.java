@@ -9,7 +9,7 @@ public class TaskA2 {
 
     public static void main(String[] args) {
         HashSet<Integer> a = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
-        TreeSet<Integer> b = new TreeSet<>(Arrays.asList(10, 11, 12, 9, 8, 7, 6, 15));
+        TreeSet<Integer> b = new TreeSet<>(Arrays.asList(1, 11, 2, 3, 4, 22, 5, 6, 10, 11, 7, 8, 9));
 
         System.out.println(getCross(a, b));
         System.out.println(getUnion(a, b));

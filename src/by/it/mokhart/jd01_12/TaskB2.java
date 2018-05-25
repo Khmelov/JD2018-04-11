@@ -7,19 +7,19 @@ import java.util.LinkedList;
 
 public class TaskB2 {
     public static void main(String[] args) {
-        ArrayList<String> peoples = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5", "6", "7"));
-        LinkedList<String> peoples2 = new LinkedList<>(peoples);
+        ArrayList<String> people = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5", "6", "7"));
+        LinkedList<String> people2 = new LinkedList<>(people);
 
-        System.out.println("Array process: " + process(peoples));
-        System.out.println("LinkedList process: " + process(peoples2));
+        System.out.println("Array: " + process(people));
+        System.out.println("LinkedList: " + process(people2));
     }
 
-    private static String process(LinkedList<String> peoples2) {
-        int counter = peoples2.size();
+    private static String process(LinkedList<String> people2) {
+        int counter = people2.size();
         int loop = 0;
         while (counter != 1){
             int removed = 0;
-            Iterator iterator = peoples2.iterator();
+            Iterator iterator = people2.iterator();
             while (iterator.hasNext()) {
                 loop++;
                 iterator.next();
@@ -29,18 +29,18 @@ public class TaskB2 {
                 }
             }
             counter -= removed;
-            System.out.println("People left: " + peoples2.toString());
+            System.out.println("Осталось людей: " + people2.toString());
         }
-        return peoples2.iterator().next();
+        return people2.iterator().next();
     }
 
 
-    private static String process(ArrayList<String> peoples) {
-        int counter = peoples.size();
+    private static String process(ArrayList<String> people) {
+        int counter = people.size();
         int loop = 0;
         while (counter != 1){
             int removed = 0;
-            Iterator iterator = peoples.iterator();
+            Iterator iterator = people.iterator();
             while (iterator.hasNext()) {
                 loop++;
                 iterator.next();
@@ -50,9 +50,9 @@ public class TaskB2 {
                 }
             }
             counter -= removed;
-            peoples.trimToSize();
-            System.out.println("People left: " + peoples.toString());
+            people.trimToSize();
+            System.out.println("Осталось людей: " + people.toString());
         }
-        return peoples.iterator().next();
+        return people.iterator().next();
     }
 }
