@@ -14,7 +14,7 @@ public class TaskB {
     }
     public static void main(String[] args) {
         Pattern p1 = Pattern.compile("[а-яА-ЯёЁ]+");
-        Pattern p2 =Pattern.compile("[.]");
+        Pattern p2 =Pattern.compile("[^а-яА-ЯёЁ]+");
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(str(TaskB.class)+"text.txt")))
