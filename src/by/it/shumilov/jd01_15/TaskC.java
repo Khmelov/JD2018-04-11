@@ -5,27 +5,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
+import java.text.*;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class TaskC {
     public static void main(String[] args) throws IOException {
         String line;
         Path path = Paths.get(path());
 
+        DecimalFormat formatter=new DecimalFormat();
+        DecimalFormatSymbols symbols=DecimalFormatSymbols.getInstance();
+        symbols.setGroupingSeparator(' ');
+        formatter.setDecimalFormatSymbols(symbols);
 
-        //String path = TaskA.path("TaskA.java");
-        BasicFileAttributes basicFileAttributes = Files.readAttributes(path, BasicFileAttributes.class);
-        long size = basicFileAttributes.size();
         SimpleDateFormat df=new SimpleDateFormat("EEE dd.MM.yy HH:mm");
-
-        String d1 = df.format(basicFileAttributes.creationTime().toMillis());
         System.out.println( TaskC.class.getPackage().getName());
 
         Scanner sc=new Scanner(System.in);
@@ -37,11 +30,9 @@ public class TaskC {
                 if (arggs.length > 1){
                     if(arggs[0].equals("cd")){
                         if (arggs[1].equals("..")){
-                            //if (path.getParent() == null) System.out.println(path.getRoot());
-                            if (!path.equals(path.getRoot()))/// &&  Files.exists(path.getParent()))
 
+                            if (!path.equals(path.getRoot()))
                                 path = path.getParent();
-                            //if (Files.isDirectory(path.getRoot()))
                         }
                         else if (Files.isDirectory(path.resolve(arggs[1])))
                             path = path.resolve(arggs[1]);
@@ -49,12 +40,39 @@ public class TaskC {
 
                 }
                 else if (arggs[0].equals("dir")){
-                    String[] l1 = Files.list(path)
-                            .map((a)->df.format((new File(String.valueOf(a))).lastModified()) + "  " + a.getFileName().toString())
+                    System.out.println(df.format((new File(String.valueOf(path))).lastModified())
+                            + ("      dir          ")+" .");
+                    System.out.println(df.format((new File(String.valueOf(path))).lastModified())
+                            + ("      dir          ")+" ..");
+
+
+                    int dirs = 0;
+                    int files = 0;
+                    long sizeFiles = 0;
+
+                    String[] lisStrim = Files.list(path)
+                            .map((a)->df.format((new File(String.valueOf(a))).lastModified())
+                                    + (!Files.isDirectory(a) ? (String.format("%19d", (new File(a.toString()).length()))) : ("      dir          "))
+                                    +" " + a.getFileName().toString())
                             .toArray(String[]::new);
-                    for (String s : l1) {
+                    for (String s : lisStrim) {
                         System.out.println(s);
                     }
+
+                    for (Path path1 : Files.newDirectoryStream(path)) {
+                        if(Files.isDirectory(path1))
+                            dirs++;
+                        else {
+                            files++;
+                            sizeFiles +=Files.size(path1);
+                        }
+                    }
+                    System.out.printf("%15d файл(ов) %13d байт\n", files,sizeFiles);
+                    System.out.printf("%15d папок %16s байт свободно\n", dirs, formatter.format((new File(String.valueOf(path))).getFreeSpace()));
+
+
+
+
                 }
                 /*else
                     System.out.println();*/
@@ -69,4 +87,3 @@ public class TaskC {
         return  System.getProperty("user.dir") +File.separator+"src"+File.separator+String.join(File.separator,a) ;
     }
 }
-
