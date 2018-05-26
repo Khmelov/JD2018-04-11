@@ -6,28 +6,32 @@ import java.util.Map;
 public class Buyer extends Thread implements IBuyer,IUseBacket{
 
     public  Buyer(int number){
-        super("" + number);
+        super("Покупатель " + number);
     }
 
-    Map<String,Double> Goods = new HashMap<String,Double>(){{
-        put("молоко",  1.2);
-        put("чай", 2.6);
-        put("хлеб",   1.1);
-        put("пельмени",  3.0);
-        put("батон", 1.5);
-        put("конфеты",  34.8);
-        put("гречка", 20.1);
-        put("колбаса",33.3);
-        put("творог",   1.5);
-        put("сыр",  18.4);
-        put("кровать", 156.1);
-        put("акваланг",   345.9);
-    }};
+    private boolean pensioneer = false;
+
+    private Map<String,Double> backet = new HashMap<String, Double>();
+
 
     @Override
     public void run() {
         enterToMarket();
-        chooseGoods();
+        takeBacket();
+
+        for (int i = 0; i < Util.rnd(1,4) ; i++) {
+            int prod = Util.rnd(1, Util.Goods.size());
+
+            Map.Entry<String, Double> product = Util.Goods.entrySet().stream().skip(prod - 1).findFirst().get();
+
+            backet.put(product.getKey(),product.getValue());
+
+            chooseGoods(product.getKey());
+            putGoodsToBacket(product.getKey());
+        }
+
+
+
         goOut();
     }
 
@@ -39,16 +43,26 @@ public class Buyer extends Thread implements IBuyer,IUseBacket{
     }
 
     @Override
-    public void chooseGoods() {
+    public void chooseGoods(String product) {
         int timeout = Util.rnd(500, 2000);
-        Util.sleep(timeout);
-        System.out.println(this + " выбрал товар");
+        Util.sleep(timeout,pensioneer);
+        System.out.println(this + " выбрал товар " + product);
     }
 
 
     @Override
     public void goOut() {
-        System.out.println(this + "вышел из магазина");
+        System.out.println("-------------------------------");
+        System.out.println("-" + this + " купил следующее:" );
+        double sum = 0;
+        for (Map.Entry<String, Double> entry : backet.entrySet()) {
+            sum +=entry.getValue();
+            System.out.printf("-%-10s : %4.2f\n",entry.getKey(), entry.getValue());
+        }
+        System.out.printf("-------Итого: %4.2f\n",sum);
+        System.out.println("-------------------------------");
+        System.out.println(this + " вышел из магазина");
+
     }
 
     @Override
@@ -59,14 +73,14 @@ public class Buyer extends Thread implements IBuyer,IUseBacket{
     @Override
     public void takeBacket() {
         int timeout = Util.rnd(100, 200);
-        Util.sleep(timeout);
+        Util.sleep(timeout,pensioneer);
         System.out.println(this + " взял корзину");
     }
 
     @Override
-    public void putGoodsToBacket() {
+    public void putGoodsToBacket(String product) {
         int timeout = Util.rnd(100, 200);
-        Util.sleep(timeout);
-        System.out.println(this + " положил выбранный товар в корзину");
+        Util.sleep(timeout,pensioneer);
+        System.out.println(this + " положил " + product + " в корзину");
     }
 }
