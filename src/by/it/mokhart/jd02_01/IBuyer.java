@@ -4,7 +4,7 @@ public interface IBuyer {
 
     void enterToMarket();
 
-    void chooseGoods() throws InterruptedException;
+    void chooseGoods();
 
     void goOut();
 }

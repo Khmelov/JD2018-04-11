@@ -1,15 +1,18 @@
 package by.it.mokhart.jd02_01;
 
-public class Buyer extends Thread implements IBuyer {
+public class Buyer extends Thread implements IBuyer, IUseBacket {
     public Buyer(int customer) {
-        super("Покупатель № " + customer);
+        super("Customer № " + customer);
     }
 
     @Override
     public void run() {
         enterToMarket();
+        takeBacket();
         chooseGoods();
+        putGoodsToBacket();
         goOut();
+
     }
 
     @Override
@@ -19,11 +22,11 @@ public class Buyer extends Thread implements IBuyer {
 
     @Override
     public void chooseGoods() {
-        int timer = 500 + (int) Math.random() * 2001;
+        int timer = 500 + (int) Math.random() * 2000;
         try {
             Thread.sleep(timer);
         } catch (InterruptedException e) {
-            System.out.println("Работает некорректно");
+            e.printStackTrace();
 
         }
         System.out.println("Выбрал товары " + this);
@@ -37,5 +40,27 @@ public class Buyer extends Thread implements IBuyer {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public void takeBacket() {
+        int timer = 100 + (int) Math.random() * 200;
+        try {
+            Thread.sleep(timer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Взял корзину " + this);
+    }
+
+    @Override
+    public void putGoodsToBacket() {
+        int timer = 100 + (int) Math.random() * 200;
+        try {
+            Thread.sleep(timer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Положил выбранный товар в корзину " + this);
     }
 }

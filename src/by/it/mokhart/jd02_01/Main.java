@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         int customer = 0;
-        System.out.println("Method main is working.");
+        System.out.println("Shop is opened.");
         for (int time = 0; time < 120; time++) {
             int count = 1 + (int) Math.random() * 3;
             for (int i = 0; i < count; i++) {
@@ -25,6 +25,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        System.out.println("Method main is terminated.");
+        System.out.println("Shop is closed.");
     }
 }
