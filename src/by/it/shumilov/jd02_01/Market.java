@@ -14,13 +14,38 @@ public class Market {
         int number = 0;
 
 
+//        Lock lock = new reentrantLock();
+//
+//        lock.lock();
+//        try {
+//            // update object state
+//        }
+//        finally {
+//            lock.unlock();
+//        }
+
+
+
+
         System.out.println("Магазин открыт");
         for (int time = 0; time < 120; time++) {
             int count = Util.rnd(0,2);
             for (int i = 0; i < count; i++) {
+
+
+                if(number%4==0) {
+                    Buyer buyer1 = new Buyer(++number,true);
+                    allBuyers.add(buyer1);
+                    buyer1.start();
+                }
+                else
+                {
                 Buyer buyer = new Buyer(++number);
                 allBuyers.add(buyer);
                 buyer.start();
+                }
+
+                
             }
 
 

@@ -3,7 +3,7 @@ package by.it.shumilov.jd02_01;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Buyer extends Thread implements IBuyer,IUseBacket{
+public class Buyer extends Thread implements IBuyer, IUseBacket{
 
     public  Buyer(int number){
         super("Покупатель " + number);
@@ -11,7 +11,17 @@ public class Buyer extends Thread implements IBuyer,IUseBacket{
 
     private boolean pensioneer = false;
 
-    private Map<String,Double> backet = new HashMap<String, Double>();
+    public  Buyer(int number, boolean pensioneer){
+
+
+
+        super("Покупатель " + number);
+        pensioneer = true;
+    }
+
+
+
+    private Map<String,Double> backet = new HashMap<>();
 
 
     @Override
