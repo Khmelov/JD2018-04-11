@@ -17,7 +17,7 @@ public class Threads_04_Join {
                         timeout = 5_000;
                         break;
                     case "Second":
-                        timeout = 1_000;
+                        timeout = 4_000;
                 }
                 Thread.sleep(timeout);
                 System.out.println("завершение потока " + nameT);
@@ -34,7 +34,7 @@ public class Threads_04_Join {
         t1.start();
         t2.start();
         try {
-            t1.join(); // поток main остановлен до окончания работы потока t1
+            t2.join(); // поток main остановлен до окончания работы потока t1
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
