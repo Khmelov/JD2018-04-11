@@ -5,6 +5,6 @@ abstract class Patterns {
     final static String PRINTVAR = "printvar";
     final static String OPERATION = "[+\\-*/]";
     final static String SCALAR = "-?\\d+.?\\d*";
-    final static String VECTOR = "\\{(-?\\d,?\\s?)+\\}";
-    final static String MATRIX = "\\{(\\{(-?\\d,?\\s?)+\\},?\\s?)+\\}";
+    final static String VECTOR = "\\{(-?\\d,?.?\\s?)+\\}";
+    final static String MATRIX = "\\{(\\{(-?\\d,?.?\\s?)+\\},?\\s?)+\\}";
 }
