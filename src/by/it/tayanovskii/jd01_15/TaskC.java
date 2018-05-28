@@ -25,16 +25,17 @@ public class TaskC {
         String str;
         while (!(str = scanner.nextLine()).equals("end")) {
             if(str.equals("dir")) showDir(path);
-            else if(str.indexOf("cd")>-1)
+            else if(str.indexOf("cd")>-1 && str.indexOf("..")==-1)
             {
-                String newPath=path+str.substring(3, str.length())+File.separator;
+                String newPath=path+File.separator+str.substring(3, str.length());
                 path=newPath;
                 System.out.println(path);
             }
-            else if(str.indexOf("cd..")>-1)
+            else if(str.indexOf("cd ..")>-1)
             {
                 File newDir = new File(path);
-                path=newDir.getCanonicalPath();
+                path=newDir.getParent();
+                System.out.println(path);
             }
             else
                 System.out.println("Неверная команда!");
@@ -59,7 +60,7 @@ public class TaskC {
                 String name = "<DIR>";
                 if (file.isFile())
                     name = String.valueOf(file.length());
-                System.out.printf("%-20s %5s %-40s\n",
+                System.out.printf("%-20s %10s %-40s\n",
                         new Date(file.lastModified()), name, file.getName());
             }
         } else System.out.println("Неверная директория");
