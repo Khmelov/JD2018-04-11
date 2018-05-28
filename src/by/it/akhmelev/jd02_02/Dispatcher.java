@@ -1,6 +1,6 @@
 package by.it.akhmelev.jd02_02;
 
-public class Dispatcher {
+class Dispatcher {
 
     private static final Object countMonitor = new Object();
 
