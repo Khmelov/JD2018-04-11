@@ -3,6 +3,7 @@ package by.it.shumilov.jd02_01;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
 
 public class Market {
 
@@ -12,7 +13,7 @@ public class Market {
 
     public static void main(String[] args) {
         int number = 0;
-
+        boolean open = true;
 
 //        Lock lock = new reentrantLock();
 //
@@ -29,23 +30,31 @@ public class Market {
 
         System.out.println("Магазин открыт");
         for (int time = 0; time < 120; time++) {
+            int secunda = time%60;
+
+
+
             int count = Util.rnd(0,2);
             for (int i = 0; i < count; i++) {
 
 
                 if(number%4==0) {
-                    Buyer buyer1 = new Buyer(++number,true);
-                    allBuyers.add(buyer1);
-                    buyer1.start();
+                    if (open(secunda)){
+                        Buyer buyer1 = new Buyer(++number,true);
+                        allBuyers.add(buyer1);
+                        buyer1.start();
+                    }
                 }
                 else
                 {
-                Buyer buyer = new Buyer(++number);
-                allBuyers.add(buyer);
-                buyer.start();
+                    if (open(secunda)){
+                        Buyer buyer = new Buyer(++number);
+                        allBuyers.add(buyer);
+                        buyer.start();
+                    }
                 }
 
-                
+
             }
 
 
@@ -70,5 +79,22 @@ public class Market {
 //            e.printStackTrace();
 //        }
         System.out.println("Магазин закрыт");
+    }
+    private static boolean open(int secunda){
+        boolean res = false;
+
+
+        synchronized(allBuyers){
+            if(secunda <30){
+                if(allBuyers.size() >= (secunda+10))
+                    res = true;
+            }
+            else {
+                if(allBuyers.size() <= (70 - secunda))
+                    res = true;
+            }
+        }
+
+        return res;
     }
 }
