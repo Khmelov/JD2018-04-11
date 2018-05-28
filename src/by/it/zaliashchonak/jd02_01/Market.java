@@ -17,6 +17,7 @@ public class Market {
                 Buyer buyer = new Buyer(++number);
                 allBuyers.add(buyer);
                 buyer.start();
+                //
             }
             try {
                 Thread.sleep(1000/100);
