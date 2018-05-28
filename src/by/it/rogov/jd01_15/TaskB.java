@@ -5,16 +5,17 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * sdfsdf
+ *sdfsdf
  * sdfsdf
  * fdsdfs
- * sdfsd
- * */
+ * @typeCout
+ */
 public class TaskB {
     public static void main(String[] args) {
 
-        boolean out=true;
-        boolean typeComment=false;
+        boolean typeComment3=true;
+        boolean typeComment2=true; //true- false-*
+        boolean typeComment1=true;// true- false-/
 
         String fileName = TaskA.path("TaskB.java");
         System.out.println(fileName);
@@ -25,7 +26,7 @@ public class TaskB {
             StringBuilder sb=new StringBuilder();
             while (reader.ready()){
                 char ch=(char)reader.read();
-                if (ch=='/')
+//                if (ch=='/'&&)
                 sb.append(ch); //Привет
             }
             /*

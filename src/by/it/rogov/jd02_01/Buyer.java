@@ -11,7 +11,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     private Map<String, Double> Backet = new HashMap<>();
-    private List<String> goodsMarket = new ArrayList<String>(Market.goods.keySet());
+    private List<String> goodsMarket = new ArrayList<>(Market.goods.keySet());
     double sum = 0.0;
 
     @Override
