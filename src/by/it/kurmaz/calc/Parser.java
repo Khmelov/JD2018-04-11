@@ -5,10 +5,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    Var calc (String expression) throws CalcException {
-        HashMap<String, Var> hashMap = new HashMap<>();
-        expression = expression.trim().replaceAll("\\s+", "");
+    private HashMap<String, Var> hashMap = new HashMap<>();
 
+    void recover() throws CalcException {
+        hashMap = Saver.recover();
+    }
+
+    void save () {
+        Saver.save(hashMap);
+    }
+
+    Var calc (String expression) throws CalcException {
+        expression = expression.trim().replaceAll("\\s+", "");
         if (expression.contains("=")) {
             String[] operands = expression.split("=");
             String key = operands[0];
@@ -23,20 +31,28 @@ class Parser {
             String[] operands = expression.split(Patterns.OPERATION);
             Var one = Var.createVar(operands[0]);
             Var two = Var.createVar(operands[1]);
-
             Pattern pattern = Pattern.compile(Patterns.OPERATION);
             Matcher matcher = pattern.matcher(expression);
             if (matcher.find()) {
                 String operation = matcher.group();
+                Var result;
                 switch (operation) {
                     case "+":
-                        return one.add(two);
+                        result = one.add(two);
+                        Logger.Log(one.toString() + operation + two.toString() + " = " + result.toString());
+                        return result;
                     case "-":
-                        return one.sub(two);
+                        result = one.sub(two);
+                        Logger.Log(one.toString() + operation + two.toString() + " = " + result.toString());
+                        return result;
                     case "*":
-                        return one.mul(two);
+                        result = one.mul(two);
+                        Logger.Log(one.toString() + operation + two.toString() + " = " + result.toString());
+                        return result;
                     case "/":
-                        return one.div(two);
+                        result = one.div(two);
+                        Logger.Log(one.toString() + operation + two.toString() + " = " + result.toString());
+                        return result;
                 }
             }
         }
