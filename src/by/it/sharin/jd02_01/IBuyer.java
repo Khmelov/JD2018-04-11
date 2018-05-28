@@ -1,4 +1,7 @@
 package by.it.sharin.jd02_01;
 
-interface IBuyer {
+public interface IBuyer {
+    void enterToMarket();
+    void chooseGoods();
+    void goOut();
 }
