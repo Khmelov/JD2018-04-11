@@ -15,16 +15,12 @@ public class TaskA {
         System.out.println(filename);
         printResult(matr);
         readIntFile(path("matrix.txt"));
-
-
     }
 
     private static void printResult(int[][] a) {
         try (PrintWriter printWriter =
                      new PrintWriter(
                              new FileWriter(path("matrix.txt")))) {
-            double sum = 0;
-
             for (int[] r : a) {
                 for (int i = 0; i < r.length; i++) {
                     printWriter.printf("%3d ", r[i]);

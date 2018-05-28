@@ -33,12 +33,9 @@ public class TaskB {
                     for (int i = 0; i < arCh.length; i++) {
                         if ((i + 1) < arCh.length && arCh[i] == '/' && arCh[i + 1] == '/') {
                             char temArCh[] = Arrays.copyOf(arCh, i);
-                            if (temArCh.length != 0 && arCh[i - 3] != ' ') {
+                            if (temArCh.length != 0) {
                                 tempLine = new String(temArCh);
                                 sb.append(tempLine + "\n");
-                            } else {
-                                tempLine = new String(" ");
-                                sb.append(tempLine);
                             }
                         }
                     }
@@ -60,7 +57,7 @@ public class TaskB {
                             char temArCh[] = Arrays.copyOf(arCh, i);
                             if (temArCh.length != 0) {
                                 tempLine = new String(temArCh);
-                                sb.append(tempLine + "\n");
+                                sb.append(tempLine);
                             }
                         }
                     }
@@ -84,17 +81,11 @@ public class TaskB {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        /*иотльдбжьл
-System.arraycopy(arrCh, j + 2, temArCh, 0, arrCh.length - (j + 2));
-                                            tempLine = new String(temArCh);
-                                            sb.append(tempLine + "\n");
-                                            break outer;
-                                        } else {
-                                            tempLine = reader.readLine();
-                                            arrCh=tempLine.toCharArray();
-
- */
-        System.out.println();
+        /*
+        d
+        ds
+        fdsfds
+        d
+         */
     }
-
 }
