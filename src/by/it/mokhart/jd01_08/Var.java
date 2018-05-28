@@ -1,8 +1,6 @@
 package by.it.mokhart.jd01_08;
 
 
-import by.it.dkruchek.jd01_08.Operation;
-
 abstract class Var implements Operation {
     @Override
     public String toString() {
