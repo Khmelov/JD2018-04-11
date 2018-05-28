@@ -10,7 +10,7 @@ public abstract class Var implements Operation {
         else if (line.matches(Patterns.MATRIX))
             return new Matrix(line);
         else
-            throw new CalcException("ERROR: cannot create " + line);
+            throw new CalcException("cannot create " + line);
     }
     
     @Override
