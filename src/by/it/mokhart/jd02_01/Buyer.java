@@ -1,6 +1,14 @@
 package by.it.mokhart.jd02_01;
 
 public class Buyer extends Thread implements IBuyer, IUseBacket {
+
+    int counter = 0;
+
+    boolean pensioneer() {
+        if (counter % 4 == 0) return true;
+        else return false;
+    }
+
     public Buyer(int customer) {
         super("Customer № " + customer);
     }
