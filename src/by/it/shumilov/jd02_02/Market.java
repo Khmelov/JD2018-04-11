@@ -11,6 +11,8 @@ public class Market {
 
     //static LinkedList<Buyer> buersInShop = new LinkedList<>();
 
+    private  static final Object allMonitor = new Object();
+
     static List<Thread> allBuyers = new ArrayList<>();
 
 
@@ -34,11 +36,16 @@ public class Market {
 
         System.out.println("Магазин открыт");
 
+        /*
         for (int i = 1; i < 3; i++) {
             Thread thCashier = new Thread(new Cashier(i));
             thCashier.start();
             allBuyers.add(thCashier);
-        }
+        }*/
+
+        Thread thManager = new Thread(new Manager());
+        thManager.start();
+        allBuyers.add(thManager);
 
 
         int time = 0;
