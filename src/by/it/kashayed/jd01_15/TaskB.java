@@ -33,41 +33,10 @@ public class TaskB {
             PrintStream printStream =
                     new PrintStream(
                             new FileOutputStream(str(TaskB.class)+"TaskB.txt"));
+
             while(br.available()>0){
                 String s = br.readLine();
-                if (!s.equals("")){
-                   // String newstring =s.substring(0,s.length());
-                    if(s.contains("/")) {
-                        if (s.contains("//")){
-                            String cut = s.substring(s.indexOf("//"),s.length());
-                            String newstring =s.replace(cut,"");
-                            System.out.println(newstring);
-
-                        }
-                        else if(s.contains("/*")){
-                            String cut = s.substring(s.indexOf("/*"),s.length());
-                            String newstring =s.replace(cut,"");
-                            System.out.println(newstring);
-                            
-                        }
-                        else if(s.contains("*/")){
-                            String cut = s.substring(0,s.indexOf("*/")+2);
-                            String newstring =s.replace(cut,"");
-                            System.out.println(newstring);
-                        }
-                    }
-                    else if (s.indexOf("*")==1){
-                        String cut = s;
-                        String newstring =s.replace(cut,"");
-                        System.out.println(newstring);
-                    }
-                    else System.out.println(s);
-
-
-                }
-                else System.out.println(s);
-
-                printStream.println(s);
+                Formating.formating(s,printStream);
                 sb.append(s);
             }
         } catch (IOException e) {
