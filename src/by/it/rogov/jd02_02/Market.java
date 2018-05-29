@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Market {
 
-    static List<Buyer> allBuyers = new ArrayList<>();
+    static List<Thread> allThread = new ArrayList<>();
 
     static Map<String, Double> goods = new HashMap<>();
 
@@ -25,16 +25,23 @@ public class Market {
 
         int number = 0;
         System.out.println("Магазин открыт");
-        for (int time = 0; time < 120; time++) {
+        for (int i = 0; i < 2; i++) {
+            Thread thCashier = new Thread(new Cashiers(i));
+            thCashier.start();
+            allThread.add(thCashier);
+        }
+
+        while (!Dispetcher.planMarket()) {
             int count = Util.rnd(0, 2);
-            for (int i = 0; i < count; i++) {
+            for (int i = 0; !Dispetcher.planMarket()&&i < count; i++) {
                 Buyer buyer = new Buyer(++number);
-                allBuyers.add(buyer);
+                Dispetcher.addBuyer();
+                allThread.add(buyer);
                 buyer.start();
             }
             Util.sleep(1000);
         }
-        for (Buyer buyer : allBuyers) {
+        for (Thread buyer : allThread) {
             try {
                 buyer.join();
             } catch (InterruptedException e) {

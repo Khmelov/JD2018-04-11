@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @param
+ */
+
 
 public class Buyer extends Thread implements IBuyer, IUseBacket {
 
@@ -13,8 +17,10 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         super("Покупатель №" + number);
     }
 
-    private Map<String, Double> Backet = new HashMap<>();
-    private List<String> goodsMarket = new ArrayList<>(Market.goods.keySet());
+
+
+    private Map<String, Double> Backet = new HashMap<>(); // карзина покупателя с ценами
+    private List<String> goodsMarket = new ArrayList<>(Market.goods.keySet());  //выбранные  товары
     double sum = 0.0;
 
     @Override
@@ -26,6 +32,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         goToDeque();
         goOut();
     }
+
 
     @Override
     public void enterToMarket() {
@@ -42,7 +49,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void goToDeque() {
-        BuyerQueue.addDeque(this);
+        BuyerQueue.addEqeue(this);      // add Buyer in qeue and wait when Cashier wake up his
         synchronized (this){
             try {
                 wait();
@@ -70,7 +77,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     @Override
-    public void putGoodsToBacket() {
+    public synchronized  void putGoodsToBacket() {
         int amountGoods = Util.rnd(1, 4);
 
         for (int i = 0; i < amountGoods; i++) {
@@ -81,9 +88,8 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
             Backet.put(s, Market.goods.get(s));
 
         }
-
-        System.out.print(this + "положил в карзину" + Backet.keySet());
+            System.out.print(this + "положил в карзину" + Backet.keySet());
 //        System.out.printf(" на сумму: %.2f",sum);
-        System.out.println();
+            System.out.println();
     }
 }

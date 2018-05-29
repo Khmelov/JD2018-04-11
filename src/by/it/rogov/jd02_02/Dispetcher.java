@@ -1,6 +1,6 @@
 package by.it.rogov.jd02_02;
 
-public class Dispetcher {
+ class Dispetcher {
     private static final Object synchronMonitor = new Object();
 
     private static final Integer amountBuyer = 100;
@@ -13,7 +13,7 @@ public class Dispetcher {
         }
     }
 
-    static void compledBuer() {
+    static void completBuer() {
         synchronized (synchronMonitor) {
             amountBuyerInShop--;
             amountBuyerCompled++;
