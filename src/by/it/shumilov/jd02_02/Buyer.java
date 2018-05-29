@@ -37,7 +37,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
             backet.put(product.getKey(),product.getValue());
 
             chooseGoods(product.getKey());
-            putGoodsToBacket(product.getKey());
+            putGoodsToBacket(product);
         }
 
 
@@ -102,9 +102,9 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     @Override
-    public void putGoodsToBacket(String product) {
+    public void putGoodsToBacket(Map.Entry<String,Double> product) {
         int timeout = Util.rnd(100, 200);
         Util.sleep(timeout,pensioneer);
-        System.out.println(this + " положил " + product + " в корзину");
+        System.out.println(this + " положил " + product.getKey() + " стоимостью " + product.getValue() + " в корзину");
     }
 }
