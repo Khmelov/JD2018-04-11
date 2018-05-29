@@ -1,6 +1,6 @@
 package by.it.tarasiuk.jd02_01;
 
-public class Buyer extends Thread implements IBuyer {
+public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     Buyer(int number) {
         super("Покупатель №" + number);
@@ -9,7 +9,9 @@ public class Buyer extends Thread implements IBuyer {
     @Override
     public void run() {
         enterToMarket();
+        takeBasket();
         chooseGoods();
+        putGoodsToBasket();
         goToOut();
     }
 
@@ -19,10 +21,25 @@ public class Buyer extends Thread implements IBuyer {
     }
 
     @Override
+    public void takeBasket() {
+        int timeout = Util.rnd(100, 200);
+        Util.sleep(timeout);
+        System.out.println(this + " взял корзину");
+    }
+
+    @Override
     public void chooseGoods() {
         int timeout = Util.rnd(500, 2000);
         Util.sleep(timeout);
         System.out.println(this + " выбрал товары");
+    }
+
+    @Override
+    public void putGoodsToBasket() {
+        int timeout = Util.rnd(100, 200);
+        Util.sleep(timeout);
+
+
     }
 
     @Override
