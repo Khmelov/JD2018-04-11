@@ -18,10 +18,10 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
 
-
     private Map<String, Double> Backet = new HashMap<>(); // карзина покупателя с ценами
     private List<String> goodsMarket = new ArrayList<>(Market.goods.keySet());  //выбранные  товары
     double sum = 0.0;
+
 
     @Override
     public void run() {
@@ -31,6 +31,10 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         putGoodsToBacket();
         goToDeque();
         goOut();
+    }
+
+    public String getGoodsInBacket() {
+        return Backet.toString();
     }
 
 
@@ -50,7 +54,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void goToDeque() {
         BuyerQueue.addEqeue(this);      // add Buyer in qeue and wait when Cashier wake up his
-        synchronized (this){
+        synchronized (this) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -73,23 +77,21 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void takeBacket() {
         Util.sleep(Util.rnd(100, 200));
-        System.out.println(this + "Взял корзину");
+        System.out.println(this + " Взял корзину");
     }
 
     @Override
-    public synchronized  void putGoodsToBacket() {
+    public synchronized void putGoodsToBacket() {
         int amountGoods = Util.rnd(1, 4);
 
         for (int i = 0; i < amountGoods; i++) {
             Util.sleep(Util.rnd(100, 200));
-            int numberGoods = Util.rnd(1, Market.goods.size()-1);
+            int numberGoods = Util.rnd(1, Market.goods.size() - 1);
             String s = goodsMarket.get(numberGoods);
             sum += Market.goods.get(s);
             Backet.put(s, Market.goods.get(s));
 
         }
-            System.out.print(this + "положил в карзину" + Backet.keySet());
-//        System.out.printf(" на сумму: %.2f",sum);
-            System.out.println();
+        System.out.println(this + " положил в карзину " + Backet.keySet());
     }
 }

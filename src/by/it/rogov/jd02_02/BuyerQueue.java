@@ -9,6 +9,9 @@ import java.util.LinkedList;
 
     private static Deque<Buyer> eqeue = new LinkedList<>();
 
+    static synchronized int sizeBuyerInEque(){
+        return eqeue.size();
+    }
     static synchronized void addEqeue(Buyer buyer) {
         eqeue.addLast(buyer);
     }

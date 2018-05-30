@@ -25,7 +25,7 @@ public class Market {
 
         int number = 0;
         System.out.println("Магазин открыт");
-        for (int i = 0; i < 2; i++) {
+        for (int i = 1; i < 6; i++) {
             Thread thCashier = new Thread(new Cashiers(i));
             thCashier.start();
             allThread.add(thCashier);
@@ -41,6 +41,7 @@ public class Market {
             }
             Util.sleep(1000);
         }
+
         for (Thread buyer : allThread) {
             try {
                 buyer.join();
