@@ -1,13 +1,19 @@
 package by.it.tarasiuk.jd02_01;
 
 import java.util.ArrayList;
+import java.util.List;
 
-class Basket extends ArrayList<String> {
-    private Basket buyerBasket=new Basket();
+class Basket  {
+    private List<String> products = new ArrayList<>();
 
-    public Basket getBuyerBasket() {
-        return buyerBasket;
+    void add(String name) {
+        products.add(name);
     }
+
+    public List<String> getProducts() {
+        return products;
+    }
+
 
 
 }

@@ -5,7 +5,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     Buyer(int number) {
         super("Покупатель №" + number);
     }
-
+        Basket basket =new Basket();
     @Override
     public void run() {
         enterToMarket();
