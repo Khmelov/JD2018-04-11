@@ -21,7 +21,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
 
 
-    private Map<String,Double> backet = new HashMap<>();
+    private static HashMap<String,Double> backet = new HashMap<>();
 
 
     @Override
@@ -76,15 +76,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void goOut() {
-        System.out.println("-------------------------------");
-        System.out.println("-" + this + " купил следующее:" );
-        double sum = 0;
-        for (Map.Entry<String, Double> entry : backet.entrySet()) {
-            sum +=entry.getValue();
-            System.out.printf("-%-10s : %4.2f\n",entry.getKey(), entry.getValue());
-        }
-        System.out.printf("-------Итого: %4.2f\n",sum);
-        System.out.println("-------------------------------");
+
         System.out.println(this + " вышел из магазина");
 
     }
@@ -106,5 +98,8 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         int timeout = Util.rnd(100, 200);
         Util.sleep(timeout,pensioneer);
         System.out.println(this + " положил " + product.getKey() + " стоимостью " + product.getValue() + " в корзину");
+    }
+    public static HashMap<String,Double> getBacket(){
+        return backet;
     }
 }

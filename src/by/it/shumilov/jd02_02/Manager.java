@@ -32,7 +32,7 @@ public class Manager implements  Runnable {
             //System.out.println("----------------------------------------------------------Act "+ action);
 
             if(action.equals(Action.ADD)){
-                System.out.println("----------------------------------------------------------Add ");
+                //System.out.println("----------------------------------------------------------Add ");
                 //Thread thCashier = new Thread(new Cashier(++count);)
                 Cashier cashier = new Cashier(++count);
                 //cashier.run();
@@ -54,7 +54,7 @@ public class Manager implements  Runnable {
 
 
         }
-        System.out.println("Манеджер встал");
+        System.out.println("Манеджер закончил");
     }
     public synchronized static void setSize(int size){
         if(size > count){
@@ -64,9 +64,7 @@ public class Manager implements  Runnable {
         else if(size < count){
             action = Action.DELETE;
         }
-        System.out.println("------------------------------------------------Queue: " + size);
-        System.out.println("------------------------------------------------Count: " + count);
-        System.out.println("------------------------------------------------action: " + action);
+
 
     }
 }
