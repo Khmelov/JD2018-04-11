@@ -44,14 +44,14 @@ public class TaskC3 {
         return 2;
     }
 
-    private static boolean equal(char last, char first) {
-        switch (last) {
+    private static boolean equal(char first, char last) {
+        switch (first) {
             case '{':
-                return first == '}';
+                return last == '}';
             case '(':
-                return first == ')';
+                return last == ')';
             case '[':
-                return first == ']';
+                return last == ']';
             default:
                 return false;
         }
