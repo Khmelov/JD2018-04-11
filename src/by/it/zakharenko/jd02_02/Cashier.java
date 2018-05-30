@@ -18,7 +18,8 @@ public class Cashier implements Runnable {
             if (buyer != null) {
                 System.out.println(this + " обслуживает " + buyer);
                 Util.sleep(Util.rnd(2000, 5000));   //время обслуживания одного покупатея от 2 до 5 секунд
-                System.out.println(this + " завершил обслуживание " + buyer);
+                double cheque = buyer.totalCheque();
+                System.out.println(this + " завершил обслуживание " + buyer + ", сумма чека составляет " + cheque);
                 Dispetcher.completeBuyer();
                 synchronized (buyer) {
                     buyer.notify();

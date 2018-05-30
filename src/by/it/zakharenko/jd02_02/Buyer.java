@@ -6,6 +6,7 @@ import java.util.Map;
 public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     private boolean pensioneer = false;
+    Map<String, Integer> buy = new HashMap<>();
 
     public Buyer(int number) {
         super("Покупатель №" + number);
@@ -45,7 +46,6 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void putGoodsToBasket() {
-        Map<String, Integer> buy = new HashMap<>();
         int numberOfGoods = Util.rnd(1, 4);  //набор от 1 до 4 товаров
         for (int i = 0; i < numberOfGoods; i++) {
             int timeout = Util.rnd(100, 200);  //от 0,1 до 0,2 секунд
@@ -74,6 +74,14 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public void goOut() {
         System.out.println(this + " вышел из магазина");  //мгновенно
+    }
+
+    public double totalCheque() {
+        double cheque = 0;
+        for (double price : buy.values()){
+            cheque = cheque + price;
+        }
+        return cheque;
     }
 
     @Override

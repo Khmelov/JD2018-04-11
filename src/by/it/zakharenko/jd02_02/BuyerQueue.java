@@ -18,4 +18,8 @@ public class BuyerQueue {
         return deque.pollFirst();
     }
 
+    static int getSizeQueue(){
+        return deque.size();
+    }
+
 }

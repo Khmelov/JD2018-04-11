@@ -6,19 +6,21 @@ import java.util.List;
 public class Market {
 
     static List<Thread> allThreads = new ArrayList<>();
+    static int countCashier = 0;
 
     public static void main(String[] args) {
         int number = 0;
-        System.out.println("Магазин открыт");
+                System.out.println("Магазин открыт");
 
         for (int i = 0; i <= 2; i++) {
             Thread thCasier = new Thread(new Cashier(i));
             thCasier.start();
             allThreads.add(thCasier);
+            countCashier++;
         }
 
         while (!Dispetcher.planComplete()) {
-            int count = Util.rnd(0, 5);
+            int count = Util.rnd(0, 2);
             for (int i = 0; !Dispetcher.planComplete() && i < count; i++) {
                 Buyer buyer = new Buyer(++number);
                 Dispetcher.addBuyer();
@@ -36,6 +38,11 @@ public class Market {
                 buyer.start();  //запуск потока
             }
             Util.sleep(1000);    //выполнение потока приостановлено на 1 секунду (1000 миллисекунд), метод от имени класса Util
+        if((Math.ceil(BuyerQueue.getSizeQueue()/5)>countCashier)&& countCashier<5){
+            Thread thCasier = new Thread(new Cashier(++countCashier));
+            thCasier.start();
+            allThreads.add(thCasier);
+        }
         }
 
         for (Thread t : allThreads) {
