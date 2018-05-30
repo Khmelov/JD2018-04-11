@@ -5,23 +5,27 @@ import java.util.Map;
 
 public class Buyer extends Thread implements IBuyer, IUseBacket {
 
+
+    private HashMap<String,Double> backet = new HashMap<>();
+    private boolean pensioneer = false;
+
+
     public  Buyer(int number){
-        super("Покупатель " + number);
+
+        super(String.format("Покупатель %3d" , number));
+
     }
 
-    private boolean pensioneer = false;
 
     public  Buyer(int number, boolean pensioneer){
 
+        super(String.format("Покупатель%s %3d" , (pensioneer)?(" (пенсионер)"):(""), number));
+        this.pensioneer = pensioneer;
 
-
-        super("Покупатель " + number);
-        pensioneer = true;
     }
 
 
 
-    private static HashMap<String,Double> backet = new HashMap<>();
 
 
     @Override
@@ -49,7 +53,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void enterToMarket() {
 
-        System.out.println(this + " вошел в магазин");
+        System.out.println(this + " вошел в магазин" );
     }
 
     @Override
@@ -61,6 +65,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void goToQueue() {
+        System.out.println(this + " встал в очередь++++++++++++++++++++++++++++++++++++++++");
         BuyerQueue.addToQueue(this);
         synchronized (this){
             try {
@@ -99,7 +104,11 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         Util.sleep(timeout,pensioneer);
         System.out.println(this + " положил " + product.getKey() + " стоимостью " + product.getValue() + " в корзину");
     }
-    public static HashMap<String,Double> getBacket(){
+    public HashMap<String,Double> getBacket(){
         return backet;
+    }
+
+    public boolean getPensioner(){
+        return pensioneer;
     }
 }

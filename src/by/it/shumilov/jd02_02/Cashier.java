@@ -24,33 +24,53 @@ public class Cashier extends Thread{
         while (open && Dispatcher.openedMarket()){/////////////////////////////////////
             Buyer buyer = BuyerQueue.extractBuyerFromQueue();
             if(buyer !=null){
-                String indent = "";
-                String tire = "-------------------------------";
+                int sizeQueue = BuyerQueue.getSize();
+                String indent = "|";
+                String indentEnd = "";
+                String tire = "--------------------------------|";
+
+
+
+
+
+                for (int i = 0; i < 5- number; i++) {
+                    indentEnd += tire;
+                }
+
                 for (int i = 0; i < number-1; i++) {
                     indent += tire;
                 }
 
-                System.out.println(indent+this + " обслуживает " + buyer);
-                Util.sleep(Util.rnd(2000,5000));
+
+
+                synchronized (System.out){
+
+
+                    System.out.println(indent+this + " обслуживает " + buyer);
+                    Util.sleep(Util.rnd(2000,5000));
 
 
 
-                ConcurrentHashMap<String,Double> backet = new ConcurrentHashMap(buyer.getBacket());
+                    ConcurrentHashMap<String,Double> backet = new ConcurrentHashMap(buyer.getBacket());
 
-                System.out.println(indent+"-------------------------------");
-                System.out.println(indent + "-" + buyer + " купил следующее:" );
-                double sum = 0;
+                    System.out.println(indent+"--------------------------------|" +indentEnd + "--------------|--------------------");
+                    System.out.println(indent + "-" + buyer + " купил следующее:|" + indentEnd + "Размер очереди|" + "Общая сумма магазина");
+                    double sum = 0;
 
 
-                for (Map.Entry<String, Double> entry : backet.entrySet()) {
-                    sum +=entry.getValue();
-                    System.out.printf("%s-%-10s : %4.2f\n",indent,entry.getKey(), entry.getValue());
+                    for (Map.Entry<String, Double> entry : backet.entrySet()) {
+                        sum +=entry.getValue();
+                        System.out.printf("%s-%-10s : %-18.2f|%s--------------|--------------------\n",indent,entry.getKey(), entry.getValue(),indentEnd);
+                    }
+                    BuyerQueue.addSum(sum);
+                    System.out.printf(indent+"-------Итого: %-18.2f|%s%14d|%20.2f\n" ,sum,indentEnd,sizeQueue,BuyerQueue.getSumMarket());
+                    System.out.println(indent+"--------------------------------|"+indentEnd + "--------------|--------------------");
+
+
+                    System.out.println(indent+this + " закончил обслуживание " + buyer);
                 }
-                System.out.printf(indent+"-------Итого: %4.2f\n",sum);
-                System.out.println(indent+"-------------------------------");
 
 
-                System.out.println(indent+this + " закончил обслуживание " + buyer);
                 Dispatcher.comleteBuyer();
 
                 synchronized (buyer){

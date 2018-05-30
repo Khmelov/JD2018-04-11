@@ -13,7 +13,7 @@ public class Market {
 
     private  static final Object allMonitor = new Object();
 
-    static List<Thread> allBuyers = new ArrayList<>();
+    static List<Buyer> allBuyers = new ArrayList<>();
 
 
 
@@ -45,7 +45,8 @@ public class Market {
 
         Thread thManager = new Thread(new Manager());
         thManager.start();
-        allBuyers.add(thManager);
+
+
 
 
         int time = 0;
@@ -56,7 +57,7 @@ public class Market {
 
 
 
-            int count = Util.rnd(0,2);
+            int count = Util.rnd(0,2);  //regular inThread buyers//////////////
             for (int i = 0; !Dispatcher.planComlete() && i <  count; i++) {
 
 
@@ -85,6 +86,14 @@ public class Market {
             Util.sleep(1000);
 
         }
+
+
+        try {
+            thManager.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
         for (Thread allBuyer : allBuyers) {
             try {

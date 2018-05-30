@@ -1,10 +1,11 @@
 package by.it.shumilov.jd02_02;
 
+
 import java.util.Deque;
 import java.util.LinkedList;
 
 public class Manager implements  Runnable {
-    private static int count = 0;
+    private volatile static int count = 0;
 
     private enum Action {DELETE,ADD,WAIT}
 
@@ -54,9 +55,16 @@ public class Manager implements  Runnable {
 
 
         }
+        for (Cashier cashier : deque) {
+            try {
+                cashier.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         System.out.println("Манеджер закончил");
     }
-    public synchronized static void setSize(int size){
+    public static void setSize(int size){
         if(size > count){
             action = Action.ADD;
 

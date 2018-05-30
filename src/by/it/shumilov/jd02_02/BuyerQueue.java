@@ -9,13 +9,29 @@ public class BuyerQueue {
 
     }
 
-    private  static  int coutCas = 0;
+    private volatile  static  double sumMarket = 0;
 
     private  static Deque<Buyer> deque = new LinkedList<>();
+    private  static Deque<Buyer> dequePensioners = new LinkedList<>();
 
-    static synchronized void addToQueue(Buyer buyer){ //синхронизация по классу or  synchronized(Buyer.class){}
+    //private static
 
-        deque.addLast(buyer);
+    static synchronized void addToQueue(Buyer buyer) { //синхронизация по классу or  synchronized(Buyer.class){}
+        if (buyer.getPensioner()){
+            //System.out.println("pensioneraddddddddddddddddddddddddddddddd");
+
+            while (deque.size()>0){
+                if(deque.getFirst().getPensioner())
+                    dequePensioners.addLast(deque.pollFirst());
+                else break;
+            }
+            deque.addFirst(buyer);
+            for (int i = 0; i <  dequePensioners.size(); i++) {
+                deque.addFirst(dequePensioners.pollLast());
+            }
+        }
+        else
+            deque.addLast(buyer);
 
         Manager.setSize((int) Math.ceil(deque.size()/5.0));
 
@@ -34,12 +50,19 @@ public class BuyerQueue {
             coutCas = five;
         }*/
         Buyer buyer = deque.pollFirst();
-        Manager.setSize((int) Math.ceil(deque.size()/5.0));
+        Manager.setSize((int) Math.ceil(deque.size()/5.0));///////////////////////////
         return buyer;///removeFirst();
     }
 
+    public static void addSum(double sum){
+        sumMarket += sum;
+    }
 
-    static  synchronized int getSize(){
-        return coutCas;
+    public static double getSumMarket(){
+        return  sumMarket;
+    }
+
+    static synchronized int getSize(){
+        return deque.size();
     }
 }
