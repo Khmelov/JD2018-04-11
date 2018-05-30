@@ -1,5 +1,8 @@
 package by.it.zaliashchonak.jd02_01;
 
+
+
+
 public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     public Buyer(int number) {

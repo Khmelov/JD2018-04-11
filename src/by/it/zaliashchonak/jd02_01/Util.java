@@ -1,4 +1,6 @@
 package by.it.zaliashchonak.jd02_01;
+
+
 import java.util.Random;
 
 class Util {
