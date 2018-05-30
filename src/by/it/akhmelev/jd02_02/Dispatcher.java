@@ -1,5 +1,7 @@
 package by.it.akhmelev.jd02_02;
 
+
+
 class Dispatcher {
 
     private static final Object countMonitor = new Object();
@@ -11,6 +13,7 @@ class Dispatcher {
     static void addBuyer() {
         synchronized (countMonitor) {
             countBuyerInShop++;
+
         }
     }
 
