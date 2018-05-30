@@ -15,18 +15,11 @@ public class Cashier implements Runnable{
 
     //
     private void serveBuyer(Buyer buyer){
-
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         System.out.println(buyer);
         for (String good : buyer.basket) {
             System.out.println(this + " is serving " + buyer);
             System.out.println(good + ": " + Market.goods.get(good));
         }
-        notify();
     }
     public void run(){
         System.out.println(name + " opened the counter");
