@@ -6,7 +6,7 @@ class Threads_01_Thread {
         @Override
         public void run() { //метод run должен обязательно быть у каждого потока
             for (int i = 0; i < 10; i++) { //это тело потока.
-                System.out.println(this.getName()+"Цикл №"+i);
+                System.out.println(this.getState()+"Цикл №"+i);
                 try {
                     sleep((int)(Math.random()*1000)); // остановка на 0..999 миллисекунд
                     yield(); //так можно указать, что поток желает временно отдать

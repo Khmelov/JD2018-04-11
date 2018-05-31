@@ -6,11 +6,14 @@ package by.it.rogov.jd02_02;
 
     private int number;
     private String name;
-    private boolean openCashier;
+     private volatile boolean openCashier4;
+     private volatile boolean openCashier5;
+     private volatile boolean openCashier3;
+     private volatile boolean openCashier2;
 
     Cashiers(int number) {
         this.number = number;
-        this.openCashier=false;
+
         name = "Кассир №" + number;
 
     }
@@ -18,87 +21,83 @@ package by.it.rogov.jd02_02;
 
     @Override
     public void run() {
-
+        System.out.println(name+ " открыл кассу");
         while (Dispetcher.openMarket()) {
             Buyer buyer = BuyerQueue.extractBuyerFromEqeue();
-            if((BuyerQueue.sizeBuyerInEque()>20)&&number==5){
-                if(!openCashier) {
-                    System.out.println(this + " открыл кассу");
-                    openCashier = true;
-                }
-
-
-//            }else if(BuyerQueue.sizeBuyerInEque()<15&&name.equals("Кассир №4")){
-//                if(!openCashier) {
-//                    System.out.println(this + "открыл кассу");
-//                    openCashier=true;
-//                }
-//                try {
-//                    this.wait();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }else if(BuyerQueue.sizeBuyerInEque()<10&&name.equals("Кассир №3")){
-//                if(!openCashier) {
-//                    System.out.println(this + "открыл кассу");
-//                    openCashier=true;
-//                }
-//                try {
-//                    this.wait();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }else if(BuyerQueue.sizeBuyerInEque()<5&&name.equals("Кассир №2")){
-////                if(!openCashier) {
-////                    System.out.println(this + "открыл кассу");
-////                    openCashier=true;
-////                }
-////                try {
-////                    this.wait();
-////                } catch (InterruptedException e) {
-////                    e.printStackTrace();
-////                }
-//            }else if(BuyerQueue.sizeBuyerInEque()<0&&name.equals("Кассир №1")){
-//                if(!openCashier) {
-//                    System.out.println(name + "открыл кассу");
-//                    openCashier=true;
-//                }
-//                try {
-//                    this.wait();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-            }else {
-                if(openCashier) {
-                    System.out.println(name + " закрыл кассу");
-                    openCashier = false;
-                }
+            if(number==5&&BuyerQueue.sizeBuyerInEque()<21){
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(2);
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                continue;
+                if(openCashier5) {
+                    System.out.println(name + "закрыл кассу временно");
+                    openCashier5=false;
+                }
+            }else if(number==4&&BuyerQueue.sizeBuyerInEque()<16){
+                try {
+                    Thread.sleep(2);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(openCashier4) {
+                    System.out.println(name + "закрыл кассу временно");
+                    openCashier4=false;
+                }
+            }else if(number==3&&BuyerQueue.sizeBuyerInEque()<11){
+                try {
+                    Thread.sleep(2);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(openCashier3) {
+                    System.out.println(name + "закрыл кассу временно"+BuyerQueue.sizeBuyerInEque());
+                    openCashier3=false;
+                }
+            }else if(number==2&&BuyerQueue.sizeBuyerInEque()<6){
+                try {
+                    Thread.sleep(2);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(openCashier2) {
+                    System.out.println(name + "закрыл кассу временно");
+                    openCashier2=false;
+                }
+            }else if(number==1){
+
+            }else {
+                if(number==5)
+                openCashier5=true;
+                if(number==4)
+                openCashier4=true;
+                if(number==3)
+                openCashier3=true;
+                if (number==2)
+                openCashier2=true;
             }
 
-            if (buyer != null) {
-                System.out.println(this + " обслуживает " + buyer);
-                Util.sleep(Util.rnd(2000, 5000));
-                System.out.println(this + " пробил " + buyer.getGoodsInBacket().replace("{", "[")
-                        .replace("}", "]") + buyer);
-                System.out.printf(this + " завершил обслживание " + buyer + " Итоговая сумма покупoк: %.1f  \n", buyer.sum);
-                Dispetcher.completBuer();
-                synchronized (buyer) {
-                    buyer.notify();
-                }
-            } else
-                Util.sleep(10);
+                if (buyer != null) {
+                    System.out.println(this + " обслуживает " + buyer);
+                    Util.sleep(Util.rnd(2000, 5000));
+                    System.out.println(this + " пробил " + buyer.getGoodsInBacket().replace("{", "[")
+                            .replace("}", "]") + buyer);
+                    System.out.printf(this + " завершил обслживание " + buyer + " Итоговая сумма покупoк: %.1f  \n", buyer.sum);
+                    Dispetcher.completBuer();
+                    synchronized (buyer) {
+                        buyer.notify();
+                    }
+                } else
+                    Util.sleep(10);
+
+            }
+            System.out.println(name + "закрыл кассу" );
 
         }
-
-        System.out.println(name + "закрыл кассу");
-    }
-
     @Override
     public String toString() {
         return name;
