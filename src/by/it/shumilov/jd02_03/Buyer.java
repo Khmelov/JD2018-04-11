@@ -1,10 +1,15 @@
 package by.it.shumilov.jd02_03;
 
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 public class Buyer extends Thread implements IBuyer, IUseBacket {
 
+    private  static Semaphore  semaphoreBacket = new Semaphore(50);
+
+    private  static Semaphore  semaphore = new Semaphore(20);
 
     private HashMap<String,Double> backet = new HashMap<>();
     private boolean pensioneer = false;
@@ -30,18 +35,38 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void run() {
-        enterToMarket();
+
+        try {
+            semaphoreBacket.acquire();
+            enterToMarket();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
+            semaphoreBacket.release();
+        }
         takeBacket();
 
-        for (int i = 0; i < Util.rnd(1,4) ; i++) {
-            int prod = Util.rnd(1, Util.Goods.size());
 
-            Map.Entry<String, Double> product = Util.Goods.entrySet().stream().skip(prod - 1).findFirst().get();
+        try {
+            semaphore.acquire();
 
-            backet.put(product.getKey(),product.getValue());
+            for (int i = 0; i < Util.rnd(1,4) ; i++) {
+                int prod = Util.rnd(1, Util.Goods.size());
 
-            chooseGoods(product.getKey());
-            putGoodsToBacket(product);
+                Map.Entry<String, Double> product = Util.Goods.entrySet().stream().skip(prod - 1).findFirst().get();
+
+                backet.put(product.getKey(),product.getValue());
+
+                chooseGoods(product.getKey());
+                putGoodsToBacket(product);
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
+            semaphore.release();
         }
 
 
@@ -75,6 +100,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
             }
 
         }
+
         ////////////////////////////////////////////////////////////////////////////////////////////
     }
 

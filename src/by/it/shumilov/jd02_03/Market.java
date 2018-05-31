@@ -8,7 +8,7 @@ import java.util.List;
 public class Market {
 
 
-    static List<Buyer> allBuyers = new ArrayList<>();
+
 
 
 
@@ -58,19 +58,19 @@ public class Market {
 
                 if(number%4==0) {
                     if (open(secunda)){
-                        Buyer buyer1 = new Buyer(++number,true);
-                        allBuyers.add(buyer1);
+//                        Buyer buyer1 = new Buyer(++number,true);
+//                        allBuyers.add(buyer1);
                         Dispatcher.addBuyer();
-                        buyer1.start();
+                        new Buyer(++number,true).start();
                     }
                 }
                 else
                 {
                     if (open(secunda)){
-                        Buyer buyer = new Buyer(++number);
-                        allBuyers.add(buyer);
+//                        Buyer buyer = new Buyer(++number);
+//                        allBuyers.add(buyer);
                         Dispatcher.addBuyer();
-                        buyer.start();
+                        new Buyer(++number).start();
                     }
                 }
 
@@ -83,7 +83,7 @@ public class Market {
         }
 
 
-        System.out.println("-----------------------------------------закончил add");
+
 
         try {
             thManager.join();
@@ -91,24 +91,7 @@ public class Market {
             e.printStackTrace();
         }
 
-
-//        for (Thread allBuyer : allBuyers) {
-//            try {
-//                allBuyer.join();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-
-//        Buyer buyer = new Buyer(0);
-//        buyer.start();
-//
-//        try {
-//            buyer.join();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        System.out.println(BuyerQueue.getSize());
+        //System.out.println(BuyerQueue.getSizeP());
         System.out.println("Магазин закрыт");
     }
 
@@ -118,14 +101,14 @@ public class Market {
 
 
 
-            if(secunda <30){
-                if(allBuyers.size() >= (secunda+10))
-                    res = true;
-            }
-            else {
-                if(allBuyers.size() <= (70 - secunda))
-                    res = true;
-            }
+        if(secunda <30){
+            if( Dispatcher.getcountBuyerInShop() >= (secunda+10))
+                res = true;
+        }
+        else {
+            if(Dispatcher.getcountBuyerInShop() <= (70 - secunda))
+                res = true;
+        }
 
         return res;
     }

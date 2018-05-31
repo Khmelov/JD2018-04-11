@@ -1,5 +1,8 @@
 package by.it.shumilov.jd02_03;
 
+
+
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,10 +21,13 @@ public class Cashier extends Thread{
 
     @Override
     public void run() {
+
         System.out.println("Открыл кассу " + number);
 
         while (open && Dispatcher.openedMarket()){/////////////////////////////////////
             Buyer buyer = BuyerQueue.extractBuyerFromQueue();
+
+
             if(buyer !=null){
                 int sizeQueue = BuyerQueue.getSize();
                 String indent = "|";
@@ -50,7 +56,7 @@ public class Cashier extends Thread{
 
 
 
-                    ConcurrentHashMap<String,Double> backet = new ConcurrentHashMap(buyer.getBacket());
+                    HashMap<String,Double> backet = new HashMap(buyer.getBacket()); //// concurent?
 
                     System.out.println(indent+"--------------------------|" +indentEnd + "--------------|--------------------");
                     System.out.printf(indent  + "%26s|" + indentEnd + "--------------|--------------------\n",buyer);
@@ -83,9 +89,18 @@ public class Cashier extends Thread{
             else
                 Util.sleep(10);
 
+            if ( (int) Math.ceil(BuyerQueue.getSize()/5.0) < this.number)
+                this.open = false;
         }
 
         System.out.println(name + " закрыл кассу");
+
+        Dispatcher.delCashier();
+
+//        System.out.println("---------------------------------------buers in shop " + Dispatcher.getcountBuyerInShop());
+//        System.out.println("---------------------------------------buers in queue " + BuyerQueue.getSize());
+//        System.out.println("---------------------------------------cassirs " + Dispatcher.getCountCashier());
+//        System.out.println("---------------------------------------open market " + Dispatcher.openedMarket());
     }
     public void closeCassa(){
         this.open = false;

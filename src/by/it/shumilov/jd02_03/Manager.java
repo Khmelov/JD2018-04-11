@@ -1,89 +1,48 @@
 package by.it.shumilov.jd02_03;
 
 
+
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
 
-public class Manager implements  Runnable {
-    private volatile static int count = 0;
-
-    private enum Action {DELETE,ADD,WAIT}
-
-    private static Action action = Action.ADD;
-
-    private  static Deque<Cashier> deque = new LinkedList<>();
-
-    static synchronized void addToQueue(Cashier cashier){ //синхронизация по классу or  synchronized(Buyer.class){}
-
-        deque.addLast(cashier);
-    }
-
-    static synchronized Cashier extractCashierFromQueue(){ //синхронизация по классу or  synchronized(Buyer.class){}
-
-        return  deque.pollLast();  ///removeFirst();
-    }
-
+public class Manager implements Runnable {
 
 
     @Override
     public void run() {
         System.out.println("Манеджер стартанул");
+
+        int maxCountCas  = 2;///////////////count cashier who may work
+        //int schet = 0;
+        ExecutorService executor = Executors.newFixedThreadPool(maxCountCas);
+
+
         while (Dispatcher.openedMarket()){
-            ExecutorService executor = Executors.newFixedThreadPool(5);
-            //System.out.println("----------------------------------------------------------Act "+ action);
 
-            if(action.equals(Action.ADD)){
-                //System.out.println("----------------------------------------------------------Add ");
-                //Thread thCashier = new Thread(new Cashier(++count);)
-                Cashier cashier = new Cashier(++count);
-                //cashier.run();
-                cashier.start();
-                addToQueue(cashier);
-                action = Action.WAIT;
-
+            int sizeBuyerQueue = BuyerQueue.getSize();
+            int count =  Dispatcher.getCountCashier();
+            if((count<maxCountCas ) && ((int) Math.ceil(sizeBuyerQueue/5.0) > count)){
+//                System.out.println("*************************************************** " + ++schet);
+//                System.out.println("*************************************************** " + count + " " + sizeBuyerQueue);
+                executor.execute(new Cashier(++count));
+                Dispatcher.addCashier();
+                Util.sleep(2000);  //пока запуститься создасться много дополнительных Кассиров
             }
-            if(action.equals(Action.DELETE) && count>=2){
-                extractCashierFromQueue().closeCassa();
-                count--;
-                action = Action.WAIT;
-            }
-
-            if(action == Action.WAIT){
-                Util.sleep(10);
-            }
-            else action = Action.WAIT;
-
+            Util.sleep(10);
 
         }
 
+        executor.shutdown();
 
-        extractCashierFromQueue().closeCassa();
-        count--;
 
-        for (Cashier cashier : deque) {
-            try {
-                cashier.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println(deque.size());
-        System.out.println(count);
-        System.out.println(BuyerQueue.getSize());
         System.out.println("Манеджер закончил");
+
+        //executor.shutdownNow();  ///////////крайний случай
     }
-    public static void setSize(int size){
-        if(size > count){
-            action = Action.ADD;
 
-        }
-        else if(size < count){
-            action = Action.DELETE;
-        }
-
-
-    }
 }

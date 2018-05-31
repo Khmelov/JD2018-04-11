@@ -1,5 +1,6 @@
 package by.it.shumilov.jd02_03;
 
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -17,7 +18,7 @@ public class BuyerQueue {
 
     private  static LinkedBlockingDeque<Buyer> deque = new LinkedBlockingDeque<>(30); ///////////////////////////////
 
-    private  static LinkedBlockingDeque<Buyer> dequePensioners = new LinkedBlockingDeque<>();
+    private  static Deque<Buyer> dequePensioners = new LinkedList<>();
 
     //private static
 
@@ -28,22 +29,29 @@ public class BuyerQueue {
 
             while (deque.size()>0){
                 if(deque.getFirst().getPensioner()) {
-                    try {
-                        dequePensioners.putLast(deque.pollFirst());
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                    dequePensioners.addLast(deque.pollFirst());
+
                 }
                 else break;
-                }
+            }
+
+
             try {
                 deque.putFirst(buyer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            for (int i = 0; i <  dequePensioners.size(); i++) {
+
+
+
+            int  sizePensioners = dequePensioners.size();
+            for (int i = 0; i <  sizePensioners; i++) {
                 try {
-                    deque.putFirst(dequePensioners.pollLast());//////////////////////////////////////////////put
+                    Buyer buyer1 = dequePensioners.pollLast();
+                    //System.out.println(buyer1);
+                    //if(!buyer1.equals(null))
+                        deque.putFirst(buyer1);//////////////////////////////////////////////put
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -57,7 +65,7 @@ public class BuyerQueue {
             }
         }
 
-        Manager.setSize((int) Math.ceil(deque.size()/5.0));
+        //Manager.setSize((int) Math.ceil(deque.size()/5.0));
 
         /*int five = (int) Math.ceil(deque.size()/5.0);
         if (five > coutCas){
@@ -69,29 +77,27 @@ public class BuyerQueue {
     }
 
     static Buyer extractBuyerFromQueue(){
-        /*int five = (int) Math.ceil(deque.size()/5.0);
-        if (five < coutCas){
-            coutCas = five;
-        }*/
-        Buyer buyer = deque.pollFirst();
-        Manager.setSize((int) Math.ceil(deque.size()/5.0));///////////////////////////
-        //System.out.println("del");
-        return buyer;///removeFirst();
+
+        return deque.pollFirst();
 
     }
 
     public static void addSum(double sum){
-        //System.out.println("get");
+        //System.out.println("getS");
         sumMarket += sum;
     }
 
     public static double getSumMarket(){
-        //System.out.println("get");
+        //System.out.println("getSM");
         return  sumMarket;
     }
 
     static synchronized int getSize(){
-        //System.out.println("get");
+        //System.out.println("getSi");
         return deque.size();
+    }
+    static synchronized int getSizeP(){
+        //System.out.println("getSi");
+        return dequePensioners.size();
     }
 }
