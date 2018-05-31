@@ -1,4 +1,4 @@
-package by.it.akhmelev.jd02_01;
+package by.it.sharin.jd02_02;
 
 public class Buyer extends Thread implements IBuyer {
 
@@ -11,6 +11,7 @@ public class Buyer extends Thread implements IBuyer {
     public void run() {
         enterToMarket();
         chooseGoods();
+        goToQueue();
         goOut();
     }
 
@@ -24,6 +25,18 @@ public class Buyer extends Thread implements IBuyer {
         int timeout = Util.rnd(500, 2000);
         Util.sleep(timeout);
         System.out.println(this + " выбрал товары");
+    }
+
+    @Override
+    public void goToQueue() {
+        BuyerQueue.addToQueue(this);
+        synchronized (this){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

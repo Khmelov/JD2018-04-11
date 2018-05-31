@@ -1,7 +1,8 @@
-package by.it.akhmelev.jd02_01;
+package by.it.zaliashchonak.jd02_01;
+
+
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Market {
@@ -13,13 +14,18 @@ public class Market {
         int number=0;
         System.out.println("Магазин открыт");
         for (int time = 0; time < 120; time++) {
-            int count=Util.rnd(0,2);
+            int count= Util.rnd(0,2);
             for (int i = 0; i < count; i++) {
                 Buyer buyer = new Buyer(++number);
                 allBuyers.add(buyer);
                 buyer.start();
+                //
             }
-            Util.sleep(1000);
+            try {
+                Thread.sleep(1000/100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         for (Buyer buyer : allBuyers) {
             try {

@@ -1,6 +1,6 @@
-package by.it.akhmelev.jd02_01;
+package by.it.sharin.jd02_02;
 
-class Util {
+public class Util {
 
     private static final int kTime=100;
 

@@ -1,4 +1,4 @@
-package by.it.akhmelev.jd02_01;
+package by.it.krivenkova.jd02_02;
 
 class Util {
 
