@@ -3,17 +3,15 @@ package by.it.tarasiuk.jd02_01;
 import java.util.ArrayList;
 import java.util.List;
 
-class Basket  {
-    private List<String> products = new ArrayList<>();
+class Basket {
+    private List<String> productsInBasket = new ArrayList<>();
 
-    void add(String name) {
-        products.add(name);
+    void addProduct(String productName) {
+        productsInBasket.add(productName);
     }
 
-    public List<String> getProducts() {
-        return products;
+    //может понадобиться для вывода чека
+    public List<String> getProductsInBasket() {
+        return productsInBasket;
     }
-
-
-
 }
