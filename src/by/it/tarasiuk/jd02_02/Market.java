@@ -7,22 +7,26 @@ public class Market {
     private static List<Thread> allThreads = new ArrayList<>();
 
     public static void main(String[] args) {
-        int number = 0;
+        int numberOfBuyers = 0;
+        int numberOfCashiers = 0;
         System.out.println("Магазин открыт");
 
-        for (int i = 1; i <= 2; i++) {
-            Thread thCashier = new Thread(new Cashier(i));
-            thCashier.start();
-            allThreads.add(thCashier);
-        }
+        Thread thCashier = new Thread(new Cashier(++numberOfCashiers));
+        thCashier.start();
+        allThreads.add(thCashier);
 
         while (!Dispatcher.planComplete()) {
             int count = Util.rnd(0, 2);
             for (int i = 0; !Dispatcher.planComplete() && i < count; i++) {
-                Buyer buyer = new Buyer(++number);
+                Buyer buyer = new Buyer(++numberOfBuyers);
                 Dispatcher.addBuyer();
                 allThreads.add(buyer);
                 buyer.start();
+            }
+            if (((BuyerQueue.getSize() / numberOfCashiers) > 5) && numberOfCashiers < 5) {
+                Thread anotherOneCashier = new Thread(new Cashier(++numberOfCashiers));
+                allThreads.add(anotherOneCashier);
+                anotherOneCashier.start();
             }
             Util.sleep(1000);
         }

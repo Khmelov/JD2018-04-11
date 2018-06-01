@@ -28,7 +28,7 @@ public class Cashier implements Runnable {
                 BigDecimal bd =new BigDecimal(totalCost);
                 bd=bd.setScale(2,RoundingMode.DOWN);
                 System.out.println(this +
-                        ": \"Общая стоимость покупок для " + buyer +
+                        ": \n\"Общая стоимость покупок для " + buyer +
                         " составила: " + bd + "\".\n" +
                         this + " завершил обслуживание " + buyer);
                 Dispatcher.completeBuyers();
