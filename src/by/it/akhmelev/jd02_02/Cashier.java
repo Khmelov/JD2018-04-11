@@ -1,5 +1,7 @@
 package by.it.akhmelev.jd02_02;
 
+
+
 class Cashier implements Runnable {
 
     private int number;
