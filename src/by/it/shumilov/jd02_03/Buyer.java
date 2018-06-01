@@ -90,7 +90,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void goToQueue() {
-        System.out.println(this + " встал в очередь++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(this + " встал в очередь");
         BuyerQueue.addToQueue(this);
         synchronized (this){
             try {

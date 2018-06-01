@@ -49,6 +49,13 @@ public class BuyerQueue {
             for (int i = 0; i <  sizePensioners; i++) {
                 try {
                     Buyer buyer1 = dequePensioners.pollLast();
+
+                    while(buyer1 == null){
+                        System.out.println("----------------------------------------------------buyer sleep");
+                        Util.sleep(200);
+                    }
+
+
                     //System.out.println(buyer1);
                     //if(!buyer1.equals(null))
                         deque.putFirst(buyer1);//////////////////////////////////////////////put
