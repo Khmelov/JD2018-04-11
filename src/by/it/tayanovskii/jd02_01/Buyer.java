@@ -1,16 +1,16 @@
 package by.it.tayanovskii.jd02_01;
 
-import java.util.ArrayList;
-
 public class Buyer extends Thread implements IBuyer, IUseBacket {
 
-    Goods goods;
-    private ArrayList<String> backet = new ArrayList<>();
 
-    public Buyer(int number, Goods anotherGoods) {
+    private boolean pensioneer=false;
+
+    public Buyer(int number) {
+
         super("Покупатель №" + number);
-        this.goods = anotherGoods;
+        if(number % 4 == 0) pensioneer=true;
     }
+
 
 
     @Override
@@ -29,8 +29,10 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void chooseGoods() {
         int timeout = Util.rnd(500, 2000);
+        if(pensioneer) timeout = Util.rnd(750, 3000);
         Util.sleep(timeout);
         int countGoods = Util.rnd(1, 4);
+        double totalCost=0;
         for (int i = 0; i < countGoods; i++) {
             putGoodsToBacket();
         }
@@ -50,8 +52,8 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void takeBacket() {
         int timeout = Util.rnd(100, 200);
+        if(pensioneer) timeout = Util.rnd(150, 300);
         Util.sleep(timeout);
-        this.backet = new ArrayList<>();
         System.out.println(this + " взял корзину");
 
     }
@@ -59,9 +61,9 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void putGoodsToBacket() {
         int timeout = Util.rnd(100, 200);
+        if(pensioneer) timeout = Util.rnd(150, 300);
         Util.sleep(timeout);
-        String good=goods.putRandomGoods();
-        backet.add(good);
+        String good=Goods.putRandomGoods();
         System.out.println(this + " выбрал " + good);
 
 
