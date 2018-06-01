@@ -47,7 +47,6 @@ class Parser {
 
 
     private Var oneOperation(String left, String op, String right) throws CalcException {
-        // A=1+-2+-3-6*-9-8/-7
         Var two = Var.createVar(right);
         if (op.equals("=")) {
             return Var.saveVar(left, two);
@@ -75,6 +74,7 @@ class Parser {
 
 
     Var calc(String expression) throws CalcException {
+        // A=1+-2+-3-6*-9-8/-7
         operands = new ArrayList<>(
                 Arrays.asList(expression.split(Patterns.OPERATION))
         );
