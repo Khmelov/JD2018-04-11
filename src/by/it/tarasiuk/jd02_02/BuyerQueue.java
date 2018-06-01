@@ -13,8 +13,7 @@ class BuyerQueue {
         deque.addLast(buyer);
     }
 
-    static synchronized Buyer extractBuyerFromQueue() {
-        return deque.pollFirst();
-    }
+    static synchronized Buyer extractBuyerFromQueue() { return deque.pollFirst(); }
 
+    static int getSize() { return deque.size(); }
 }
