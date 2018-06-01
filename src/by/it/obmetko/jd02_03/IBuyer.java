@@ -1,6 +1,6 @@
 package by.it.obmetko.jd01_01;
 
-public interface IBuer {
+public interface IBuyer {
     void chooseGoods();
     void putGoodsToBacket();
     void goQueue();
