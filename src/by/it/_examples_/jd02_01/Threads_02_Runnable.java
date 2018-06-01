@@ -11,16 +11,16 @@ class Threads_02_Runnable {
             //поэтому делаем свое поле для имени потока
         }
 
-        @Override
+
         public void run() {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 10000; i++) {
                 System.out.println(name+" is run. loop:"+i);
                 try {
                     //методы sleep и yield из предыдущего примера у запускаемого
                     //экземпляра отсутствуют и их нельзя вызвать по имени
                     //НО! sleep и yield - статические в классе Thread,
                     //поэтому их можно все равно вызвать
-                    Thread.sleep(7);
+                    Thread.sleep(3);
                     Thread.yield();
                 } catch (InterruptedException e) {
                     System.err.println(e.toString());
@@ -47,12 +47,13 @@ class Threads_02_Runnable {
         System.out.println("one:" + th1.getState() + " two:" + th2.getState());
 
         //приостановка главного потока, пока не завершатся два созданных
-        th2.join(); //порядок приостановки неважен
-        th1.join(); //потому что, см. ниже
+        th2.sleep(3000); //порядок приостановки неважен
+
+//        th1.join(); //потому что, см. ниже
         System.out.println("one:" + th1.getState() + " two:" + th2.getState());
         System.out.println("Все потоки завершены");
-        th1.join(); //методы join доступны даже после завершения потока
-        th2.join(); //т.к. экземпляры завершенных объектов еще есть в памяти
+//        th1.join(); //методы join доступны даже после завершения потока
+//        th2.join(); //т.к. экземпляры завершенных объектов еще есть в памяти
                     //но они мгновенно отдают управление
         System.out.println("Конец");
 

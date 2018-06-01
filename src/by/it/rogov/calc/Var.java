@@ -1,16 +1,33 @@
 package by.it.rogov.calc;
 
-import by.it._examples_.jd01_11.Generics.Demo;
 
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
 class Var implements Operation {
 
-    private static Map<String, Var> vars = new HashMap<>();
+     static Map<String, Var> vars = new HashMap<>();
+     static    String filename= Path.path("vars.txt");
 
-    static Var saveVar(String key, Var var) {
+     static Var saveVar(String key, Var var) {
         vars.put(key, var);
+        try(
+                PrintWriter printWriter = new PrintWriter(
+                        new FileWriter(filename))
+                ) {
+            for (Map.Entry<String, Var> stringVarEntry : vars.entrySet()) {
+
+                printWriter.println(stringVarEntry.getKey()+"="+stringVarEntry.getValue());
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return var;
     }
 

@@ -8,6 +8,7 @@ public class TaskA {
 
      static String path(Class<?> cl) {
         String rootPrj = System.getProperty("user.dir");
+         System.out.println(rootPrj);
         String path = cl.getName()
                 .replaceAll(cl.getSimpleName(), "")
                 .replace('.', File.separator.charAt(0));

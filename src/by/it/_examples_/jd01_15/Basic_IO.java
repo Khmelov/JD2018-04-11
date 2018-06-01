@@ -5,9 +5,10 @@ import java.util.*;
 
 public class Basic_IO {
     public static void main(String[ ] args) throws IOException {
-        String src=System.getProperty("user.dir")+"/src/by/it/akhmelev/";
-        String fileInTxt = src+"jd01_15/in.txt";
+        String src=System.getProperty("user.dir")+"\\src\\by\\it\\examples\\jd01_15";
 
+        String fileInTxt = src+"\\in.txt";
+        System.out.println(src);
         //объявим коллекцию строк, со своим вариантом преобразования в строку
         List<String> txtLn=new ArrayList<String>(){
             @Override //вспомогательный анонимный класс,
