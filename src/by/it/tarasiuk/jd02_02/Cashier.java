@@ -1,5 +1,8 @@
 package by.it.tarasiuk.jd02_02;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Cashier implements Runnable {
 
     private int number;
@@ -18,7 +21,16 @@ public class Cashier implements Runnable {
             if (buyer != null) {
                 System.out.println(this + " обслуживает " + buyer);
                 Util.sleep(Util.rnd(2000, 5000));
-                System.out.println(this + " завершил обслуживание " + buyer);
+                double totalCost = 0;
+                for (int i = 0; i < buyer.giveProducts().size(); i++) {
+                    totalCost += Goods.goodsInMarket.get(buyer.giveProducts().get(i));
+                }
+                BigDecimal bd =new BigDecimal(totalCost);
+                bd=bd.setScale(2,RoundingMode.DOWN);
+                System.out.println(this +
+                        ": \"Общая стоимость покупок для " + buyer +
+                        " составила: " + bd + "\".\n" +
+                        this + " завершил обслуживание " + buyer);
                 Dispatcher.completeBuyers();
                 synchronized (buyer) {
                     buyer.notify();

@@ -76,6 +76,10 @@ class Buyer extends java.lang.Thread implements IBuyer, IUseBasket {
         }
     }
 
+    List<String> giveProducts() {
+        return basket.getProductsInBasket();
+    }
+
     @Override
     public void goToOut() {
         System.out.println(this + " вышел из магазина");

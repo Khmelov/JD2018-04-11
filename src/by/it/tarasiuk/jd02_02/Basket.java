@@ -10,8 +10,7 @@ class Basket {
         productsInBasket.add(productName);
     }
 
-    //может понадобиться для вывода чека
-    public List<String> getProductsInBasket() {
+    List<String> getProductsInBasket() {
         return productsInBasket;
     }
 }
