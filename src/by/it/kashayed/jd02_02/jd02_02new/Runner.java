@@ -1,9 +1,7 @@
 package by.it.kashayed.jd02_02.jd02_02new;
 
 import java.util.ArrayList;
-
 import java.util.List;
-import java.util.Scanner;
 
 class Runner {
 
@@ -16,9 +14,6 @@ class Runner {
         int number=1;
         System.out.println("Магазин открыт");
 
-        for (int i = 1; i <=2 ; i++) {
-
-        }
         Thread cashier = new Thread(new Cashier(1));
         Thread cashier2 = new Thread(new Cashier(2));
         cashier.start();

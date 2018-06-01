@@ -2,6 +2,8 @@ package by.it.kashayed.jd02_03;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 class Runner {
 
@@ -10,16 +12,15 @@ class Runner {
 
     public static void main(String[] args) {
 
-        //Goods.food();
+
         int number=1;
         System.out.println("Магазин открыт");
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+            executor.execute(new Cashier(1));
 
-        for (int i = 1; i <=2 ; i++) {
-
-        }
-        Thread cashier = new Thread(new Cashier(1));
-        Thread cashier2 = new Thread(new Cashier(2));
-        cashier.start();
+//        Thread cashier = new Thread(new Cashier(1));
+//        Thread cashier2 = new Thread(new Cashier(2));
+//        cashier.start();
         while(!Dispatcher.planComplete()) {
             int count = Rnd.rnd(0, 2);
             for (int i = 0; !Dispatcher.planComplete()&& i < count; i++) {
@@ -27,13 +28,16 @@ class Runner {
                 Dispatcher.addBuyer();
                 allBuyer.add(buyer);
                 buyer.start();
+              //  executor.execute(new Run(buyer));
             }
             Rnd.sleep(1000);
         }
         if(BuyerQueue.deque.size()>5){
-            cashier2.start();
+            executor.execute(new Cashier(2));
+//            cashier2.start();
         }
-        else cashier2.stop();
+
+        executor.shutdown();
         for (Buyer buyer : allBuyer) {
             try {
                 buyer.join();

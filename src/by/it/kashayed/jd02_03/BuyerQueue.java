@@ -1,22 +1,23 @@
 package by.it.kashayed.jd02_03;
 
-import java.util.Deque;
-import java.util.LinkedList;
+
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class BuyerQueue {
 
-        static Deque<Buyer> deque = new LinkedList<>();
+    static LinkedBlockingDeque<Buyer> deque = new LinkedBlockingDeque<>(30);
 
         static void addToQueue(Buyer buyer){
-            synchronized (deque) {
-                deque.addLast(buyer);
+                try {
+                    deque.putLast(buyer);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-            }
         }
         static  Buyer extractBuyerFromQueue(){
-            synchronized (deque) {
+
               return  deque.pollFirst();
 
-            }
         }
 }

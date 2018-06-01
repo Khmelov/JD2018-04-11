@@ -1,31 +1,32 @@
 package by.it.kashayed.jd02_03;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Dispatcher {
 
-    static private final Object objMonitor=new Object();
 
     private static final int planCount=100;
-    private static volatile int countBuyerInSHop=0;
-    private static volatile int countBuyerComplete=0;
+    private static AtomicInteger countBuyerInSHop=new AtomicInteger(0);
+    private static  AtomicInteger countBuyerComplete=new AtomicInteger(0);
 
 
     static void addBuyer(){
-        synchronized (objMonitor){
-            countBuyerInSHop++;
-        }
+
+            countBuyerInSHop.getAndIncrement();
+
     }
     static void completeBuyer(){
-        synchronized (objMonitor){
-            countBuyerInSHop--;
-            countBuyerComplete++;
-        }
+
+            countBuyerInSHop.getAndDecrement();
+            countBuyerComplete.getAndIncrement();
+
     }
 
     static boolean shopOpened(){
-        return countBuyerComplete<planCount;
+        return countBuyerComplete.get()<planCount;
     }
 
     static boolean planComplete(){
-       return (countBuyerInSHop+countBuyerComplete)>=planCount;
+       return (countBuyerInSHop.get()+countBuyerComplete.get())>=planCount;
     }
 }

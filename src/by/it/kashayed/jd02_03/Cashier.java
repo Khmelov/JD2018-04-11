@@ -20,7 +20,7 @@ public class Cashier implements Runnable {
 
                 System.out.println(this+" обслуживает клиента "+ buyer);
                 Rnd.sleep(Rnd.rnd(2000,5000));
-                System.out.println(buyer+" Сумма чека = "+Goods.sum);
+                System.out.println(buyer+" сумма чека = "+Goods.sum);
                 System.out.println(this+" обслужил клиента "+ buyer);
                 Dispatcher.completeBuyer();
                 synchronized (buyer){
