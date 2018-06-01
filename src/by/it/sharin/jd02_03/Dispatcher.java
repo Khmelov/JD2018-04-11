@@ -1,32 +1,28 @@
 package by.it.sharin.jd02_03;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Dispatcher {
 
-    private static final Object countMonitor = new Object();
-
     private static final Integer planCount = 100;
-    private static volatile int countBuyerInShop = 0;
-    private static volatile int countBuyerComplete = 0;
+    private static AtomicInteger countBuyerInShop = new AtomicInteger(0);
+    private static AtomicInteger countBuyerComplete = new AtomicInteger(0);
 
     static void addBuyer() {
-        synchronized (countMonitor) {
-            countBuyerInShop++;
-        }
+        countBuyerInShop.incrementAndGet();
     }
 
     static void completeBuyer() {
-        synchronized (countMonitor) {
-            countBuyerInShop--;
-            countBuyerComplete++;
-        }
+        countBuyerInShop.decrementAndGet();
+        countBuyerComplete.incrementAndGet();
     }
 
     static boolean openedMarket(){
-        return (countBuyerComplete<planCount);
+        return (countBuyerComplete.get()<planCount);
     }
 
     static boolean planComplete() {
-        return (countBuyerComplete + countBuyerInShop) >= planCount;
+        return (countBuyerComplete.get() + countBuyerInShop.get()) >= planCount;
     }
 
 

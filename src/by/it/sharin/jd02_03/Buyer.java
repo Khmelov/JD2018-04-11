@@ -30,7 +30,7 @@ public class Buyer extends Thread implements IBuyer {
     @Override
     public void goToQueue() {
         BuyerQueue.addToQueue(this);
-        synchronized (this){
+        synchronized (this) {
             try {
                 wait();
             } catch (InterruptedException e) {

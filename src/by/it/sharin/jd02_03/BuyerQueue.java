@@ -1,22 +1,31 @@
 package by.it.sharin.jd02_03;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.TimeUnit;
 
 public class BuyerQueue {
 
     private BuyerQueue() {
     }
 
-    private static Deque<Buyer> deque = new LinkedList<>();
+    private static LinkedBlockingDeque<Buyer> deque = new LinkedBlockingDeque<>(30);
 
 
-    static synchronized void addToQueue(Buyer buyer) {
-        deque.addLast(buyer);
+    static void addToQueue(Buyer buyer) {
+        try {
+            deque.putLast(buyer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    static synchronized Buyer extractBuyerFromQueue() {
-        return deque.pollFirst();
+    static Buyer extractBuyerFromQueue() {
+        try {
+            return deque.poll(10, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
