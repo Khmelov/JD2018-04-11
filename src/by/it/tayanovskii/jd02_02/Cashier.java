@@ -31,7 +31,7 @@ class Cashier implements Runnable {
             if (Dispatcher.countBuyerInShop<number*5)
             {
                 System.out.println(name + " приостановил работу");
-                Util.sleep(1000);
+                Util.sleep(2000);
             }
 
         }
