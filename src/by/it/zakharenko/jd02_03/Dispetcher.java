@@ -24,7 +24,7 @@ public class Dispetcher {
     }
 
     static boolean openedMarket() {
-        return (countBuyerComplete.get()< planCount);
+        return (countBuyerComplete.get() < planCount);
     }
 
     static boolean planComplete() {
