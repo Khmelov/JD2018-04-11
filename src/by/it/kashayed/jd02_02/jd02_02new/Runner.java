@@ -11,15 +11,17 @@ class Runner {
 
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Goods.food(scanner);
+
+        //Goods.food();
         int number=1;
         System.out.println("Магазин открыт");
 
         for (int i = 1; i <=2 ; i++) {
-           Thread cashier = new Thread(new Cashier(i));
-           cashier.start();
+
         }
+        Thread cashier = new Thread(new Cashier(1));
+        Thread cashier2 = new Thread(new Cashier(2));
+        cashier.start();
         while(!Dispatcher.planComplete()) {
             int count = Rnd.rnd(0, 2);
             for (int i = 0; !Dispatcher.planComplete()&& i < count; i++) {
@@ -30,6 +32,10 @@ class Runner {
             }
             Rnd.sleep(1000);
         }
+        if(BuyerQueue.deque.size()>5){
+            cashier2.start();
+        }
+        else cashier2.stop();
         for (Buyer buyer : allBuyer) {
             try {
                 buyer.join();
@@ -38,6 +44,7 @@ class Runner {
             }
 
         }
+        Rnd.sleep(100);
         System.out.println("Магазин закрыт");
     }
 
