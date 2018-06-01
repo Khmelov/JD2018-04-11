@@ -15,7 +15,7 @@ class Parser {
         Var one=Var.createVar(operands[0]);
 
         if (one==null || two==null)
-            return null; //todo Create error
+            throw new CalcException("Ошибка операции ");
         Pattern pattern=Pattern.compile(Patterns.OPERATION);
         Matcher matcher = pattern.matcher(expression);
         if (matcher.find()){

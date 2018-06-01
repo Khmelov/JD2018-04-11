@@ -24,10 +24,9 @@ public class TaskB {
     //this is a comment
 
     public static void main(String[] args) {
-           //and it is a comment
         File file = new File(str(TaskB.class)+"TaskB.java");
         System.out.println(file);
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();            //and it is a comment
         DataInputStream br = null;
         try {br =new DataInputStream(new BufferedInputStream(
                             new FileInputStream(file)));
@@ -35,15 +34,11 @@ public class TaskB {
                     new PrintStream(
                             new FileOutputStream(str(TaskB.class)+"TaskB.txt"));
 
-
             while(br.available()>0){
                 String s = br.readLine();
-                System.out.println(s);
-                printStream.println(s);
+                Formating.formating(s,printStream);
                 sb.append(s);
             }
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
