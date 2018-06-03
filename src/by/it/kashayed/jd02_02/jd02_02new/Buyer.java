@@ -38,7 +38,8 @@ class Buyer extends Thread implements IBuyer,IUsedBacket {
         int goods = Rnd.rnd(1,4);
         int sleep = Rnd.rnd(100,200);
         Rnd.sleep(goods*sleep);                         //при условии что все товары выбирает одинаково по времени
-        System.out.println(this+ " полоэилв корзину "+goods+" товаров");
+        System.out.println(this+ " полоил в корзину "+goods+" товар(a)"+"\n"+  Goods.food(goods));
+
     }
     @Override
     public void goToQueue() {

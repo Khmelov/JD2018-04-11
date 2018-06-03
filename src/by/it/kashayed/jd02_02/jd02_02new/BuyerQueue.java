@@ -5,11 +5,12 @@ import java.util.LinkedList;
 
 public class BuyerQueue {
 
-        private static Deque<Buyer> deque = new LinkedList<>();
+        static Deque<Buyer> deque = new LinkedList<>();
 
         static void addToQueue(Buyer buyer){
             synchronized (deque) {
                 deque.addLast(buyer);
+
             }
         }
         static  Buyer extractBuyerFromQueue(){
