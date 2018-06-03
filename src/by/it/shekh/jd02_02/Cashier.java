@@ -25,17 +25,14 @@ public class Cashier implements Runnable {
             if (buyer != null) {
                 System.out.println(this + " обслуживает " + buyer);
                 Util.sleep(Util.rnd(2000, 5000));
-                System.out.println(this + " завершил обслуживание " + buyer);
+                System.out.println("\u001B[32m" + "Чек " + buyer + " составил " + buyer.getSum() + "$\n" +
+                        this + " завершил обслуживание " + buyer + "\u001B[0m");
                 Dispetcher.completeBuyer();
-
-
                 synchronized (buyer) {
                     buyer.notify();
                 }
             } else Util.sleep(10);
         }
-
-
         System.out.println(name + " закрыл кассу");
     }
 }

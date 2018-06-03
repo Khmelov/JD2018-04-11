@@ -7,6 +7,15 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     private boolean isPensioner = false;
     private Map<String, Integer> goodsInBasket;
 
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    private double sum=0;
 
     Buyer(int number) {
         super("Покупатель №" + number);
@@ -14,7 +23,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
             isPensioner = true;
     }
 
-    public boolean isPensioner() {
+    private boolean isPensioner() {
         return isPensioner;
     }
 
@@ -34,7 +43,11 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void takeBasket() {
-        int timeout = Util.rnd(100, 200);
+        int timeout;
+        if (isPensioner())
+            timeout = Util.rnd(200, 400);
+        else
+            timeout = Util.rnd(100, 200);
         Util.sleep(timeout);
         goodsInBasket = new HashMap<String, Integer>();
         System.out.println(this + " взял корзину");
@@ -45,19 +58,28 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public void chooseGoods() {
         String goodName;
-        int timeout = Util.rnd(500, 2000);
+        int timeout;
+        if (isPensioner())
+            timeout = Util.rnd(1000, 4000);
+        else
+            timeout = Util.rnd(500, 2000);
         for (int i = 0; i < Util.rnd(1, 5); i++) {
             Util.sleep(timeout);
             goodName = Goods.getRndProduct();
             putGoodsToBasket(goodName);
-            System.out.println(goodName + " в корзине " + this);
+            setSum(Goods.getGoodPrice(goodName)+getSum());
+            System.out.println(goodName + " по цене " + Goods.getGoodPrice(goodName) + "$ в корзине " + this);
         }
         System.out.println(this + " выбрал товары");
     }
 
     @Override
     public void putGoodsToBasket(String pr) {
-        int timeout = Util.rnd(100, 200);
+        int timeout;
+        if (isPensioner())
+            timeout = Util.rnd(200, 400);
+        else
+            timeout = Util.rnd(100, 200);
         Util.sleep(timeout);
         if (!goodsInBasket.containsKey(pr))
             goodsInBasket.put(pr, 1);
@@ -69,7 +91,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public void goToQueue() {
         BuyerQueue.addToQueue(this);
-        synchronized (this){
+        synchronized (this) {
             try {
                 wait();
             } catch (InterruptedException e) {

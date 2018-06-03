@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class BuyerQueue {
 
-    private static Deque<Buyer> deque = new LinkedList<>();
+    static Deque<Buyer> deque = new LinkedList<>();
 
     static synchronized void addToQueue(Buyer buyer) {
         // можно synchronized(BuyerQueue.class){

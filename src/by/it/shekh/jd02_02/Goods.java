@@ -24,4 +24,13 @@ public class Goods {
         int rndNum = Util.rnd(0, valuesList.size() - 1);
         return valuesList.get(rndNum);
     }
+
+    static double getGoodPrice(String goodName) {
+        for (Map.Entry<String, Double> mapset : goodsMap.entrySet()) {
+            if (mapset.getKey().equals(goodName))
+                return mapset.getValue();
+
+        }
+        return 0;
+    }
 }
