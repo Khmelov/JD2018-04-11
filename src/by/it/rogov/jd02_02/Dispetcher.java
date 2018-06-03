@@ -1,4 +1,4 @@
-package by.it.rogov.jd02_02;
+package by.it.rogov.jd02_03;
 
  class Dispetcher {
     private static final Object synchronMonitor = new Object();
