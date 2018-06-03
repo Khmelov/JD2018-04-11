@@ -1,4 +1,4 @@
-package by.it.kashayed.jd02_02.jd02_02new;
+package by.it.kashayed.jd02_03;
 
 import java.util.HashMap;
 

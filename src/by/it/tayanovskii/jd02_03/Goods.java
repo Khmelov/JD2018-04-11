@@ -1,11 +1,12 @@
-package by.it.tayanovskii.jd02_01;
+package by.it.tayanovskii.jd02_03;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 class Goods {
 
-    static private HashMap<String, Double> goods = new HashMap<>();
+    static private ConcurrentHashMap<String, Double> goods = new ConcurrentHashMap<>();
 
     Goods() {
         goods.put("хлеб", 1.0);
@@ -18,16 +19,16 @@ class Goods {
         goods.put("вода", 1.11);
     }
 
-    static String putRandomGoods() {
+
+    static  Map.Entry<String, Double> getRandomGoods()
+    {
         int randomIndex = Util.rnd(0, goods.size() - 1);
-        String result = "";
         for (Map.Entry<String, Double> entry : goods.entrySet()) {
             if (randomIndex == 0)
-                result = entry.getKey() + " стоимостью " + entry.getValue() + " BYN ";
+                return entry;
             randomIndex--;
         }
-        return result;
+        return null;
     }
-
 
 }

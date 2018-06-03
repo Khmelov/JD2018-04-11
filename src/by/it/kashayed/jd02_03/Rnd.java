@@ -1,16 +1,13 @@
-package by.it.tayanovskii.jd02_01;
+package by.it.kashayed.jd02_03;
 
-class Util {
-
-    private static final int kTime=1;
+class Rnd {
 
     static int rnd(int start, int stop) {
         return start + ((int) (Math.random() * (stop - start + 1)));
     }
-
-    static void sleep(int timeout) {
+    static void sleep(int sleep){
         try {
-            Thread.sleep(timeout/kTime);
+            Thread.sleep(sleep/100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

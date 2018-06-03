@@ -1,8 +1,8 @@
-package by.it.tayanovskii.jd02_01;
+package by.it.sharin.jd02_03;
 
-class Util {
+public class Util {
 
-    private static final int kTime=1;
+    private static final int kTime=100;
 
     static int rnd(int start, int stop) {
         return start + ((int) (Math.random() * (stop - start + 1)));

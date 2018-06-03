@@ -21,7 +21,7 @@ class Var implements Operation {
             return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
-        return null; //todo Generate Some Error
+        return null;
     }
 
     @Override
