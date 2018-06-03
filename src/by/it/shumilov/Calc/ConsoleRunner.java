@@ -11,7 +11,7 @@ public class ConsoleRunner {
         while (!(line = sc.nextLine()).equals("end")){
             Var var = null;
             try {
-                var = parser.calc(line);
+                var = parser.calc(line.trim());
                 printer.print(var);
             } catch (CalcException e) {
                 System.out.println(e.getMessage());

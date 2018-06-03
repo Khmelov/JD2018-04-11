@@ -21,7 +21,7 @@ class Var implements  Operation {
             return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
-        throw new CalcException("Неизвестный тип переменной " + strVar);  //todo generate Some error(Exc)
+        return  null; //throw new CalcException("Неизвестный тип переменной " + strVar);
     }
 
     @Override
