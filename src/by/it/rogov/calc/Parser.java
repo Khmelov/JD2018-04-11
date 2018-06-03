@@ -16,7 +16,8 @@ class Parser {
         }
 
     };
-     String getWords(String exprexion){
+
+    String getWords(String exprexion) {
         Pattern pattern = Pattern.compile(Patterns.Worlds);
         Matcher matcher = pattern.matcher(exprexion);
         while (matcher.find()) {
