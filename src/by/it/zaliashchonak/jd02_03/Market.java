@@ -1,21 +1,29 @@
-package by.it.zaliashchonak.jd02_02;
+package by.it.zaliashchonak.jd02_03;
 
 
 import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Market {
-    final static private int MAXCASHIERSCOUNT = 5;
+    final static private int MAXCASHIERS = 2;
     static AtomicInteger cashiersOnDuty = new AtomicInteger(0);
     static private LinkedList<Thread> cashiers = new LinkedList<>();
 
+
+
     public static void main(String[] args) {
-        cashierStarter();
+        ExecutorService service= Executors.newFixedThreadPool(2);
+        for (int i = 1; i <= 2; i++) {
+            service.execute(new Cashier(i));
+        }
+
         Printer pr = new Printer();
         pr.start();
         while (!Dispatcher.allBuyersInShop()) {
-            Util.sleep(1000/100);
+            Util.sleep(1000);
             int count = Util.random(0, 2);
             for (int i = 0; i <= count; i++) {
                 if (Dispatcher.allBuyersInShop())
@@ -23,6 +31,7 @@ public class Market {
                 Buyer buyer = Dispatcher.addNewBuyer();
                 buyer.start();
                 Buyer.buyers.add(buyer);
+
             }
         }
 
@@ -34,7 +43,8 @@ public class Market {
                 e.printStackTrace();
             }
         }
-        Util.sleep(100/10);
+        Util.sleep(100);
+        service.shutdown();
     }
 
     synchronized public static int countBuyers() throws ConcurrentModificationException{
@@ -49,13 +59,6 @@ public class Market {
         return count;
     }
 
-    public static void cashierStarter(){
-        for (int i = 0; i < MAXCASHIERSCOUNT; i++) {
-            Thread cashier = new Thread(new Cashier(i));
-            cashiers.add(cashier);
-            cashier.start();
-        }
-    }
 
     static synchronized private void cashierOnDutyAdd(){
         cashiersOnDuty.getAndIncrement();
@@ -74,20 +77,19 @@ public class Market {
     static synchronized boolean allowWork(boolean bool){
         int onDuty = cashiersOnDuty.get();
         int inQueue = countBuyersInQueue();
-        if (onDuty <= MAXCASHIERSCOUNT) {
+        if (onDuty <= MAXCASHIERS) {
             if (inQueue > 0) {
-                if ((inQueue > onDuty * 5)) {
-                    if (!bool) {
-                        cashierOnDutyAdd();
-                    }
-                    return true;
-                } else {
-                    if (bool) {
-                        cashierOnDutyRemove();
-                    }
-                    return false;
+                if (!bool) {
+                    cashierOnDutyAdd();
                 }
-            }else return false;
+                return true;
+            } else {
+                if (bool) {
+                    cashierOnDutyRemove();
+                }
+                return false;
+
+            }
         } else return false;
     }
 }
