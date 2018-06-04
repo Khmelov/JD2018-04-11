@@ -2,7 +2,7 @@ package by.it.tayanovskii.jd02_01;
 
 class Util {
 
-    private static final int kTime=100;
+    private static final int kTime=1;
 
     static int rnd(int start, int stop) {
         return start + ((int) (Math.random() * (stop - start + 1)));
