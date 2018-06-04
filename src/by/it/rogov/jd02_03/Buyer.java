@@ -1,10 +1,12 @@
-package by.it.rogov.jd02_02;
+package by.it.rogov.jd02_03;
+
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 /**
  * @param
@@ -12,6 +14,8 @@ import java.util.Map;
 
 
 public class Buyer extends Thread implements IBuyer, IUseBacket {
+
+    Semaphore semaphore = new Semaphore(20);
 
     public Buyer(int number) {
         super("Покупатель №" + number);
@@ -23,12 +27,20 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void run() {
+        try {
+            semaphore.acquire();
         enterToMarket();
         takeBacket();
         chooseGoods();
         putGoodsToBacket();
         goToDeque();
         goOut();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    finally {
+            semaphore.release();
+        }
     }
 
     public String getGoodsInBacket() {
@@ -52,7 +64,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void goToDeque() {
         BuyerQueue.addEqeue(this);
-        System.out.println(this+ " стал в  очередь "+BuyerQueue.sizeBuyerInEque());// add Buyer in qeue and wait when Cashier wake up his
+        System.out.println(this+ " стал в  очередь "+ BuyerQueue.sizeBuyerInEque());// add Buyer in qeue and wait when Cashier wake up his
         synchronized (this) {
             try {
                 wait();
@@ -80,7 +92,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     @Override
-    public synchronized void putGoodsToBacket() {
+    public void putGoodsToBacket() {
         int amountGoods = Util.rnd(1, 4);
 
         for (int i = 0; i < amountGoods; i++) {
