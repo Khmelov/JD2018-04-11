@@ -1,4 +1,4 @@
-package by.it.mokhart.jd02_01;
+package by.it.mokhart.jd02_02;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     private boolean pensioneer = false;
+    Map<String, Integer> buy = new HashMap<>();
 
     public Buyer(int number) {
         super("Покупатель №" + number);
@@ -20,6 +21,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         takeBasket();
         chooseGoods();
         putGoodsToBasket();
+        goToQueue();
         goOut();
     }
 
@@ -70,8 +72,28 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     }
 
     @Override
+    public void goToQueue() {
+        BuyerQueue.addToQueue(this);
+        synchronized (this) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public void goOut() {
         System.out.println(this + " вышел из магазина");
+    }
+
+    public double totalCheque() {
+        double cheque = 0;
+        for (double price : buy.values()){
+            cheque = cheque + price;
+        }
+        return cheque;
     }
 
     @Override
