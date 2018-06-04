@@ -1,0 +1,3 @@
+msg.welcome=Прывiтанне!
+msg.question=Як справы?
+res.name=Улад Шарын

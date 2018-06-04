@@ -1,0 +1,3 @@
+msg.welcome=Welcome!
+msg.question=How do you do?
+res.name=Vlad Sharin

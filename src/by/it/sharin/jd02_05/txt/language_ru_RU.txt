@@ -1,0 +1,3 @@
+msg.welcome=Привет!
+msg.question=Как дела?
+res.name=Влад Шарин
