@@ -1,4 +1,4 @@
-package by.it.tarasiuk.jd02_02;
+package by.it.tarasiuk.jd02_03;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
