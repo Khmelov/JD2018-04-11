@@ -1,23 +1,36 @@
 package by.it.rogov.jd02_03;
 
-import java.util.Deque;
-import java.util.LinkedList;
 
- class BuyerQueue {
+
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.TimeUnit;
+
+class BuyerQueue {
     private BuyerQueue() {
     }
 
-    private static Deque<Buyer> eqeue = new LinkedList<>();
+    private static LinkedBlockingDeque<Buyer> eqeue = new LinkedBlockingDeque<>(30);
 
-    static synchronized int sizeBuyerInEque(){
+    static int sizeBuyerInEque() {
+
         return eqeue.size();
     }
-    static synchronized void addEqeue(Buyer buyer) {
-        eqeue.addLast(buyer);
+
+    static  void addEqeue(Buyer buyer) {
+        try {
+            eqeue.putLast(buyer);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    static synchronized Buyer extractBuyerFromEqeue() {
-        return eqeue.pollFirst();
+    static  Buyer extractBuyerFromEqeue() {
+        try {
+            return eqeue.poll(20,TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
 
     }
 }

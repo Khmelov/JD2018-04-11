@@ -1,6 +1,7 @@
 package by.it.rogov.jd02_03;
 
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +53,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     @Override
     public void goToDeque() {
         BuyerQueue.addEqeue(this);
-        System.out.println(this+ " стал в  очередь "+BuyerQueue.sizeBuyerInEque());// add Buyer in qeue and wait when Cashier wake up his
+        System.out.println(this+ " стал в  очередь "+ BuyerQueue.sizeBuyerInEque());// add Buyer in qeue and wait when Cashier wake up his
         synchronized (this) {
             try {
                 wait();
@@ -80,7 +81,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
     }
 
     @Override
-    public synchronized void putGoodsToBacket() {
+    public void putGoodsToBacket() {
         int amountGoods = Util.rnd(1, 4);
 
         for (int i = 0; i < amountGoods; i++) {

@@ -1,13 +1,14 @@
 package by.it.rogov.jd02_03;
 
-import java.util.ArrayList;
+
+
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Market {
-
-    static List<Thread> allThread = new ArrayList<>();
 
     static Map<String, Double> goods = new HashMap<>();
 
@@ -25,30 +26,24 @@ public class Market {
 
         int number = 0;
         System.out.println("Магазин открыт");
-        for (int i = 1; i < 6; i++) {
-            Thread thCashier = new Thread(new Cashiers(i));
-            thCashier.start();
-            allThread.add(thCashier);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        for (int i = 1; i < 2; i++) {
+            executorService.execute(new Cashiers(i));
         }
+        executorService.shutdown();
 
         while (!Dispetcher.planMarket()) {
             int count = Util.rnd(0, 2);
             for (int i = 0; !Dispetcher.planMarket()&&i < count; i++) {
                 Buyer buyer = new Buyer(++number);
                 Dispetcher.addBuyer();
-                allThread.add(buyer);
                 buyer.start();
             }
             Util.sleep(1000);
         }
 
-        for (Thread buyer : allThread) {
-            try {
-                buyer.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        while (!executorService.isTerminated())
+            Util.sleep(20);
         System.out.println("Магазин закрыт");
     }
 }

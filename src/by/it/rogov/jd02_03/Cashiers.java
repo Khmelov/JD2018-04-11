@@ -1,8 +1,9 @@
 package by.it.rogov.jd02_03;
 
+
+
 class Cashiers implements Runnable {
 
-    private static final Object synchronMonitor = new Object();
 
     private int number;
     private String name;

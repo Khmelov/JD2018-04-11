@@ -1,4 +1,4 @@
-package by.it.rogov.jd02_03;
+package by.it.rogov.jd02_02;
 
 import java.util.ArrayList;
 import java.util.HashMap;

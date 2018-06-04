@@ -1,30 +1,32 @@
 package by.it.rogov.jd02_03;
 
- class Dispetcher {
-    private static final Object synchronMonitor = new Object();
+import java.util.concurrent.atomic.AtomicInteger;
+
+class Dispetcher {
+
 
     private static final Integer amountBuyer = 100;
-    private static volatile int amountBuyerInShop = 0;
-    private static volatile int amountBuyerCompled = 0;
+    private static AtomicInteger amountBuyerInShop = new AtomicInteger(0);
+    private static AtomicInteger amountBuyerCompled = new AtomicInteger(0);
 
     static void addBuyer() {
-        synchronized (synchronMonitor) {
-            amountBuyerInShop++;
-        }
+
+            amountBuyerInShop.incrementAndGet();
+
     }
 
     static void completBuer() {
-        synchronized (synchronMonitor) {
-            amountBuyerInShop--;
-            amountBuyerCompled++;
-        }
+
+            amountBuyerInShop.decrementAndGet();
+            amountBuyerCompled.incrementAndGet();
+
     }
 
     static boolean openMarket() {
-        return (amountBuyerCompled < amountBuyer);
+        return (amountBuyerCompled.get() < amountBuyer);
     }
 
     static boolean planMarket() {
-        return ((amountBuyerInShop + amountBuyerCompled) >= amountBuyer);
+        return ((amountBuyerInShop.get() + amountBuyerCompled.get()) >= amountBuyer);
     }
 }

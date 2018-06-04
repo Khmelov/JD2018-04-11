@@ -1,4 +1,4 @@
-package by.it.rogov.jd02_03;
+package by.it.rogov.jd02_02;
 
 public interface IBuyer {
     void enterToMarket();    //вошел в магазин (мгновенно)
