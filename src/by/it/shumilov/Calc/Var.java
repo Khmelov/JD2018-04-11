@@ -21,7 +21,7 @@ class Var implements  Operation {
             return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
-        throw new CalcException("Неизвестный тип переменной " + strVar);  //todo generate Some error(Exc)
+        return  null; //throw new CalcException("Неизвестный тип переменной " + strVar);
     }
 
     @Override
@@ -32,25 +32,25 @@ class Var implements  Operation {
 
     @Override
     public Var add(Var other) throws CalcException {
-        throw new CalcException("Операция сложения "   + this + "+" + other + "невозможена");
+        throw new CalcException("Операция сложения "   + this + "+" + other + " невозможна");
 
     }
 
     @Override
     public Var sub(Var other) throws CalcException {
-        throw new CalcException("Операция вычитания "   + this + "-" + other + "невозможена");
+        throw new CalcException("Операция вычитания "   + this + "-" + other + " невозможна");
 
     }
 
     @Override
     public Var mul(Var other) throws CalcException {
-        throw new CalcException("Операция умножения "   + this + "*" + other + "невозможена");
+        throw new CalcException("Операция умножения "   + this + "*" + other + " невозможна");
 
     }
 
     @Override
     public Var div(Var other) throws CalcException {
-        throw new CalcException("Операция деления "   + this + "/" + other + "невозможена");
+        throw new CalcException("Операция деления "   + this + "/" + other + " невозможна");
 
     }
 }

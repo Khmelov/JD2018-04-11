@@ -150,7 +150,7 @@ class Vector extends Var {
         String delmeter = "";
         for (double v : value) {
             sb.append(delmeter).append(v);
-            delmeter = ", ";
+            delmeter = ",";
         }
         sb.append("}");
         return  sb.toString();
