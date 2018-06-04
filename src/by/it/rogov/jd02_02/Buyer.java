@@ -17,11 +17,9 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         super("Покупатель №" + number);
     }
 
-
     private Map<String, Double> Backet = new HashMap<>(); // карзина покупателя с ценами
     private List<String> goodsMarket = new ArrayList<>(Market.goods.keySet());  //выбранные  товары
     double sum = 0.0;
-
 
     @Override
     public void run() {
@@ -53,7 +51,8 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void goToDeque() {
-        BuyerQueue.addEqeue(this);      // add Buyer in qeue and wait when Cashier wake up his
+        BuyerQueue.addEqeue(this);
+        System.out.println(this+ " стал в  очередь "+BuyerQueue.sizeBuyerInEque());// add Buyer in qeue and wait when Cashier wake up his
         synchronized (this) {
             try {
                 wait();
