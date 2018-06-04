@@ -48,6 +48,9 @@ public class Matrix extends Var {
             return new Matrix(res);
         } else if (other instanceof Matrix) {
             Matrix matrix = ((Matrix) other);
+            if (this.value.length != matrix.value.length || this.value[0].length != matrix.value[0].length) {
+                throw new CalcException("Matrix lengths are not equal");
+            }
             double[][] res = new double[this.value.length][this.value[0].length];
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res[0].length; j++) {
@@ -73,6 +76,9 @@ public class Matrix extends Var {
             return new Matrix(res);
         } else if (other instanceof Matrix) {
             Matrix matrix = ((Matrix) other);
+            if (this.value.length != matrix.value.length || this.value[0].length != matrix.value[0].length) {
+                throw new CalcException("Matrix lengths are not equal");
+            }
             double[][] res = new double[this.value.length][this.value[0].length];
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res[0].length; j++) {
@@ -99,6 +105,9 @@ public class Matrix extends Var {
 
         } else if (other instanceof Vector) {
             Vector vector = ((Vector) other);
+            if(this.value.length!=vector.getValue().length){
+                throw new CalcException("Matrix length and Vector length are not equal");
+            }
             double[] vect = vector.getValue();
             double[] res = new double[this.value.length];
             for (int i = 0; i < this.value.length; i++) {
@@ -110,6 +119,9 @@ public class Matrix extends Var {
 
         } else if (other instanceof Matrix) {
             Matrix matrix = ((Matrix) other);
+            if (this.value.length != matrix.value[0].length) {
+                throw new CalcException("Matrix lengths are not equal");
+            }
             double[][] res = new double[this.value.length][this.value[0].length];
             for (int i = 0; i < this.value.length; i++) {
                 for (int j = 0; j < matrix.value[0].length; j++) {
@@ -127,6 +139,9 @@ public class Matrix extends Var {
     public Var div(Var other) throws CalcException {
         if (other instanceof Scalar) {
             Scalar scalar = ((Scalar) other);
+            if(scalar.getValue()==0){
+                throw new CalcException("Division by zero");
+            }
             double v = scalar.getValue();
             double[][] res = new double[this.value.length][this.value[0].length];
             for (int i = 0; i < res.length; i++) {

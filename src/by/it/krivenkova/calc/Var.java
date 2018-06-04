@@ -1,5 +1,8 @@
 package by.it.krivenkova.calc;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,12 +10,19 @@ class Var implements Operation {
 
     private static Map<String, Var> vars=new HashMap<>();
 
-    static Var saveVar(String key, Var var) {
-        vars.put(key,var);
+    static Var saveVar(String key, Var var) /*throws CalcException */{
+        vars.put(key, var);
+        try (PrintWriter printer = new PrintWriter(new FileWriter(Util.getPathVarsTxt()))) {
+            for (Map.Entry<String, Var> entry : vars.entrySet()) {
+                printer.println(entry.getKey() + "=" + entry.getValue());
+            }
+        } catch (IOException e) {
+                System.out.println();
+        }
         return var;
     }
 
-    static Var createVar(String strVar){
+    static Var createVar(String strVar) /*throws CalcException*/{
         if (strVar.matches(Patterns.SCALAR))
             return new Scalar(strVar);
         else if (strVar.matches(Patterns.VECTOR))
@@ -21,6 +31,8 @@ class Var implements Operation {
             return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
+    //    else
+     //       throw new CalcException("ERROR:  " + strVar);
         return null;
     }
 
@@ -37,19 +49,19 @@ class Var implements Operation {
 
     @Override
     public Var sub(Var other) throws CalcException{
-        System.out.println("Операция вычитания "+this+"+"+other+" невозможна");
+        System.out.println("Операция вычитания "+this+"-"+other+" невозможна");
         return null;
     }
 
     @Override
     public Var mul(Var other) throws CalcException{
-        System.out.println("Операция умножения "+this+"+"+other+" невозможна");
+        System.out.println("Операция умножения "+this+"*"+other+" невозможна");
         return null;
     }
 
     @Override
     public Var div(Var other) throws CalcException{
-        System.out.println("Операция деления "+this+"+"+other+" невозможна");
+        System.out.println("Операция деления "+this+"/"+other+" невозможна");
         return null;
     }
 

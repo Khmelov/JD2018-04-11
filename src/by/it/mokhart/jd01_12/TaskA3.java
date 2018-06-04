@@ -7,7 +7,7 @@ public class TaskA3 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter numbers with + and -, type \"end\" to end");
+        System.out.println("Вводите числа со знаками + и -. После внесения чисел, напишите \"end\", чтобы завершить ввод.");
         ArrayList<Integer> ints = new ArrayList<>();
         String line;
         int pos = 0;

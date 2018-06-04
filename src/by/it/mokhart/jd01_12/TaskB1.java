@@ -9,7 +9,7 @@ public class TaskB1 {
         HashSet<String> hashSet = new HashSet<>();
         List<String> list = new ArrayList<>();
 
-        System.out.println("Enter text");
+        System.out.println("Enter your text using english symbols. Enter \"end\" to finish.");
         String text = "";
         String line;
         while (!(line = scanner.nextLine()).equals("end")) {
