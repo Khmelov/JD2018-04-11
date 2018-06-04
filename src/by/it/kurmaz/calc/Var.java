@@ -1,5 +1,7 @@
 package by.it.kurmaz.calc;
 
+import java.util.Set;
+
 public abstract class Var implements Operation {
 
     static Var createVar(String line) throws CalcException {
@@ -9,8 +11,16 @@ public abstract class Var implements Operation {
             return new Vector(line);
         else if (line.matches(Patterns.MATRIX))
             return new Matrix(line);
-        else
-            throw new CalcException("cannot create " + line);
+        else {
+            Set<String> set = Variables.hashMap.keySet();
+            for (String entry: set) {
+                entry = entry.trim();
+                if (entry.equals(line)) {
+                    return Var.createVar(Variables.hashMap.get(entry).toString());
+                }
+            }
+            return null;
+        }
     }
     
     @Override

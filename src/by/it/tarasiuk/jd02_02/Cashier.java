@@ -3,7 +3,7 @@ package by.it.tarasiuk.jd02_02;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Cashier implements Runnable {
+class Cashier implements Runnable {
 
     private int number;
     private String name;
