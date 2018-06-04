@@ -163,7 +163,7 @@ class Matrix extends Var {
             return new Matrix(res);
         }
         else
-            return super.add(other);
+            return super.div(other);
     }
 
     @Override
