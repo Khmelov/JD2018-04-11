@@ -56,7 +56,7 @@ class Parser {
             List<String> operands = new ArrayList<>(Arrays.asList(line.split(Patterns.BRACKETS)));
             do {
                 String br  = maBrackets.group();
-                System.out.println(br.substring(1,br.length()-1));
+                //System.out.println(br.substring(1,br.length()-1));
                 operands.add(i,this.calc(br.substring(1,br.length()-1)).toString());
                 i += 2;
             }while (maBrackets.find());
