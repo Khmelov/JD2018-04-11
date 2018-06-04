@@ -23,7 +23,7 @@ class Var implements Operation {
         else if (vars.containsKey(strVar)) {
             return vars.get(strVar);
         }
-        else throw new CalcException("Unsupported type");
+        else throw new CalcException("Unsupported type for " + strVar);
     }
 
     @Override

@@ -115,6 +115,24 @@ public class Matrix extends Var {
     }
 
     @Override
+    public Var div(Var other) throws CalcException {
+        double matrix[][] = new double[this.value.length][];
+        if (other instanceof Scalar) {
+
+            for (int i = 0; i < this.value.length; i++)
+                matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
+            double scalar = ((Scalar) other).getValue();
+            for (int i = 0; i < matrix.length; i++) {
+                for (int i1 = 0; i1 < matrix[i].length; i1++) {
+                    matrix[i][i1] /= scalar;
+                }
+            }
+        }
+        return new Matrix(matrix);
+    }
+
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
         String elementDelimiter = "";
