@@ -1,4 +1,4 @@
-package by.it.shekh.jd02_01;
+package by.it.shekh.jd02_02;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,11 +7,20 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     private boolean isPensioner = false;
     private Map<String, Integer> goodsInBasket;
 
-    public Buyer(int number) {
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    private double sum=0;
+
+    Buyer(int number) {
         super("Покупатель №" + number);
         if (number % 4 == 0)
             isPensioner = true;
-
     }
 
     private boolean isPensioner() {
@@ -23,6 +32,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         enterToMarket();
         takeBasket();
         chooseGoods();
+        goToQueue();
         goOut();
     }
 
@@ -30,7 +40,6 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     public void enterToMarket() {
         System.out.println(this + " вошел в магазин");
     }
-
 
     @Override
     public void takeBasket() {
@@ -45,6 +54,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     }
 
+
     @Override
     public void chooseGoods() {
         String goodName;
@@ -57,11 +67,11 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
             Util.sleep(timeout);
             goodName = Goods.getRndProduct();
             putGoodsToBasket(goodName);
-            System.out.println(goodName + " в корзине " + this);
+            setSum(Goods.getGoodPrice(goodName)+getSum());
+            System.out.println(goodName + " по цене " + Goods.getGoodPrice(goodName) + "$ в корзине " + this);
         }
         System.out.println(this + " выбрал товары");
     }
-
 
     @Override
     public void putGoodsToBasket(String pr) {
@@ -79,12 +89,27 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     }
 
     @Override
+    public void goToQueue() {
+        BuyerQueue.addToQueue(this);
+        synchronized (this) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public void goOut() {
         System.out.println(this + " вышел из магазина");
+
     }
 
     @Override
     public String toString() {
         return getName();
     }
+
+
 }

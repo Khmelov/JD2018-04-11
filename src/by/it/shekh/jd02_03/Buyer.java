@@ -1,28 +1,59 @@
-package by.it.shekh.jd02_01;
+package by.it.shekh.jd02_03;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 public class Buyer extends Thread implements IBuyer, IUseBasket {
+
     private boolean isPensioner = false;
     private Map<String, Integer> goodsInBasket;
 
-    public Buyer(int number) {
+    private static Semaphore buyerSemaphore = new Semaphore(20);
+    private static Semaphore basketSemaphore = new Semaphore(50);
+
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    private double sum = 0;
+
+    Buyer(int number) {
         super("Покупатель №" + number);
         if (number % 4 == 0)
             isPensioner = true;
-
     }
 
     private boolean isPensioner() {
         return isPensioner;
     }
 
+
     @Override
     public void run() {
         enterToMarket();
-        takeBasket();
-        chooseGoods();
+        try {
+            basketSemaphore.acquire();//берем разрешение у семафора на взятие корзины
+            takeBasket();
+            try {
+                buyerSemaphore.acquire();
+                chooseGoods();
+                goToQueue();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                buyerSemaphore.release();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            basketSemaphore.release();
+        }
         goOut();
     }
 
@@ -30,7 +61,6 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     public void enterToMarket() {
         System.out.println(this + " вошел в магазин");
     }
-
 
     @Override
     public void takeBasket() {
@@ -45,6 +75,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     }
 
+
     @Override
     public void chooseGoods() {
         String goodName;
@@ -57,11 +88,11 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
             Util.sleep(timeout);
             goodName = Goods.getRndProduct();
             putGoodsToBasket(goodName);
-            System.out.println(goodName + " в корзине " + this);
+            setSum(Goods.getGoodPrice(goodName) + getSum());
+            System.out.println(goodName + " по цене " + Goods.getGoodPrice(goodName) + "$ в корзине " + this);
         }
         System.out.println(this + " выбрал товары");
     }
-
 
     @Override
     public void putGoodsToBasket(String pr) {
@@ -76,6 +107,18 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         else
             goodsInBasket.put(pr, goodsInBasket.get(pr + 1));
         System.out.println(this + " положил товары в корзину");
+    }
+
+    @Override
+    public void goToQueue() {
+        BuyerQueue.addToQueue(this);
+        synchronized (this) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
