@@ -12,6 +12,7 @@ public class Market {
 
     static Map<String, Double> goods = new HashMap<>();
 
+
     public static void main(String[] args) {
         goods.put("Хлеб", 0.7);
         goods.put("Сметана", 1.2);

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 /**
  * @param
@@ -13,6 +14,8 @@ import java.util.Map;
 
 
 public class Buyer extends Thread implements IBuyer, IUseBacket {
+
+    Semaphore semaphore = new Semaphore(20);
 
     public Buyer(int number) {
         super("Покупатель №" + number);
@@ -24,12 +27,20 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
 
     @Override
     public void run() {
+        try {
+            semaphore.acquire();
         enterToMarket();
         takeBacket();
         chooseGoods();
         putGoodsToBacket();
         goToDeque();
         goOut();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    finally {
+            semaphore.release();
+        }
     }
 
     public String getGoodsInBacket() {
