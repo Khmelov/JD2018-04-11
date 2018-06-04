@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Goods {
-    static HashMap<String, Double> goods = new HashMap<>(){
+    static HashMap<String, Double> goods = new HashMap<String, Double>(){
         {
             this.put("Water", 1.5);
             this.put("Bread", 2.22);
