@@ -163,7 +163,7 @@ class Matrix extends Var {
             return new Matrix(res);
         }
         else
-            return super.add(other);
+            return super.div(other);
     }
 
     @Override
@@ -175,9 +175,9 @@ class Matrix extends Var {
             String delmeter = "";
             for (double v : value[i]) {
                 sb.append(delmeter).append(v);
-                delmeter = ", ";
+                delmeter = ",";
             }
-            sb.append("}, ");
+            sb.append("},");
         }
         int del = sb.lastIndexOf(",");
         sb.delete(del, del+2);

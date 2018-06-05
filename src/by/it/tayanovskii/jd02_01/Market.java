@@ -13,7 +13,7 @@ public class Market {
         int number = 0;
         Goods goods = new Goods();
         System.out.println("Магазин открыт");
-        for (int time = 0; time < 120; time++) {
+        for (int time = 0; time < 120; time++){
             int minute = time % 60;
             int count = Util.rnd(0, 2);
             if (minute <= 30 && countBuyersInShop >= (minute + 10)) {

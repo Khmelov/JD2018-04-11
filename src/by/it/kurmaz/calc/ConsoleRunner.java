@@ -13,7 +13,7 @@ public class ConsoleRunner {
         while (!(line = scanner.nextLine()).equals("end")) {
             if (line.equals("yes")) {
                 try {
-                    parser.recover();
+                    Variables.recover();
                 } catch (CalcException e) {
                     System.out.println(e.getMessage());
                     Logger.Log(e.getMessage());
@@ -22,11 +22,20 @@ public class ConsoleRunner {
                 continue;
             }
             else if (line.equals("no")) {
-                System.out.println("Enter a line to calculate, enter a variable, or type \"end\" to exit:");
+                System.out.println("Enter a line to calculate, type \"printvar\", \"sortvar\"  or type \"end\" to exit:");
+                continue;
+            }
+            //line.split("(\\(.+\\))*?");
+            if (line.contains(Patterns.PRINTVAR)) {
+                Variables.printHash();
+                continue;
+            }
+            else if (line.contains(Patterns.SORTVAR)) {
+                Variables.printSort();
                 continue;
             }
             try {
-                Var result = parser.calc(line);
+                String result = parser.processLine(line);
                 if (result == null)
                     printer.varPrint();
                 else
@@ -36,6 +45,6 @@ public class ConsoleRunner {
                 Logger.Log(e.getMessage());
             }
         }
-        parser.save();
+        Variables.save();
     }
 }

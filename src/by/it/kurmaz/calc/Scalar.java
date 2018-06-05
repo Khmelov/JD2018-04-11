@@ -12,13 +12,17 @@ public class Scalar extends Var {
     }
 
     public Scalar (String strScalar) {
+        strScalar = strScalar.replaceAll("\\s", "");
         this.value = Double.parseDouble(strScalar);
     }
 
     @Override
     public Var add(Var other) throws CalcException{
-        if (other instanceof Scalar)
-            return new Scalar(this.value + ((Scalar) other).value);
+        double otherValue;
+        if (other instanceof Scalar) {
+            otherValue = ((Scalar) other).getValue();
+            return new Scalar(this.value + otherValue);
+        }
         else
         return other.add(this);
     }
