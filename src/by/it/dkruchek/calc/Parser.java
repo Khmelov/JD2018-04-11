@@ -8,6 +8,9 @@ import java.util.regex.Pattern;
  * Created by Dmitriy.Kruchek on 5/7/2018.
  */
 public class Parser {
+
+    private static ResMan rm = ResMan.getInstance();
+
     private static Map<String, Integer> priorityMap = new HashMap<String, Integer>()
     {{
 
@@ -59,7 +62,7 @@ public class Parser {
             String left = operands.remove(number);
             String op = operations.remove(number);
             String right = operands.get(number);
-            debug();
+            //debug();
             result = oneOperation(left, op, right);
             operands.set(number, result.toString());
         }
@@ -75,30 +78,24 @@ public class Parser {
     }
 
     private Var oneOperation(String left, String op, String right) throws CalcException{
-//        exp = exp.trim().replaceAll("\\s+", "");
-//        String[] operands = exp.split(Patterns.OPERATION);
+
         Var two = Var.createVar(right);
         if (op.contains("=")){
             return Var.saveVar(left,two);
         }
         Var one = Var.createVar(left);
         if (one == null || two == null){
-            throw new CalcException("One of the operands in NULL");
+            throw new CalcException(rm.getString(ParserError.EMPTY));
         }
 
-//        Pattern pattern = Pattern.compile(Patterns.OPERATION);
-//        Matcher matcher = pattern.matcher(exp);
-//        if (matcher.find()){
-//            String operation = matcher.group();
+        switch (op){
+            case "+": return one.add(two);
+            case "-": return one.sub(two);
+            case "*": return one.mul(two);
+            case "/": return one.div(two);
+        }
 
-            switch (op){
-                case "+": return one.add(two);
-                case "-": return one.sub(two);
-                case "*": return one.mul(two);
-                case "/": return one.div(two);
-            }
-
-            throw new CalcException("неизвестная ошибка");    }
+        throw new CalcException(rm.getString(ParserError.UNKNOWN));    }
 
 
 }
