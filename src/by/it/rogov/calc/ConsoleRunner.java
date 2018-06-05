@@ -10,6 +10,7 @@ public class ConsoleRunner {
         Scanner scanner = new Scanner(System.in);
         String line;
         Parser parser = new Parser();
+//        parser.getWords("e={1,2,3}+1");
         Printer printer = new Printer();
         Log loger = new Log();
         try (
@@ -29,6 +30,10 @@ public class ConsoleRunner {
                 Var var = null;
                 loger.toLog(line);
                 var = parser.calc(line);
+                String string;
+                if( (string=parser.getWords(line))!=null){
+                    printer.print(var,string);
+                }else
                 printer.print(var);
             } catch (CalcException e) {
                 System.out.println(e.getMessage());

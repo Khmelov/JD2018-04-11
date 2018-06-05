@@ -11,9 +11,10 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         super("Покупатель №" + number);
         if (number % 4 == 0)
             isPensioner = true;
+
     }
 
-    public boolean isPensioner() {
+    private boolean isPensioner() {
         return isPensioner;
     }
 
@@ -30,10 +31,28 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
         System.out.println(this + " вошел в магазин");
     }
 
+
+    @Override
+    public void takeBasket() {
+        int timeout;
+        if (isPensioner())
+            timeout = Util.rnd(200, 400);
+        else
+            timeout = Util.rnd(100, 200);
+        Util.sleep(timeout);
+        goodsInBasket = new HashMap<String, Integer>();
+        System.out.println(this + " взял корзину");
+
+    }
+
     @Override
     public void chooseGoods() {
         String goodName;
-        int timeout = Util.rnd(500, 2000);
+        int timeout;
+        if (isPensioner())
+            timeout = Util.rnd(1000, 4000);
+        else
+            timeout = Util.rnd(500, 2000);
         for (int i = 0; i < Util.rnd(1, 5); i++) {
             Util.sleep(timeout);
             goodName = Goods.getRndProduct();
@@ -41,6 +60,22 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
             System.out.println(goodName + " в корзине " + this);
         }
         System.out.println(this + " выбрал товары");
+    }
+
+
+    @Override
+    public void putGoodsToBasket(String pr) {
+        int timeout;
+        if (isPensioner())
+            timeout = Util.rnd(200, 400);
+        else
+            timeout = Util.rnd(100, 200);
+        Util.sleep(timeout);
+        if (!goodsInBasket.containsKey(pr))
+            goodsInBasket.put(pr, 1);
+        else
+            goodsInBasket.put(pr, goodsInBasket.get(pr + 1));
+        System.out.println(this + " положил товары в корзину");
     }
 
     @Override
@@ -51,25 +86,5 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public String toString() {
         return getName();
-    }
-
-    @Override
-    public void takeBasket() {
-        int timeout = Util.rnd(100, 200);
-        Util.sleep(timeout);
-        goodsInBasket = new HashMap<String, Integer>();
-        System.out.println(this + " взял корзину");
-
-    }
-
-    @Override
-    public void putGoodsToBasket(String pr) {
-        int timeout = Util.rnd(100, 200);
-        Util.sleep(timeout);
-        if (!goodsInBasket.containsKey(pr))
-            goodsInBasket.put(pr, 1);
-        else
-            goodsInBasket.put(pr, goodsInBasket.get(pr + 1));
-        System.out.println(this + " положил товары в корзину");
     }
 }

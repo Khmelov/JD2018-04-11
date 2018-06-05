@@ -23,7 +23,6 @@ public class Market {
                 Buyer buyer = Dispatcher.addNewBuyer();
                 buyer.start();
                 Buyer.buyers.add(buyer);
-
             }
         }
 

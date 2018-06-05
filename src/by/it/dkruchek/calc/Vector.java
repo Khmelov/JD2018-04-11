@@ -14,8 +14,8 @@ public class Vector extends Var {
                 .trim()
                 .split(",\\s*");
         value = new double[values.length];
-        for (int i = 0; i < value.length; i++) {
-            value[i] = Double.parseDouble(values[i]);
+        for (int i = 0; i < values.length; i++) {
+            this.value[i] = Double.parseDouble(values[i]);
         }
     }
 
