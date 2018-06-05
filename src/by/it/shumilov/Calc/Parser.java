@@ -61,7 +61,7 @@ class Parser {
                 i += 2;
             }while (maBrackets.find());
 
-            return getBrackets(operands.stream().reduce((s1,s2)->s1+s2).orElse("error"));////////////////////strims
+            return getBrackets(operands.stream().reduce((s1,s2)->s1+s2).orElse("error"));
 
         }
 

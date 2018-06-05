@@ -1,0 +1,17 @@
+op.add=additions
+op.mul=multiplications
+op.div=divisions
+op.sub=subtractions
+op.imp=impossible
+er.er=ERROR:
+er.unproc=Unable to process
+er.unerror=Unknown error
+er.divzero=Division by zero
+msg.abstract=Abstract class
+msg.difvect=different vector lengths
+msg.and=and
+msg.column=there is no compliance with the condition of equality of the number of columns
+msg.row=number of rows
+msg.op=Operation
+res.author=Author code
+res.name=Shumilov Andrei
