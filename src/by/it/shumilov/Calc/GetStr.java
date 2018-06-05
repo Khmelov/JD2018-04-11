@@ -10,7 +10,7 @@ class GetStr {
         private ResourceBundle rb = ResourceBundle.getBundle(path,locale);
 
         private GetStr(){}
-        
+
         static GetStr getInstance(){
             if(instance == null){
                 instance = new GetStr();
