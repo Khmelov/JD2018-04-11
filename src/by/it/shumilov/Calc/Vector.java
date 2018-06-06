@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 class Vector extends Var {
 
+    private GetStr getStr = GetStr.getInstance();
+
     private double[] value;
 
     public double[] getValue() {
@@ -54,7 +56,13 @@ class Vector extends Var {
         }
         else if(other instanceof Vector){
             if (this.value.length != ((Vector) other).value.length)
-                throw new CalcException("Операция сложения невозможна: разные длины векторов " + this.value +" и " + ((Vector) other).value);
+                throw new CalcException(String.format("%s %s %s: %s %s %s",getStr.getString(Message.OP),
+                        getStr.getString(Op.ADD),
+                        getStr.getString(Err.IMP),
+                        getStr.getString(Message.DIFVECT),
+                        this.value,
+                        getStr.getString(Message.AND),
+                        ((Vector) other).value));
             double[] res = Arrays.copyOf(this.value, this.value.length);
 
             for (int i = 0; i < res.length; i++) {
@@ -81,7 +89,13 @@ class Vector extends Var {
         }
         else if(other instanceof Vector){
             if (this.value.length != ((Vector) other).value.length)
-                throw new CalcException("Операция вычитания невозможна: разные длины векторов " + this.value +" и " + ((Vector) other).value);
+                throw new CalcException(String.format("%s %s %s: %s %s %s",getStr.getString(Message.OP),
+                        getStr.getString(Op.SUB),
+                        getStr.getString(Err.IMP),
+                        getStr.getString(Message.DIFVECT),
+                        this.value,
+                        getStr.getString(Message.AND),
+                        ((Vector) other).value));
 
             double[] res = Arrays.copyOf(this.value, this.value.length);
 
@@ -131,7 +145,7 @@ class Vector extends Var {
             double scalar = ((Scalar)other). getValue();
             if (scalar==0)
 
-                throw new CalcException("Деление на ноль");
+                throw new CalcException(getStr.getString(Err.DIVZERO));
             for (int i = 0; i < res.length; i++) {
                 res[i]/=scalar;
             }

@@ -2,6 +2,7 @@ package by.it.shumilov.Calc;
 
 class Scalar extends Var {
 
+    private GetStr getStr = GetStr.getInstance();
     private double value;
 
     public double getValue() {
@@ -51,7 +52,7 @@ class Scalar extends Var {
             double z =((Scalar) other).value;
             if (z==0)
 
-                throw new CalcException("Деление на ноль");
+                throw new CalcException(getStr.getString(Err.DIVZERO));
 
 
         return new Scalar(this.value / z);

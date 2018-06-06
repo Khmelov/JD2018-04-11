@@ -10,7 +10,7 @@ public class ConsoleRunner {
         Parser parser = new Parser();
         Printer printer = new Printer();
         GetStr getStr = GetStr.getInstance();
-        Locale locale ;
+        Locale locale = Locale.getDefault() ;
 
         while (!(line = sc.nextLine()).equals("end")){
 
@@ -18,7 +18,7 @@ public class ConsoleRunner {
                 case "ru": locale = new Locale(line,"RU");break;
                 case "be":locale = new Locale(line,"BY");break;
                 case "en": locale = new Locale(line,"US"); break;
-                default: locale = Locale.getDefault();
+
             }
             getStr.setLocale(locale);
 
@@ -32,4 +32,5 @@ public class ConsoleRunner {
 
         }
     }
+
 }
