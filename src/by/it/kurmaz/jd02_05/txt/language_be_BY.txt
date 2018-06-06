@@ -1,0 +1,4 @@
+msg.welcome=Прывитанне
+msg.question=Кагдзила?
+res.author=Aутар
+res.name=Паулег
