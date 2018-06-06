@@ -8,6 +8,8 @@ import java.util.Map;
  */
 class Var implements Operation {
 
+    private static ResMan rm = ResMan.getInstance();
+
     private  static Map<String, Var> vars = new HashMap<>();
 
     static Var createVar(String strVar) throws CalcException{
@@ -23,7 +25,7 @@ class Var implements Operation {
         else if (vars.containsKey(strVar)) {
             return vars.get(strVar);
         }
-        else throw new CalcException("Unsupported type");
+        else throw new CalcException(rm.getString(VarError.UNSUPPORTED_TYPE) + " " + strVar);
     }
 
     @Override
@@ -35,25 +37,25 @@ class Var implements Operation {
 
     @Override
     public Var add(Var other)  throws CalcException{
-        System.out.println("Операция сложения " + this + " + " + other + " невозможна");
+        System.out.println(rm.getString(VarError.ADD_IMPOSSIBLE) + " " + this + " + " + other);
         return null;
     }
 
     @Override
     public Var sub(Var other)  throws CalcException{
-        System.out.println("Операция вычитания " + this + " + " + other + " невозможна");
+        System.out.println(rm.getString(VarError.SUB_IMPOSSIBLE) + " " + this + " + " + other);
         return null;
     }
 
     @Override
     public Var mul(Var other) throws CalcException{
-        System.out.println("Операция умножения " + this + " + " + other + " невозможна");
+        System.out.println(rm.getString(VarError.MUL_IMPOSSIBLE) + " " + this + " + " + other);
         return null;
     }
 
     @Override
     public Var div(Var other) throws ArithmeticException, CalcException {
-        System.out.println("Операция деления " + this + " + " + other + " невозможна");
+        System.out.println(rm.getString(VarError.DIV_IMPOSSIBLE) + " " + this + " + " + other);
         return null;
     }
 

@@ -12,7 +12,7 @@ public class Parser {
             return Var.saveVar(operand[0],two);
         }
         if (one == null || two == null){
-            return null; //TODO create error
+            throw new CalcException("Один из операндов равен нулю");
         }
         Pattern p = Pattern.compile(Patterns.OPERATION);
         Matcher m = p.matcher(expression);

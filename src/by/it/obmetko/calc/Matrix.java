@@ -1,4 +1,5 @@
 package by.it.obmetko.calc;
+import static by.it.obmetko.calc.ConsoleRunner.rm;
 
 public class Matrix extends Var {
     private double[][] value;
@@ -80,6 +81,7 @@ public class Matrix extends Var {
             if ((this.value.length==((Matrix) other).value.length)&&(this.value[0].length==((Matrix) other).value[0].length))
             {
                 double[][] res= this.value.clone();
+
                 for (int i = 0; i < this.value.length; i++) {
                     res[i]=this.value[i].clone();
                 }
@@ -88,6 +90,7 @@ public class Matrix extends Var {
                         res[i][j]=res[i][j]+((Matrix) other).value[i][j];
                     }
                 }
+
                 return new Matrix(res);
             }
             else return super.add(other);
@@ -181,8 +184,7 @@ public class Matrix extends Var {
                     }
                 }
                 catch (ArithmeticException e){
-                    System.out.println("Попытка разделить матрицу на ноль");
-                    System.out.println(e.getClass()+e.getMessage()+e.getStackTrace());
+                    throw new CalcException(rm.get(Messages.DIVBYZERO));
                 }
             }
             return new Matrix(res);
@@ -201,7 +203,7 @@ public class Matrix extends Var {
                 throw new CalcException();
         }
         catch (CalcException e){
-            System.out.println("Матрицы с такими размерами нельзя перемножить"+e.getMessage());
+            throw new CalcException(rm.get(Messages.MULMATRIX));
         }
 
 

@@ -7,6 +7,8 @@ import java.util.Arrays;
  */
 public class Vector extends Var {
 
+    private static ResMan rm = ResMan.getInstance();
+
     private double[] value;
 
     public Vector(String strVector) {
@@ -14,8 +16,8 @@ public class Vector extends Var {
                 .trim()
                 .split(",\\s*");
         value = new double[values.length];
-        for (int i = 0; i < value.length; i++) {
-            value[i] = Double.parseDouble(values[i]);
+        for (int i = 0; i < values.length; i++) {
+            this.value[i] = Double.parseDouble(values[i]);
         }
     }
 
@@ -41,7 +43,7 @@ public class Vector extends Var {
         }
         else if (other instanceof Vector){
             if (this.value.length != ((Vector) other).value.length){
-                throw new CalcException("Vectors are not the same length");
+                throw new CalcException(rm.getString(VectorError.NOT_EQUAL));
             }
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             for (int i = 0; i < vector.length; i++) {

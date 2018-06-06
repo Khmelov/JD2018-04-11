@@ -26,12 +26,13 @@ class Saver {
         return root + File.separator + "src" + File.separator + path;
     }
 
+    @SuppressWarnings("deprecation")
     static HashMap<String, Var> recover() throws CalcException {
         HashMap<String, Var> hashMap = new HashMap<>();
         String line;
         File recover = new File(getPath(cl) + filename);
         if (!recover.exists())
-            return hashMap;
+            return null;
         try(BufferedReader reader = new BufferedReader( new FileReader(getPath(cl) + filename))) {
             while (reader.ready()) {
                 line = reader.readLine();

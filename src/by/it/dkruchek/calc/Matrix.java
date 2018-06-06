@@ -7,6 +7,8 @@ import java.util.Arrays;
  */
 public class Matrix extends Var {
 
+    private static ResMan rm = ResMan.getInstance();
+
     private double[][] value;
 
     public Matrix(String strMatrix){
@@ -71,7 +73,7 @@ public class Matrix extends Var {
         }
         else if (other instanceof Matrix){
             if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
-                throw new CalcException("Martrices are not the same size");
+                throw new CalcException(rm.getString(MatrixError.NOT_EQUAL));
             }
             return this.add(other.mul(new Scalar(-1)));
         }
@@ -101,7 +103,7 @@ public class Matrix extends Var {
         }
         else if (other instanceof Matrix){
             if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
-                throw new CalcException("Martrices are not the same size");
+                throw new CalcException(rm.getString(MatrixError.NOT_EQUAL));
             }
             double matrix[][] = new double[this.value.length][((Matrix) other).value[0].length];
             for (int i = 0; i < matrix.length; i++)
@@ -112,6 +114,23 @@ public class Matrix extends Var {
             return new Matrix(matrix);
         }
         return super.mul(other);
+    }
+
+    @Override
+    public Var div(Var other) throws CalcException {
+        double matrix[][] = new double[this.value.length][];
+        if (other instanceof Scalar) {
+
+            for (int i = 0; i < this.value.length; i++)
+                matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
+            double scalar = ((Scalar) other).getValue();
+            for (int i = 0; i < matrix.length; i++) {
+                for (int i1 = 0; i1 < matrix[i].length; i1++) {
+                    matrix[i][i1] /= scalar;
+                }
+            }
+        }
+        return new Matrix(matrix);
     }
 
     @Override
