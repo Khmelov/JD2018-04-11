@@ -6,10 +6,17 @@ import java.util.ResourceBundle;
 class GetStr {
         private static GetStr instance;
         String path = "by.it.shumilov.Calc.lang.language";
-        private Locale locale = Locale.getDefault();
-        private ResourceBundle rb = ResourceBundle.getBundle(path,locale);
+        private Locale locale ;
+        private ResourceBundle rb ;
 
-        private GetStr(){}
+        private GetStr(){
+            defaultInstance();
+        }
+
+        private void defaultInstance(){
+            locale = Locale.getDefault();
+            rb = ResourceBundle.getBundle(path,locale);
+        }
 
         static GetStr getInstance(){
             if(instance == null){
@@ -18,7 +25,7 @@ class GetStr {
             return instance;
         }
 
-        String getName(String name){
+        String getString(String name){
             return  rb.getString(name);
         }
 
