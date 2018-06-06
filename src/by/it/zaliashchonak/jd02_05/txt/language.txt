@@ -1,0 +1,4 @@
+msg.welcome=Welcome!
+msg.question=How do you do?
+res.author=Author code
+res.name=Andrey Zaliaschonak
