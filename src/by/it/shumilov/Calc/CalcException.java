@@ -2,16 +2,21 @@ package by.it.shumilov.Calc;
 
 public class CalcException extends Exception {
 
+    private static GetStr getStr = GetStr.getInstance();
+
+
     public CalcException() {
 
     }
 
     public CalcException(String message) {
-        super("ERROR: " + message);
+
+        super(String.format("%s %s",getStr.getString(Err.ERROR), message));
+
     }
 
     public CalcException(String message, Throwable cause) {
-        super("ERROR: " + message, cause);
+        super(String.format("%s %s", getStr.getString(Err.ERROR), message), cause);
     }
 
     public CalcException(Throwable cause) {
