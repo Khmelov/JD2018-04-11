@@ -1,4 +1,4 @@
-package by.it.mokhart.jd02_01;
+package by.it.mokhart.jd02_03;
 
 public class Util {
 
