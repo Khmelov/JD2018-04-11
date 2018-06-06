@@ -2,3 +2,5 @@ msg.welcome=Здравствуйте!
 msg.question=Как дела?
 res.author=Автор кода
 res.name=Тарасюк Виталий
+msg.request=Введите "en","ru","be" для смены языка.
+

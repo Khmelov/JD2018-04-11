@@ -32,6 +32,6 @@ public class Runner {
         System.out.println(rm.getString(Message.WELCOME));
         System.out.println(rm.getString(Message.QUESTION));
         System.out.printf("%s: %s", rm.getString(Res.AUTHOR), rm.getString(Res.NAME));
-        System.out.println(DateFormat.getDateInstance(DateFormat.FULL, Locale.forLanguageTag(args[1])).format(new Date()));
+        System.out.println("\n"+DateFormat.getDateInstance(DateFormat.FULL, Locale.forLanguageTag(args[1])).format(new Date()));
     }
 }
