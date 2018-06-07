@@ -1,0 +1,4 @@
+msg.welcome=Welcome
+msg.question=Howdy?
+res.author=Author
+res.name=Kurmaz
