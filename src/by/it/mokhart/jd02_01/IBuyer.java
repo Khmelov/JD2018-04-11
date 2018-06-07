@@ -7,3 +7,4 @@ public interface IBuyer {
 
     void goOut();
 }
+

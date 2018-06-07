@@ -1,4 +1,4 @@
-package by.it.obmetko.jd01_01;
+package by.it.obmetko.jd02_03;
 
 public interface IBuyer {
     void chooseGoods();
