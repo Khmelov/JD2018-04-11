@@ -8,11 +8,12 @@ public class ConsoleRunner {
     static ResMan resMan = ResMan.getInstance();
 
     public static void main(String[] args) {
+        Logger logger = new Logger();
         Scanner scanner = new Scanner(System.in);
         String line;
-        Printer printer = new Printer();
-        Parser parser = new Parser();
-        System.out.println("Type \"RU\", \"BY\" or \"EN\" to switch language");
+        Printer printer = Printer.getInstance();
+        Parser parser = Parser.getInstance();
+        System.out.println("Type \"RU\", \"BY\" or \"EN\" to switch language, or type \"DEF\" to use default");
         line = scanner.nextLine();
         switch (line){
             case "RU":
@@ -24,9 +25,12 @@ public class ConsoleRunner {
             case "BY":
                 resMan.setLocale(new Locale("be", "BY"));
                 break;
+            case "DEF":
+                break;
         }
-
-        System.out.println(resMan.getString("res.author") + ": " + resMan.getString("res.name"));
+        LogBuilder logBuilder = Math.random() > 0.5? new shortLogBuilder(resMan.getLocale()): new bigLogBuilder(resMan.getLocale());
+        logger.setLogBuilder(logBuilder);
+        logger.start();
         System.out.println(resMan.getString("msg.recover"));
         while (!(line = scanner.nextLine()).equals("end")) {
             if (line.equals("yes")) {
@@ -34,7 +38,7 @@ public class ConsoleRunner {
                     Variables.recover();
                 } catch (CalcException e) {
                     System.out.println(e.getMessage());
-                    Logger.Log(e.getMessage());
+                    logger.createLog(e);
                 }
                 System.out.println(resMan.getString("msg.proceed"));
                 continue;
@@ -57,13 +61,21 @@ public class ConsoleRunner {
                 String result = parser.processLine(line);
                 if (result == null)
                     printer.varPrint();
-                else
+                else {
                     printer.resultPrint(result);
+                    logger.createLog(line + " " + resMan.getString("msg.result") + result);
+                }
             } catch (CalcException e) {
                 System.out.println(e.getMessage());
-                Logger.Log(e.getMessage());
+                logger.createLog(e);
             }
         }
-        Variables.save();
+        try {
+            Variables.save();
+        } catch (CalcException e) {
+            System.out.println(e.getMessage());
+            logger.createLog(e);
+        }
+        logger.finish();
     }
 }
