@@ -1,16 +1,12 @@
 package by.it.kasiyanov.jd02_03;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Market {
     static CopyOnWriteArrayList<Thread> allThreads = new CopyOnWriteArrayList<>();
-    public static ConcurrentMap<String, Double> buying = new ConcurrentHashMap<>();
+    static ConcurrentMap<String, Double> buying = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
         int number = 0;

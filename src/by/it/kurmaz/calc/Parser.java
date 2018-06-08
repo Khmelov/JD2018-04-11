@@ -5,7 +5,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    private static Map<String, Integer> priority = new HashMap<String, Integer>() {
+
+    private static Parser instance;
+
+    private Parser() {}
+
+    static Parser getInstance() {
+        if (instance == null)
+            instance = new Parser();
+        return instance;
+    }
+
+    private Map<String, Integer> priority = new HashMap<String, Integer>() {
         {
             this.put("=", 0);
             this.put("+", 1);
@@ -81,19 +92,15 @@ class Parser {
             switch (operand) {
                 case "+":
                     result = first.add(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
                 case "-":
                     result = first.sub(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
                 case "*":
                     result = first.mul(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
                 case "/":
                     result = first.div(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
             }
         }

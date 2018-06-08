@@ -17,10 +17,11 @@ public class Var implements Operation{
     static Var createVar(String operand) throws CalcExeption{
         operand = operand.trim().replace("\\s", "");
         if (operand.matches(Patterns.SCALAR)) return new Scalar(operand);
-        if (operand.matches(Patterns.VECTOR)) return new Vector(operand);
-        if (map.containsKey(operand)) return map.get(operand);
+        else if (operand.matches(Patterns.VECTOR)) return new Vector(operand);
+        else if (map.containsKey(operand)) return map.get(operand);
         else
-        throw new CalcExeption("невозможно создать "+operand);
+      //  throw new CalcExeption("невозможно создать "+operand);
+        return null;
     }
     @Override
     public String toString() {
