@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://it.by/kurmaz/jd02_07/xmlschema"
+        xmlns:tns="http://it.by/kurmaz/jd02_07/xmlschema"
+        elementFormDefault="qualified">
+    <element name="Clients">
+        <complexType>
+            <sequence>
+                <element name="Client"
+                         type="tns:Client"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Client">
+        <sequence>
+            <element name="Login" type="string" />
+            <element name="Password" type="string" />
+            <element name="Email" type="string" />
+            <element name="Address" type="string" />
+            <element name="Carma" type="string" />
+            <element name="Order" type="tns:Order" />
+        </sequence>
+    </complexType>
+    <complexType name="Order">
+        <sequence>
+            <element name="Cost" type="decimal" />
+            <element name="Goods" type="tns:Goods" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+    <complexType name="Goods">
+        <sequence>
+            <element name="Name" type="string" />
+            <element name="Price" type="decimal" />
+            <element name="Quantity" type="int" />
+            <element name="CatalogIndex" type="int"/>
+        </sequence>
+    </complexType>
+</schema>

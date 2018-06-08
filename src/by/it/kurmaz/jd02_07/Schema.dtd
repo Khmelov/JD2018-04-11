@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Clients (Client)+>
+    <!ELEMENT Client (Login, Password, Email, Address, Carma, Order)>
+        <!ELEMENT Login (#PCDATA)>
+        <!ELEMENT Password (#PCDATA)>
+        <!ELEMENT Email (#PCDATA)>
+        <!ELEMENT Address (#PCDATA)>
+        <!ELEMENT Carma (#PCDATA)>
+        <!ELEMENT Order (Cost, Content)>
+            <!ELEMENT Cost ()>
+            <!ELEMENT Content (Goods)+>
+                <!ELEMENT Goods (Name, Price, Quantity, CatalogIndex)>
+                    <!ELEMENT Name (#PCDATA)>
+                    <!ELEMENT Price ()>
+                    <!ELEMENT Quantity ()>
+                    <!ELEMENT CatalogIndex ()>
