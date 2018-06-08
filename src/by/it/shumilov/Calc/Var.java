@@ -5,6 +5,8 @@ import java.util.Map;
 
 class Var implements  Operation {
 
+    private GetStr getStr = GetStr.getInstance();
+
     private  static Map<String,Var> vars = new HashMap<>();
 
     public static  Var saveVar(String key,Var var){
@@ -27,30 +29,46 @@ class Var implements  Operation {
     @Override
     public String toString() {
 
-        return "Abstract";
+        return getStr.getString(Message.ABSTRACT);
     }
 
     @Override
     public Var add(Var other) throws CalcException {
-        throw new CalcException("Операция сложения "   + this + "+" + other + " невозможна");
+        throw new CalcException(String.format("%s %s %s + %s %s",getStr.getString(Message.OP),
+                                                                getStr.getString(Op.ADD),
+                                                                this,
+                                                                other,
+                                                                getStr.getString(Err.IMP)));
 
     }
 
     @Override
     public Var sub(Var other) throws CalcException {
-        throw new CalcException("Операция вычитания "   + this + "-" + other + " невозможна");
+        throw new CalcException(String.format("%s %s %s + %s %s",getStr.getString(Message.OP),
+                getStr.getString(Op.SUB),
+                this,
+                other,
+                getStr.getString(Err.IMP)));
 
     }
 
     @Override
     public Var mul(Var other) throws CalcException {
-        throw new CalcException("Операция умножения "   + this + "*" + other + " невозможна");
+        throw new CalcException(String.format("%s %s %s + %s %s",getStr.getString(Message.OP),
+                getStr.getString(Op.MUL),
+                this,
+                other,
+                getStr.getString(Err.IMP)));
 
     }
 
     @Override
     public Var div(Var other) throws CalcException {
-        throw new CalcException("Операция деления "   + this + "/" + other + " невозможна");
+        throw new CalcException(String.format("%s %s %s + %s %s",getStr.getString(Message.OP),
+                getStr.getString(Op.DIV),
+                this,
+                other,
+                getStr.getString(Err.IMP)));
 
     }
 }

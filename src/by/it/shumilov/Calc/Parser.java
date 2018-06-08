@@ -5,6 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
+    Logger logger = Logger.getLogger();
+    private GetStr getStr = GetStr.getInstance();
 
     private static Map<String,Integer> priorityMap = new HashMap<String, Integer>(){
         {
@@ -22,11 +24,15 @@ class Parser {
     private List<String> operands;
 
     private void debag(){
-        System.out.print(operands.get(0));
+        String op = operands.get(0);
+        //System.out.print(operands.get(0));
         for (int i = 0; i < operations.size(); i++) {
-            System.out.print(operations.get(i ) + operands.get(i +1));
+             op += operations.get(i ) + operands.get(i +1);
+
+            //System.out.print(operations.get(i ) + operands.get(i +1));
         }
-        System.out.println();
+        //System.out.println();
+        logger.logOperation(op);
     }
 
     private int getNumOp(){
@@ -61,7 +67,7 @@ class Parser {
                 i += 2;
             }while (maBrackets.find());
 
-            return getBrackets(operands.stream().reduce((s1,s2)->s1+s2).orElse("error"));////////////////////strims
+            return getBrackets(operands.stream().reduce((s1,s2)->s1+s2).orElse(getStr.getString(Err.ERROR)));
 
         }
 
@@ -85,16 +91,18 @@ class Parser {
 
         while (operations.size() > 0){
             int num = getNumOp();
+            debag();
             String left = operands.remove(num);
             String op = operations.remove(num);
             String right = operands.get(num);
-            //debag();
+
 
             res = oneOperation(left,op,right);
 
 
             operands.set(num,res.toString());
         }
+
         return  res;
     }
 
@@ -106,7 +114,7 @@ class Parser {
         Var one = Var.createVar(left);
         if (one == null || two==null)
             throw  new  CalcException(
-                    String.format("Невозможно обработать %s%s%s",left, op, right)
+                    String.format("%s %s%s%s",getStr.getString(Err.UNPROC),left, op, right)
             );
                 switch (op){
                     case "+": return  one.add(two);
@@ -116,7 +124,7 @@ class Parser {
                 }
 
         throw new CalcException(
-                String.format("Незвестная ошибка %s%s%s",left, op, right)
+                String.format("%s %s%s%s",getStr.getString(Err.UNERROR),left, op, right)
         );
     }
 
