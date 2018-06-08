@@ -8,6 +8,9 @@ import java.util.regex.Pattern;
  * Created by Dmitriy.Kruchek on 5/7/2018.
  */
 public class Parser {
+
+    private static ResMan rm = ResMan.getInstance();
+    Logger logger = Logger.getLogger();
     private static Map<String, Integer> priorityMap = new HashMap<String, Integer>()
     {{
 
@@ -59,8 +62,10 @@ public class Parser {
             String left = operands.remove(number);
             String op = operations.remove(number);
             String right = operands.get(number);
-            debug();
+            //debug();
+            logger.log(String.format("Trying to calculate: %s %s %s", left, op, right), LogLevel.INFO);
             result = oneOperation(left, op, right);
+            logger.log(String.format("Success, result is %s", result), LogLevel.INFO);
             operands.set(number, result.toString());
         }
         return result;
@@ -75,30 +80,25 @@ public class Parser {
     }
 
     private Var oneOperation(String left, String op, String right) throws CalcException{
-//        exp = exp.trim().replaceAll("\\s+", "");
-//        String[] operands = exp.split(Patterns.OPERATION);
+
         Var two = Var.createVar(right);
         if (op.contains("=")){
             return Var.saveVar(left,two);
         }
         Var one = Var.createVar(left);
         if (one == null || two == null){
-            throw new CalcException("One of the operands in NULL");
+            logger.log(ParserError.EMPTY, LogLevel.ERROR);
+            throw new CalcException(rm.getString(ParserError.EMPTY));
         }
 
-//        Pattern pattern = Pattern.compile(Patterns.OPERATION);
-//        Matcher matcher = pattern.matcher(exp);
-//        if (matcher.find()){
-//            String operation = matcher.group();
-
-            switch (op){
-                case "+": return one.add(two);
-                case "-": return one.sub(two);
-                case "*": return one.mul(two);
-                case "/": return one.div(two);
-            }
-
-            throw new CalcException("неизвестная ошибка");    }
+        switch (op){
+            case "+": return one.add(two);
+            case "-": return one.sub(two);
+            case "*": return one.mul(two);
+            case "/": return one.div(two);
+        }
+        logger.log(ParserError.UNKNOWN, LogLevel.ERROR);
+        throw new CalcException(rm.getString(ParserError.UNKNOWN));    }
 
 
 }

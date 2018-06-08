@@ -5,7 +5,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-    private static Map<String, Integer> priority = new HashMap<String, Integer>() {
+
+    private static Parser instance;
+
+    private Parser() {}
+
+    static Parser getInstance() {
+        if (instance == null)
+            instance = new Parser();
+        return instance;
+    }
+
+    private Map<String, Integer> priority = new HashMap<String, Integer>() {
         {
             this.put("=", 0);
             this.put("+", 1);
@@ -41,7 +52,7 @@ class Parser {
         }
         Var result = calc(expression);
         if (result == null)
-            throw new CalcException("Check expression, calc failed");
+            throw new CalcException(ConsoleRunner.resMan.getString("msg.generalError"));
         return result.toString();
 }
 
@@ -61,7 +72,7 @@ class Parser {
             String right = operands.get(num);
             result = SingleOperation(left, right, op);
             if (result == null)
-                throw new CalcException("Check expression, calc failed");
+                throw new CalcException(ConsoleRunner.resMan.getString("msg.generalError"));
             operands.set(num, result.toString());
         }
         return result;
@@ -71,7 +82,7 @@ class Parser {
         if (operand.equals("=")) {
             Var var = Var.createVar(var2.trim());
             Variables.hashMap.put(var1.trim(), var);
-            System.out.println("Variable " + var1 +  "created");
+            System.out.println(ConsoleRunner.resMan.getString("msg.varCreated") + var1);
             return var;
         }
         Var first = Var.createVar(var1.trim());
@@ -81,19 +92,15 @@ class Parser {
             switch (operand) {
                 case "+":
                     result = first.add(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
                 case "-":
                     result = first.sub(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
                 case "*":
                     result = first.mul(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
                 case "/":
                     result = first.div(second);
-                    Logger.Log(first.toString() + operand + second.toString() + " = " + result.toString());
                     return result;
             }
         }

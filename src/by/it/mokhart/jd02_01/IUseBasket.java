@@ -4,3 +4,4 @@ public interface IUseBasket {
     void takeBasket();
     void putGoodsToBasket();
 }
+

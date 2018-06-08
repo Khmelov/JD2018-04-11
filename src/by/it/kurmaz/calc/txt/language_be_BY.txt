@@ -1,0 +1,11 @@
+msg.recover=Аднавиць тухту з файла? Стукнице "yes" альбо "no"
+msg.proceed=Трэба увесци страку для калькуляцыи, альбо стукнуць "printvar" / "sortvar"  ци "end" каб збегчы
+msg.generalError=Праверай шо ты пишаш, такое не будзе працаваць!
+msg.varCreated=Нешта сахранили:
+msg.divideByZero=Шо ты робиш, дзелиш на нуль?!
+msg.sizeError=Матрыцы ци вектары не саупадаюць па длине!
+msg.operationError=Гэта не будзе працаваць, нешта ты памылиуся
+msg.emptyHashmap=Ничога не сахранено!
+msg.result=Шо атрымалася:
+res.author=Аутар
+res.name=Паулег

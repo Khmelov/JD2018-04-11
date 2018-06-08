@@ -85,7 +85,7 @@ class Vector extends Var {
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=0;
             if (this.value.length!=((Vector) other).value.length)
-                throw new CalcException("Разные размеры векторов "+this+"*" + other);
+                throw new CalcException(ResMan.getString(Message.differentSizeOfVectors)+this+"*" + other);
             for (int i = 0; i < vector.length; i++) {
                 scalar+=vector[i]*((Vector)other).value[i];
             }
@@ -101,7 +101,7 @@ class Vector extends Var {
             double[] vector=Arrays.copyOf(this.value,this.value.length);
             double scalar=((Scalar)other).getValue();
             if (scalar==0)
-                throw new CalcException("Деление на ноль: "+this+"/"+scalar);
+                throw new CalcException(ResMan.getString(Message.divisionByZero)+this+"/"+scalar);
             for (int i = 0; i < vector.length; i++) {
                 vector[i]/=scalar;
             }
@@ -117,7 +117,7 @@ class Vector extends Var {
         String delimiter = "";
         for (double element : value) {
             sb.append(delimiter).append(element);
-            delimiter = ", ";
+            delimiter = ",";
         }
         sb.append('}');
         return sb.toString();
