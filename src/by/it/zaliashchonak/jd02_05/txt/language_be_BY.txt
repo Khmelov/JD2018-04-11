@@ -1,4 +1,0 @@
-msg.welcome=Прывитанне!
-msg.question=Як Справы?
-res.author=Аутар кода
-res.name=Андрэй Заляшчонак
