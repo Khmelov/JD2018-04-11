@@ -5,6 +5,7 @@ package by.it.dkruchek.calc;
  */
 public class Scalar extends Var {
     private static ResMan rm = ResMan.getInstance();
+    Logger logger = Logger.getLogger();
 
     private double value;
 
@@ -60,11 +61,13 @@ public class Scalar extends Var {
     public Var div(Var other) throws ArithmeticException, CalcException{
         if (other instanceof Scalar) {
             if (((Scalar) other).value == 0){
+                logger.log(rm.getString(ScalarError.DIVISION_BY_ZERO), LogLevel.ERROR);
                 throw new CalcException(rm.getString(ScalarError.DIVISION_BY_ZERO));
             }
             return new Scalar(this.value / ((Scalar) other).value);
         }
         if (other instanceof Vector){
+            logger.log(rm.getString(ScalarError.DIVISION_BY_VECTOR), LogLevel.ERROR);
             throw new CalcException(rm.getString(ScalarError.DIVISION_BY_VECTOR));
         }
         return super.div(other);
