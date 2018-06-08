@@ -1,12 +1,12 @@
-package by.it.kashayed.calc;
+package by.it.kashayed.jd02_04.jd02_04new;
 
 public class Vector extends Var {
 
     @Override
-    public Var add(Var other) throws CalcExeption{
+    public Var add(Var other) throws CalcException {
         if(other instanceof Vector){
             if(((Vector) other).value.length!=this.value.length){
-                throw new CalcExeption("размеры векторов не совпадают");
+                throw new CalcException("размеры векторов не совпадают");
             }
             double add [] = new double [this.value.length];
             for (int i = 0; i < add.length; i++) {
@@ -25,10 +25,10 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var sub(Var other) throws CalcExeption{
+    public Var sub(Var other) throws CalcException {
         if(other instanceof Vector){
             if(((Vector) other).value.length!=this.value.length){
-                throw new CalcExeption("размеры векторов не совпадают");
+                throw new CalcException("размеры векторов не совпадают");
             }
             double sub [] = new double [3];
             for (int i = 0; i < sub.length; i++) {
@@ -48,7 +48,7 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var mul(Var other) throws CalcExeption{
+    public Var mul(Var other) throws CalcException {
         if(other instanceof Vector){
             double sub = this.value[0]*((Vector) other).value[0]+
                     this.value[1]*((Vector) other).value[1]+this.value[2]*((Vector) other).value[2];
@@ -65,10 +65,10 @@ public class Vector extends Var {
     }
 
     @Override
-    public Var div(Var other) throws CalcExeption{
+    public Var div(Var other) throws CalcException {
         if(other instanceof Scalar){
             if (((Scalar) other).value==0){
-                throw new CalcExeption("деление вектора на 0");
+                throw new CalcException("деление вектора на 0");
             }
             double [] p = new double[this.value.length];
             for (int i = 0; i < p.length; i++) {
