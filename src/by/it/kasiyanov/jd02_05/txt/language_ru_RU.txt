@@ -1,0 +1,4 @@
+msg.welcome=Привет!
+msg.question=Как дела?
+res.author=Автор кода
+res.name=Владимир Касьянов

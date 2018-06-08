@@ -3,7 +3,7 @@ package by.it.kasiyanov.jd02_03;
 import java.util.Map;
 import java.util.Set;
 
-public class Cashier extends Thread implements Runnable {
+public class Cashier extends Thread {
 
     private String name;
     private int number;
@@ -49,12 +49,11 @@ public class Cashier extends Thread implements Runnable {
             if (BuyerQueue.getCount() < (Dispatcher.cashiers.size() * 5 - 4)) {
                 Printer.printLine(this + " кассир закрыл кассу");
                 Dispatcher.setCashiersNumbers(this.number);
-                Dispatcher.cashiers.remove(Thread.currentThread());
+                Dispatcher.cashiers.remove(this);
                 Printer.printLine("осталось кассиров " + Dispatcher.cashiers.size());
                 break;
             }
         }
-        Dispatcher.cashiers.remove(Thread.currentThread());
     }
 
     @Override
