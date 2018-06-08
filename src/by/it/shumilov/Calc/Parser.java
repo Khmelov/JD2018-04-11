@@ -63,7 +63,7 @@ class Parser {
                 i += 2;
             }while (maBrackets.find());
 
-            return getBrackets(operands.stream().reduce((s1,s2)->s1+s2).orElse("error"));
+            return getBrackets(operands.stream().reduce((s1,s2)->s1+s2).orElse(getStr.getString(Err.ERROR)));
 
         }
 
@@ -87,10 +87,11 @@ class Parser {
 
         while (operations.size() > 0){
             int num = getNumOp();
+            debag();
             String left = operands.remove(num);
             String op = operations.remove(num);
             String right = operands.get(num);
-            //debag();
+
 
             res = oneOperation(left,op,right);
 

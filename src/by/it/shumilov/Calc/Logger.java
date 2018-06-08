@@ -1,4 +1,4 @@
-package by.it.shumilov.jd02_06;
+package by.it.shumilov.Calc;
 
 import java.io.File;
 import java.io.FileWriter;
