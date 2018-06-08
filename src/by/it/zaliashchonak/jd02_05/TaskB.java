@@ -4,6 +4,7 @@ package by.it.zaliashchonak.jd02_05;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import java.util.Scanner;
 
 
@@ -14,6 +15,7 @@ public class TaskB {
         Scanner scanner = new Scanner(System.in);
         String line;
         String local = "";
+        //
 
         while (!(line = scanner.nextLine()).equals("end")) {
             if (line.equals("ru")) {
