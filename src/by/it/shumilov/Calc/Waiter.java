@@ -13,7 +13,7 @@ public class Waiter {
     void  constractReport(){
         reportBuilder.createNewReport();
         reportBuilder.buildCaption();
-        reportBuilder.buildTimeStart();
-        reportBuilder.buildTimeEnd();
+        reportBuilder.buildTime();
+        reportBuilder.buildOperations();
     }
 }

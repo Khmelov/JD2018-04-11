@@ -3,20 +3,24 @@ package by.it.shumilov.Calc;
 public class Report {
 
     private String caption="";
-    private String timeStart = "";
-    private String timeEnd = "";
+    private String time = "";
+    private String operations = "";
 
     public void setCaption(String caption) {
         this.caption = caption;
     }
 
-    public void setTimeStart(String timeStart) {
-        this.timeStart = timeStart;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public void setTimeEnd(String timeEnd) {
-        this.timeEnd = timeEnd;
+    public void setOperations(String operations) {
+        this.operations = operations;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s\n%s\n%s\n",caption,time,operations);
 
+    }
 }

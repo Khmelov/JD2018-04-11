@@ -10,7 +10,7 @@ public abstract class ReportBuilder {
     }
 
     public abstract void buildCaption();
-    public abstract void buildTimeStart();
-    public abstract void buildTimeEnd();
+    public abstract void buildTime();
+    public abstract void buildOperations();
 
 }

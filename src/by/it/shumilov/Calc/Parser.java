@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Parser {
-
+    Logger logger = Logger.getLogger();
     private GetStr getStr = GetStr.getInstance();
 
     private static Map<String,Integer> priorityMap = new HashMap<String, Integer>(){
@@ -24,11 +24,15 @@ class Parser {
     private List<String> operands;
 
     private void debag(){
-        System.out.print(operands.get(0));
+        String op = operands.get(0);
+        //System.out.print(operands.get(0));
         for (int i = 0; i < operations.size(); i++) {
-            System.out.print(operations.get(i ) + operands.get(i +1));
+             op += operations.get(i ) + operands.get(i +1);
+
+            //System.out.print(operations.get(i ) + operands.get(i +1));
         }
-        System.out.println();
+        //System.out.println();
+        logger.logOperation(op);
     }
 
     private int getNumOp(){
@@ -98,6 +102,7 @@ class Parser {
 
             operands.set(num,res.toString());
         }
+
         return  res;
     }
 

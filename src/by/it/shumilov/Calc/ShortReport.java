@@ -1,20 +1,35 @@
 package by.it.shumilov.Calc;
 
-public class ShortReport extends ReportBuilder{
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
 
+public class ShortReport extends ReportBuilder{
+    Logger logger = Logger.getLogger();
+    private SimpleDateFormat df=new SimpleDateFormat("HH:mm:ss.S");
 
     @Override
     public void buildCaption() {
-        report.setCaption("Caption");
+
+        report.setCaption("The report on the done work (Short)");
     }
 
     @Override
-    public void buildTimeStart() {
-        report.setTimeStart("Start");
+    public void buildTime() {
+
+        report.setTime( "Выполнение началось в " + df.format(logger.getStart()) + " и закончилось в " +  df.format(logger.getFinish()));
     }
 
     @Override
-    public void buildTimeEnd() {
-        report.setTimeEnd("End");
+    public void buildOperations() {
+        LinkedList<LinkedList<String>> operations = logger.getOperations();
+        StringBuilder sb = new StringBuilder();
+
+        for (LinkedList<String> operation : operations) {
+            sb.append("Произведена операция: " + operation.removeFirst() + "\n");
+            sb.append("           Результат: " + operation.removeLast() + "\n");
+        }
+
+        report.setOperations(sb.toString());
     }
 }
