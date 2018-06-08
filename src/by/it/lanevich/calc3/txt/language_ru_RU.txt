@@ -1,0 +1,13 @@
+msg.nocoincidedimmatrix = Размеры матриц не совпадают
+msg.invalidmatrixdim = Неверный размер матрицы
+msg.invaliddimensions = Размеры не совпадают
+msg.divbyzero = Деление на ноль
+msg.nosuchoperation =  Нет такой операции
+msg.abstractvar = Это абстрактная переменная
+msg.createimpossible = Невозможно создать
+msg.add = Операция сложения
+msg.sub = Операция вычитания
+msg.mul = Операция умножения
+msg.div = Операция деления
+msg.impossible = невозможна
+msg.nocoincidedimvector = Не совпадают размеры векторов
