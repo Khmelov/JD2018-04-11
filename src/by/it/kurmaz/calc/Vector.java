@@ -22,7 +22,7 @@ public class Vector extends Var {
     public Var add(Var other) throws CalcException {
         if (other instanceof Vector) {
             if (this.value.length != ((Vector) other).value.length)
-                throw new CalcException("Vectors are of different length");
+                throw new CalcException(ConsoleRunner.resMan.getString("msg.sizeError"));
             double[] vector = new double[this.value.length];
             for (int i = 0; i < vector.length; i++) {
                 vector[i] = this.value[i] + ((Vector) other).value[i];
@@ -44,7 +44,7 @@ public class Vector extends Var {
     public Var sub(Var other) throws CalcException{
         if (other instanceof Vector) {
             if (this.value.length != ((Vector) other).value.length)
-                throw new CalcException("Vectors are of different length");
+                throw new CalcException(ConsoleRunner.resMan.getString("msg.sizeError"));
             double[] vector = new double[this.value.length];
             for (int i = 0; i < vector.length; i++) {
                 vector[i] = this.value[i] - ((Vector) other).value[i];
@@ -66,7 +66,7 @@ public class Vector extends Var {
     public Var mul(Var other) throws CalcException{
         if (other instanceof Vector) {
             if (this.value.length != ((Vector) other).value.length)
-                throw new CalcException("Vectors are of different length");
+                throw new CalcException(ConsoleRunner.resMan.getString("msg.sizeError"));
             double sum = 0;
             for (int i = 0; i < this.value.length; i++) {
                 sum += this.value[i] * ((Vector) other).value[i];
@@ -88,7 +88,7 @@ public class Vector extends Var {
     public Var div(Var other) throws CalcException{
         if (other instanceof Scalar) {
             if (((Scalar) other).getValue() == 0)
-                throw new CalcException("Divide by zero");
+                throw new CalcException(ConsoleRunner.resMan.getString("msg.divideByZero"));
             double[] vector = new double[this.value.length];
             for (int i = 0; i < vector.length; i++) {
                 vector[i] = this.value[i] / ((Scalar) other).getValue();

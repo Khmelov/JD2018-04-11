@@ -1,0 +1,5 @@
+msg.welcome=Прывiтанне!
+msg.question=Як справы?
+res.author=Аутар кода
+res.name=Вiталь Тарасюк
+msg.request=Увядзiце "en","ru","be" для змены мовы, "end" - выхад.

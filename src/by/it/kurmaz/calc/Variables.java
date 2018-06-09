@@ -10,13 +10,13 @@ class Variables {
         hashMap = Saver.recover();
     }
 
-    static void save () {
+    static void save () throws CalcException {
         Saver.save(hashMap);
     }
 
     static void printHash () {
         if ((hashMap == null) || (hashMap.size() == 0)) {
-            System.out.println("Hashmap is empty!");
+            System.out.println(ConsoleRunner.resMan.getString("msg.emptyHashmap"));
             return;
         }
         Set<Map.Entry<String, Var>> set = hashMap.entrySet();
@@ -27,7 +27,7 @@ class Variables {
 
     static void printSort () {
         if (hashMap == null) {
-            System.out.println("Hashmap is empty!");
+            System.out.println(ConsoleRunner.resMan.getString("msg.emptyHashmap"));
             return;
         }
         TreeMap<String, Var> treeMap = new TreeMap<>(hashMap);

@@ -1,16 +1,16 @@
 package by.it.tayanovskii.calc;
 
-public class CalcException extends Exception{
+public class CalcException extends Exception {
 
     public CalcException() {
     }
 
     public CalcException(String message) {
-        super("ERROR: "+message);
+        super(ResMan.getString(Message.error) + message);
     }
 
     public CalcException(String message, Throwable cause) {
-        super("ERROR: "+message, cause);
+        super(ResMan.getString(Message.error) + message, cause);
     }
 
     public CalcException(Throwable cause) {
@@ -18,6 +18,6 @@ public class CalcException extends Exception{
     }
 
     public CalcException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super("ERROR: "+message, cause, enableSuppression, writableStackTrace);
+        super(Message.error + message, cause, enableSuppression, writableStackTrace);
     }
 }
