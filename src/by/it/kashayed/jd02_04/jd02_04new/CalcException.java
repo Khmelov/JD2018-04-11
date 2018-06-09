@@ -2,7 +2,7 @@ package by.it.kashayed.jd02_04.jd02_04new;
 
 public class CalcException extends Exception{
     public CalcException() {
-        super();
+        super("ERROR:");
     }
 
     public CalcException(String message) {

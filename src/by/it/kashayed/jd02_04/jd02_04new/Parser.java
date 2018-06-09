@@ -15,6 +15,8 @@ public class Parser {
             this.put("-", 1);
             this.put("*", 2);
             this.put("/", 2);
+            this.put("(", 3);
+            this.put(")", 3);
         }
     };
 
@@ -32,13 +34,17 @@ public class Parser {
     }
 
     private Var oneOp(String left, String op, String right) throws CalcException {
+        if(left.contains("(")||right.contains(")")){
+
+        }
         Var second = Var.createVar(right);
         if (op.equals("=")) {
             return Var.numbers(left, second);
         }
+
         Var first = Var.createVar(left);
         if (first == null || second == null) {
-            throw new CalcException();
+            throw new CalcException("null pointer exception");
         }
         switch (op){
             case"+":return first.add(second);
@@ -54,6 +60,9 @@ public class Parser {
         operands=new ArrayList<>(Arrays.asList(expression.split(Patterns.OPERATION)));
         Pattern pattern = Pattern.compile(Patterns.OPERATION);
         Matcher matcher = pattern.matcher(expression);
+        if(expression.contains("(")){
+            
+        }
         operations=new ArrayList<>();
         while(matcher.find()){
             operations.add(matcher.group());
