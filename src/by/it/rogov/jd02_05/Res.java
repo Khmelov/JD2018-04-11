@@ -1,0 +1,6 @@
+package by.it.rogov.jd02_05;
+
+public interface Res {
+    String AUTHOR="res.author";
+    String NAME="res.name";
+}

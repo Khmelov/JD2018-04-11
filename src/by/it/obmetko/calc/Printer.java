@@ -1,8 +1,13 @@
 package by.it.obmetko.calc;
 
+import static by.it.obmetko.calc.ConsoleRunner.rm;
+
 public class Printer {
-    void print(Var var) {
+
+    static void print (Var var) {
         if (var != null)
-            System.out.println(var);
+            Logger.getLogger().println(var.toString(), Logger.MessageType.CALC_OUTPUT);
+        else
+            Logger.getLogger().println(rm.get(Messages.VARNOTFOUND), Logger.MessageType.CALC_OUTPUT);
     }
 }

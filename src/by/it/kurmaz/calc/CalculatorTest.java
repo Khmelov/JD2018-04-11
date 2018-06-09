@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
     @Test
     public void ScalarTest() throws Exception {
-        Parser parser = new Parser();
+        Parser parser = Parser.getInstance();
         Var var = parser.calc("2.5 + 3.2");
         double res=Double.parseDouble(var.toString());
         assertEquals("Ошибка",5.7,res,1e-10);
@@ -27,7 +27,7 @@ public class CalculatorTest {
 
     @Test
     public void VectorTest() throws Exception {
-        Parser parser = new Parser();
+        Parser parser = Parser.getInstance();
         Var var = parser.calc("{1, 2, 3} + {4, 5, 6}");
         assertEquals("Ошибка","{5.0, 7.0, 9.0}", var.toString());
 
@@ -46,7 +46,7 @@ public class CalculatorTest {
 
     @Test
     public void MatrixTest() throws Exception {
-        Parser parser = new Parser();
+        Parser parser = Parser.getInstance();
         Var var = parser.calc("{{1, 2, 3}, {4, 5, 6}} + 5");
         assertEquals("Ошибка","{{6.0, 7.0, 8.0}, {9.0, 10.0, 11.0}}", var.toString());
 

@@ -44,13 +44,13 @@ class Parser {
 
     private Var oneOperation(String left, String op, String right) throws CalcException {
         Var two = Var.createVar(right);
-        if (op.equals("=") && left.matches("[a-zA-Z][a-zA-Z0-9]*")) {
+        if (op.equals("=")) {
             return Var.saveVar(left, two);
         }
         Var one = Var.createVar(left);
         if (one == null || two == null)
             throw new CalcException(
-                    String.format("Невозможно обработать %s%s%s", left, op, right)
+                    String.format("%s %s%s%s", ResMan.getString(Message.unableProcess), left, op, right)
             );
         switch (op) {
             case "+":
@@ -64,7 +64,7 @@ class Parser {
         }
 
         throw new CalcException(
-                String.format("Неизвестная ошибка %s%s%s", left, op, right)
+                String.format("%s %s%s%s",ResMan.getString(Message.unknownError), left, op, right)
         );
     }
 
@@ -85,7 +85,7 @@ class Parser {
                 Var calc_expres = calc(expres);
                 expression = expression.replaceFirst(Patterns.EXPRESSION, calc_expres.toString());
             }
-        } else throw new CalcException("Неверное выражение");
+        } else throw new CalcException(ResMan.getString(Message.invalidExpression));
 
         Var result = calc(expression);
 
