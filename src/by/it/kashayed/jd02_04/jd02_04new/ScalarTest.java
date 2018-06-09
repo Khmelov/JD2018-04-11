@@ -8,25 +8,33 @@ public class ScalarTest {
 
     @Test
     public void add() throws Exception {
-        Var res = Var.createVar("1+2");
-        assertEquals(3,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("1+2");
+        Var s =new Scalar(3);
+        assertEquals(s,res);
     }
 
     @Test
     public void sub() throws Exception{
-        Var res =  Var.createVar("3-2");
-        assertEquals(1,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("3-2");
+       // Scalar s =new Scalar(1);
+        assertEquals(1.0,res);
     }
 
     @Test
     public void mul() throws Exception{
-        Var res = Var.createVar("4*2");
-        assertEquals(8,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("3*2");
+        Scalar s =new Scalar(6);
+        assertEquals(s,res);
     }
 
     @Test
     public void div() throws Exception{
-        Var res = Var.createVar("4/2");
-        assertEquals(2,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("8/2");
+        Scalar s =new Scalar(4);
+        assertEquals(s,res);
     }
 }
