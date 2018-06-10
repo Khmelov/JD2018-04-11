@@ -1,5 +1,5 @@
 package by.it.obmetko.calc;
-
+import static by.it.obmetko.calc.ConsoleRunner.rm;
 
 class Scalar extends Var {
 
@@ -51,7 +51,7 @@ class Scalar extends Var {
         if (other instanceof Scalar) {
             double z = ((Scalar) other).getValue();
             if (z == 0)
-                throw new CalcException("Деление на ноль");
+                throw new CalcException(rm.get(Messages.DIVBYZERO));
             else
                 return this.mul(new Scalar(1 / ((Scalar) other).getValue()));
         }

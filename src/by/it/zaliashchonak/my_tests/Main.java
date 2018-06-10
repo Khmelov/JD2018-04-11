@@ -5,6 +5,7 @@ package by.it.zaliashchonak.my_tests;
  */
 public class Main {
     public static void main(String[] args) {
+        System.out.printf("111");
 
     }
 }

@@ -28,21 +28,21 @@ public abstract class Var implements Operation {
 
     @Override
     public Var add(Var other) throws CalcException{
-        throw new CalcException ("Add operation with " + this + " and " + other + " cannot be completed");
+        throw new CalcException (ConsoleRunner.resMan.getString("msg.operationError"));
     }
 
     @Override
     public Var sub(Var other) throws CalcException{
-        throw new CalcException ("Sub operation with " + this + " and " + other + " cannot be completed");
+        throw new CalcException (ConsoleRunner.resMan.getString("msg.operationError"));
     }
 
     @Override
     public Var mul(Var other) throws CalcException{
-        throw new CalcException ("Multiply operation with " + this + " and " + other + " cannot be completed");
+        throw new CalcException (ConsoleRunner.resMan.getString("msg.operationError"));
     }
 
     @Override
     public Var div(Var other) throws CalcException{
-        throw new CalcException ("Divide operation with " + this + " and " + other + " cannot be completed");
+        throw new CalcException (ConsoleRunner.resMan.getString("msg.operationError"));
     }
 }

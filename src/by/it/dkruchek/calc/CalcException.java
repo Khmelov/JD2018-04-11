@@ -4,15 +4,18 @@ package by.it.dkruchek.calc;
  * Created by Dmitriy.Kruchek on 5/20/2018.
  */
 public class CalcException extends Exception{
+
+    private static ResMan rm = ResMan.getInstance();
+
     public CalcException() {
     }
 
     public CalcException(String message) {
-        super("ERROR: "+ message);
+        super(rm.getString(ERROR.SIMPLE) + ": " + message);
     }
 
     public CalcException(String message, Throwable cause) {
-        super("ERROR: "+ message, cause);
+        super(rm.getString(ERROR.SIMPLE) + ": " + message, cause);
     }
 
     public CalcException(Throwable cause) {
@@ -20,6 +23,6 @@ public class CalcException extends Exception{
     }
 
     public CalcException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super("ERROR: "+ message, cause, enableSuppression, writableStackTrace);
+        super(rm.getString(ERROR.SIMPLE) + ": " + message, cause, enableSuppression, writableStackTrace);
     }
 }

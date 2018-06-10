@@ -56,7 +56,7 @@ class Matrix extends Var {
         else if (other instanceof Matrix) {
             double[][] matrix = new double [this.value.length][this.value[0].length];
             if ((this.value.length != ((Matrix) other).value.length) || (this.value[0].length != ((Matrix) other).value[0].length))
-                throw new CalcException("Разные размеры матриц " + this + "+" + other);
+                throw new CalcException(Message.differentSizeOfMatrices + this + "+" + other);
             for (int i = 0; i < this.value.length; i++) {
                 for (int j = 0; j < this.value[i].length; j++) {
                     matrix[i][j]=this.value[i][j] + ((Matrix) other).value[i][j];
@@ -83,7 +83,7 @@ class Matrix extends Var {
         else if (other instanceof Matrix) {
             double[][] matrix = new double [this.value.length][this.value[0].length];
             if ((this.value.length != ((Matrix) other).value.length) || (this.value[0].length != ((Matrix) other).value[0].length))
-                throw new CalcException("Разные размеры матриц " + this + "-" + other);
+                throw new CalcException(ResMan.getString(Message.differentSizeOfMatrices) + this + "-" + other);
             for (int i = 0; i < this.value.length; i++) {
                 for (int j = 0; j < this.value[i].length; j++) {
                     matrix[i][j]=this.value[i][j] - ((Matrix) other).value[i][j];
@@ -122,7 +122,7 @@ class Matrix extends Var {
 
             double[][] result = new double[this.value.length][((Matrix) other).value[0].length];
             if ((this.value.length != ((Matrix) other).value.length) || (this.value[0].length != ((Matrix) other).value[0].length))
-                throw new CalcException("Разные размеры матриц " + this + "*" + other);
+                throw new CalcException(ResMan.getString(Message.differentSizeOfMatrices) + this + "*" + other);
             for (int i = 0; i < this.value.length; i++) {
                 for (int j = 0; j < ((Matrix) other).value[0].length; j++) {
                     for (int k = 0; k < ((Matrix) other).value.length; k++) {
@@ -142,7 +142,7 @@ class Matrix extends Var {
             double[][] resultMatrix = new double[this.value.length][this.value[0].length];
             double scalar=((Scalar)other).getValue();
             if (scalar==0)
-                throw new CalcException("Деление на ноль: "+this+"/"+scalar);
+                throw new CalcException(ResMan.getString(Message.divisionByZero)+this+"/"+scalar);
             for (int i = 0; i < this.value.length; i++) {
                 for (int j = 0; j < this.value[i].length; j++) {
                     resultMatrix[i][j] = this.value[i][j] / scalar;
@@ -164,7 +164,7 @@ class Matrix extends Var {
             String delimiter = "";
             for (int j = 0; j < value[0].length; j++) {
                 sb.append(delimiter).append(value[i][j]);
-                delimiter = ", ";
+                delimiter = ",";
             }
             sb.append("}");
             if (i < value.length - 1)
