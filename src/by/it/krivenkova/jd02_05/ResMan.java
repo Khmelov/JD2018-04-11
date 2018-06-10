@@ -12,7 +12,7 @@ class ResMan {
     private ResourceBundle rb;
 
     private ResMan() {
-        path = "by.it.akhmelev.jd02_05.lang.language";
+        path = "by.it.krivenkova.jd02_05.lang.language";
         locale = Locale.getDefault();
         rb = ResourceBundle.getBundle(path, locale);
     }
