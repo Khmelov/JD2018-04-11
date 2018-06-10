@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Students>
+    <student>
+        <FirstName>Vasilii</FirstName>
+        <Secondname>Terkin</Secondname>
+        <Login>Vasya</Login>
+        <Password>pa$$word</Password>
+        <Email>vas2018@mail.ru</Email>
+        <CoursesStudent>
+        <CourseStudent>
+        <Course>
+            <Name>Physics things</Name>
+            <Subject>Physics</Subject>
+            <Start>12.01.18</Start>
+            <End>12.05.18</End>
+            <Teachers>
+                <Teacher>
+                    <FirstName>Vitalii</FirstName>
+                    <Secondname>New</Secondname>
+                    <Login>Vit</Login>
+                    <Password>pa$$word</Password>
+                    <Email>vit2018@mail.ru</Email>
+                </Teacher>
+            </Teachers>
+        </Course>
+        <Mark>3</Mark>
+        </CourseStudent>
+        <CourseStudent>
+        <Course>
+            <Name>Math things</Name>
+            <Subject>Math</Subject>
+            <Start>12.01.18</Start>
+            <End>12.05.18</End>
+            <Teachers>
+                <Teacher>
+                    <FirstName>Stas</FirstName>
+                    <Secondname>Lin</Secondname>
+                    <Login>Stas</Login>
+                    <Password>pa$$word</Password>
+                    <Email>stas2018@mail.ru</Email>
+                </Teacher>
+            </Teachers>
+        </Course>
+        <Mark>3</Mark>
+        </CourseStudent>
+        </CoursesStudent>
+    </student>
+
+</Students>
