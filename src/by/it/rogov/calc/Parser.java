@@ -50,11 +50,11 @@ class Parser {
 //    }
 
     private Var oneOperation(String left, String op, String rigth) throws CalcException {
-        Var two = Var.createVar(rigth);
+        Var two = VarCreator.createVar(rigth);
         if (op.equals("=")) {
-            return Var.saveVar(left, two);
+            return Printer.saveVar(left, two);
         }
-        Var one = Var.createVar(left);
+        Var one = VarCreator.createVar(left);
         if (one == null || two == null) {
             throw new CalcException(
                     String.format("Невозможно обработать %s%s%s", left, op, rigth)
@@ -95,7 +95,7 @@ class Parser {
         while (matcher.find()) {
             operations.add(matcher.group());
         }
-        Var res = Var.createVar(expression);
+        Var res = VarCreator.createVar(expression);
         while (operations.size() > 0) {
             int num = getNumberOp();
             String left = operands.remove(num);
