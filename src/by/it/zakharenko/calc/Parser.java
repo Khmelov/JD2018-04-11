@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static by.it.zakharenko.calc.ConsoleRunner.rm;
+
 class Parser {
 
     private static Map<String, Integer> priorityMap = new HashMap<String, Integer>() {
@@ -35,7 +37,7 @@ class Parser {
     String getLetters(String expression) {
         Pattern patternL = Pattern.compile(Patterns.LETTERS);
         Matcher matcherL = patternL.matcher(expression);
-        while (matcherL.find()){
+        while (matcherL.find()) {
             return (matcherL.group());
         }
         return null;
@@ -57,7 +59,7 @@ class Parser {
         Var one = Var.createVar(left);
         if (one == null || two == null)
             throw new CalcException(
-                    String.format("Невозможно обработать %s%s%s", left, op, right)
+                    String.format(rm.getString(Message.HANDLEIMPOSSIBLE) + " " + "%s%s%s", left, op, right)
             );
 
         switch (op) {
@@ -71,14 +73,14 @@ class Parser {
                 return one.div(two);
         }
         throw new CalcException(
-                String.format("Неизвестная ошибка %s%s%s", left, op, right)
+                String.format(rm.getString(Message.NOSUCHOPERATION) + " " + "%s%s%s", left, op, right)
         );
     }
 
     Var calc(String expression) throws CalcException {
         Pattern patternEx = Pattern.compile(Patterns.BRACKETS);
         Matcher matcherEx = patternEx.matcher(expression);
-        while (matcherEx.find()){
+        while (matcherEx.find()) {
             String st = matcherEx.group();
             String str = st.replace("(", "").replace(")", "");
             expression = expression.replace(st, calc(str).toString());

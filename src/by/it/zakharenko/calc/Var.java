@@ -3,6 +3,8 @@ package by.it.zakharenko.calc;
 import java.util.HashMap;
 import java.util.Map;
 
+import static by.it.zakharenko.calc.ConsoleRunner.rm;
+
 public class Var implements Operation {
 
     private static Map<String, Var> vars = new HashMap<>();
@@ -12,7 +14,7 @@ public class Var implements Operation {
         return var;
     }
 
-    static Var createVar(String strVar) throws CalcException {
+    static Var createVar(String strVar) {
 
         if (strVar.matches(Patterns.SCALAR))
             return new Scalar((strVar));
@@ -32,27 +34,27 @@ public class Var implements Operation {
 
     @Override
     public String toString() {
-        return "Это абстрактная переменная";
+        return rm.getString(Message.ABSTRACTVAR);
     }
 
     @Override
     public Var add(Var other) throws CalcException {
-        throw new CalcException("Операция сложения " + this + "+" + other + " невозможна");
+        throw new CalcException(rm.getString(Message.ADD) + " " + this + "+" + other + " " + rm.getString(Message.IMPOSSIBLE));
     }
 
     @Override
     public Var sub(Var other) throws CalcException {
-        throw new CalcException("Операция вычитания " + this + "-" + other + " невозможна");
+        throw new CalcException(rm.getString(Message.SUB) + " " + this + "-" + other + " " + rm.getString(Message.IMPOSSIBLE));
     }
 
     @Override
     public Var mul(Var other) throws CalcException {
-        throw new CalcException("Операция умножения " + this + "*" + other + " невозможна");
+        throw new CalcException(rm.getString(Message.MUL) + " " + this + "*" + other + " " + rm.getString(Message.IMPOSSIBLE));
     }
 
     @Override
     public Var div(Var other) throws CalcException {
-        throw new CalcException("Операция деления " + this + "/" + other + " невозможна");
+        throw new CalcException(rm.getString(Message.DIV) + " " + this + "/" + other + " " + rm.getString(Message.IMPOSSIBLE));
     }
 
 }
