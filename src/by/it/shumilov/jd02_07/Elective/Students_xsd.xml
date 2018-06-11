@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Students>
+<Students xmlns="http://it.by/shumilov/xmlschema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://it.by/shumilov/xmlschema Schema.xsd" >
+
+
     <Student>
         <Person>
             <Login>Vasya</Login>
@@ -14,18 +18,17 @@
                 <Course>
                     <Name>Physics things</Name>
                     <Subject>Physics</Subject>
-                    <Start>12.01.18</Start>
-                    <End>12.05.18</End>
-
-                        <Teacher department="Physics">
-                            <Person>
-                                <Login>Vit</Login>
-                                <Password>pa$$word1</Password>
-                                <Email>vit2018@mail.ru</Email>
-                                <FirstName>Vitalii</FirstName>
-                                <SecondName>New</SecondName>
-                            </Person>
-                        </Teacher>
+                    <Start>2018-01-12</Start>
+                    <End>2018-05-12</End>
+                    <Teacher department="Physics">
+                        <Person>
+                            <Login>Vit</Login>
+                            <Password>pa$$word1</Password>
+                            <Email>vit2018@mail.ru</Email>
+                            <FirstName>Vitalii</FirstName>
+                            <SecondName>New</SecondName>
+                        </Person>
+                    </Teacher>
 
                 </Course>
 
@@ -34,8 +37,8 @@
                 <Course>
                     <Name>Math things</Name>
                     <Subject>Math</Subject>
-                    <Start>12.01.18</Start>
-                    <End>12.07.18</End>
+                    <Start>2018-01-12</Start>
+                    <End>2018-07-12</End>
 
                         <Teacher department="Math">
                             <Person>

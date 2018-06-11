@@ -2,7 +2,7 @@
 
 <Persons xmlns="http://it.by/shumilov/XMLschema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:scxemaLocation="http://it.by/shumilov/XMLschema Schema.xsd" >
+        xsi:schemaLocation="http://it.by/shumilov/XMLschema Schema.xsd" >
     <Person>
         <Login>Vasya</Login>
         <Password>pa$$word</Password>
