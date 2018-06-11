@@ -19,22 +19,6 @@ class Matrix extends Var {
 
     Matrix(String strMatrix) throws CalcException {
 
-//        Pattern pattern = Pattern.compile("[{}]{2,}");
-//        Matcher matcher = pattern.matcher(strMatrix);
-//        while (matcher.find()) {
-//            strMatrix = matcher.replaceAll("");
-//        }
-//
-//        String[] s = strMatrix.split("},\\{");
-//
-//        double[][] m = new double[s.length][s.length];
-//        for (int i = 0; i < s.length; i++) {
-//            String[] str = s[i].split(",");
-//            for (int j = 0; j < str.length; j++) {
-//                m[i][j] = Double.parseDouble(str[j]);
-//            }
-//        }
-
         String[] s = strMatrix.split("},");
         Pattern pattern = Pattern.compile("[{}]");
         for (int i = 0; i < s.length; i++) {
