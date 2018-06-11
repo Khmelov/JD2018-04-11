@@ -4,7 +4,6 @@ package by.it.zaliashchonak.jd02_05;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
-
 import java.util.Scanner;
 
 
