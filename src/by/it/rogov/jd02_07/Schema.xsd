@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://it.by/rogov/xmlschema"
+        xmlns:tns="http://it.by/rogov/xmlschema"
+        elementFormDefault="qualified">
+    <element name="Clients">
+        <complexType>
+            <sequence>
+                <element name="Client"
+                         type="tns:Client"
+                         minOccurs="2"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Client">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="phone" type="integer"/>
+        </sequence>
+    </complexType>
+
+
+</schema>
