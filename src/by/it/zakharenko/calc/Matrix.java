@@ -2,6 +2,8 @@ package by.it.zakharenko.calc;
 
 import java.util.Arrays;
 
+import static by.it.zakharenko.calc.ConsoleRunner.rm;
+
 public class Matrix extends Var {
 
     private double[][] value;
@@ -49,7 +51,7 @@ public class Matrix extends Var {
         } else if (other instanceof Matrix) {
             double[][] matrix = new double[this.value.length][this.value[0].length];
             if ((this.value.length != ((Matrix) other).value.length) || (this.value[0].length != ((Matrix) other).value[0].length))
-                throw new CalcException("Разные размеры матриц " + this + "+" + other);
+                throw new CalcException(rm.getString(Message.MATRICADIFFERENTSIZES) + this + "+" + other);
             for (int i = 0; i < this.value.length; i++) {
                 matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
             }
@@ -79,7 +81,7 @@ public class Matrix extends Var {
         } else if (other instanceof Matrix) {
             double[][] matrix = new double[this.value.length][this.value[0].length];
             if ((this.value.length != ((Matrix) other).value.length) || (this.value[0].length != ((Matrix) other).value[0].length))
-                throw new CalcException("Разные размеры матриц " + this + "-" + other);
+                throw new CalcException(rm.getString(Message.MATRICADIFFERENTSIZES) + this + "-" + other);
             for (int i = 0; i < this.value.length; i++) {
                 matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
             }
@@ -115,7 +117,7 @@ public class Matrix extends Var {
         } else if (other instanceof Matrix) {
             double matrix[][] = new double[this.value.length][((Matrix) other).value[0].length];
             if ((this.value.length != ((Matrix) other).value.length) || (this.value[0].length != ((Matrix) other).value[0].length))
-                throw new CalcException("Разные размеры матриц " + this + "*" + other);
+                throw new CalcException(rm.getString(Message.MATRICADIFFERENTSIZES) + this + "*" + other);
             for (int i = 0; i < matrix.length; i++)
                 for (int j = 0; j < matrix[i].length; j++)
                     for (int k = 0; k < matrix[i].length; k++)
@@ -132,7 +134,7 @@ public class Matrix extends Var {
             double[][] matrix = new double[this.value.length][this.value[0].length];
             double scalar = ((Scalar) other).getValue();
             if (scalar == 0)
-                throw new CalcException("Деление на ноль: " + this + "/" + scalar);
+                throw new CalcException(rm.getString(Message.DIVBYZERO) + this + "/" + scalar);
             for (int i = 0; i < this.value.length; i++) {
                 matrix[i] = Arrays.copyOf(this.value[i], this.value[i].length);
             }

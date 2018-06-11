@@ -20,7 +20,7 @@ public class Var implements Operation{
         else if (operand.matches(Patterns.VECTOR)) return new Vector(operand);
         else if (map.containsKey(operand)) return map.get(operand);
         else
-      //  throw new CalcExeption("невозможно создать "+operand);
+      //  throw new CalcException("невозможно создать "+operand);
         return null;
     }
     @Override
