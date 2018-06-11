@@ -1,5 +1,7 @@
 package by.it.zakharenko.calc;
 
+import static by.it.zakharenko.calc.ConsoleRunner.rm;
+
 public class Scalar extends Var {
 
     private double value;
@@ -49,7 +51,7 @@ public class Scalar extends Var {
         if (other instanceof Scalar) {
             double div = ((Scalar) other).value;
             if (div == 0)
-                throw new CalcException("Деление на ноль");
+                throw new CalcException(rm.getString(Message.DIVBYZERO));
             return new Scalar(this.value / div);
         }
         else
