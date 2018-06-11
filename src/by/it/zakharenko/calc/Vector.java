@@ -2,6 +2,8 @@ package by.it.zakharenko.calc;
 
 import java.util.Arrays;
 
+import static by.it.zakharenko.calc.ConsoleRunner.rm;
+
 public class Vector extends Var {
 
     private double[] value;
@@ -38,7 +40,7 @@ public class Vector extends Var {
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             Vector otherVector = (Vector) other;
             if (this.value.length != otherVector.value.length)
-                throw new CalcException("Разные размеры векторов " + this + "+" + other);
+                throw new CalcException(rm.getString(Message.VECTORDIFFERENTSIZES) + this + "+" + other);
             for (int i = 0; i < vector.length; i++) {
                 vector[i] += ((Vector) other).value[i];
             }
@@ -60,7 +62,7 @@ public class Vector extends Var {
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             Vector otherVector = (Vector) other;
             if (this.value.length != otherVector.value.length)
-                throw new CalcException("Разные размеры векторов " + this + "-" + other);
+                throw new CalcException(rm.getString(Message.VECTORDIFFERENTSIZES) + this + "-" + other);
             for (int i = 0; i < vector.length; i++) {
                 vector[i] -= ((Vector) other).value[i];
             }
@@ -82,7 +84,7 @@ public class Vector extends Var {
             double sum = 0;
             Vector otherVector = (Vector) other;
             if (this.value.length != otherVector.value.length)
-                throw new CalcException("Разные размеры векторов " + this + "*" + other);
+                throw new CalcException(rm.getString(Message.VECTORDIFFERENTSIZES) + this + "*" + other);
             for (int i = 0; i < this.value.length; i++) {
                 sum += this.value[i] * otherVector.value[i];
             }
@@ -97,7 +99,7 @@ public class Vector extends Var {
             double[] vector = Arrays.copyOf(this.value, this.value.length);
             double scalar = ((Scalar) other).getValue();
             if (scalar == 0)
-                throw new CalcException("Деление на ноль " + this + "/" + scalar);
+                throw new CalcException(rm.getString(Message.DIVBYZERO) + " " + this + "/" + scalar);
             for (int i = 0; i < vector.length; i++) {
                 vector[i] /= scalar;
             }

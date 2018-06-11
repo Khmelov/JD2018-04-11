@@ -12,8 +12,8 @@ public class ConsoleRunner {
             try {
                 Var result = parser.calc(line.trim());
                 printer.print(result);
-            } catch (CalcException calcExeption) {
-                System.out.println(calcExeption.getMessage());
+            } catch (CalcException err) {
+                System.out.println(err.getMessage());
             }
 
         }

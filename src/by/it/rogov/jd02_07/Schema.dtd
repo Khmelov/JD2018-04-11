@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!ELEMENT Clients (Client)+>
+        <!ELEMENT Client (Name, Password, Email,phone)>
+        <!ELEMENT Name (#PCDATA)>
+        <!ELEMENT Password (#PCDATA)>
+        <!ELEMENT Email (#PCDATA)>
+        <!ELEMENT phone (#PCDATA)>

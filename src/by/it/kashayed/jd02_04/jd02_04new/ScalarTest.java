@@ -6,27 +6,35 @@ import static org.junit.Assert.*;
 
 public class ScalarTest {
 
-    @Test
+    @Test (timeout = 5000)
     public void add() throws Exception {
-        Var res = Var.createVar("1+2");
-        assertEquals(3,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("A=1+2");
+        String s = res.toString();
+        assertEquals("3.0",s);
     }
 
-    @Test
+    @Test(timeout = 5000)
     public void sub() throws Exception{
-        Var res =  Var.createVar("3-2");
-        assertEquals(1,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("B=3-2");
+        String s = res.toString();
+        assertEquals("1.0",s);
     }
 
-    @Test
+    @Test(timeout = 5000)
     public void mul() throws Exception{
-        Var res = Var.createVar("4*2");
-        assertEquals(8,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("C=3*2");
+        String s = res.toString();
+        assertEquals("6.0",s);
     }
 
-    @Test
+    @Test(timeout = 5000)
     public void div() throws Exception{
-        Var res = Var.createVar("4/2");
-        assertEquals(2,res);
+        Parser parser=new Parser();
+        Var res = parser.calc("Q=8/2");
+        String s = res.toString();
+        assertEquals("4.0",s);
     }
 }

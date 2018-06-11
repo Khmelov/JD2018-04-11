@@ -2,52 +2,60 @@
 <Clients xmlns="http://it.by/kurmaz/jd02_07/xmlschema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://it.by/kurmaz/jd02_07/xmlschema Schema.xsd">
-    <Client>
-        <Login>Pavleg</Login>
-        <Password>12345</Password>
-        <Email>pavleg@tut.by</Email>
-        <Address>Minsk</Address>
+    <Client Login="Pavleg" Password="12345" Email="pavleg@tut.by">
+        <Address>
+            <Country>Belarus</Country>
+            <City>Minsk</City>
+            <Street>Pobediteley ave</Street>
+            <House>1</House>
+            <Apt>2</Apt>
+        </Address>
+        <Phone>37529292929</Phone>
         <Carma>regular</Carma>
         <Order>
             <Cost>50</Cost>
                <Goods>
                    <Name>Vodka</Name>
-                   <Price>5</Price>
+                   <Price currency="Br">5</Price>
                    <Quantity>2</Quantity>
                    <CatalogIndex>002</CatalogIndex>
                </Goods>
                 <Goods>
                     <Name>Whiskey</Name>
-                    <Price>10</Price>
+                    <Price currency="US">10</Price>
                     <Quantity>1</Quantity>
                     <CatalogIndex>001</CatalogIndex>
                 </Goods>
                 <Goods>
                     <Name>Rum</Name>
-                    <Price>15</Price>
+                    <Price currency="EU">15</Price>
                     <Quantity>2</Quantity>
                     <CatalogIndex>003</CatalogIndex>
                 </Goods>
         </Order>
     </Client>
 
-    <Client>
-        <Login>Stepka</Login>
-        <Password>654321</Password>
-        <Email>stepan@tut.by</Email>
-        <Address>Bobruysk</Address>
+    <Client  Login="Stepka" Password="54321" Email="stepan@tut.by">
+        <Address>
+            <Country>Belarus</Country>
+            <City>Bobruysk</City>
+            <Street>Minskaya</Street>
+            <House>5</House>
+            <Apt>3</Apt>
+        </Address>
+        <Phone>375297777777</Phone>
         <Carma>silver</Carma>
         <Order>
             <Cost>30</Cost>
             <Goods>
                 <Name>Vodka</Name>
-                <Price>5</Price>
+                <Price currency="Br">5</Price>
                 <Quantity>1</Quantity>
                 <CatalogIndex>002</CatalogIndex>
             </Goods>
             <Goods>
                 <Name>Cognac</Name>
-                <Price>25</Price>
+                <Price currency="EU">25</Price>
                 <Quantity>1</Quantity>
                 <CatalogIndex>004</CatalogIndex>
             </Goods>
