@@ -68,7 +68,8 @@ public class TaskC {
                         }
                     }
                     System.out.printf("%15d файл(ов) %13d байт\n", files,sizeFiles);
-                    System.out.printf("%15d папок %16s байт свободно\n", dirs, formatter.format((new File(String.valueOf(path))).getFreeSpace()));
+                    System.out.printf("%15d папок %16s байт свободно\n",
+                                       dirs, formatter.format((new File(String.valueOf(path))).getFreeSpace()));
 
 
 

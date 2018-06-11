@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class Vector extends Var {
 
     private static ResMan rm = ResMan.getInstance();
+    private Logger logger = Logger.getLogger();
 
     private double[] value;
 
@@ -43,6 +44,7 @@ public class Vector extends Var {
         }
         else if (other instanceof Vector){
             if (this.value.length != ((Vector) other).value.length){
+                logger.log(rm.getString(VectorError.NOT_EQUAL), LogLevel.ERROR);
                 throw new CalcException(rm.getString(VectorError.NOT_EQUAL));
             }
             double[] vector = Arrays.copyOf(this.value, this.value.length);

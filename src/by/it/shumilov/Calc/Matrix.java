@@ -4,7 +4,7 @@ class Matrix extends Var {
 
     private  double[][] value;
 
-
+    private GetStr getStr = GetStr.getInstance();
 
     public double[][] getValue() {
 
@@ -103,7 +103,7 @@ class Matrix extends Var {
                 return this.add(other.mul(new Scalar(-1)));
             }
             catch (CalcException e){
-                throw new CalcException("Операция вычитания " + this.toString()+ ", " + other.toString() + " невозможна");
+                return  super.sub(other);
             }
     }
 
@@ -141,8 +141,13 @@ class Matrix extends Var {
             return new Matrix(res);
             }
             else
-                throw new CalcException("Операция умножения невозможна: нет соответствя условию равности количества столбцов"+
-                        this.toString() + " количеству cтрок " + other.toString());
+                throw new CalcException(String.format("%s %s %s: %s %s %s",getStr.getString(Message.OP),
+                        getStr.getString(Op.MUL),
+                        getStr.getString(Err.IMP),
+                        getStr.getString(Message.COLUM),
+                        this,
+                        getStr.getString(Message.ROW),
+                        other));
         }
         return super.add(other);
     }
@@ -154,7 +159,7 @@ class Matrix extends Var {
             double[][] res = this.getValue();
             if (scalar==0)
 
-                throw new CalcException("Деление на ноль");
+                throw new CalcException(getStr.getString(Err.DIVZERO));
             for (double[] re : res) {
                 for (int i = 0; i < re.length; i++) {
                     re[i] /= scalar;

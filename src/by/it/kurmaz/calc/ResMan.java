@@ -27,4 +27,8 @@ class ResMan {
         this.locale = locale;
         rb = ResourceBundle.getBundle(path, locale);
     }
+
+    Locale getLocale() {
+        return locale;
+    }
 }

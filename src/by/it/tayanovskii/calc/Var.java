@@ -1,5 +1,7 @@
 package by.it.tayanovskii.calc;
 
+import com.sun.xml.internal.ws.api.model.MEP;
+
 import java.util.*;
 
 class Var implements Operation {
@@ -43,27 +45,27 @@ class Var implements Operation {
 
     @Override
     public String toString() {
-        return "Это абстрактная переменная";
+        return ResMan.getString(Message.abstractVariable);
     }
 
     @Override
     public Var add(Var other) throws CalcException {
-        throw new CalcException("Операция сложения " + this + "+" + other + " невозможна");
+        throw new CalcException(ResMan.getString(Message.additionImpossible) + this + "+" + other);
     }
 
     @Override
     public Var sub(Var other) throws CalcException {
-        throw new CalcException("Операция вычитания " + this + "-" + other + " невозможна");
+        throw new CalcException(ResMan.getString(Message.subtractionImpossible) + this + "-" + other);
     }
 
     @Override
     public Var mul(Var other) throws CalcException {
-        throw new CalcException("Операция умножения " + this + "*" + other + " невозможна");
+        throw new CalcException(ResMan.getString(Message.multiplicationImpossible) + this + "*" + other);
     }
 
     @Override
     public Var div(Var other) throws CalcException {
-        throw new CalcException("Операция деления " + this + "/" + other + " невозможна");
+        throw new CalcException(ResMan.getString(Message.divisionImpossible) + this + "/" + other);
     }
 
 

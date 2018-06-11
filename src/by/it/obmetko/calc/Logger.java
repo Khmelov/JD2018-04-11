@@ -1,6 +1,5 @@
 package by.it.obmetko.calc;
 
-import by.it.obmetko.calc.BaseReport;
 
 import java.io.FileWriter;
 import java.io.IOException;
