@@ -7,7 +7,8 @@ public class Runner {
         Scanner scanner=new Scanner(System.in);
         String line;
         Parser parser=new Parser();
-        Printer printer=new Printer();
+        //Printer printer=new Printer();
+        Printer printer = Printer.getInstance();
         while (!(line = scanner.nextLine()).equals("end")){
             Var var = null;
             try {
