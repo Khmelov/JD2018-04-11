@@ -3,7 +3,7 @@ package by.it.shekh.calc;
 import java.util.Scanner;
 
 public class ConsoleRunner {
-    public static void main(String[] args) throws CalcException {
+    public static void main(String[] args){
         Printer printer = new Printer();
         Parser parser = new Parser();
 
