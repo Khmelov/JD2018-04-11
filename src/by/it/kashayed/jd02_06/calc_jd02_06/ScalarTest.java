@@ -1,8 +1,8 @@
-package by.it.kashayed.jd02_04.jd02_04new;
+package by.it.kashayed.jd02_06.calc_jd02_06;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ScalarTest {
 

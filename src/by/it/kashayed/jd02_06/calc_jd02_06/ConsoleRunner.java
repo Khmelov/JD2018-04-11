@@ -1,4 +1,4 @@
-package by.it.kashayed.jd02_04.jd02_04new;
+package by.it.kashayed.jd02_06.calc_jd02_06;
 
 import java.util.Scanner;
 
@@ -11,6 +11,7 @@ public class ConsoleRunner {
         while (!(line=scanner.nextLine()).equals("end")){
             try {
                 Var result = parser.calc(line.trim());
+                Logger.stringLog(result.toString());
                 printer.print(result);
             } catch (CalcException err) {
                 System.out.println(err.getMessage());

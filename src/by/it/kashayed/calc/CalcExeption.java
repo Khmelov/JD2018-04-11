@@ -2,7 +2,7 @@ package by.it.kashayed.calc;
 
 public class CalcExeption extends Exception{
     public CalcExeption() {
-        super();
+        super("ERROR:");
     }
 
     public CalcExeption(String message) {

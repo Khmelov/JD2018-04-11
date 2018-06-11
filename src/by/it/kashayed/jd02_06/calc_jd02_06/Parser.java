@@ -1,4 +1,4 @@
-package by.it.kashayed.jd02_04.jd02_04new;
+package by.it.kashayed.jd02_06.calc_jd02_06;
 
 import java.util.*;
 import java.util.regex.Matcher;

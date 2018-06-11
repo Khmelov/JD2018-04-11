@@ -4,37 +4,37 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ScalarTest {
+public class VectorTest {
 
-    @Test (timeout = 5000)
+    @Test
     public void add() throws Exception {
         Parser parser=new Parser();
-        Var res = parser.calc("A=1+2");
+        Var res = parser.calc("A={1,2}+2");
         String s = res.toString();
-        assertEquals("3.0",s);
+        assertEquals("{2,4}",s);
     }
 
-    @Test(timeout = 5000)
+    @Test
     public void sub() throws Exception{
         Parser parser=new Parser();
-        Var res = parser.calc("B=3-2");
+        Var res = parser.calc("A={1,2}-2");
         String s = res.toString();
-        assertEquals("1.0",s);
+        assertEquals("{-1,0}",s);
     }
 
-    @Test(timeout = 5000)
+    @Test
     public void mul() throws Exception{
         Parser parser=new Parser();
-        Var res = parser.calc("C=3*2");
+        Var res = parser.calc("A={1,2}*3");
         String s = res.toString();
-        assertEquals("6.0",s);
+        assertEquals("{3,6}",s);
     }
 
-    @Test(timeout = 5000)
-    public void div() throws Exception{
+    @Test
+    public void div() throws Exception {
         Parser parser=new Parser();
-        Var res = parser.calc("Q=8/2");
+        Var res = parser.calc("A={1,2}/2");
         String s = res.toString();
-        assertEquals("4.0",s);
+        assertEquals("null",s);
     }
 }

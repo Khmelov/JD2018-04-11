@@ -1,10 +1,10 @@
-package by.it.kashayed.jd02_04.jd02_04new;
+package by.it.kashayed.jd02_06.calc_jd02_06;
 
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Var implements Operation{
+public class Var implements Operation {
 
     private static Map<String, Var> map = new HashMap<>();
     private static Map<String, Var> maps = new HashMap<>();
