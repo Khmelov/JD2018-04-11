@@ -7,11 +7,10 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.*;
 
 public class RunnerStAX {
-
+    @SuppressWarnings("deprecation")
     public static void main(String[] args) {
         String tab = "";
         StringBuilder text = new StringBuilder();
-
         String fileName = "src/by/it/kurmaz/jd02_07/Clients + xsd.xml";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();

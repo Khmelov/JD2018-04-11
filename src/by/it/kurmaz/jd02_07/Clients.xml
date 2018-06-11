@@ -33,11 +33,11 @@
     <Client>
         <Login>Stepka</Login>
         <Password>654321</Password>
-        <email>stepan@tut.by</email>
-        <address>Bobruysk</address>
-        <carma>silver</carma>
+        <Email>stepan@tut.by</Email>
+        <Address>Bobruysk</Address>
+        <Carma>silver</Carma>
         <Order>
-            <Cost>30</Cost>
+            <Cost>30 rub</Cost>
             <Content>
                 <Goods>
                     <Name>Vodka</Name>
