@@ -6,8 +6,8 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
 public class RunnerTransform {
-    private  static  String xslFile = "src/by/it/shumilov/jd02_08/transform.xml";
-    private static String xmlFile = "src/by/it/shumilov/jd02_08/Students_xsd.xml";
+    private  static  String xslFile = "src/by/it/shumilov/jd02_08/xpath.xsl";
+    private static String xmlFile = "src/by/it/shumilov/jd02_08/Students.xml";
     private static String outFile = "src/by/it/shumilov/jd02_08/Students.html";
 
     public static void main(String[] args) throws TransformerException {

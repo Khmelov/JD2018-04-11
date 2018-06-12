@@ -2,30 +2,65 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html"/>
 
-    <xsl:template match="/students">
-        <table border="1">
-            <tr><td>Name</td><td>NickName</td><td>Phone</td><td>Address</td></tr>
-            <xsl:apply-templates/>
-        </table>
+    <xsl:template match="/Students">
+        <html lang="en">
+            <head>
+                <title>Students</title>
+            </head>
+            <body>
+                <table border="1">
+                    <tr>
+                        <td>
+                            Login
+                        </td>
+                        <td>
+                            Password
+                        </td>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            FirstName
+                        </td>
+                        <td>
+                            LastName
+                        </td>
+                        <td>
+                            Courses
+                        </td>
+                    </tr>
+                    <xsl:apply-templates/>
+                </table>
+            </body>
+        </html>
     </xsl:template>
 
-    <xsl:template match="/students/student">
+
+    <xsl:template match="/Students/Student">
         <tr><xsl:apply-templates/></tr>
     </xsl:template>
 
-    <xsl:template match="/students/student/name">
+    <xsl:template match="/Students/Student/Person/Login">
         <td><xsl:apply-templates/></td>
     </xsl:template>
 
-    <xsl:template match="/students/student/nickname">
+    <xsl:template match="/Students/Student/Person/Password">
         <td><xsl:apply-templates/></td>
     </xsl:template>
 
-    <xsl:template match="/students/student/telephone">
+    <xsl:template match="/Students/Student/Person/Email">
         <td><xsl:apply-templates/></td>
     </xsl:template>
 
-    <xsl:template match="/students/student/address">
+    <xsl:template match="/Students/Student/Person/FirstName">
+        <td><xsl:apply-templates/></td>
+    </xsl:template>
+
+    <xsl:template match="/Students/Student/Person/SecondName">
+        <td><xsl:apply-templates/></td>
+    </xsl:template>
+
+    <xsl:template match="/Students/Student/CoursesStudent">
         <td><xsl:apply-templates/></td>
     </xsl:template>
 
