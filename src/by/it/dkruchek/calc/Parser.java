@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class Parser {
 
     private static ResMan rm = ResMan.getInstance();
-
+    Logger logger = Logger.getLogger();
     private static Map<String, Integer> priorityMap = new HashMap<String, Integer>()
     {{
 
@@ -63,7 +63,9 @@ public class Parser {
             String op = operations.remove(number);
             String right = operands.get(number);
             //debug();
+            logger.log(String.format("Trying to calculate: %s %s %s", left, op, right), LogLevel.INFO);
             result = oneOperation(left, op, right);
+            logger.log(String.format("Success, result is %s", result), LogLevel.INFO);
             operands.set(number, result.toString());
         }
         return result;
@@ -85,6 +87,7 @@ public class Parser {
         }
         Var one = Var.createVar(left);
         if (one == null || two == null){
+            logger.log(ParserError.EMPTY, LogLevel.ERROR);
             throw new CalcException(rm.getString(ParserError.EMPTY));
         }
 
@@ -94,7 +97,7 @@ public class Parser {
             case "*": return one.mul(two);
             case "/": return one.div(two);
         }
-
+        logger.log(ParserError.UNKNOWN, LogLevel.ERROR);
         throw new CalcException(rm.getString(ParserError.UNKNOWN));    }
 
 

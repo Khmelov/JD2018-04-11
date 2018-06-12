@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Persons xmlns="http://it.by/obmetko/xmlschema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://it.by/obmetko/xmlschema Schema.xsd">
+    <Person>
+        <Nickname>qwertu</Nickname>
+        <Password>1223dfr</Password>
+        <Email>qwert@mail.ru</Email>
+        <Ads>
+            <Ad>
+                <Description>квартира в Минске</Description>
+                <Address>
+                    ул.50 лет победы, 8 кв.23
+                </Address>
+                <Price currency="$$$$"> 8000</Price>
+                <Area>55.5</Area>
+                <Floor>4</Floor>
+                <Floors>5</Floors>
+                <Rooms>3</Rooms>
+            </Ad>
+            <Ad>
+                <Description>квартира в центре</Description>
+                <Address>
+                    ул.Сухарево, 4 кв.25
+                </Address>
+                <Price currency="BYN">7000</Price>
+                <Area>55</Area>
+                <Floor>3</Floor>
+                <Floors>5</Floors>
+                <Rooms>2</Rooms>
+            </Ad>
+        </Ads>
+    </Person>
+    <Person>
+        <Nickname>test</Nickname>
+        <Password>12tesr</Password>
+        <Email>test@mail.ru</Email>
+        <Ads>
+            <Ad>
+                <Description>квартира в Минске</Description>
+                <Address>
+                    ул.Шафарнянская 4 кв.15
+                </Address>
+                <Price currency="EU">9000</Price>
+                <Area>55.5</Area>
+                <Floor>2</Floor>
+                <Floors>5</Floors>
+                <Rooms>4</Rooms>
+            </Ad>
+        </Ads>
+    </Person>
+</Persons>

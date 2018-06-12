@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Clients xmlns="http://it.by/rogov/xmlschema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://it.by/rogov/xmlschema Schema.xsd"
+>
+    <Client>
+        <Name>Alexandr</Name>
+        <Password>Alexandr12345</Password>
+        <Email>Alexandr12345@mail.ru</Email>
+        <phone>1234098</phone>
+    </Client>
+    <Client>
+        <Name>Oleg</Name>
+        <Password>Oleg12345</Password>
+        <Email>Oleg12345@mail.ru</Email>
+        <phone>2340998</phone>
+    </Client>
+</Clients>

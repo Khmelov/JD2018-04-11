@@ -1,7 +1,7 @@
 package by.it.rogov.calc;
 
 public class CalcException extends Exception {
-    Log loger = new Log();
+    Logger loger=Logger.getInstans();
 
     public CalcException() {
     }

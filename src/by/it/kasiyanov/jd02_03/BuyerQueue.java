@@ -1,7 +1,5 @@
 package by.it.kasiyanov.jd02_03;
 
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
@@ -9,7 +7,7 @@ class BuyerQueue {
 
     private static LinkedBlockingDeque<Buyer> deque = new LinkedBlockingDeque<>(30);
 
-    static synchronized void addToQueue(Buyer buyer){
+    static void addToQueue(Buyer buyer){
         try {
             deque.putLast(buyer);
         } catch (InterruptedException e) {
@@ -17,7 +15,7 @@ class BuyerQueue {
         }
     }
 
-    static synchronized Buyer extractBuyerFromQueue(){
+    static Buyer extractBuyerFromQueue(){
         try {
             return deque.poll(10, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {

@@ -4,23 +4,37 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 class Logger {
 
-    private static Path path = Paths.get(getPath(Logger.class) + "log.txt");
+    private Path path = Paths.get(getPath(Logger.class) + "log.txt");
 
-    private static String getPath (Class cl) {
+    private LogBuilder logBuilder;
+
+    private String message;
+
+    private String getPath (Class cl) {
         String root = System.getProperty("user.dir");
         String path = cl.getName().replaceAll(cl.getSimpleName(), "").replace('.', File.separator.charAt(0));
         return root + File.separator + "src" + File.separator + path;
     }
 
-    static void Log (String message) {
+    void setLogBuilder(LogBuilder builder) {
+        this.logBuilder = builder;
+    }
+
+    void createLog (String message) {
+        this.message = logBuilder.getMessage(message);
+        Log();
+    }
+
+    void createLog (CalcException e) {
+        this.message = logBuilder.getMessage(e);
+        Log();
+    }
+
+    private void Log () {
         try {
-            Date date = new Date();
-            SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
             int size = (int) Files.lines(path).count();
             int index = 0;
             if (size >=1)
@@ -38,7 +52,7 @@ class Logger {
                 }
             }
             try (FileWriter writer = new FileWriter(path.toString(), true)) {
-                writer.write("[Log #" + (index + 1) + "]: " + formatForDateNow.format(date) + " " + message + "\n");
+                writer.write("[Log #" + (index + 1) + "]: " + message + "\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -47,7 +61,7 @@ class Logger {
         }
     }
 
-    private static int getIndex(int size) {
+    private int getIndex(int size) {
         String last = null;
         int grid = 0;
         int bracket = 0;
@@ -63,5 +77,15 @@ class Logger {
         }
         else
             return 0;
+    }
+
+    public void start() {
+        message = logBuilder.createStartMessage();
+        Log();
+    }
+
+    public void finish() {
+        message = logBuilder.createEndMessage();
+        Log();
     }
 }

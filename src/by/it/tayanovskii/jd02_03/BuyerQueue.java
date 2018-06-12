@@ -35,5 +35,9 @@ class BuyerQueue {
         }
         return null;
     }
+    static int getSizeofBuyerQueue()
+    {
+        return deque.size();
+    }
 
 }

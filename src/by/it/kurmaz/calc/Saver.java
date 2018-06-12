@@ -1,5 +1,7 @@
 package by.it.kurmaz.calc;
 
+import by.it._examples_.jd02_04.Calc;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,14 +11,14 @@ class Saver {
     private static String filename = "var.txt";
     private static Class cl = Saver.class;
 
-    static void save (HashMap<String, Var> hashMap) {
+    static void save (HashMap<String, Var> hashMap) throws CalcException {
         try(FileWriter writer = new FileWriter(getPath(cl) + filename)) {
             Set<Map.Entry<String, Var>> set = hashMap.entrySet();
             for (Map.Entry<String, Var> entry: set) {
                 writer.write(entry.getKey() + "=" + entry.getValue().toString() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new CalcException("Save failed!", e);
         }
     }
 
@@ -40,7 +42,7 @@ class Saver {
                 hashMap.put(content[0], Var.createVar(content[1]));
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new CalcException("Recovery failed!", e);
         }
         return hashMap;
     }

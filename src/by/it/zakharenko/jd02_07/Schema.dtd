@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT Clients (Client)+>
+<!ELEMENT Client (Login, Password, Email, Books)>
+<!ELEMENT Login (#PCDATA)>
+<!ELEMENT Password (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Books (Book)+>
+<!ELEMENT Book (Description,Name,Author,Genre,Language,Pages,Price)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Author (#PCDATA)>
+<!ELEMENT Genre (#PCDATA)>
+<!ELEMENT Language (#PCDATA)>
+<!ELEMENT Pages (#PCDATA)>
+<!ELEMENT Price (#PCDATA)>

@@ -10,7 +10,7 @@ class Variables {
         hashMap = Saver.recover();
     }
 
-    static void save () {
+    static void save () throws CalcException {
         Saver.save(hashMap);
     }
 
