@@ -5,7 +5,7 @@ public class Vector extends Var {
     @Override
     public Var add(Var other) throws CalcExeption{
         if(other instanceof Vector){
-            if(((Vector) other).value!=this.value){
+            if(((Vector) other).value.length!=this.value.length){
                 throw new CalcExeption("размеры векторов не совпадают");
             }
             double add [] = new double [this.value.length];
@@ -27,7 +27,7 @@ public class Vector extends Var {
     @Override
     public Var sub(Var other) throws CalcExeption{
         if(other instanceof Vector){
-            if(((Vector) other).value!=this.value){
+            if(((Vector) other).value.length!=this.value.length){
                 throw new CalcExeption("размеры векторов не совпадают");
             }
             double sub [] = new double [3];

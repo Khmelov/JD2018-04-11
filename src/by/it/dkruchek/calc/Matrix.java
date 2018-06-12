@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Matrix extends Var {
 
     private static ResMan rm = ResMan.getInstance();
-
+    private Logger logger = Logger.getLogger();
     private double[][] value;
 
     public Matrix(String strMatrix){
@@ -51,7 +51,8 @@ public class Matrix extends Var {
         }
         else if (other instanceof Matrix){
             if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
-                throw new CalcException("Martrices are not the same size");
+                logger.log(rm.getString(MatrixError.NOT_EQUAL), LogLevel.ERROR);
+                throw new CalcException(rm.getString(MatrixError.NOT_EQUAL));
             }
             double matrix[][]= new double [this.value.length][];
             for (int i = 0; i < this.value.length; i++)
@@ -73,6 +74,7 @@ public class Matrix extends Var {
         }
         else if (other instanceof Matrix){
             if (this.value.length != ((Matrix) other).value.length || this.value[0].length != ((Matrix) other).value[0].length){
+                logger.log(rm.getString(MatrixError.NOT_EQUAL), LogLevel.ERROR);
                 throw new CalcException(rm.getString(MatrixError.NOT_EQUAL));
             }
             return this.add(other.mul(new Scalar(-1)));

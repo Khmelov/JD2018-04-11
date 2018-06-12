@@ -33,6 +33,7 @@ public abstract class BaseReport {
                         instance = new ShortReport();
                     } else {
                         instance = new ExtendedReport();
+
                     }
                 }
             }
