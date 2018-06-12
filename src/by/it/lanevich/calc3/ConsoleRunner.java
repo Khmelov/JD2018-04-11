@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class ConsoleRunner {
     static ResMan rm= ResMan.getInstance();
+    static Logger logger=Logger.getLogger();
     public static void main(String[] args) {
 
         Scanner scan=new Scanner(System.in);
@@ -38,7 +39,11 @@ public class ConsoleRunner {
 
                         printer.print(result);
                     } catch (CalcException e) {
+
                         System.out.println(e.getMessage());
+                         logger.toLog(e.getMessage());
+
+
                     }
 
             }}
