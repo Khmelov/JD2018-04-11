@@ -7,7 +7,7 @@ import javax.xml.stream.XMLStreamReader;
 import java.io.*;
 
 public class RunnerStAX {
-    private static String xmlFile = "src/by/it/shumilov/jd02_08/Students_xsd.xml";
+    private static String xmlFile = "src/by/it/shumilov/jd02_08/Persons_xsd.xml";
     private static String tab = "";
     private static StringBuilder text = new StringBuilder();
 

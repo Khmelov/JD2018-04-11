@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class RunnerDOM {
 
-    private static String xmlFile = "src/by/it/shumilov/jd02_08/Students_xsd.xml";
+    private static String xmlFile = "src/by/it/shumilov/jd02_08/Persons_xsd.xml";
 
     public static void main(String[] args) {
 
