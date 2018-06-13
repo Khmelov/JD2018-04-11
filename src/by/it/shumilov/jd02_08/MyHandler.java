@@ -14,12 +14,12 @@ public class MyHandler extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        System.out.println("Start Document");
+        //System.out.println("Start Document");
     }
 
     @Override
     public void endDocument() throws SAXException {
-        System.out.println("End Document");
+        //System.out.println("End Document");
     }
 
     @Override
