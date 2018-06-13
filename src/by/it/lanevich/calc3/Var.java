@@ -41,16 +41,18 @@ private static Map<String, Var> hashVar = new HashMap<>();
     static Var createVar(String operand) throws CalcException{
        // operand=operand.replace("\\s+","").trim();
         operand=operand.replaceAll("\\s+","").trim();
+        VarFactory.Creator creator = null;
         if(operand.matches(Patterns.SCALAR))
-            return new Scalar(operand);
+            creator = new VarFactory.CreatorScalar();
         if(operand.matches(Patterns.VECTOR))
-            return new Vector(operand);
+            creator = new VarFactory.CreatorVector();
         if(operand.matches(Patterns.MATRIX))
-            return new Matrix(operand);
+            creator = new VarFactory.CreatorMatrix();
         if (operand.matches(Patterns.VARNAME))
             return hashVar.get(operand);
+        if (creator == null)
         throw new CalcException(rm.getString(Messages.CREATEIMPOSSIBLE)+operand);
-
+        return creator.parse(operand);
     }
 
 
