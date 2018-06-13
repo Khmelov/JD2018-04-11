@@ -1,5 +1,7 @@
 package by.it.mokhart.jd02_05;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -9,11 +11,13 @@ class ResMan {
 
     private String path;
     private Locale locale;
+    private DateFormat date;
     private ResourceBundle rb;
 
     private ResMan() {
         path = "by.it.mokhart.jd02_05.lang.language";
         locale = Locale.getDefault();
+        date = DateFormat.getDateInstance();
         rb = ResourceBundle.getBundle(path, locale);
     }
 
@@ -33,4 +37,13 @@ class ResMan {
         rb = ResourceBundle.getBundle(path, this.locale);
     }
 
+    void setDate(Locale locale) {
+        this.date = DateFormat.getDateInstance(DateFormat.MEDIUM, locale);
+
+    }
+
+    String getDate() {
+        return date.format(new Date());
+    }
 }
+
