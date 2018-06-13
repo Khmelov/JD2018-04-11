@@ -1,13 +1,13 @@
 package by.it.kasiyanov.jd02_03;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Semaphore;
 
 public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     private boolean pensioner = false;
+    private static Semaphore choosingLimit = new Semaphore(20);
 
     ConcurrentMap<String, Integer> exactBuying = new ConcurrentHashMap<>();
 
@@ -39,6 +39,14 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
 
     @Override
     public void takeBasket() {
+        try {
+            choosingLimit.acquire();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
+            choosingLimit.release();
+        }
         int timeout = Util.rnd(100, 200);
         Util.sleep(timeout, pensioner);
         Printer.printLine(this + " взял корзину");
@@ -70,6 +78,7 @@ public class Buyer extends Thread implements IBuyer, IUseBasket {
     @Override
     public void goToQueue() {
         Printer.printLine(this + " стал в очередь");
+        choosingLimit.release();
         BuyerQueue.addToQueue(this);
         synchronized (this){
             try {

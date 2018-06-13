@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://it.by/dkruchek/XMLSchema"
+xmlns:tns="http://it.by/dkruchek/XMLSchema"
+elementFormDefault="qualified">
+    <element name="Company">
+            <complexType>
+                <sequence>
+                    <element name="Director"
+                             type="tns:Director"
+                             minOccurs="1"
+                             maxOccurs="1">
+                    </element>
+                    <element name="Departments"
+                             type="tns:Departments"
+                             maxOccurs="unbounded">
+                    </element>
+                </sequence>
+            </complexType>
+    </element>
+    <complexType name="Director">
+        <sequence>
+            <element name="Lastname" type="string"/>
+            <element name="Name" type="string"/>
+            <element name="Middlename" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Phone" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Departments">
+
+        <sequence>
+            <element name="Department"
+                     type="tns:Department"
+                     maxOccurs="unbounded">
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="Department">
+
+        <sequence>
+            <element name="Manager"
+                     type="tns:Manager"
+                     maxOccurs="1">
+            </element>
+            <element name="Units"
+                     type="tns:Units"
+                     maxOccurs="unbounded">
+        </element>
+        </sequence>
+        <attribute name="name" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="Manager">
+        <sequence>
+            <element name="Lastname" type="string"/>
+            <element name="Name" type="string"/>
+            <element name="Middlename" type="string"/>
+            <element name="Title" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Vacations"
+                     type="tns:Vacations"
+                     minOccurs="0"
+                     maxOccurs="1">
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Units">
+        <sequence>
+            <element name="Unit"
+                     type="tns:Unit"
+                     maxOccurs="unbounded">
+            </element>
+
+        </sequence>
+    </complexType>
+
+    <complexType name="Unit">
+        <sequence>
+            <element name="Manager"
+                     type="tns:Manager"
+                     maxOccurs="1">
+            </element>
+            <element name="Employees"
+                     type="tns:Employees"
+                     maxOccurs="unbounded">
+            </element>
+        </sequence>
+        <attribute name="name" type="string" use="required"/>
+
+    </complexType>
+
+    <complexType name="Employees">
+        <sequence>
+            <element name="Employee"
+                     type="tns:Employee"
+                     maxOccurs="unbounded">
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Employee">
+        <sequence>
+            <element name="Lastname" type="string"/>
+            <element name="Name" type="string"/>
+            <element name="Middlename" type="string"/>
+            <element name="Title" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Vacations"
+                     type="tns:Vacations"
+                    minOccurs="0"
+                    maxOccurs="1">
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Vacation">
+        <sequence>
+            <element name="StartDate" type="string"/>
+            <element name="EndDate" type="string"/>
+            <element name="Approved" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Vacations">
+        <sequence>
+            <element name="Vacation"
+                     type="tns:Vacation"
+                     minOccurs="1"
+                     maxOccurs="unbounded">
+            </element>
+        </sequence>
+    </complexType>
+
+</schema>
+

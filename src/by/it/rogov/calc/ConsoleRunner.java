@@ -12,10 +12,10 @@ public class ConsoleRunner {
         Parser parser = new Parser();
 //        parser.getWords("e={1,2,3}+1");
         Printer printer = new Printer();
-        Log loger = new Log();
+        Logger loger = Logger.getInstans();
         try (
                 BufferedReader bufferedReader = new BufferedReader(
-                        new FileReader(Var.filename))
+                        new FileReader(Printer.filename))
         ) {
             String s=null;
         while ((s=bufferedReader.readLine())!=null){

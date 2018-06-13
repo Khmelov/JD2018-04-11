@@ -1,0 +1,11 @@
+E:\JD2018-04-11\zakharenko\src\by\it\zakharenko\jd02_05\txt>FOR %I In (*.txt) DO ("C:\Program Files\Java\jdk1.8.0_161\bin\native2ascii" -encoding UTF-8 %I ..\lang\%~nI.properties )
+
+E:\JD2018-04-11\zakharenko\src\by\it\zakharenko\jd02_05\txt>("C:\Program Files\Java\jdk1.8.0_161\bin\native2ascii" -encoding UTF-8 language.txt ..\lang\language.properties )
+
+E:\JD2018-04-11\zakharenko\src\by\it\zakharenko\jd02_05\txt>("C:\Program Files\Java\jdk1.8.0_161\bin\native2ascii" -encoding UTF-8 language_be_BY.txt ..\lang\language_be_BY.properties )
+
+E:\JD2018-04-11\zakharenko\src\by\it\zakharenko\jd02_05\txt>("C:\Program Files\Java\jdk1.8.0_161\bin\native2ascii" -encoding UTF-8 language_en_US.txt ..\lang\language_en_US.properties )
+
+E:\JD2018-04-11\zakharenko\src\by\it\zakharenko\jd02_05\txt>("C:\Program Files\Java\jdk1.8.0_161\bin\native2ascii" -encoding UTF-8 language_ru.txt ..\lang\language_ru.properties )
+
+E:\JD2018-04-11\zakharenko\src\by\it\zakharenko\jd02_05\txt>("C:\Program Files\Java\jdk1.8.0_161\bin\native2ascii" -encoding UTF-8 language_ru_RU.txt ..\lang\language_ru_RU.properties )

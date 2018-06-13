@@ -1,0 +1,12 @@
+msg.vectordifferentsizes = Вектары маюць розны памер
+msg.matricadifferentsizes = Матрыцы маюць розны памер
+msg.divbyzero = Дзяленне на нуль
+msg.nosuchoperation = Няма такой аперацыі
+msg.abstractvar = Гэта абстрактная пераменная
+msg.createimpossible = Немагчыма стварыць
+msg.handleimpossible = Немагчыма апрацаваць
+msg.add = Аперацыя складання
+msg.sub = Аперацыя аднімання
+msg.mul = Аперацыя множання
+msg.div = Аперацыя дзялення
+msg.impossible = немагчыма

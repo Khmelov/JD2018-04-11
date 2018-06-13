@@ -1,0 +1,4 @@
+msg.welcome=Прывiтанне!
+msg.question=Як справы?
+res.author=Автор кода
+res.name=Алiна Захарэнка

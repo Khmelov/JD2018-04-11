@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Persons SYSTEM 'Schema.dtd'>
+<Persons>
+    <Person>
+        <Nickname>qwertu</Nickname>
+        <Password>1223dfr</Password>
+        <Email>qwert@mail.ru</Email>
+        <Ads>
+            <Ad>
+                <Description>квартира в Минске</Description>
+                <Address>
+                    ул.50 лет победы, 8 кв.23
+                </Address>
+                <Price>8000</Price>
+                <Area>55.5</Area>
+                <Floor>4</Floor>
+                <Floors>5</Floors>
+                <Rooms>3</Rooms>
+            </Ad>
+            <Ad>
+                <Description>квартира в центре</Description>
+                <Address>
+                    ул.Сухарево, 4 кв.25
+                </Address>
+                <Price>7000</Price>
+                <Area>55</Area>
+                <Floor>3</Floor>
+                <Floors>5</Floors>
+                <Rooms>2</Rooms>
+            </Ad>
+        </Ads>
+    </Person>
+    <Person>
+        <Nickname>test</Nickname>
+        <Password>12tesr</Password>
+        <Email>test@mail.ru</Email>
+        <Ads>
+            <Ad>
+                <Description>квартира в Минске</Description>
+                <Address>
+                    ул.Шафарнянская 4 кв.15
+                </Address>
+                <Price>9000</Price>
+                <Area>55.5</Area>
+                <Floor>2</Floor>
+                <Floors>5</Floors>
+                <Rooms>4</Rooms>
+            </Ad>
+        </Ads>
+    </Person>
+</Persons>
