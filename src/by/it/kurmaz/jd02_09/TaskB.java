@@ -1,24 +1,29 @@
 package by.it.kurmaz.jd02_09;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
 
 public class TaskB {
 
-    private static String XMLIN = "D:\\students\\kurmaz\\JD2018-04-11\\src\\by\\it\\kurmaz\\jd02_09\\Clients + xsd.xml";
-    private static String XMLOUT = "D:\\students\\kurmaz\\JD2018-04-11\\src\\by\\it\\kurmaz\\jd02_09\\ClientsNew2.xml";
+    private static final String XMLIN="src/by/it/kurmaz/jd02_09/Clients + xsd.xml";
+    private static final String XMLOUT="src/by/it/kurmaz/jd02_09/ResultB.xml";
     private static Clients clients;
 
+    public static void main(String[] args) {
+        readXML();
+        String json = getJSON();
+        System.out.println(json);
+        clients = readJSON(json);
+        saveXML();
+    }
 
-    void readXML() {
+    private static void readXML() {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Clients.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -28,15 +33,17 @@ public class TaskB {
         }
     }
 
-    String getJSON(){
-        return null;
+    private static String getJSON() {
+        Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
+        return gson.toJson(clients);
     }
 
-    Client readJSON(){
-        return null;
+    private static Clients readJSON(String json){
+        Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
+        return gson.fromJson(json, Clients.class);
     }
 
-    void saveXML(){
+    private static void saveXML(){
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Clients.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
