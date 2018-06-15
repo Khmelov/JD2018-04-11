@@ -1,4 +1,4 @@
-package by.it.akhmelev.jd02_08;
+package by.it.zaliashchonak.jd02_08;
 
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -9,17 +9,15 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
 
-public class RunnerSAX {
-
-    private static String xmlFile = "src/by/it/akhmelev/jd02_07/Clients+xsd.xml";
+public class RunnerSax {
 
     public static void main(String[] args) {
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
+            SAXParser saxParser = saxParserFactory.newSAXParser();
             DefaultHandler handler = new MyHandler();
-            SAXParserFactory
-                    .newInstance()
-                    .newSAXParser()
-                    .parse(new File(xmlFile), handler);
+            String fileName = "src/by/it/zaliashchonak/jd02_07/Clients+xsd.xml";
+            saxParser.parse(new File(fileName), handler);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
