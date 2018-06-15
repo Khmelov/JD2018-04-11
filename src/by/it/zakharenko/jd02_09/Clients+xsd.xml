@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Clients xmlns="http://jd02_09.zakharenko.it.by"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://jd02_09.zakharenko.it.by Schema.xsd">
+    <Client>
+        <Login>Dima</Login>
+        <Password>123984ytf</Password>
+        <Email>dima12345@mail.ru</Email>
+        <Books>
+            <Book>
+                <Description>
+                    Интересная книга для любого возраста!
+                </Description>
+                <Name>
+                    The Chronicles of Narnia
+                </Name>
+                <Author>
+                    Clive Lewis
+                </Author>
+                <Genre>Fantasy</Genre>
+                <Language>English</Language>
+                <Pages>767</Pages>
+                <Price currency="RU">167</Price>
+            </Book>
+            <Book>
+                <Description>
+                    Захватывающий детектив для любителей этого жанра!
+                </Description>
+                <Name>
+                    The Adventures of Sherlock Holmes
+                </Name>
+                <Author>
+                    George Newnes
+                </Author>
+                <Genre>
+                    Detective story
+                </Genre>
+                <Language>English</Language>
+                <Pages>307</Pages>
+                <Price currency="EU">79</Price>
+            </Book>
+        </Books>
+    </Client>
+    <Client>
+        <Login>Anna</Login>
+        <Password>anna678</Password>
+        <Email>anna3928@mail.ru</Email>
+        <Books>
+            <Book>
+                <Description>
+                    Шикарная книга о любви!
+                </Description>
+                <Name>
+                    Pride and Prejudice
+                </Name>
+                <Author>
+                    Jane Austen
+                </Author>
+                <Genre>Novel</Genre>
+                <Language>English</Language>
+                <Pages>416</Pages>
+                <Price currency="US">193</Price>
+            </Book>
+            <Book>
+                <Description>
+                    Книга, которая заставляет задуматься о жизни!
+                </Description>
+                <Name>
+                    Преступление и наказание
+                </Name>
+                <Author>Фёдор Достоевский</Author>
+                <Genre>Роман</Genre>
+                <Language>Русский</Language>
+                <Pages>608</Pages>
+                <Price currency="RU">118</Price>
+            </Book>
+        </Books>
+    </Client>
+</Clients>
+
