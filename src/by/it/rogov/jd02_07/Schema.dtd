@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!ELEMENT Clients (Client)+>
-        <!ELEMENT Client (Name, Password, Email,phone)>
+        <!ELEMENT Users (Client+, Administrator)>
+        <!ELEMENT Client (Name, LastName, Password, Email, phone, JAXP)>
         <!ELEMENT Name (#PCDATA)>
+        <!ELEMENT LastName (#PCDATA)>
         <!ELEMENT Password (#PCDATA)>
         <!ELEMENT Email (#PCDATA)>
         <!ELEMENT phone (#PCDATA)>
+        <!ELEMENT JAXP (dom, sax, stax, xslt, xpath)>
+        <!ELEMENT dom (#PCDATA)>
+        <!ELEMENT sax (#PCDATA)>
+        <!ELEMENT stax (#PCDATA)>
+        <!ELEMENT xslt (#PCDATA)>
+        <!ELEMENT xpath (#PCDATA)>
+        <!ELEMENT Administrator (Name, LastName, Password, Email, phone, JAXP)>
