@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<!ELEMENT TravelAgents (TravelAgent)+>
+        <!ELEMENT TravelAgent (Name, Login, Pasword, Email, TravelOffers)>
+        <!ELEMENT Name (#PCDATA)>
+		<!ELEMENT Login (#PCDATA)>
+        <!ELEMENT Pasword (#PCDATA)>
+        <!ELEMENT Email (#PCDATA)>
+        <!ELEMENT TravelOffers (TravelOffer)+>
+        <!ELEMENT TravelOffer (Description, TypeOfTrevel, Destination, Hotel, LevelOfAccommodation, NumberOfNight, Price)>
+        <!ELEMENT Description (#PCDATA)>
+		<!ELEMENT TypeOfTrevel (#PCDATA)>
+        <!ELEMENT Destination (#PCDATA)>
+		<!ELEMENT Hotel (#PCDATA)>
+        <!ELEMENT LevelOfAccommodation (#PCDATA)>
+        <!ELEMENT NumberOfNight (#PCDATA)>
+        <!ELEMENT Price (#PCDATA)>
+
+
+
+
