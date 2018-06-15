@@ -1,0 +1,51 @@
+<TravelAgents>
+	<TravelAgent>
+		<Name>Alina</Name>
+		<Login>Alina</Login>
+		<Pasword>qwerty</Pasword>
+		<Email>Alina@gmail.com</Email>
+		<TravelOffers>
+			<TravelOffer>
+				<Description>
+                    Великолепные песчаные пляжи...
+                </Description>
+				<TypeOfTrevel>Holiday</TypeOfTrevel>
+				<Destination>Мальта</Destination>
+				<Hotel>Hilton</Hotel>
+				<LevelOfAccommodation>5 Stars</LevelOfAccommodation>
+				<NumberOfNight>7</NumberOfNight>
+				<Price>445.0</Price>
+			</TravelOffer>
+			<TravelOffer>
+				<Description>
+                    Исторические достопримечательности...
+                </Description>
+				<TypeOfTrevel>Excursion</TypeOfTrevel>
+				<Destination>Прага</Destination>
+				<Hotel>ResidenceBologna</Hotel>
+				<LevelOfAccommodation>3 Stars</LevelOfAccommodation>
+				<NumberOfNight>2</NumberOfNight>
+				<Price>215.0</Price>
+			</TravelOffer>
+		</TravelOffers>
+	</TravelAgent>
+	<TravelAgent>
+		<Name>Viktoria</Name>
+		<Login>Viktoria</Login>
+		<Pasword>asdfg</Pasword>
+		<Email>Viktoria@gmail.com</Email>
+		<TravelOffers>
+			<TravelOffer>
+				<Description>
+                    Тур в Италию за самыми модными и выгодными покупками...
+                </Description>
+				<TypeOfTrevel>ShopTour</TypeOfTrevel>
+				<Destination>Милан</Destination>
+				<Hotel>Ibis Milano Centro</Hotel>
+				<LevelOfAccommodation>3 Stars</LevelOfAccommodation>
+				<NumberOfNight>5</NumberOfNight>
+				<Price>324.0</Price>
+			</TravelOffer>
+		</TravelOffers>
+	</TravelAgent>
+</TravelAgents>
