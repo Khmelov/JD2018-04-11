@@ -16,12 +16,12 @@ public class RunSAX extends DefaultHandler {
 
     public static void main(String[] args) {
 
-        String xmlFile="src/by/it/rogov/jd02_08/Clients+xsd.xml";
-        SAXParserFactory saxParserFactory =SAXParserFactory.newInstance();
+        String xmlFile = "src/by/it/rogov/jd02_08/Clients+xsd.xml";
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
-            SAXParser saxParser= saxParserFactory.newSAXParser();
-            RunSAX runSAX= new RunSAX();
-            saxParser.parse(new File(xmlFile),runSAX);
+            SAXParser saxParser = saxParserFactory.newSAXParser();
+            RunSAX runSAX = new RunSAX();
+            saxParser.parse(new File(xmlFile), runSAX);
 
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
@@ -30,8 +30,9 @@ public class RunSAX extends DefaultHandler {
 
     }
 
-    private String str;
-    private String tab="";
+    private String value;
+    private String tab = "";
+
     @Override
     public void startDocument() throws SAXException {
         System.out.println("Start Document");
@@ -44,16 +45,29 @@ public class RunSAX extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-
+        System.out.print(tab + "[" + qName);
+        for (int i = 0; i < attributes.getLength(); i++) {
+            String name = attributes.getLocalName(i);
+            value = attributes.getValue(i);
+            System.out.println(" " + name + "=" + value);
+        }
+        System.out.println("]");
+        tab += "\t";
+        value = "";
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        super.endElement(uri, localName, qName);
+        if (!value.isEmpty()) {
+            System.out.println(tab + value);
+        }
+        value = "";
+        tab = tab.substring(1);
+        System.out.println(tab + "[/" + qName + "]");
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        super.characters(ch, start, length);
+        value = value.concat(new String(ch, start, length).trim());
     }
 }
