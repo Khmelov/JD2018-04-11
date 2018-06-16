@@ -11,16 +11,16 @@ import java.io.File;
 
 public class TaskB {
 
-    private static final String XML="src/by/it/akhmelev/jd02_09/Clients+xsd.xml";
-    private static final String XMLOUT="src/by/it/akhmelev/jd02_09/out.xml";
+    private static final String XML="src/by/it/zaliashchonak/jd02_09/Clients+xsd.xml";
+    private static final String XMLOUT="src/by/it/zaliashchonak/jd02_09/out.xml";
 
-    static Clients persons;
+    static Clients clients;
 
     static void readXml(){
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Clients.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            persons = (Clients)unmarshaller.unmarshal(new File(XML));
+            clients = (Clients)unmarshaller.unmarshal(new File(XML));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -31,7 +31,7 @@ public class TaskB {
                 .serializeNulls()
                 .setPrettyPrinting()
                 .create();
-        String json = gson.toJson(persons);
+        String json = gson.toJson(clients);
         return json;
     }
 
@@ -40,7 +40,7 @@ public class TaskB {
                 .serializeNulls()
                 .setPrettyPrinting()
                 .create();
-        persons=gson.fromJson(json,Clients.class);
+        clients =gson.fromJson(json,Clients.class);
     }
 
     static void saveXml(){
@@ -48,7 +48,7 @@ public class TaskB {
             JAXBContext jaxbContext = JAXBContext.newInstance(Clients.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(persons,new File(XMLOUT));
+            marshaller.marshal(clients,new File(XMLOUT));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

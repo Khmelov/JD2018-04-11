@@ -17,7 +17,7 @@ public class Ad {
 
 
     @XmlElement(name = "Product", required = true)
-    protected String address;
+    protected String product;
     @XmlElement(name = "Price", required = true)
     protected Price price;
     @XmlElement(name = "Description", required = true)
@@ -35,12 +35,12 @@ public class Ad {
 
 
     public String getProduct() {
-        return address;
+        return product;
     }
 
 
     public void setProduct(String value) {
-        this.address = value;
+        this.product = value;
     }
 
 
@@ -59,7 +59,7 @@ public class Ad {
     public String toString() {
         return "\n\tAd{" +
 
-                "product='" + address + '\'' +
+                "product='" + product + '\'' +
                 ", price=" + price +
                 ", description=" + description + '\'' +
                 '}';

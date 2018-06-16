@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Clients xmlns="http://jd02_09.zaliashchonak.it.by">
+<?xml version="1.0" encoding="UTF-8" ?>
+<Clients xmlns="http://jd02_09.zaliashchonak.it.by"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://jd02_09.zaliashchonak.it.by Schema.xsd">
     <Client>
         <Nickname>Вася1</Nickname>
         <Password>Пароль1</Password>
@@ -7,12 +9,12 @@
         <Ads>
             <Ad>
                 <Product>Product1</Product>
-                <Price currency="BYN">1000.0</Price>
+                <Price currency="BYN">1000</Price>
                 <Description>Product1 Description</Description>
             </Ad>
             <Ad>
                 <Product>Product2</Product>
-                <Price currency="BYN">2000.0</Price>
+                <Price currency="BYN">2000</Price>
                 <Description>Product2 Description</Description>
             </Ad>
         </Ads>
@@ -24,9 +26,10 @@
         <Ads>
             <Ad>
                 <Product>Product3</Product>
-                <Price currency="BYN">3000.0</Price>
+                <Price currency="BYN">3000</Price>
                 <Description>Product3 Description</Description>
             </Ad>
         </Ads>
     </Client>
 </Clients>
+

@@ -38,15 +38,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Client", propOrder = {
-    "login",
+    "nickname",
     "password",
     "email",
     "ads"
 })
 public class Client {
 
-    @XmlElement(name = "Login", required = true)
-    protected String login;
+    @XmlElement(name = "Nickname", required = true)
+    protected String nickname;
     @XmlElement(name = "Password", required = true)
     protected String password;
     @XmlElement(name = "Email", required = true)
@@ -63,7 +63,7 @@ public class Client {
      *
      */
     public String getLogin() {
-        return login;
+        return nickname;
     }
 
     /**
@@ -75,7 +75,7 @@ public class Client {
      *
      */
     public void setLogin(String value) {
-        this.login = value;
+        this.nickname = value;
     }
 
     /**
@@ -153,7 +153,7 @@ public class Client {
     @Override
     public String toString() {
         return "\nClient{" +
-                "login='" + login + '\'' +
+                "nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", ads=" + ads +

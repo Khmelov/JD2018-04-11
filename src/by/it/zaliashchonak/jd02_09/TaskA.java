@@ -7,7 +7,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 public class TaskA {
-    private static final String XML="src/by/it/zaliashchonak/jd02_07/Clients+xsd.xml";
+    private static final String XML="src/by/it/zaliashchonak/jd02_09/Clients+xsd.xml";
     private static final String XMLOUT="src/by/it/zaliashchonak/jd02_09/Clients.xml";
 
     public static void main(String[] args) {
