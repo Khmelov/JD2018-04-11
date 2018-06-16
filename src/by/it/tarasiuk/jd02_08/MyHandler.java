@@ -6,48 +6,49 @@ import org.xml.sax.helpers.DefaultHandler;
 
 
 public class MyHandler extends DefaultHandler {
-    private StringBuilder text = new StringBuilder();
-    private String tab = "";
+    private StringBuilder text;
+    private StringBuilder txtBuffer;
+    private String tab;
 
     @Override
     public void startDocument() throws SAXException {
-        System.out.println("startDocument");
+        text = new StringBuilder();
+        txtBuffer = new StringBuilder();
+        tab = "";
+        text.append("startDocument\n");
     }
 
     @Override
     public void endDocument() throws SAXException {
-        System.out.println("endDocument");
+        text.append("endDocument");
+        System.out.println(text.toString());
     }
 
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        StringBuilder strAtt = new StringBuilder();
+        text.append(tab).append("<").append(qName);
         for (int i = 0; i < attributes.getLength(); i++) {
-            strAtt
-                    .append(" ")
-                    .append(attributes.getLocalName(i))
-                    .append("=\"")
-                    .append(attributes.getValue(i))
-                    .append('"');
+            text.append(" ").append(attributes.getLocalName(i))
+                    .append("=\"").append(attributes.getValue(i))
+                    .append("\"");
         }
-        System.out.printf(tab + "<%s%s>\n", qName, strAtt.toString());
+        text.append(">\n");
         tab = tab.concat("\t");
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        String value = text.toString().trim();
-        if (!value.isEmpty()) {
-            System.out.println(tab + value);
-            text.setLength(0);
-        }
+        String value = txtBuffer.toString().trim();
+        if (!value.isEmpty()) text.append(tab).append(value).append("\n");
+        txtBuffer.setLength(0);
         tab = tab.substring(1);
-        System.out.println(tab + "</" + qName + ">");
+        text.append(tab).append("</").append(qName).append(">\n");
     }
 
     @Override
     public void characters(char[] chars, int start, int length) throws SAXException {
-        text.append(chars, start, length);
+        String textPart = new String(chars, start, length);
+        txtBuffer.append(textPart);
     }
 }
