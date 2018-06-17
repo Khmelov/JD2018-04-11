@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://it.by/krivenkova/xmlschema"
+        xmlns:tns="http://it.by/krivenkova/xmlschema"
+        elementFormDefault="qualified">
+    <element name="Users">
+        <complexType>
+            <sequence>
+                <element name="User"
+                         type="tns:User"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="User">
+        <sequence>
+            <element name="Login" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Surname" type="string"/>
+            <element name="Name" type="string"/>
+            <element name="Patronymic" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="Routes" type="tns:Routes"/>
+        </sequence>
+    </complexType>
+    <complexType name="Routes">
+        <sequence>
+            <element name="Route"
+                     type="tns:Route"
+                     maxOccurs="unbounded"
+            />
+        </sequence>
+    </complexType>
+    <complexType name="Route">
+        <sequence>
+            <element name="DepTown" type="string"/>
+            <element name="DepDate" type="string"/>
+            <element name="DepTime" type="string"/>
+            <element name="ArrTown" type="string"/>
+            <element name="Price" type="tns:Price"/>
+            <element name="NumTickets" type="integer"/>
+        </sequence>
+    </complexType>
+    <complexType name="Price">
+        <simpleContent>
+            <extension base="double">
+                <attribute
+                        name="currency"
+                        type="string"
+                        use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+    <complexType name="Date">
+        <simpleContent>
+            <extension base="date">
+                <attribute
+                        name="usDate"
+                        type="string"
+                        use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+    <complexType name="Time">
+        <simpleContent>
+            <extension base="time">
+                <attribute
+                        name="usTime"
+                        type="string"
+                        use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+</schema>
