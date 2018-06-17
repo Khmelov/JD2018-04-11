@@ -7,18 +7,36 @@ import javax.xml.bind.Unmarshaller;
 import java.io.*;
 
 abstract class Converter<T> {
-    T bean;
+    private T bean;
     Class<T> beanClass;
 
     void save(File file) {
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(beanClass);
-            Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(bean, file);
-        } catch (JAXBException e) {
-            e.printStackTrace();
+        if (beanClass.equals(String.class)){
+            try(Writer writer = new BufferedWriter(new FileWriter(file))) {
+                writer.write((String) bean);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else {
+            try {
+                JAXBContext jaxbContext = JAXBContext.newInstance(beanClass);
+                Marshaller marshaller = jaxbContext.createMarshaller();
+                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+                marshaller.marshal(bean, file);
+            } catch (JAXBException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public T getBean() {
+        return bean;
+    }
+
+    public void setBean(T bean) {
+
+        this.bean = bean;
     }
 
     abstract void convert();

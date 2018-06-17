@@ -2,11 +2,12 @@ package by.it.kurmaz.jd02_09;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.Reader;
+import java.io.StringReader;
 
 class XMLtoJSONConverter extends Converter {
 
@@ -21,7 +22,8 @@ class XMLtoJSONConverter extends Converter {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(beanClass);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            bean = unmarshaller.unmarshal(new File(line));
+            Reader reader = new BufferedReader(new StringReader(line));
+            setBean(unmarshaller.unmarshal(reader));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -30,9 +32,9 @@ class XMLtoJSONConverter extends Converter {
     @Override
     void convert() {
         Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
-        json = gson.toJson(bean);
-        System.out.println(json);
-
+        json = gson.toJson(getBean());
+        this.beanClass = json.getClass();
+        setBean(json);
     }
 
     @Override
