@@ -5,7 +5,6 @@ import org.xml.sax.SAXException;
 
 import org.xml.sax.helpers.DefaultHandler;
 
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -14,9 +13,13 @@ import java.io.IOException;
 
 public class RunSAX extends DefaultHandler {
 
+    private static String xmlFile = "src/by/it/rogov/jd02_07/Users.xml";
+    private static String value;
+    private static String tab = "";
+
     public static void main(String[] args) {
 
-        String xmlFile = "src/by/it/rogov/jd02_08/Clients+xsd.xml";
+
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
@@ -29,9 +32,6 @@ public class RunSAX extends DefaultHandler {
         }
 
     }
-
-    private String value;
-    private String tab = "";
 
     @Override
     public void startDocument() throws SAXException {

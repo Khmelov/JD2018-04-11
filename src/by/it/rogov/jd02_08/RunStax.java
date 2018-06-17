@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class RunStax {
-    private static String xmlFile = "src/by/it/rogov/jd02_08/Clients+xsd.xml";
+    private static String xmlFile = "src/by/it/rogov/jd02_07/Users.xml";
     private static String tab = "";
     private static String value = "";
 
