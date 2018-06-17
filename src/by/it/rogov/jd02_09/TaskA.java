@@ -13,12 +13,12 @@ public class TaskA {
     public static void main(String[] args) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
-            Unmarshaller unmarshaller=jaxbContext.createUnmarshaller();
-            Users users =(Users)unmarshaller.unmarshal(new File(XML));
-            Marshaller marshaller= jaxbContext.createMarshaller();
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            Users users = (Users) unmarshaller.unmarshal(new File(XML));
+            Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(users,System.out);
-            marshaller.marshal(users,new File(XMLOUT));
+            marshaller.marshal(users, System.out);
+            marshaller.marshal(users, new File(XMLOUT));
 
         } catch (JAXBException e) {
             e.printStackTrace();
