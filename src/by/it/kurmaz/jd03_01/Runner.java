@@ -21,7 +21,7 @@ public class Runner {
         {
             try(Connection connection = DriverManager.getConnection(dbURL, dbUser, dbPassword)) {
                 C_Init.initialize(connection);
-                C_Reset.reset(connection);
+                //C_Reset.reset(connection);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
