@@ -17,7 +17,7 @@
                 <Description>
                     Качество очень хорошее, всем советую!
                 </Description>
-                <Price currency="EU">79</Price>
+                <Price currency="EUR">79</Price>
             </Cloth>
         </Clothes>
     </Client>
@@ -30,13 +30,13 @@
                 <Description>
                     Очень классные вещи, советую!
                 </Description>
-                <Price currency="US">193</Price>
+                <Price currency="USD">193</Price>
             </Cloth>
             <Cloth>
                 <Description>
                     Не лучшее качество, цена не соответсвует...
                 </Description>
-                <Price currency="RU">118</Price>
+                <Price currency="BYN">118</Price>
             </Cloth>
         </Clothes>
     </Client>
