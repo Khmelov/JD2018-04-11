@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class RunnerStAX {
 
-    private static String xmlFile = "src/by/it/akhmelev/jd02_07/Persons+xsd.xml";
+    private static String xmlFile = "src/by/it/akhmelev/jd02_07/Clients+xsd.xml";
 
     private static StringBuilder text = new StringBuilder();
     private static String tab = "";

@@ -1,4 +1,4 @@
-package by.it.akhmelev.jd02_09;
+package by.it.zaliashchonak.jd02_09;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,16 +11,16 @@ import java.io.File;
 
 public class TaskB {
 
-    private static final String XML="src/by/it/akhmelev/jd02_09/Clients+xsd.xml";
-    private static final String XMLOUT="src/by/it/akhmelev/jd02_09/out.xml";
+    private static final String XML="src/by/it/zaliashchonak/jd02_09/Clients+xsd.xml";
+    private static final String XMLOUT="src/by/it/zaliashchonak/jd02_09/out.xml";
 
-    static Persons persons;
+    static Clients clients;
 
     static void readXml(){
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Clients.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            persons = (Persons)unmarshaller.unmarshal(new File(XML));
+            clients = (Clients)unmarshaller.unmarshal(new File(XML));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -31,7 +31,7 @@ public class TaskB {
                 .serializeNulls()
                 .setPrettyPrinting()
                 .create();
-        String json = gson.toJson(persons);
+        String json = gson.toJson(clients);
         return json;
     }
 
@@ -40,15 +40,15 @@ public class TaskB {
                 .serializeNulls()
                 .setPrettyPrinting()
                 .create();
-        persons=gson.fromJson(json,Persons.class);
+        clients =gson.fromJson(json,Clients.class);
     }
 
     static void saveXml(){
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Clients.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(persons,new File(XMLOUT));
+            marshaller.marshal(clients,new File(XMLOUT));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

@@ -1,25 +1,20 @@
-package by.it.akhmelev.jd02_08;
+package by.it.zaliashchonak.jd02_08;
 
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
 public class RunnerTransform {
-    private static String xslFile = "src/by/it/akhmelev/jd02_08/transform.xsl";
-    private static String input = "src/by/it/akhmelev/jd02_07/Client.xml";
-    private static String output = "src/by/it/akhmelev/jd02_08/Persons.html";
 
     public static void main(String[] args) {
         try {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            String xslFile = "src/by/it/zaliashchonak/jd02_08/transform.xsl";
             Source xsl = new StreamSource(new File(xslFile));
+            String input = "src/by/it/zaliashchonak/jd02_07/Client.xml";
             Source xml = new StreamSource(new File(input));
+            String output = "src/by/it/zaliashchonak/jd02_08/Clients.html";
             Result html=new StreamResult(output);
             Transformer transformer = transformerFactory.newTransformer(xsl);
             transformer.transform(xml,html);

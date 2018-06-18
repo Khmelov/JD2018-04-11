@@ -13,7 +13,7 @@ import java.io.IOException;
 public class MyValidator {
     public static void main(String[] args) {
         String language= XMLConstants.W3C_XML_SCHEMA_NS_URI;
-        String fn="src/by/it/sharin/jd02_07/Persons+xsd.xml";
+        String fn="src/by/it/sharin/jd02_07/Clients+xsd.xml";
         String sh="src/by/it/sharin/jd02_07/Schema.xsd";
         SchemaFactory factory = SchemaFactory.newInstance(language);
         try {
