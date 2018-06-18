@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!ELEMENT Users (User)+>
+        <!ELEMENT User (Login, Password, Surname, Name, Patronymic, Email, Routes)>
+        <!ELEMENT Login (#PCDATA)>
+        <!ELEMENT Password (#PCDATA)>
+        <!ELEMENT Surname (#PCDATA)>
+        <!ELEMENT Name (#PCDATA)>
+        <!ELEMENT Patronymic (#PCDATA)>
+        <!ELEMENT Email (#PCDATA)>
+        <!ELEMENT Routes (Route)+>
+        <!ELEMENT Route (DepTown,DepDate,DepTime,ArrTown,Price,NumTickets)>
+        <!ELEMENT DepTown (#PCDATA)>
+        <!ELEMENT DepDate (#PCDATA)>
+        <!ELEMENT DepTime (#PCDATA)>
+        <!ELEMENT ArrTown (#PCDATA)>
+        <!ELEMENT Price (#PCDATA)>
+        <!ELEMENT NumTickets (#PCDATA)>
+
