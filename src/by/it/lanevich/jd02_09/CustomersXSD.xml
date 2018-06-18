@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Customers xmlns="http://jd02_09.lanevich.it.by"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://jd02_09.lanevich.it.by Schema.xsd">
+    <Customer>
+        <Name>Ира Иванова</Name>
+        <Email>ivanova@mail.ru</Email>
+        <Phone>+375294855252</Phone>
+        <Password>qwerty</Password>
+        <Address>Минск, ул. Ленина, 40 кв.123</Address>
+        <Legos>
+            <Lego>
+                <Id>41151-1</Id>
+                <Category>DISNEY</Category>
+                <Legoname>Mulan's Training Day</Legoname>
+                <Description>LEGO l Disney Mulan’s Training Day is easy to build and perfect for recreating favorite moments from the movie. Train hard using the turning training dummy, and sword and catapult with boulders, before taking a break with her foal, Khan. This LEGO® l Disney toy for girls and boys includes lots of beautiful and authentic details, including Mulan's yellow dress, her fan and a tea ceremony. Get creative using the modular design to easily move and swap sections within the model, or integrate the family temple with other compatible LEGO l Disney sets to build your own dream creations. Includes a mini-doll figure plus a horse figure.</Description>
+                <Piecies>103</Piecies>
+                <Price>15</Price>
+            </Lego>
+        </Legos>
+    </Customer>
+
+    <Customer>
+        <Name>Полина Петрова</Name>
+        <Email>petrova@mail.ru</Email>
+        <Phone>+375294456785</Phone>
+        <Password>qwerty</Password>
+        <Address>Минск, пр-т Независимости, 69 кв.38</Address>
+        <Legos>
+            <Lego>
+                <Id>30116-1</Id>
+                <Category>DISNEY</Category>
+                <Legoname>Rapunzel's Market Visit</Legoname>
+                <Description></Description>
+                <Piecies>37</Piecies>
+                <Price>4</Price>
+            </Lego>
+            <Lego>
+                <Id>10858-1</Id>
+                <Category>DUPLO</Category>
+                <Legoname>My First Puzzle Pets</Legoname>
+                <Description>Help your child build these colorful 3-D puzzles out of chunky LEGO® DUPLO® bricks. Preschoolers will love sorting these baby bricks into 3 different colors, and seeing what animal they can build in each color. Use the decorated bricks to start stories and develop language as they learn what different pets like to eat. DUPLO bricks are specially designed to be fun and safe for small hands</Description>
+                <Piecies>18</Piecies>
+                <Price>10</Price>
+            </Lego>
+        </Legos>
+    </Customer>
+
+    <Customer>
+        <Name>Светлана Сидорова</Name>
+        <Email>sidorova@mail.ru</Email>
+        <Phone>+375294845124</Phone>
+        <Password>qwerty</Password>
+        <Address>Минск, ул. Богдановича, 168 кв.130</Address>
+        <Legos>
+            <Lego>
+                <Id>10869-1</Id>
+                <Category>DUPLO</Category>
+                <Legoname>Farm Adventures</Legoname>
+                <Description>Play out real-life scenarios in LEGO® DUPLO® Town: a recognizable world with modern DUPLO figures. Visit the adventure farm with your toddler and help to feed all the friendly animals. Little farmers will love to pull the string to make the bell go up and down, then have some fun on the slide. Put all the animals to bed in the barn and head into the farmhouse for waffles and a sleepover! This great learning toy for toddlers includes 3 DUPLO figures plus 5 animal figures.</Description>
+                <Piecies>104</Piecies>
+                <Price>60</Price>
+            </Lego>
+        </Legos>
+
+    </Customer>
+</Customers>
