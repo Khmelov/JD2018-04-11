@@ -16,21 +16,40 @@ class Var implements Operation {
     }
 
     static Var createVar(String strVar) throws CalcException{
+        CreatorVar creatorVar=null;
         if (strVar.matches(Patterns.SCALAR))
-            return new Scalar(strVar);
+            creatorVar=new CreatorScalar();
+            //return creatorVar.createVar(strVar);
         else if (strVar.matches(Patterns.VECTOR))
-            return new Vector(strVar);
+            creatorVar=new CreatorVector();
+            //return new Vector(strVar);
         else if (strVar.matches(Patterns.MATRIX))
-            return new Matrix(strVar);
+           creatorVar=new CreatorMatrix();
+            //return new Matrix(strVar);
         else if (vars.containsKey(strVar))
             return vars.get(strVar);
-        return null;
-    }
+        if(creatorVar==null)
+            return null;
+        return creatorVar.createVar(strVar);
 
-    public static void printvar() {
+//        if (strVar.matches(Patterns.SCALAR))
+//            return new Scalar(strVar);
+//        else if (strVar.matches(Patterns.VECTOR))
+//            return new Vector(strVar);
+//        else if (strVar.matches(Patterns.MATRIX))
+//            return new Matrix(strVar);
+//        else if (vars.containsKey(strVar))
+//            return vars.get(strVar);
+//        return null;
+   }
+
+    public static String printvar() {
+        String result=null;
         for (Map.Entry<String, Var> entry : vars.entrySet()) {
-            System.out.println(entry.getKey() + "=" + entry.getValue());
+            result=entry.getKey() + "=" + entry.getValue();
+            System.out.println(result);
         }
+        return result;
     }
 
     public static void sortvar() {

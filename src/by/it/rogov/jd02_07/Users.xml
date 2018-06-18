@@ -27,7 +27,7 @@
             <xpath>information about XPATH</xpath>
         </JAXP>
     </Client>
-    <Administrator >
+    <Client >
         <Name >Administrator</Name>
         <LastName>Admin</LastName>
         <Password>Admin12345</Password>
@@ -40,5 +40,5 @@
             <xslt>information about XSLT</xslt>
             <xpath>information about XPATH</xpath>
         </JAXP>
-    </Administrator>
+    </Client>
 </Users>
