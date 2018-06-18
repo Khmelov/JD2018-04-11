@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://it.by/tayanovskii/xmlschema"
+        xmlns:tns="http://it.by/tayanovskii/xmlschema"
+        elementFormDefault="qualified">
+    <element name="Readers">
+        <complexType>
+            <sequence>
+                <element name="Reader"
+                         type="tns:Reader"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Reader">
+        <sequence>
+            <element name="Login" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="Publications" type="tns:Publications"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Publications">
+        <sequence>
+            <element name="Publication"
+                     type="tns:Publication"
+                     maxOccurs="unbounded"
+            />
+        </sequence>
+    </complexType>
+
+    <complexType name="Publication">
+        <sequence>
+            <element name="Title" type="string"/>
+            <element name="Number" type="integer"/>
+            <element name="Description" type="string"/>
+            <element name="Date" type="date"/>
+            <element name="Price" type="tns:Price"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Price">
+        <simpleContent>
+            <extension base="double">
+                <attribute
+                        name="currency"
+                        type="string"
+                        use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+</schema>
