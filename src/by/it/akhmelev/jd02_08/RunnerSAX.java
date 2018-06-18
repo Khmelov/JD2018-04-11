@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class RunnerSAX {
 
-    private static String xmlFile = "src/by/it/akhmelev/jd02_07/Persons+xsd.xml";
+    private static String xmlFile = "src/by/it/akhmelev/jd02_07/Clients+xsd.xml";
 
     public static void main(String[] args) {
         try {
