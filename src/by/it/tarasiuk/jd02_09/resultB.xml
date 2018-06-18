@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Sellers xmlns="http://jd02_09.tarasiuk.it.by">
+    <Seller>
+        <Email>nick98@mail.ru</Email>
+        <Login>Nick</Login>
+        <Password>123321</Password>
+        <Ads>
+            <Ad>
+                <Brand>AIST</Brand>
+                <Model>Turbo</Model>
+                <Year>2017</Year>
+                <Type>adult</Type>
+                <Grade>highway</Grade>
+                <Color>blue</Color>
+                <Price currency="USD">300.0</Price>
+                <Description>Good bike!</Description>
+            </Ad>
+        </Ads>
+    </Seller>
+    <Seller>
+        <Email>zohan@gmail.com</Email>
+        <Login>ZiZi</Login>
+        <Password>qwerty</Password>
+        <Ads>
+            <Ad>
+                <Brand>Giant</Brand>
+                <Model>Trance Advanced</Model>
+                <Year>2016</Year>
+                <Type>adult</Type>
+                <Grade>mountain</Grade>
+                <Color>black</Color>
+                <Price currency="EUR">5500.5</Price>
+                <Description>Extraordinary mountain bike!</Description>
+            </Ad>
+        </Ads>
+    </Seller>
+    <Seller>
+        <Email>Lucy01@ya.ru</Email>
+        <Login>ololoshka321</Login>
+        <Password>fghffh03</Password>
+        <Ads>
+            <Ad>
+                <Brand>Altair</Brand>
+                <Model>City</Model>
+                <Year>2006</Year>
+                <Type>childish</Type>
+                <Grade>city</Grade>
+                <Color>red</Color>
+                <Price currency="BYN">58.35</Price>
+                <Description>Normal bicycle for children.</Description>
+            </Ad>
+        </Ads>
+    </Seller>
+</Sellers>
