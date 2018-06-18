@@ -11,7 +11,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class ConverterJsonToXml extends Converter{
+class ConverterJsonToXml<T> extends Converter<T>{
+
+    public ConverterJsonToXml(Class<T> type) {
+        super(type);
+    }
 
     private Gson gson = new GsonBuilder()
             .serializeNulls()
@@ -44,5 +48,10 @@ public class ConverterJsonToXml extends Converter{
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    void convert() {
+        System.out.println("Converted");
     }
 }

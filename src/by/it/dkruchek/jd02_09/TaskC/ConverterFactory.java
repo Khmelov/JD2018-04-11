@@ -1,13 +1,13 @@
 package by.it.dkruchek.jd02_09.TaskC;
 
-public class ConverterFactory {
+class ConverterFactory<T> {
 
-    Converter getConverter(Direction direction){
+    Converter<T> getConverter(Direction direction, Class<T> cls){
         switch (direction){
             case JSON_TO_XML:
-                return new ConverterJsonToXml();
+                return new ConverterJsonToXml<>(cls);
             case XML_TO_JSON:
-                return new ConverterXmlToJson();
+                return new ConverterXmlToJson<>(cls);
             default:
                 return null;
         }

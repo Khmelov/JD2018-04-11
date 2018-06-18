@@ -1,14 +1,16 @@
 package by.it.dkruchek.jd02_09.TaskC;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import java.io.File;
 
-public abstract class Converter<T> {
+abstract class Converter<T> {
 
     T bean;
+    String result;
     Class<T> beanClass;
+
+    public Converter(Class<T> type) {
+        this.beanClass = type;
+    }
 
     abstract void load(String String);
 
@@ -17,10 +19,10 @@ public abstract class Converter<T> {
     abstract void save(File file);
 
     String getText(){
-        return bean.toString();
+        return result;
     }
 
-    //public abstract void convert();
+    abstract void convert();
 
 
 }
