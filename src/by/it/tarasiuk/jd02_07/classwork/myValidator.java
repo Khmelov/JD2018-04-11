@@ -1,4 +1,4 @@
-package by.it.tarasiuk.jd02_07;
+package by.it.tarasiuk.jd02_07.classwork;
 
 import org.xml.sax.SAXException;
 
@@ -12,9 +12,9 @@ import java.io.IOException;
 
 public class myValidator {
     public static void main(String[] args) {
-        String language= XMLConstants.W3C_XML_SCHEMA_NS_URI;
-        String fn="src/by/it/tarasiuk/jd02_07/Persons+xsd.xml";
-        String sh="src/by/it/tarasiuk/jd02_07/Schema.xsd";
+        String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
+        String fn = "src/by/it/tarasiuk/jd02_07/Persons+xsd.xml";
+        String sh = "src/by/it/tarasiuk/jd02_07/Schema.xsd";
         SchemaFactory factory = SchemaFactory.newInstance(language);
         try {
             Schema schema = factory.newSchema(new File(sh));
@@ -22,9 +22,8 @@ public class myValidator {
             StreamSource streamSource = new StreamSource(fn);
             validator.validate(streamSource);
             System.out.println("OK");
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
+            System.out.println("not OK");
             e.printStackTrace();
         }
     }

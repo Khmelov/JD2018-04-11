@@ -18,7 +18,6 @@
                 <Floor>3</Floor>
                 <Floors>5</Floors>
                 <Rooms>2</Rooms>
-
             </Ad>
             <Ad>
                 <Description>
@@ -33,7 +32,6 @@
                 <Floors>4</Floors>
                 <Rooms>2</Rooms>
             </Ad>
-
         </Ads>
     </Person>
     <Person>
