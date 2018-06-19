@@ -39,6 +39,20 @@ public class TaskB {
             resultSet = statement.executeQuery(sql);
             if (resultSet.next())
                 System.out.println("Roles total: " + resultSet.getInt(1));
+
+            sql = "SELECT * FROM users INNER JOIN address ON users.ID=address.Users_ID";
+            resultSet = statement.executeQuery(sql);
+            counter = 0;
+            while (resultSet.next()){
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columns = metaData.getColumnCount();
+                for (int i = 1; i < columns+1; i++) {
+                    System.out.print(metaData.getColumnLabel(i) + " = " + resultSet.getString(i) + " ");
+                }
+                System.out.println();
+                counter++;
+            }
+            System.out.println("Addresses total: " + counter);
         }
     }
 }

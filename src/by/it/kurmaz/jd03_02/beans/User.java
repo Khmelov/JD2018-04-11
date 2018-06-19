@@ -18,6 +18,7 @@ public class User {
         this.carma = carma;
         this.roles_id = roles_id;
     }
+    public User() {}
 
     @Override
     public String toString() {
