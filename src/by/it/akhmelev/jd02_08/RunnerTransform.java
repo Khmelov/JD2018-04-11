@@ -12,7 +12,7 @@ import java.io.File;
 
 public class RunnerTransform {
     private static String xslFile = "src/by/it/akhmelev/jd02_08/transform.xsl";
-    private static String input = "src/by/it/akhmelev/jd02_07/Persons.xml";
+    private static String input = "src/by/it/akhmelev/jd02_07/Client.xml";
     private static String output = "src/by/it/akhmelev/jd02_08/Persons.html";
 
     public static void main(String[] args) {

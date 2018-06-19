@@ -11,7 +11,7 @@ import java.io.File;
 
 public class TaskB {
 
-    private static final String XML="src/by/it/akhmelev/jd02_09/Persons+xsd.xml";
+    private static final String XML="src/by/it/akhmelev/jd02_09/Clients+xsd.xml";
     private static final String XMLOUT="src/by/it/akhmelev/jd02_09/out.xml";
 
     static Persons persons;

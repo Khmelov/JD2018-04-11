@@ -22,13 +22,11 @@ public class MyValidator {
             Validator validator=schema.newValidator();
             StreamSource streamSource= new StreamSource(fn);
             System.out.println("ok");
-            try {
-                validator.validate(streamSource);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (SAXException e) {
+            validator.validate(streamSource);
+        } catch (SAXException | IOException e) {
+            System.out.println("not ok");
             e.printStackTrace();
+
         }
     }
 }

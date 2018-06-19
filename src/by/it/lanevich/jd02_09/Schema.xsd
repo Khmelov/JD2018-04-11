@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jd02_09.lanevich.it.by"
+        xmlns:tns="http://jd02_09.lanevich.it.by"
+        elementFormDefault="qualified">
+    <element name="Customers">
+        <complexType>
+            <sequence>
+                <element name="Customer"
+                         type="tns:Customer"
+                         minOccurs="1"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Customer">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="Phone" type="positiveInteger"/>
+            <element name="Password" type="string"/>
+            <element name="Address" type="string"/>
+            <element name="Legos" type="tns:Legos"/>
+        </sequence>
+    </complexType>
+    <complexType name="Legos">
+        <sequence>
+            <element name="Lego" type="tns:Lego" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="Lego">
+        <sequence>
+            <element name="Id" type="string"/>
+            <element name="Category" type="string"/>
+            <element name="Legoname" type="string"/>
+            <element name="Description" type="string"/>
+            <element name="Piecies" type="integer"/>
+            <element name="Price" type="positiveInteger"/>
+        </sequence>
+    </complexType>
+
+    <!-- добавление аттрибута в простой тип выполняется внутри комплексного -->
+    <complexType name="Price">
+        <simpleContent>
+            <!-- описание самого простого типа -->
+            <extension base="string">
+                <!-- и аттрибут(ов) для тега этого типа -->
+                <attribute name="currency" type="string" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+</schema>
