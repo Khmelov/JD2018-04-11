@@ -10,21 +10,51 @@ public class ConsoleRunner {
         String line;
         Parser parser=new Parser();
         Printer printer=new Printer();
+        Logger logger = Logger.getLogger();
+        ReportBuilder shortReportBuilder=new ShortReportBuilder();
+        ReportBuilder longReportBuilder=new LongReportBuilder();
+        System.out.println("Set report long(l) or short(s)");
+        if(scanner.hasNext("s") || scanner.hasNext("short")) {
+            logger.setReportBuilder(shortReportBuilder);
+        }
+        else
+        {
+            logger.setReportBuilder(longReportBuilder);
+        }
+        System.out.println("Calculate: ");
+        scanner=new Scanner(System.in);
+        logger.reportBuilder.addHead();
+        logger.reportBuilder.addStartTime();
         while (!(line = scanner.nextLine()).equals("end")){
-            if (line.equals("ru")) rm.setLocale(new Locale("ru", "RU"));
-            else if (line.equals("be")) rm.setLocale(new Locale("be", "BY"));
-            else if (line.equals("en")) rm.setLocale(new Locale("en", "US"));
-
+            logger.addMessage(line);
             switch (line){
                 case "printvar":
                 {
-                    Var.printvar();
+                    logger.addMessage(Var.printvar());
                     break;
 
                 }
                 case  "sortvar":
                 {
                     Var.sortvar();
+                    break;
+
+                }
+                case  "ru":
+                {
+                    rm.setLocale(new Locale("ru", "RU"));
+                    break;
+
+                }
+                case  "be":
+                {
+                    rm.setLocale(new Locale("be", "BY"));
+                    break;
+
+                }
+                case  "en":
+                {
+                    rm.setLocale(new Locale("en", "US"));
                     break;
 
                 }
@@ -35,7 +65,9 @@ public class ConsoleRunner {
 //                        printer.print(var);
                         Var result = parser.calcExpression(line);
                         printer.print(result);
+                        logger.addMessage(result.toString());
                     } catch (CalcException e) {
+                        logger.addMessage(e);
                         System.out.println(e.getMessage());
                     }
 
@@ -43,5 +75,7 @@ public class ConsoleRunner {
             }
 
         }
+        logger.reportBuilder.addEndTime();
+        logger.writeLogToFile();
     }
 }
