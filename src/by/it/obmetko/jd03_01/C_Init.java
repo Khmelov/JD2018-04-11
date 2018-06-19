@@ -67,7 +67,7 @@ public class C_Init {
                         "`ID` INT(11) NOT NULL AUTO_INCREMENT,\n" +
                         "`name` VARCHAR(4000) NULL DEFAULT NULL,\n" +
                         "`autor` VARCHAR(4000) NULL DEFAULT NULL,\n" +
-                        "`price` VARCHAR(4000) NULL DEFAULT NULL,\n" +
+                        "`price` DOUBLE NULL DEFAULT NULL,\n" +
                         "`Category_ID` INT(11) NOT NULL,\n" +
                         "PRIMARY KEY (`ID`),\n" +
                         "INDEX `fk_books_Category1_idx` (`Category_ID` ASC),\n" +
