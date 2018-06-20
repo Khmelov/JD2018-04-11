@@ -6,9 +6,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Locale;
 
-public class AbstractDao {
+class AbstractDao {
 
     long executeUpdate(String sql) throws SQLException {
         try (
