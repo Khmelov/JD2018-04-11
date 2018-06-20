@@ -2,15 +2,15 @@ package by.it.akhmelev.jd03_03.beans;
 
 public class Ad {
 
-    long id;
-    String description;
-    int flat;
-    int flats;
-    int rooms;
-    double area;
-    double price;
-    String address;
-    long users_id;
+    private long id;
+    private String description;
+    private int flat;
+    private int flats;
+    private int rooms;
+    private double area;
+    private double price;
+    private String address;
+    private long users_id;
 
     public Ad() {
     }

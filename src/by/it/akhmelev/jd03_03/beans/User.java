@@ -1,11 +1,11 @@
 package by.it.akhmelev.jd03_03.beans;
 
 public class User {
-    long id;
-    String login;
-    String password;
-    String email;
-    long roles_id;
+    private long id;
+    private String login;
+    private String password;
+    private String email;
+    private long roles_id;
 
     public User() {
     }

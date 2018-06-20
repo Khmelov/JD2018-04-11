@@ -1,8 +1,8 @@
 package by.it.akhmelev.jd03_03.beans;
 
 public class Role {
-    long id;
-    String role;
+    private long id;
+    private String role;
 
     public Role() {
     }
