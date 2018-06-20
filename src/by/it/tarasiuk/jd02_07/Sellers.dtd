@@ -1,0 +1,15 @@
+<!ELEMENT Sellers (Seller)+>
+        <!ELEMENT Seller (Email, Login, Password, Ads)>
+        <!ELEMENT Email (#PCDATA)>
+        <!ELEMENT Login (#PCDATA)>
+        <!ELEMENT Password (#PCDATA)>
+        <!ELEMENT Ads (Ad)+>
+        <!ELEMENT Ad (Brand, Model, Year, Type, Grade, Color, Price, Description)>
+        <!ELEMENT Brand (#PCDATA)>
+        <!ELEMENT Model (#PCDATA)>
+        <!ELEMENT Year (#PCDATA)>
+        <!ELEMENT Type (#PCDATA)>
+        <!ELEMENT Grade (#PCDATA)>
+        <!ELEMENT Color (#PCDATA)>
+        <!ELEMENT Price (#PCDATA)>
+        <!ELEMENT Description (#PCDATA)>

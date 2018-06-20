@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jd02_09.rogov.it.by"
+        xmlns:tns="http://jd02_09.rogov.it.by"
+        elementFormDefault="qualified">
+    <element name="Users">
+        <complexType>
+            <sequence>
+                <element name="Client"
+                         type="tns:Client"
+                         minOccurs="2"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Client">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="LastName" type="string"/>
+            <element name="Password" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="phone" type="integer"/>
+            <element name="JAXP" type="tns:JAXP"/>
+        </sequence>
+    </complexType>
+    <complexType name="JAXP">
+        <choice>
+            <element name="dom" type="string"/>
+            <element name="sax" type="string"/>
+            <element name="stax" type="string"/>
+            <element name="xslt" type="string"/>
+            <element name="xpath" type="string"/>
+        </choice>
+    </complexType>
+</schema>

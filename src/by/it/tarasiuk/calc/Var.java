@@ -13,15 +13,17 @@ class Var implements Operation {
     }
 
     static Var createVar(String strVar) throws CalcException {
+        strVar = strVar.replaceAll("\\s+","").trim();
+        VarFactory.Creator creator =null;
         if (strVar.matches(Patterns.SCALAR))
-            return new Scalar(strVar);
+            creator = new VarFactory.CreatorScalar();
         else if (strVar.matches(Patterns.VECTOR))
-            return new Vector(strVar);
+            creator = new VarFactory.CreatorVector();
         else if (strVar.matches(Patterns.MATRIX))
-            return new Matrix(strVar);
-        else if (vars.containsKey(strVar))
-            return vars.get(strVar);
+            creator = new VarFactory.CreatorMatrix();
+        else if (creator==null)
         throw new CalcException("Невозможно создать " + strVar);
+        return creator.parse(strVar);
     }
 
     @Override
