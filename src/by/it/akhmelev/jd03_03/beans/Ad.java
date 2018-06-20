@@ -10,12 +10,12 @@ public class Ad {
     double area;
     double price;
     String address;
-    int user_id;
+    long users_id;
 
     public Ad() {
     }
 
-    public Ad(long id, String description, int flat, int flats, int rooms, double area, double price, String address, int user_id) {
+    public Ad(long id, String description, int flat, int flats, int rooms, double area, double price, String address, long users_id) {
         this.id = id;
         this.description = description;
         this.flat = flat;
@@ -24,7 +24,7 @@ public class Ad {
         this.area = area;
         this.price = price;
         this.address = address;
-        this.user_id = user_id;
+        this.users_id = users_id;
     }
 
     public long getId() {
@@ -91,12 +91,12 @@ public class Ad {
         this.address = address;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public long getUsers_id() {
+        return users_id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUsers_id(long users_id) {
+        this.users_id = users_id;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class Ad {
                 ", area=" + area +
                 ", price=" + price +
                 ", address='" + address + '\'' +
-                ", user_id=" + user_id +
+                ", users_id=" + users_id +
                 '}';
     }
 }
