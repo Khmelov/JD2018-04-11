@@ -21,7 +21,7 @@ class Table_Init {
                     "  `Login` VARCHAR(45) NULL,\n" +
                     "  `Password` VARCHAR(45) NULL,\n" +
                     "  `Email` VARCHAR(45) NULL,\n" +
-                    "  `Phone Number` VARCHAR(45) NULL,\n" +
+                    "  `Phone` VARCHAR(45) NULL,\n" +
                     "  `Carma` VARCHAR(45) NULL,\n" +
                     "  `Roles_ID` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`ID`),\n" +
@@ -54,7 +54,7 @@ class Table_Init {
                     "  `Login` VARCHAR(45) NULL,\n" +
                     "  `Password` VARCHAR(45) NULL,\n" +
                     "  `Email` VARCHAR(45) NULL,\n" +
-                    "  `Phone Number` VARCHAR(45) NULL,\n" +
+                    "  `Phone` VARCHAR(45) NULL,\n" +
                     "  `Roles_ID` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`ID`),\n" +
                     "  INDEX `fk_Admins_Roles1_idx` (`Roles_ID` ASC),\n" +
@@ -66,7 +66,6 @@ class Table_Init {
                     "ENGINE = InnoDB;");
             statement.execute("CREATE TABLE IF NOT EXISTS `kurmaz`.`Orders` (\n" +
                     "  `ID` INT NOT NULL AUTO_INCREMENT,\n" +
-                    "  `Cost` DOUBLE NULL,\n" +
                     "  `Completed` TINYINT(1) NULL,\n" +
                     "  `Users_ID` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`ID`),\n" +
