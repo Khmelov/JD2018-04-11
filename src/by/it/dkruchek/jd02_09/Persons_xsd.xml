@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Persons xmlns="http://jd02_09.dkruchek.it.by"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://jd02_09.dkruchek.it.by Schema.xsd">
+    <Person>
+        <Login>Vasya</Login>
+        <Password>qwerty12345</Password>
+        <Email>vasya12345@mail.ru</Email>
+        <Ads>
+            <Ad>
+                <Description>
+                    Luxury apartment in the city center
+                </Description>
+                <Address>
+                    Washington str 5, apt. 11
+                </Address>
+                <Price currency="USD">
+                    125000
+                </Price>
+                <Area>77.7</Area>
+                <Floor>3</Floor>
+                <Floors>5</Floors>
+                <Rooms>2</Rooms>
+            </Ad>
+            <Ad>
+                <Description>
+                    Cheap Studio
+                </Description>
+                <Address>
+                    Virginaia blvd 455, apt. 12
+                </Address>
+                <Price currency="USD">
+                    45000
+                </Price>
+                <Area>22.7</Area>
+                <Floor>12</Floor>
+                <Floors>33</Floors>
+                <Rooms>1</Rooms>
+            </Ad>
+        </Ads>
+    </Person>
+    <Person>
+        <Login>Fedya</Login>
+        <Password>12345qwerty</Password>
+        <Email>fedya12345@mail.ru</Email>
+        <Ads>
+            <Ad>
+                <Description>
+                    Super apartment
+                </Description>
+                <Address>
+                    Alabama ava 7, apt. 115
+                </Address>
+                <Price currency="USD">
+                    135000
+                </Price>
+                <Area>120.9</Area>
+                <Floor>2</Floor>
+                <Floors>3</Floors>
+                <Rooms>3</Rooms>
+            </Ad>
+        </Ads>
+    </Person>
+</Persons>
