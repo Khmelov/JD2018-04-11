@@ -1,10 +1,12 @@
 package by.it.rogov.jd03_02.connection;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
+
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -16,7 +18,6 @@ public class DBConnection {
     private static Connection connection;
 
     private DBConnection() {
-
     }
 
     public static Connection getConnection() throws SQLException {
@@ -29,4 +30,6 @@ public class DBConnection {
         }
         return connection;
     }
+
+
 }

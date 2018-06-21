@@ -1,18 +1,18 @@
 package by.it.rogov.jd03_02.beans;
 
 public class User {
+
     long id;
     String login;
     String password;
     String email;
-    String phone;
+    int phone;
     long roles_id;
 
-    public User(){
-
+    public User() {
     }
 
-    public User(long id, String login, String password, String email, String phone, long roles_id) {
+    public User(long id, String login, String password, String email, int phone, long roles_id) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -53,20 +53,16 @@ public class User {
         this.email = email;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
     public long getRoles_id() {
         return roles_id;
-    }
-
-    public void setRoles_id(long roles_id) {
-        this.roles_id = roles_id;
     }
 
     @Override
@@ -76,7 +72,7 @@ public class User {
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone=" + phone +
                 ", roles_id=" + roles_id +
                 '}';
     }
