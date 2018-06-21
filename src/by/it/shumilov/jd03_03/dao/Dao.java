@@ -4,7 +4,9 @@ public class Dao {
 
     private static Dao dao;
     private  Dao(){
-
+        role = new DaoRole();
+        user = new DaoUser();
+        avto = new DaoAvto();
     }
 
 
@@ -12,7 +14,7 @@ public class Dao {
     public  DaoUser user;
     public  DaoAvto avto;
 
-    static  Dao getDao(){
+    public static  Dao getDao(){
         if (dao == null){
             synchronized (Dao.class){
                 if (dao == null)

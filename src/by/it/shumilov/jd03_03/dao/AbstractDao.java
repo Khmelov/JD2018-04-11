@@ -15,12 +15,21 @@ public class AbstractDao {
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement()){
 
-                       ResultSet resultSet = statement.executeQuery(sql);
-            if(resultSet.next()){
+
+            if(sql.trim().toUpperCase().startsWith("INSERT")){
+                if(1== statement.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS)){
+                    ResultSet genKeys = statement.getGeneratedKeys();
+                    if(genKeys.next()){
+                        return  genKeys.getLong(1);
+                    }
+                }
+            }
+            else statement.executeUpdate(sql);
+
 
 
             }
+            return  0;
         }
-        return  0;
+
     }
-}

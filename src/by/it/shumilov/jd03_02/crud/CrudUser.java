@@ -22,9 +22,15 @@ public class CrudUser {
             String sql = String.format(Locale.US, "INSERT INTO `users` (`login`, `password`, `email`, `roles_id`) VALUES ('%s','%s','%s','%d')",
                     user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id());
 
-            return 1==statement.executeUpdate(sql);
+            if (1 == statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    user.setId(generatedKeys.getLong(1));
+                    return true;
+                }
+            }
         }
-
+        return false;
 
     }
 

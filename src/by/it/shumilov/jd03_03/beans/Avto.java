@@ -9,10 +9,19 @@ public class Avto {
     private int year;
     private String ngos;
     private double rate;
+    private String foto;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public Avto(){}
 
-    public Avto(long id, String mark, String model, String color, String nvin, int year, String ngos, double rate) {
+    public Avto(long id, String mark, String model, String color, String nvin, int year, String ngos, double rate, String foto) {
         this.id = id;
         this.mark = mark;
         this.model = model;
@@ -21,6 +30,7 @@ public class Avto {
         this.year = year;
         this.ngos = ngos;
         this.rate = rate;
+        this.foto = foto;
     }
 
 
@@ -89,17 +99,18 @@ public class Avto {
         this.rate = rate;
     }
 
-
     @Override
     public String toString() {
-        return "Avto{id="+ id+
-                ", mark=" +mark+
-                ", model="+model+
-                ", color="+color+
-                ", nvin="+nvin+
-                ", year="+year+
-                ", ngos="+ngos+
-                ", rate="+rate+
-                "}";
+        return "Avto{" +
+                "id=" + id +
+                ", mark='" + mark + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", nvin='" + nvin + '\'' +
+                ", year=" + year +
+                ", ngos='" + ngos + '\'' +
+                ", rate=" + rate +
+                ", foto='" + foto + '\'' +
+                '}';
     }
 }
