@@ -29,4 +29,49 @@ public class CrudUser {
            }
            return false;
     }
+
+    public User read(long id) throws SQLException {
+        User user= null;
+        try(Connection connection= DBConnection.getConnection();
+            Statement statement=connection.createStatement()
+        ){
+            String sql =String.format(Locale.US,"SELECT `ID`, `Login`, `Password`, `Email`, `Phone`, `roles_ID` FROM `users` WHERE id=%d",
+                    id);
+            ResultSet resultSet = statement.executeQuery(sql);
+            if(resultSet.next()){
+                user=new User(
+                        resultSet.getLong("id"),
+                        resultSet.getString("login"),
+                        resultSet.getString("password"),
+                        resultSet.getString("email"),
+                        resultSet.getInt("phone"),
+                        resultSet.getLong("roles_id")
+                        );
+            }
+        }
+        return user;
+    }
+
+    public boolean update(User user) throws SQLException {
+        try(Connection connection= DBConnection.getConnection();
+            Statement statement=connection.createStatement()
+        ) {
+            String sql= String.format(Locale.US,
+                    "UPDATE `users` " +
+                            "SET ``Login`=%s,`Password`=%s,`Email`=%s,`Phone`=%s,`roles_ID`=%s" +
+                            " WHERE id=%d",
+                    user.getLogin(),user.getPassword(),user.getEmail(),user.getPhone(),user.getRoles_id());
+            return  1==statement.executeUpdate(sql);
+        }
+    }
+
+    public boolean delete(User user) throws SQLException {
+        try(Connection connection= DBConnection.getConnection();
+            Statement statement=connection.createStatement()
+        ) {
+           String sql = String.format(Locale.US,
+                   "DELETE FROM `users` WHERE id=%d",user.getId());
+            return 1==statement.executeUpdate(sql);
+        }
+    }
 }
