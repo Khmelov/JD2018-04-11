@@ -28,7 +28,7 @@ public class TaskC {
             statement.execute("DROP TABLE IF EXISTS `goods`");
             statement.execute("DROP TABLE IF EXISTS `users`");
             statement.execute("DROP TABLE IF EXISTS `roles`");
-            System.out.println("All tables removed");
+            System.out.println("All tables remove");
 
         } catch (SQLException e) {
             e.printStackTrace();
