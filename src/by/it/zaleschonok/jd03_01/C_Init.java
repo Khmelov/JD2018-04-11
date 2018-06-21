@@ -16,6 +16,11 @@ public class C_Init{
     }
 
     public static void main(String[] args) {
+        createDB();
+
+    }
+
+    public static void createDB(){
         try (
                 Connection connection =
                         DriverManager.getConnection(CN.DB_URL, CN.DB_USER, CN.DB_PASSWORD);
@@ -78,9 +83,11 @@ public class C_Init{
             statement.executeUpdate("INSERT INTO `zaleschonok`.`orders` (`id`, `amount`, `users_id`, `goods_id`) VALUES (DEFAULT, 1, 1, 1);");
             statement.executeUpdate("INSERT INTO `zaleschonok`.`orders` (`id`, `amount`, `users_id`, `goods_id`) VALUES (DEFAULT, 2, 2, 2);");
 
+            System.out.println("Database successfully created");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
+
 }
