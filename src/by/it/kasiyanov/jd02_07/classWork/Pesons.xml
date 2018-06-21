@@ -1,7 +1,7 @@
 <Persons>
     <Person>
         <Login>Vasya</Login>
-        <Pasword>qwerty12345</Pasword>
+        <Password>qwerty12345</Password>
         <Email>vasya12345@mail.ru</Email>
         <Ads>
             <Ad>
@@ -34,7 +34,7 @@
     </Person>
     <Person>
         <Login>Fedya</Login>
-        <Pasword>asdfg12345</Pasword>
+        <Password>asdfg12345</Password>
         <Email>fedya12345@mail.ru</Email>
         <Ads>
             <Ad>

@@ -19,7 +19,7 @@
         <sequence>
             <element name="Name" type="string"/>
 			<element name="Login" type="string"/>
-            <element name="Pasword" type="string"/>
+            <element name="Password" type="string"/>
             <element name="Email" type="string"/>
             <element name="TravelOffers" type="tns:TravelOffers"/>
         </sequence>

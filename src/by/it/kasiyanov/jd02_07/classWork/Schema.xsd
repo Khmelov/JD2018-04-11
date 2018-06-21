@@ -18,7 +18,7 @@
     <complexType name="Person">
         <sequence>
             <element name="Login" type="string"/>
-            <element name="Pasword" type="string"/>
+            <element name="Password" type="string"/>
             <element name="Email" type="string"/>
             <element name="Ads" type="tns:Ads"/>
         </sequence>

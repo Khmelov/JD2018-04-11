@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TravelAgents xmlns="http://jd02_09.kasiyanov.it.by"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://jd02_09.kasiyanov.it.by Schema.xsd"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jd02_09.kasiyanov.it.by Schema.xsd"
 >
 
-<TravelAgent>
+	<TravelAgent>
 		<Name>Alina</Name>
 		<Login>Alina</Login>
 		<Pasword>qwerty</Pasword>
@@ -12,8 +12,8 @@
 		<TravelOffers>
 			<TravelOffer>
 				<Description>
-                    Великолепные песчаные пляжи...
-                </Description>
+					Великолепные песчаные пляжи...
+				</Description>
 				<TypeOfTrevel>Holiday</TypeOfTrevel>
 				<Destination>Мальта</Destination>
 				<Hotel>Hilton</Hotel>
@@ -23,8 +23,8 @@
 			</TravelOffer>
 			<TravelOffer>
 				<Description>
-                    Исторические достопримечательности...
-                </Description>
+					Исторические достопримечательности...
+				</Description>
 				<TypeOfTrevel>Excursion</TypeOfTrevel>
 				<Destination>Прага</Destination>
 				<Hotel>ResidenceBologna</Hotel>
@@ -42,8 +42,8 @@
 		<TravelOffers>
 			<TravelOffer>
 				<Description>
-                    Тур в Италию за самыми модными и выгодными покупками...
-                </Description>
+					Тур в Италию за самыми модными и выгодными покупками...
+				</Description>
 				<TypeOfTrevel>ShopTour</TypeOfTrevel>
 				<Destination>Милан</Destination>
 				<Hotel>Ibis Milano Centro</Hotel>

@@ -4,7 +4,7 @@
 	<TravelAgent>
 		<Name>Alina</Name>
 		<Login>Alina</Login>
-		<Pasword>qwerty</Pasword>
+		<Password>qwerty</Password>
 		<Email>Alina@gmail.com</Email>
 		<TravelOffers>
 			<TravelOffer>
@@ -34,7 +34,7 @@
 	<TravelAgent>
 		<Name>Viktoria</Name>
 		<Login>Viktoria</Login>
-		<Pasword>asdfg</Pasword>
+		<Password>asdfg</Password>
 		<Email>Viktoria@gmail.com</Email>
 		<TravelOffers>
 			<TravelOffer>

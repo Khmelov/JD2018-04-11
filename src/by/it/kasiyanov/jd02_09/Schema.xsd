@@ -3,22 +3,22 @@
         targetNamespace="http://jd02_09.kasiyanov.it.by"
         xmlns:tns="http://jd02_09.kasiyanov.it.by"
         elementFormDefault="qualified">
-<element name="TravelAgents">
-    <complexType>
-        <sequence>
-        <element name="TravelAgent"
-                 type="tns:TravelAgent"
-                 minOccurs="1"
-                 maxOccurs="unbounded">
-        </element>
-    </sequence>
+    <element name="TravelAgents">
+        <complexType>
+            <sequence>
+                <element name="TravelAgent"
+                         type="tns:TravelAgent"
+                         minOccurs="1"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
 
-    </complexType>
-</element>
+        </complexType>
+    </element>
     <complexType name="TravelAgent">
         <sequence>
             <element name="Name" type="string"/>
-			<element name="Login" type="string"/>
+            <element name="Login" type="string"/>
             <element name="Pasword" type="string"/>
             <element name="Email" type="string"/>
             <element name="TravelOffers" type="tns:TravelOffers"/>
@@ -37,8 +37,8 @@
     <complexType name="TravelOffer">
         <sequence>
             <element name="Description" type="string"/>
-			<element name="TypeOfTrevel" type="string"/>
-			<element name="Destination" type="string"/>
+            <element name="TypeOfTrevel" type="string"/>
+            <element name="Destination" type="string"/>
             <element name="Hotel" type="string"/>
             <element name="LevelOfAccommodation" type="string"/>
             <element name="NumberOfNight" type="integer"/>
