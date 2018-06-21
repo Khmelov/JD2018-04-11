@@ -2,10 +2,10 @@ package by.it.kurmaz.jd03_03.beans;
 
 public class Order {
     private long id;
-    private boolean completed;
+    private int completed;
     private int users_ID;
 
-    public Order(long id, boolean completed, int users_ID) {
+    public Order(long id, int completed, int users_ID) {
         this.id = id;
         this.completed = completed;
         this.users_ID = users_ID;
@@ -17,7 +17,7 @@ public class Order {
         return id;
     }
 
-    public boolean isCompleted() {
+    public int isCompleted() {
         return completed;
     }
 
@@ -29,7 +29,7 @@ public class Order {
         this.id = id;
     }
 
-    public void setCompleted(boolean completed) {
+    public void setCompleted(int completed) {
         this.completed = completed;
     }
 

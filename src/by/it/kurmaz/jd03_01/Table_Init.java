@@ -47,7 +47,7 @@ class Table_Init {
                     "    FOREIGN KEY (`Users_ID`)\n" +
                     "    REFERENCES `kurmaz`.`Users` (`ID`)\n" +
                     "    ON DELETE CASCADE\n" +
-                    "    ON UPDATE CASCADE)\n" +
+                    "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB;");
             statement.execute("CREATE TABLE IF NOT EXISTS `kurmaz`.`Admins` (\n" +
                     "  `ID` INT NOT NULL AUTO_INCREMENT,\n" +

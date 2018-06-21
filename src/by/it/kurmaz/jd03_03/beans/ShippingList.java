@@ -1,20 +1,20 @@
 package by.it.kurmaz.jd03_03.beans;
 
-public class shippingList {
+public class ShippingList {
 
     private long id;
     private String quantity;
     private int catalog_ID;
     private int order_ID;
 
-    public shippingList(long id, String quantity, int catalog_ID, int order_ID) {
+    public ShippingList(long id, String quantity, int catalog_ID, int order_ID) {
         this.id = id;
         this.quantity = quantity;
         this.catalog_ID = catalog_ID;
         this.order_ID = order_ID;
     }
 
-    private shippingList() {}
+    public ShippingList() {}
 
     public long getId() {
         return id;

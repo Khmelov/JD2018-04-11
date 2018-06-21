@@ -2,11 +2,12 @@ package by.it.kurmaz.jd03_03.beans;
 
 public class Catalog {
     private long ID;
+    private int amount;
     private String name;
     private double price;
-    private int amount;
 
-    public Catalog(long ID, String name, double price, int amount) {
+
+    public Catalog(long ID, int amount, String name, double price) {
         this.ID = ID;
         this.name = name;
         this.price = price;
