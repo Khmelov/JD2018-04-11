@@ -17,17 +17,12 @@ public class TaskC {
     }
 
 
-
-    public static void dellAllTables(){
-
+    public static void dellAllTables() {
         try (
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement();
         ) {
-            statement.execute("DROP TABLE IF EXISTS `orders`");
-            statement.execute("DROP TABLE IF EXISTS `goods`");
-            statement.execute("DROP TABLE IF EXISTS `users`");
-            statement.execute("DROP TABLE IF EXISTS `roles`");
+            statement.execute("DROP TABLE IF EXISTS `orders`, `goods`, `users`, `roles`");
             System.out.println("All tables remove");
 
         } catch (SQLException e) {
