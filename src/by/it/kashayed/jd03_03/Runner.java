@@ -12,12 +12,12 @@ public class Runner {
         Dao dao = Dao.getDao();
         Owners owners = new Owners(0,"TestOwner");
         dao.owners.create(owners);
-        owners.setOwners("TEST");
+        owners.setOwner("TEST");
         dao.owners.update(owners);
         dao.owners.delete(owners);
         System.out.println(owners);
 
-        Owner owner = new Owner(0,"TestOwner","TestOwner","TestOwner",2);
+        Owner owner = new Owner(0,"TestOwner","TestOwner","TestOwner","TestOwner",2);
         dao.owner.create(owner);
         owner.setName("PUPKINTEST");
         dao.owner.update(owner);

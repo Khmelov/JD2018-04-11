@@ -1,14 +1,25 @@
 package by.it.kashayed.jd03_03.bean;
 
 public class Owner {
-    public Owner(int id, String login, String password, String name, int owners_id) {
-    }
+
     private int id;
     private String login;
     private String emali;
     private String pass;
     private String name;
     private int owners_id;
+
+    public Owner() {
+    }
+
+    public Owner(int id, String login, String emali, String pass, String name, int owners_id) {
+        this.id = id;
+        this.login = login;
+        this.emali = emali;
+        this.pass = pass;
+        this.name = name;
+        this.owners_id = owners_id;
+    }
 
     public int getId() {
         return id;

@@ -5,11 +5,11 @@ public class Owners {
     }
 
     private int id;
-    private String owners;
+    private String owner;
 
-    public Owners(int id, String owners) {
+    public Owners(int id, String owner) {
         this.id = id;
-        this.owners = owners;
+        this.owner = owner;
     }
 
     public int getId() {
@@ -20,19 +20,19 @@ public class Owners {
         this.id = id;
     }
 
-    public String getOwners() {
-        return owners;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOwners(String owners) {
-        this.owners = owners;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     @Override
     public String toString() {
         return "Owners{" +
                 "id=" + id +
-                ", owners='" + owners + '\'' +
+                ", owner='" + owner + '\'' +
                 '}';
     }
 }
