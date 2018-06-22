@@ -1,4 +1,4 @@
-package by.it.dkruchek.jd03_02.connection;
+package by.it.dkruchek.jd03_03.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
