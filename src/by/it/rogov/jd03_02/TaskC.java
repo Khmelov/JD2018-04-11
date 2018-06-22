@@ -1,13 +1,11 @@
 package by.it.rogov.jd03_02;
 
-
 import by.it.rogov.jd03_02.beans.Role;
 import by.it.rogov.jd03_02.beans.User;
 import by.it.rogov.jd03_02.crud.CrudRole;
 import by.it.rogov.jd03_02.crud.CrudUser;
 import by.it.rogov.jd03_02.utiles.C_Init;
 import by.it.rogov.jd03_02.utiles.C_Reset;
-
 import java.sql.SQLException;
 
 
