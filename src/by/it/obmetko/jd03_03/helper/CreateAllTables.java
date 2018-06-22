@@ -1,4 +1,4 @@
-package by.it.obmetko.jd03_02;
+package by.it.obmetko.jd03_03.helper;
 
 import by.it.obmetko.jd03_02.connection.DbConnection;
 
@@ -92,8 +92,8 @@ public class CreateAllTables {
                     "ON UPDATE NO ACTION)\n" +
                     "ENGINE = InnoDB\n" +
                     "DEFAULT CHARACTER SET = utf8;");
-            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `catalogName`) VALUES (DEFAULT, 'каталог книг');");
-            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `catalogName`) VALUES (DEFAULT, 'каталог манги и комиксов');");
+            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `CatalogName`) VALUES (DEFAULT, 'каталог книг');");
+            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `CatalogName`) VALUES (DEFAULT, 'каталог манги и комиксов');");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'художественная', 1);");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'программирование', 1);");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'комиксы', 2);");
@@ -106,8 +106,10 @@ public class CreateAllTables {
             statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'buyer');");
             statement.executeUpdate("INSERT INTO `obmetko`.`buyers` (`ID`, `login`, `password`, `email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'admin', 'admin@tut.by', 1);");
             statement.executeUpdate("INSERT INTO `obmetko`.`buyers` (`ID`, `login`, `password`, `email`, `roles_ID`) VALUES (DEFAULT, 'user', 'user', 'user@tut.by', 2);");
-
-
+            statement.executeUpdate("INSERT INTO `obmetko`.`List of purchases` (`id`, `Buyers_id`, `Books_id`) " +
+                                        "VALUES (DEFAULT, 1, 3);\n");
+            statement.executeUpdate("INSERT INTO `obmetko`.`List of purchases` (`id`, `Buyers_id`, `Books_id`) " +
+                    "VALUES (DEFAULT, 2, 1);\n");
         } catch (SQLException e) {
             e.printStackTrace();
         }
