@@ -1,5 +1,6 @@
 package by.it.rogov.jd03_02.crud;
 
+import by.it.rogov.jd03_02.beans.Role;
 import by.it.rogov.jd03_02.beans.User;
 import by.it.rogov.jd03_02.connection.DBConnection;
 
@@ -14,33 +15,78 @@ public class CrudRole {
     String role;
     int countRole;
 
-    public String readRole(int roleID) throws SQLException {
-
-        try(Connection connection= DBConnection.getConnection();
-            Statement statement=connection.createStatement()
-        ){
-            String sql =String.format(Locale.US,"SELECT `role` FROM `roles` WHERE id=%d",
-                    roleID);
+    public Role read(long id) throws SQLException {
+        Role role = null;
+        try (Connection connection = DBConnection.getConnection();
+             Statement statement = connection.createStatement()
+        ) {
+            String sql = String.format(Locale.US, "SELECT `ID`, `role` FROM `roles` WHERE id=%d",
+                    id);
             ResultSet resultSet = statement.executeQuery(sql);
-        if(resultSet.next())
-            return resultSet.getString(1);
-        else
-            return null;
+            if (resultSet.next()) {
+                role = new Role(
+                        resultSet.getLong("ID"),
+                        resultSet.getString("role")
+                );
+            }
         }
+        return role;
     }
+
     public int readCountRole() throws SQLException {
 
-        try(Connection connection= DBConnection.getConnection();
-            Statement statement=connection.createStatement()
-        ){
-            String sql =String.format(Locale.US,"SELECT COUNT(id) FROM `roles` ");
+        try (Connection connection = DBConnection.getConnection();
+             Statement statement = connection.createStatement()
+        ) {
+            String sql = String.format(Locale.US, "SELECT COUNT(id) FROM `roles` ");
             ResultSet resultSet = statement.executeQuery(sql);
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 countRole = resultSet.getInt(1);
                 return countRole;
             }
         }
         return 0;
     }
+
+    public boolean create(Role role) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             Statement statement = connection.createStatement()
+        ) {
+            String sql = String.format(Locale.US, "INSERT INTO `roles` ( `role`) " +
+                            "VALUES ( '%s')",
+                    role.getRole());
+            if (1 == statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    role.setId(generatedKeys.getLong(1));
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean update(Role role) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             Statement statement = connection.createStatement()
+        ) {
+            String sql = String.format(Locale.US,
+                    "UPDATE `roles` SET `role`='%s' " +
+                            "WHERE id=%d",
+                    role.getRole(), role.getId());
+            return 1 == statement.executeUpdate(sql);
+        }
+    }
+
+    public boolean delete(Role role) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             Statement statement = connection.createStatement()
+        ) {
+            String sql = String.format(Locale.US,
+                    "DELETE FROM `roles` WHERE id=%d", role.getId());
+            return 1 == statement.executeUpdate(sql);
+        }
+    }
+
 
 }

@@ -1,4 +1,4 @@
-package by.it.rogov.jd03_02.beans;
+package by.it.rogov.jd03_03.beans;
 
 public class User {
 
