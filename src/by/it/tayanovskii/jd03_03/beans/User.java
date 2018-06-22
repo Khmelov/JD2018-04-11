@@ -1,4 +1,4 @@
-package by.it.tayanovskii.jd03_02.beans;
+package by.it.tayanovskii.jd03_03.beans;
 
 public class User {
     private long id;
