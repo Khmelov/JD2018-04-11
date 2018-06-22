@@ -12,12 +12,8 @@ public class Order {
     String date=sdf.format(c);
     System.out.println(date);
 
-
-
     Date date = new Date();
     String str = new SimpleDateFormat("yyyy-MM-dd").format(date);
-
-
      */
     private Date startorder;
     private int tenancy;

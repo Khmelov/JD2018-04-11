@@ -92,10 +92,14 @@ public class CrudOrder {
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement()){
 
+            String end = "";
+            if(order.getEndorder() !=  null)
+                end = "`endorder`='"+sdf.format(order.getEndorder())+"',";
+
             String sql = String.format(Locale.US, " UPDATE `orders` SET " +
                             "`startorder`='%s'," +
                             "`tenancy`='%s'," +
-                            "`endorder`='%s'," +
+                            "%s" +
                             "`cost`='%s'," +
                             "`discount`=%d," +
                             "`realcost`='%s'," +
@@ -104,7 +108,7 @@ public class CrudOrder {
                             "WHERE id=%d",
                     sdf.format(order.getStartorder()),
                     order.getTenancy(),
-                    sdf.format(order.getEndorder()),
+                    end,
                     order.getCost(),
                     order.getDiscount(),
                     order.getRealcost(),

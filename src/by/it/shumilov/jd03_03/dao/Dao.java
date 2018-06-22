@@ -7,12 +7,16 @@ public class Dao {
         role = new DaoRole();
         user = new DaoUser();
         avto = new DaoAvto();
+        order = new DaoOrder();
+        passport = new DaoPassport();
     }
 
 
     public  DaoRole role;
     public  DaoUser user;
     public  DaoAvto avto;
+    public  DaoPassport passport;
+    public  DaoOrder order;
 
     public static  Dao getDao(){
         if (dao == null){
