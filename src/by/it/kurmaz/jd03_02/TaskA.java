@@ -1,10 +1,12 @@
 package by.it.kurmaz.jd03_02;
-import by.it.kurmaz.jd03_02.CRUD.CrudAddress;
-import by.it.kurmaz.jd03_02.CRUD.CrudAdmin;
-import by.it.kurmaz.jd03_02.CRUD.CrudUser;
+import by.it._examples_.jd02_04.Calc;
+import by.it.kurmaz.jd03_02.CRUD.*;
 import by.it.kurmaz.jd03_02.beans.Address;
 import by.it.kurmaz.jd03_02.beans.Admin;
 import by.it.kurmaz.jd03_02.beans.User;
+import by.it.kurmaz.jd03_03.beans.Catalog;
+import by.it.kurmaz.jd03_03.beans.Order;
+import by.it.kurmaz.jd03_03.beans.ShippingList;
 
 import java.sql.SQLException;
 
@@ -75,5 +77,61 @@ public class TaskA {
             System.out.println("Update "+test2);
         if (address.delete(test2))
            System.out.println("Delete "+test2);
+
+        CrudCatalog catalog = new CrudCatalog();
+        Catalog cat = new Catalog(
+                0,
+                50,
+                "Gin",
+                10.5
+        );
+        if (catalog.create(cat))
+            System.out.println("Create "+cat);
+        cat=catalog.read(cat.getID());
+        if (cat !=null)
+            System.out.println("Read "+cat);
+        assert cat != null;
+        cat.setPrice(11.5);
+        if (catalog.update(cat))
+            System.out.println("Update "+cat);
+        if (catalog.delete(cat))
+            System.out.println("Delete "+cat);
+
+        CrudList ship = new CrudList();
+        ShippingList list = new ShippingList(
+                0,
+                "5",
+                3,
+                1
+        );
+        if (ship.create(list))
+            System.out.println("Create " + list);
+        list = ship.read(list.getId());
+        if (list != null)
+            System.out.println("Read " + list);
+        assert list != null;
+        list.setOrder_ID(2);
+        if (ship.update(list))
+            System.out.println("Update " + list);
+        if (ship.delete(list))
+            System.out.println("Delete " + list);
+
+        CrudOrder crud = new CrudOrder();
+        Order order = new Order(
+                0,
+                0,
+                1
+        );
+        if (crud.create(order))
+            System.out.println("Create " + order);
+        order = crud.read(order.getId());
+        if (order != null)
+            System.out.println("Read " + order);
+        assert order != null;
+        order.setCompleted(1);
+        if (crud.update(order))
+            System.out.println("Update " + order);
+        if (crud.delete(order))
+            System.out.println("Delete " + order);
     }
 }
