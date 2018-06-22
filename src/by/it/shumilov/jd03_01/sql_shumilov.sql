@@ -49,11 +49,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Shumilov`.`dbAvto`
+-- Table `Shumilov`.`dbAvtos`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Shumilov`.`dbAvto` ;
+DROP TABLE IF EXISTS `Shumilov`.`dbAvtos` ;
 
-CREATE TABLE IF NOT EXISTS `Shumilov`.`dbAvto` (
+CREATE TABLE IF NOT EXISTS `Shumilov`.`dbAvtos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `mark` VARCHAR(45) NULL,
   `model` VARCHAR(45) NULL,
@@ -67,11 +67,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Shumilov`.`dbOrder`
+-- Table `Shumilov`.`dbOrders`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Shumilov`.`dbOrder` ;
+DROP TABLE IF EXISTS `Shumilov`.`dbOrders` ;
 
-CREATE TABLE IF NOT EXISTS `Shumilov`.`dbOrder` (
+CREATE TABLE IF NOT EXISTS `Shumilov`.`dbOrders` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `startorder` DATE NULL,
   `tenancy` INT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `Shumilov`.`dbOrder` (
   INDEX `fk_dbOrder_dbUsers1_idx` (`dbUsers_id` ASC),
   CONSTRAINT `fk_dbOrder_dbAvto`
     FOREIGN KEY (`dbAvto_id`)
-    REFERENCES `Shumilov`.`dbAvto` (`id`)
+    REFERENCES `Shumilov`.`dbAvtos` (`id`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
   CONSTRAINT `fk_dbOrder_dbUsers1`
@@ -98,11 +98,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Shumilov`.`dbPassport`
+-- Table `Shumilov`.`dbPassports`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Shumilov`.`dbPassport` ;
+DROP TABLE IF EXISTS `Shumilov`.`dbPassports` ;
 
-CREATE TABLE IF NOT EXISTS `Shumilov`.`dbPassport` (
+CREATE TABLE IF NOT EXISTS `Shumilov`.`dbPassports` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(100) NULL,
   `lastname` VARCHAR(100) NULL,
@@ -148,36 +148,36 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `Shumilov`.`dbAvto`
+-- Data for table `Shumilov`.`dbAvtos`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Shumilov`;
-INSERT INTO `Shumilov`.`dbAvto` (`id`, `mark`, `model`, `color`, `nvin`, `year`, `ngos`, `rate`) VALUES (1, 'VW', 'Pasat B6', 'Black', '1A2S3D4F5G6H7J8K9', 2012, '1234 SW-5', 40.4);
-INSERT INTO `Shumilov`.`dbAvto` (`id`, `mark`, `model`, `color`, `nvin`, `year`, `ngos`, `rate`) VALUES (2, 'Porshe', '911', 'Red', '1A2S3D4F5G6H7J8KY', 2017, '5432 AD-4', 199.9);
-INSERT INTO `Shumilov`.`dbAvto` (`id`, `mark`, `model`, `color`, `nvin`, `year`, `ngos`, `rate`) VALUES (3, 'Infiniti', 'p40', 'White', '1A2S3D4F5G6H7J8FD', 2015, '8888 BO-7', 149.9);
+INSERT INTO `Shumilov`.`dbAvtos` (`id`, `mark`, `model`, `color`, `nvin`, `year`, `ngos`, `rate`) VALUES (1, 'VW', 'Pasat B6', 'Black', '1A2S3D4F5G6H7J8K9', 2012, '1234 SW-5', 40.4);
+INSERT INTO `Shumilov`.`dbAvtos` (`id`, `mark`, `model`, `color`, `nvin`, `year`, `ngos`, `rate`) VALUES (2, 'Porshe', '911', 'Red', '1A2S3D4F5G6H7J8KY', 2017, '5432 AD-4', 199.9);
+INSERT INTO `Shumilov`.`dbAvtos` (`id`, `mark`, `model`, `color`, `nvin`, `year`, `ngos`, `rate`) VALUES (3, 'Infiniti', 'p40', 'White', '1A2S3D4F5G6H7J8FD', 2015, '8888 BO-7', 149.9);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `Shumilov`.`dbOrder`
+-- Data for table `Shumilov`.`dbOrders`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Shumilov`;
-INSERT INTO `Shumilov`.`dbOrder` (`id`, `startorder`, `tenancy`, `endorder`, `cost`, `discount`, `realcost`, `dbAvto_id`, `dbUsers_id`) VALUES (1, '2018-03-11', 11, '2018-03-21', 444.4, 1, 439.96, 1, 2);
-INSERT INTO `Shumilov`.`dbOrder` (`id`, `startorder`, `tenancy`, `endorder`, `cost`, `discount`, `realcost`, `dbAvto_id`, `dbUsers_id`) VALUES (2, '2018-05-26', 2, '2018-05-27', 399.8, 0, 399.8, 2, 3);
-INSERT INTO `Shumilov`.`dbOrder` (`id`, `startorder`, `tenancy`, `endorder`, `cost`, `discount`, `realcost`, `dbAvto_id`, `dbUsers_id`) VALUES (3, '2018-06-11', 30, NULL, 4497.0, 10, 4047.3, 3, 3);
+INSERT INTO `Shumilov`.`dbOrders` (`id`, `startorder`, `tenancy`, `endorder`, `cost`, `discount`, `realcost`, `dbAvto_id`, `dbUsers_id`) VALUES (1, '2018-03-11', 11, '2018-03-21', 444.4, 1, 439.96, 1, 2);
+INSERT INTO `Shumilov`.`dbOrders` (`id`, `startorder`, `tenancy`, `endorder`, `cost`, `discount`, `realcost`, `dbAvto_id`, `dbUsers_id`) VALUES (2, '2018-05-26', 2, '2018-05-27', 399.8, 0, 399.8, 2, 3);
+INSERT INTO `Shumilov`.`dbOrders` (`id`, `startorder`, `tenancy`, `endorder`, `cost`, `discount`, `realcost`, `dbAvto_id`, `dbUsers_id`) VALUES (3, '2018-06-11', 30, NULL, 4497.0, 10, 4047.3, 3, 3);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `Shumilov`.`dbPassport`
+-- Data for table `Shumilov`.`dbPassports`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Shumilov`;
-INSERT INTO `Shumilov`.`dbPassport` (`id`, `firstname`, `lastname`, `pasportid`, `phone`, `dbUsers_id`) VALUES (1, 'Aleks', 'State', '866534435908896RB7', '375771234567', 2);
-INSERT INTO `Shumilov`.`dbPassport` (`id`, `firstname`, `lastname`, `pasportid`, `phone`, `dbUsers_id`) VALUES (2, 'Dmitrii', 'Amenko', '854352754324123RB3', '375227654321', 3);
+INSERT INTO `Shumilov`.`dbPassports` (`id`, `firstname`, `lastname`, `pasportid`, `phone`, `dbUsers_id`) VALUES (1, 'Aleks', 'State', '866534435908896RB7', '375771234567', 2);
+INSERT INTO `Shumilov`.`dbPassports` (`id`, `firstname`, `lastname`, `pasportid`, `phone`, `dbUsers_id`) VALUES (2, 'Dmitrii', 'Amenko', '854352754324123RB3', '375227654321', 3);
 
 COMMIT;
 
