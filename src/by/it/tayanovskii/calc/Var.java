@@ -1,7 +1,5 @@
 package by.it.tayanovskii.calc;
 
-import com.sun.xml.internal.ws.api.model.MEP;
-
 import java.util.*;
 
 class Var implements Operation {
