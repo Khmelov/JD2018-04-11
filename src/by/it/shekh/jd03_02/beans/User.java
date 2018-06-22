@@ -1,43 +1,43 @@
 package by.it.shekh.jd03_02.beans;
 
 public class User {
-    long id;
+    long id_users;
     String login;
     String password;
     String email;
-    long roles_id;
+    long id_roles;
 
     public User(){
 
     }
 
-    public User(long id, String login, String password, String email, long roles_id) {
-        this.id = id;
+    public User(long id_users, String login, String password, String email, long id_roles) {
+        this.id_users = id_users;
         this.login = login;
         this.password = password;
         this.email = email;
-        this.roles_id = roles_id;
+        this.id_roles = id_roles;
     }
 
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id_user=" + id_users +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", roles_id=" + roles_id +
+                ", id_roles=" + id_roles +
                 '}';
     }
 
     public long getId() {
 
-        return id;
+        return id_users;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(long id_users) {
+        this.id_users = id_users;
     }
 
     public String getLogin() {
@@ -65,10 +65,10 @@ public class User {
     }
 
     public long getRoles_id() {
-        return roles_id;
+        return id_roles;
     }
 
-    public void setRoles_id(long roles_id) {
-        this.roles_id = roles_id;
+    public void setRoles_id(long id_roles) {
+        this.id_roles = id_roles;
     }
 }
