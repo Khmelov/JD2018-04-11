@@ -45,7 +45,8 @@ public class C_Init{
                                      "ENGINE = InnoDB;");
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS `dkruchek`.`vacations` (\n" +
                                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
-                                    "  `dates` VARCHAR(45) NULL,\n" +
+                                    "  `startdate` BIGINT NULL,\n" +
+                                    "  `enddate` BIGINT NULL,\n" +
                                     "  `approved` TINYINT(1) NULL,\n" +
                                     "  `employees_id` INT NOT NULL,\n" +
                                     "  PRIMARY KEY (`id`),\n" +
@@ -65,8 +66,8 @@ public class C_Init{
                               "INSERT INTO `dkruchek`.`employees` (`id`, `name`, `lastname`, `email`, `password`, `roles_id`) VALUES (DEFAULT, 'Viktor', 'Ovsov', 'ovsov@qwe.com', 'ovsov123', 2);\n" +
                               "INSERT INTO `dkruchek`.`employees` (`id`, `name`, `lastname`, `email`, `password`, `roles_id`) VALUES (DEFAULT, 'Denis', 'Kopytov', 'kopytov@qwe.com', 'kopytov123', 3);\n");
         // -- Data for table vacations
-        statement.execute("INSERT INTO `dkruchek`.`vacations` (`id`, `dates`, `approved`, `employees_id`) VALUES (DEFAULT, '11.12.2018-15.12.2018', true, 2);\n" +
-                              "INSERT INTO `dkruchek`.`vacations` (`id`, `dates`, `approved`, `employees_id`) VALUES (DEFAULT, '06.07.2018-21.07.2018', false, 3);\n");
+        statement.execute("INSERT INTO `dkruchek`.`vacations` (`id`, `startdate`, `enddate`, `approved`, `employees_id`) VALUES (DEFAULT, 1081157732, 1081817732, true, 2);\n" +
+                              "INSERT INTO `dkruchek`.`vacations` (`id`, `startdate`, `enddate`, `approved`, `employees_id`) VALUES (DEFAULT, 1081157732, 1081817732, false, 3);\n");
 
         }
 
