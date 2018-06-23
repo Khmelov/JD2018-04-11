@@ -31,6 +31,7 @@ public class FrontController extends HttpServlet{
 
     private void serv(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        resp.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
         Actions action = actionFactory.defineAction(req);
         Cmd nextAction = action.cmd.execute(req);
         if (nextAction==null){
