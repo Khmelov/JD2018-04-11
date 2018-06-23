@@ -1,4 +1,4 @@
-package by.it.kashayed.jd03_03.bean;
+package by.it.kashayed.Project.bean;
 
 public class Owners {
     public Owners() {

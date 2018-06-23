@@ -1,4 +1,4 @@
-package by.it.kashayed.jd03_03.dao;
+package by.it.kashayed.Project.dao;
 
 import by.it.kashayed.jd03_02.DBConnection;
 import by.it.kashayed.jd03_03.bean.Owner;

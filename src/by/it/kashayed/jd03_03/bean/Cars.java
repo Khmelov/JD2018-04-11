@@ -7,14 +7,14 @@ public class Cars {
     private int id;
     private String model;
     private String year;
-    private String prive;
+    private String price;
     private int owner_id;
 
-    public Cars(int id, String model, String year, String prive, int owner_id) {
+    public Cars(int id, String model, String year, String price, int owner_id) {
         this.id = id;
         this.model = model;
         this.year = year;
-        this.prive = prive;
+        this.price = price;
         this.owner_id = owner_id;
     }
 
@@ -42,12 +42,12 @@ public class Cars {
         this.year = year;
     }
 
-    public String getPrive() {
-        return prive;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPrive(String prive) {
-        this.prive = prive;
+    public void setPrice(String prive) {
+        this.price = prive;
     }
 
     public int getOwner_id() {
@@ -64,7 +64,7 @@ public class Cars {
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", year='" + year + '\'' +
-                ", prive='" + prive + '\'' +
+                ", price='" + price + '\'' +
                 ", owner_id=" + owner_id +
                 '}';
     }
