@@ -28,6 +28,7 @@ public class DaoOwner extends DaoAbstract implements DaoInterface<Owner> {
                         "`owner`(`Login`, `email`, `Password`, `Name`, `Owners_id`) " +
                         "VALUES ('%s','%s','%s','%s',%d)",
                 owner.getLogin(), owner.getEmali(), owner.getPass(), owner.getName(), owner.getOwners_id());
+        System.out.println(sql);
         int id = executeUpdate(sql);
         if (id > 0) {
             owner.setId(id);

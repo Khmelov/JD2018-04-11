@@ -1,21 +1,25 @@
 package by.it.kurmaz.jd03_02;
 import by.it.kurmaz.jd03_02.CRUD.CrudAddress;
 import by.it.kurmaz.jd03_02.CRUD.CrudAdmin;
+import by.it.kurmaz.jd03_02.CRUD.CrudCatalog;
 import by.it.kurmaz.jd03_02.CRUD.CrudUser;
 import by.it.kurmaz.jd03_02.beans.Address;
 import by.it.kurmaz.jd03_02.beans.Admin;
 import by.it.kurmaz.jd03_02.beans.User;
+import by.it.kurmaz.jd03_03.beans.Catalog;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class TaskC_Runner {
     public static void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Type \"Admin\", \"User\" or \"Address\" to create an entity, or type \"end\" to exit");
+        System.out.println("Type \"Admin\", \"User\", \"Catalog\" or \"Address\" to create an entity, or type \"end\" to exit");
         String choice;
         CrudUser crudUser = new CrudUser();
         CrudAdmin crudAdmin = new CrudAdmin();
         CrudAddress crudAddress = new CrudAddress();
+        CrudCatalog catalog = new CrudCatalog();
         while (!(choice = scanner.nextLine()).equals("end")) {
             switch (choice) {
                 case ("Admin"):
@@ -72,6 +76,17 @@ public class TaskC_Runner {
                         System.out.println("Address created. ID number = " + address.getId());
                     System.out.println(crudAddress.read(address.getId()));
                     break;
+
+                case ("Catalog"):
+                    Catalog cat = new Catalog();
+                    System.out.println("Enter a new catalog item");
+                    cat.setName(scanner.nextLine());
+                    System.out.println("Enter amount");
+                    cat.setAmount(Integer.parseInt(scanner.nextLine()));
+                    System.out.println("Enter a price");
+                    cat.setPrice(Double.parseDouble(scanner.nextLine()));
+                    if (catalog.create(cat))
+                        System.out.println("Catalog Item created. ID number = " + cat.getID());
             }
             System.out.println("Type \"Admin\", \"User\" or \"Address\" to create an entity, or type \"end\" to exit");
         }

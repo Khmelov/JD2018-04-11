@@ -47,7 +47,7 @@ public class CatalogCRUD implements I_CRUD<Catalog> {
         try (Connection connection = DbConnection.getConnection();
              Statement statement = connection.createStatement()) {
             int recCount = statement.executeUpdate(
-                    String.format("UPDATE `catalog` SET `name`='%s' WHERE id=%d",
+                    String.format("UPDATE `catalog` SET `catalogName`='%s' WHERE id=%d",
                             catalog.getCatalogName(), catalog.getId()));
             return recCount == 1;
         }

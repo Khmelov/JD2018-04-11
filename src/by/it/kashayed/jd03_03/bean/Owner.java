@@ -1,7 +1,7 @@
 package by.it.kashayed.jd03_03.bean;
 
 public class Owner {
-    public Owner() {
+    public Owner(int id, String login, String password, String name, int owners_id) {
     }
     private int id;
     private String login;
@@ -9,15 +9,6 @@ public class Owner {
     private String pass;
     private String name;
     private int owners_id;
-
-    public Owner(int id, String login, String emali, String pass, String name, int owners_id) {
-        this.id = id;
-        this.login = login;
-        this.emali = emali;
-        this.pass = pass;
-        this.name = name;
-        this.owners_id = owners_id;
-    }
 
     public int getId() {
         return id;
@@ -64,6 +55,15 @@ public class Owner {
     }
 
     public void setOwners_id(int owners_id) {
+        this.owners_id = owners_id;
+    }
+
+    public Owner(int id) {
+        this.id = id;
+        this.login = login;
+        this.emali = emali;
+        this.pass = pass;
+        this.name = name;
         this.owners_id = owners_id;
     }
 
