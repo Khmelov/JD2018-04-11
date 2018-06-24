@@ -36,6 +36,11 @@ public class Runner {
         //проверим book
         Book book=new Book();
         book.setDescription("testBook");
+        book.setName("testName");
+        book.setAuthor("testAuthor");
+        book.setGenre("testGenre");
+        book.setPages(356);
+        book.setPrice(23.5);
         book.setUsers_id(1);
         dao.book.create(book);
         book.setDescription("updateBook");
