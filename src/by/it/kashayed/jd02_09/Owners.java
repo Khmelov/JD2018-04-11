@@ -57,7 +57,7 @@ public class Owners {
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getOwner().add(newItem);
+     *    getRoles().add(newItem);
      * </pre>
      * 
      * 

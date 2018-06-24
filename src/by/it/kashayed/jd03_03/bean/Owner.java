@@ -58,12 +58,12 @@ public class Owner {
         this.owners_id = owners_id;
     }
 
-    public Owner(int id) {
+    public Owner(int anInt, String login, String password, String email, String name, int id) {
         this.id = id;
-        this.login = login;
+        this.login = this.login;
         this.emali = emali;
         this.pass = pass;
-        this.name = name;
+        this.name = this.name;
         this.owners_id = owners_id;
     }
 

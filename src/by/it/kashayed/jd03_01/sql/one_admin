@@ -1,2 +1,2 @@
-INSERT INTO `owner`(`Login`, `email`, `Password`, `Name`, `Owners_id`)
+INSERT INTO `roles`(`Login`, `email`, `Password`, `Name`, `Owners_id`)
 VALUES ('Admin','admin','value-4','value-5',1);

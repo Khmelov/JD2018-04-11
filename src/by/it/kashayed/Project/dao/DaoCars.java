@@ -1,6 +1,7 @@
 package by.it.kashayed.Project.dao;
 
-import by.it.kashayed.jd03_03.bean.Cars;
+
+import by.it.kashayed.Project.bean.Cars;
 
 public class DaoCars extends UniversalDAO<Cars> implements DaoInterface<Cars> {
     public DaoCars() {

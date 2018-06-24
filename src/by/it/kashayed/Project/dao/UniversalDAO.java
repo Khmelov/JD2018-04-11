@@ -1,6 +1,6 @@
 package by.it.kashayed.Project.dao;
 
-import by.it.kashayed.jd03_03.connection.DBConnection;
+import by.it.kashayed.Project.DBConnection.DBConnection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
