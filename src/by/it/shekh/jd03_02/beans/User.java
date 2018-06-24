@@ -7,7 +7,7 @@ public class User {
     String email;
     long id_roles;
 
-    public User(){
+    public User() {
 
     }
 
@@ -32,7 +32,6 @@ public class User {
     }
 
     public long getId() {
-
         return id_users;
     }
 
