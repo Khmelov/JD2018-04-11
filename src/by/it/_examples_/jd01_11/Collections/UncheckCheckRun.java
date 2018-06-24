@@ -27,7 +27,7 @@ public class UncheckCheckRun {
             }
         };
         for (Order ob : orders) {
-            System.out.println("Order: " + ob);
+            System.out.println("Orders: " + ob);
         }
     }
 

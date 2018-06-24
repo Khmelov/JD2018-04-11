@@ -21,7 +21,7 @@ public class C_Init {
                 statement.executeUpdate("DROP TABLE IF EXISTS `obmetko`.`Roles` ;");
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS `obmetko`.`Roles` (" +
                         "  `ID` INT(11) NOT NULL AUTO_INCREMENT,\n" +
-                        "`Role` VARCHAR(405) NULL DEFAULT NULL,\n" +
+                        "`Roles` VARCHAR(405) NULL DEFAULT NULL,\n" +
                         "PRIMARY KEY (`ID`))\n" +
                         "ENGINE = InnoDB\n" +
                         "DEFAULT CHARACTER SET = utf8;");
@@ -108,8 +108,8 @@ public class C_Init {
                 statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Java для начинающих. Объектно-ориентированный подход', 'Барт Бэзинс', '55', 2);");
                 statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Тор. Бог грома', 'Джейсон Аарон', '49', 3);");
                 statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Волчица и пряности. Том 1', 'Исуна Хасэкура', '18', 4);");
-                statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'admin');");
-                statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'buyer');");
+                statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Roles`) VALUES (DEFAULT, 'admin');");
+                statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Roles`) VALUES (DEFAULT, 'buyer');");
                 statement.executeUpdate("INSERT INTO `obmetko`.`buyers` (`ID`, `login`, `password`, `email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'admin', 'admin@tut.by', 1);");
                 statement.executeUpdate("INSERT INTO `obmetko`.`buyers` (`ID`, `login`, `password`, `email`, `roles_ID`) VALUES (DEFAULT, 'user', 'user', 'user@tut.by', 2);");
 

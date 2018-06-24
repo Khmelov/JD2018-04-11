@@ -85,7 +85,7 @@ public class Buyer extends Thread implements IBuyer, IUseBacket {
         int timeout = Util.rnd(100, 200);
         if (pensioneer) timeout = Util.rnd(150, 300);
         Util.sleep(timeout);
-        //String good=Goods.putRandomGoods();
+        //String good=Products.putRandomGoods();
         Map.Entry<String, Double> randomGoods = Goods.getRandomGoods();
         backet.put(randomGoods.getKey(), randomGoods.getValue());
         System.out.println(this + " выбрал " + randomGoods);

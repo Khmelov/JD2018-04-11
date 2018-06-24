@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="Address" type="{http://jd02_09.kurmaz.it.by}Address"/>
  *         &lt;element name="Phone" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Carma" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Order" type="{http://jd02_09.kurmaz.it.by}Order"/>
+ *         &lt;element name="Orders" type="{http://jd02_09.kurmaz.it.by}Orders"/>
  *       &lt;/sequence>
  *       &lt;attribute name="Login" use="required">
  *         &lt;simpleType>
@@ -76,7 +76,7 @@ public class Client {
     protected String phone;
     @XmlElement(name = "Carma", required = true)
     protected String carma;
-    @XmlElement(name = "Order", required = true)
+    @XmlElement(name = "Orders", required = true)
     protected Order order;
     @XmlAttribute(name = "Login", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
