@@ -4,25 +4,31 @@ public enum Actions {
     INDEX {
         {
             cmd = new CmdIndex();
-            String jsp = "/index.jsp";
+            jsp = "/index.jsp";
         }
     },
     LOGIN {
         {
             cmd = new CmdLogin();
-            String jsp = "/login.jsp";
+            jsp = "/login.jsp";
         }
     },
     SIGNUP {
         {
             cmd = new CmdSignUp();
-            String jsp = "/signup.jsp";
+            jsp = "/signup.jsp";
         }
+    },
+    LOGOUT{
+        {
+        cmd = new CmdLogOut();
+        jsp = "/logout.jsp";
+    }
     },
     ERROR {
         {
-            Cmd cmd = new CmdError();
-            String jsp = "/error.jsp";
+            cmd = new CmdError();
+            jsp = "/error.jsp";
         }
     };
 

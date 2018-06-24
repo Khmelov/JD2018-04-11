@@ -1,11 +1,11 @@
 package by.it.shumilov.project.java.controller;
 
-import com.sun.deploy.net.HttpRequest;
+import javax.servlet.http.HttpServletRequest;
 
 public class CmdSignUp extends Cmd {
 
     @Override
-    Cmd execute(HttpRequest req) {
+    Cmd execute(HttpServletRequest req) {
         return null;
     }
 }

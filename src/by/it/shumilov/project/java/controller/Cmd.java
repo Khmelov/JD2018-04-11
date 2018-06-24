@@ -1,7 +1,8 @@
 package by.it.shumilov.project.java.controller;
 
-import com.sun.deploy.net.HttpRequest;
+
+import javax.servlet.http.HttpServletRequest;
 
 abstract class Cmd {
-    abstract  Cmd execute(HttpRequest req);
+    abstract  Cmd execute(HttpServletRequest req);
 }

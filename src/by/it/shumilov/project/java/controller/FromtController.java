@@ -1,6 +1,6 @@
 package by.it.shumilov.project.java.controller;
 
-import com.sun.deploy.net.HttpRequest;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 
 public class FromtController extends HttpServlet {
 
@@ -32,14 +33,18 @@ public class FromtController extends HttpServlet {
 
 
     private  void  serv(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
-       Actions action = actionFactory.defineAction(req);
-       Cmd nexAction = action.cmd.execute((HttpRequest) req);
+        resp.setHeader("Cache-Control", "no-store");
+        Actions action = actionFactory.defineAction(req);
+       Cmd nexAction = action.cmd.execute(req);
+
        if (nexAction == null){
            ServletContext servletContext = getServletContext();
            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
-            requestDispatcher.forward(req, resp);
+           requestDispatcher.forward(req, resp);
+
        }
        else  {
+
            resp.sendRedirect("do?command"+ nexAction.toString().toLowerCase());
        }
     }
