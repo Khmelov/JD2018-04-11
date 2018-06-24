@@ -1,4 +1,4 @@
-package by.it.mokhart.jd03_02.beans;
+package by.it.mokhart.jd03_03.beans;
 
 public class Ad {
 
@@ -11,6 +11,9 @@ public class Ad {
     String sex;
     String producer;
     long users_id;
+
+    public Ad() {
+    }
 
     public long getId() {
         return id;
@@ -94,5 +97,20 @@ public class Ad {
         this.sex = sex;
         this.producer = producer;
         this.users_id = users_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", size=" + size +
+                ", fabric=" + fabric +
+                ", colour=" + colour +
+                ", sex=" + sex +
+                ", producer='" + producer + '\'' +
+                ", user_id=" + users_id +
+                '}';
     }
 }

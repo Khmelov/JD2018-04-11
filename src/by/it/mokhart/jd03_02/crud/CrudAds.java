@@ -18,7 +18,7 @@ public class CrudAds {
                             " `ads` (`description`, `price`, `size`, `fabric`, `colour`, `sex`, `producer`, `users_id`)" +
                             " VALUES ('%s', '%d', '%s', '%s', '%s', '%s', '%s', '%d')"
                     ,
-                    ad.getDescription(), ad.getPrice(), ad.getSize(), ad.getFabric(), ad.getColour(), ad.getSex(), ad.getProducer(), ad.getUser_id());
+                    ad.getDescription(), ad.getPrice(), ad.getSize(), ad.getFabric(), ad.getColour(), ad.getSex(), ad.getProducer(), ad.getUsers_id());
             if (1 == statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ResultSet generatedKeys = statement.getGeneratedKeys();
                 if (generatedKeys.next()) {
@@ -50,7 +50,7 @@ public class CrudAds {
                         resultSet.getString("colour"),
                         resultSet.getString("sex"),
                         resultSet.getString("producer"),
-                        resultSet.getLong("user_id")
+                        resultSet.getLong("users_id")
                 );
             }
         }
@@ -65,8 +65,8 @@ public class CrudAds {
         ) {
             String sql = String.format(Locale.US,
                     "UPDATE `ads` " +
-                            "SET `description`='%s', 'price'='%d', 'size'='%s', 'fabric'='%s', 'colour'='%s', 'sex'='%s', 'producer'='%s', 'user_id'='%d' WHERE id=%d",
-                    ad.getDescription(),ad.getPrice(),ad.getSize(),ad.getFabric(),ad.getColour(),ad.getSex(),ad.getProducer(),ad.getUser_id(), ad.getId());
+                            "SET `description`='%s', 'price'='%d', 'size'='%s', 'fabric'='%s', 'colour'='%s', 'sex'='%s', 'producer'='%s', 'users_id'='%d' WHERE id=%d",
+                    ad.getDescription(),ad.getPrice(),ad.getSize(),ad.getFabric(),ad.getColour(),ad.getSex(),ad.getProducer(),ad.getUsers_id(), ad.getId());
             return 1 == statement.executeUpdate(sql);
         }
     }
