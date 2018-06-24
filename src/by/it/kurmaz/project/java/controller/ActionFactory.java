@@ -2,7 +2,7 @@ package by.it.kurmaz.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ActionFactory {
+class ActionFactory {
     Actions defineAction(HttpServletRequest req) {
         String command = req.getParameter("command");
         if (command!=null && !command.isEmpty())

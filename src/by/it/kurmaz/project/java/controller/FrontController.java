@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class FrontController extends HttpServlet {
 
-    ActionFactory actionFactory;
+    private ActionFactory actionFactory;
 
     @Override
     public void init() throws ServletException {

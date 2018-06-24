@@ -21,6 +21,42 @@ public enum Actions {
             cmd = new CmdError();
             jsp = "/error.jsp";
         }
+    },
+    LOGOUT{
+        {
+            cmd = new CmdLogout();
+            jsp = "/logout.jsp";
+        }
+    },
+    VIEWCATALOG {
+        {
+            cmd = new CmdViewCatalog();
+            jsp = "/catalog.jsp";
+        }
+    },
+    VIEWORDER {
+        {
+            cmd = new CmdOrder();
+            jsp = "/order.jsp";
+        }
+    },
+    LISTORDERS {
+        {
+            cmd = new CmdListOrders();
+            jsp = "/listorder.jsp";
+        }
+    },
+    ADDCATALOGITEM {
+        {
+            cmd = new CmdAddItem();
+            jsp = "/additem.jsp";
+        }
+    },
+    GETSHIPPINGLIST {
+        {
+            cmd = new CmdShippingList();
+            jsp = "/shippinglist.jsp";
+        }
     };
 
     Cmd cmd = new CmdError();
