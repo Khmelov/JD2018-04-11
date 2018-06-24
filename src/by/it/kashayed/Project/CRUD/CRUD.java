@@ -1,6 +1,6 @@
 package by.it.kashayed.Project.CRUD;
 
-import by.it.kashayed.Project.DBConnection.DBConnection;
+import by.it.kashayed.Project.DBC.DBConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

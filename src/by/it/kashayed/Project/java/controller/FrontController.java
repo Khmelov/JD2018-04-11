@@ -19,7 +19,7 @@ public class FrontController extends HttpServlet {
     private void serv (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        resp.getWriter().write("FrontController");
         Actions actions = actionFactory.defiAction(req);
-        Cmd nextAction = actions.cmd.excecude(req);
+        Cmd nextAction = actions.cmd.execute(req);
         if(nextAction==null){
             ServletContext servletContext = getServletContext();
             RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(actions.jsp);

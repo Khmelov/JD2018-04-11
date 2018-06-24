@@ -1,4 +1,4 @@
-package by.it.kashayed.Project.DBConnection;
+package by.it.kashayed.Project.DBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
