@@ -62,7 +62,7 @@ public class C_Init {
             statement.executeUpdate("INSERT INTO `kashayed`.`Owners` (`id`, `Owner`) VALUES (DEFAULT, 'user');\n");
             statement.executeUpdate("INSERT INTO `kashayed`.`Owners` (`id`, `Owner`) VALUES (DEFAULT, 'guest');\n");
             statement.executeUpdate("INSERT INTO `kashayed`.`Owner` (`id`, `Login`, `email`, `Password`, `Owners_id`) VALUES (DEFAULT, 'Admin', 'admin@it.by', 'adminpass', 1);\n");
-            statement.executeUpdate("INSERT INTO `kashayed`.`Owner` (`id`, `Login`, `email`, `Password`, `Owners_id`) VALUES (DEFAULT, 'User', 'user@it.by', 'userpass', 2);\n");
+            statement.executeUpdate("INSERT INTO `kashayed`.`Owner` (`id`, `Login`, `email`, `Password`, `Owners_id`) VALUES (DEFAULT, 'Users', 'user@it.by', 'userpass', 2);\n");
             statement.executeUpdate("INSERT INTO `kashayed`.`Cars` (`id`, `Car`, `Year`, `Price`, `Owner_id`) VALUES (DEFAULT, 'Pontiac', 1965, 90000, 2);\n");
             statement.executeUpdate("INSERT INTO `kashayed`.`Cars` (`id`, `Car`, `Year`, `Price`, `Owner_id`) VALUES (DEFAULT, 'Nissan', 2016, 60000, 2);\n");
         } catch (Exception e) {

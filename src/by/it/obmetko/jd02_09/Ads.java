@@ -26,7 +26,7 @@ import java.util.List;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Ad" type="{http://jd02_09.obmetko.it.by}Ad" maxOccurs="unbounded"/>
+ *         &lt;element name="Orders" type="{http://jd02_09.obmetko.it.by}Orders" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,7 +41,7 @@ import java.util.List;
 })
 public class Ads {
 
-    @XmlElement(name = "Ad", required = true)
+    @XmlElement(name = "Orders", required = true)
     protected List<Ad> ad;
 
     /**

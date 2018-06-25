@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="User" type="{http://jd02_09.krivenkova.it.by}User" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="Users" type="{http://jd02_09.krivenkova.it.by}Users" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -43,7 +43,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Users")
 public class Users {
 
-    @XmlElement(name = "User", required = true)
+    @XmlElement(name = "Users", required = true)
     protected List<User> user;
 
     /**

@@ -56,11 +56,11 @@ public class InitDB_login {
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
         statement.executeUpdate("INSERT INTO `login`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Administrator');\n");
-        statement.executeUpdate("INSERT INTO `login`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'User');");
+        statement.executeUpdate("INSERT INTO `login`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Users');");
         statement.executeUpdate("INSERT INTO `login`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Guest');");
         statement.executeUpdate("INSERT INTO `login`.`users` (`ID`, `Login`, `Email`, `Password`, `FK_roles`) VALUES (DEFAULT, 'admin', 'admin@it.by', 'admin', 1);");
         statement.executeUpdate("INSERT INTO `login`.`users` (`ID`, `Login`, `Email`, `Password`, `FK_roles`) VALUES (DEFAULT, 'user', 'user@it.by', 'user', 2);");
-        statement.executeUpdate("INSERT INTO `login`.`ads` (`ID`, `Description`, `Address`, `Floor`, `Floors`, `RoomCount`, `Price`, `Area`, `FK_users`) VALUES (DEFAULT, 'Good price', 'Lenina 1', 1, 1, 1, 111111, 111, 2);");
+        statement.executeUpdate("INSERT INTO `login`.`ads` (`ID`, `Description`, `Address`, `Floor`, `Floors`, `RoomCount`, `Price`, `Area`, `FK_users`) VALUES (DEFAULT, 'Products price', 'Lenina 1', 1, 1, 1, 111111, 111, 2);");
 
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
 })
 public class Ads {
 
-    @XmlElement(name = "Ad", required = true)
+    @XmlElement(name = "Orders", required = true)
     protected List<Ad> ad;
 
     /**

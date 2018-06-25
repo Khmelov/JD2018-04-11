@@ -10,7 +10,7 @@ class Runner {
 
     public static void main(String[] args) {
 
-        //Goods.food();
+        //Products.food();
         int number=1;
         System.out.println("Магазин открыт");
 

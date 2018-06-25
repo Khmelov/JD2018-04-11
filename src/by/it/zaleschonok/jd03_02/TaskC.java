@@ -12,7 +12,7 @@ public class TaskC {
     public static void main(String[] args) {
 
         C_Init.createDB();
-        dellAllTables();
+        //dellAllTables();
 
     }
 
@@ -22,7 +22,7 @@ public class TaskC {
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement();
         ) {
-            statement.execute("DROP TABLE IF EXISTS `orders`, `goods`, `users`, `roles`");
+            statement.execute("DROP TABLE IF EXISTS `orders`, `products`, `users`, `roles`");
             System.out.println("All tables remove");
 
         } catch (SQLException e) {

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class AdTest {
     public static void main(String[] args) {
-        Ad ad=new Ad(0,"Good room","Gikalo 11",2,5,45.5,55000,2,2);
+        Ad ad=new Ad(0,"Products room","Gikalo 11",2,5,45.5,55000,2,2);
         AdCRUD adCRUD=new AdCRUD();
         try {
             adCRUD.create(ad);

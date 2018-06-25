@@ -11,7 +11,7 @@ public class Runner {
             "        <Password>qwerty12345</Password>\n" +
             "        <Email>vasya12345@mail.ru</Email>\n" +
             "        <Ads>\n" +
-            "            <Ad>\n" +
+            "            <Orders>\n" +
             "                <Description>\n" +
             "                    Шикарная квартира в самом центре за дорого!\n" +
             "                </Description>\n" +
@@ -23,8 +23,8 @@ public class Runner {
             "                <Floor>3</Floor>\n" +
             "                <Floors>5</Floors>\n" +
             "                <Rooms>2</Rooms>\n" +
-            "            </Ad>\n" +
-            "            <Ad>\n" +
+            "            </Orders>\n" +
+            "            <Orders>\n" +
             "                <Description>\n" +
             "                    Нешикарная квартира не в центре за дешево.\n" +
             "                </Description>\n" +
@@ -36,7 +36,7 @@ public class Runner {
             "                <Floor>4</Floor>\n" +
             "                <Floors>4</Floors>\n" +
             "                <Rooms>2</Rooms>\n" +
-            "            </Ad>\n" +
+            "            </Orders>\n" +
             "        </Ads>\n" +
             "    </Person>\n" +
             "    <Person>\n" +
@@ -44,7 +44,7 @@ public class Runner {
             "        <Password>asdfg12345</Password>\n" +
             "        <Email>fedya12345@mail.ru</Email>\n" +
             "        <Ads>\n" +
-            "            <Ad>\n" +
+            "            <Orders>\n" +
             "                <Description>\n" +
             "                    Однокомнатная квартира!\n" +
             "                </Description>\n" +
@@ -56,7 +56,7 @@ public class Runner {
             "                <Floor>1</Floor>\n" +
             "                <Floors>5</Floors>\n" +
             "                <Rooms>1</Rooms>\n" +
-            "            </Ad>\n" +
+            "            </Orders>\n" +
             "        </Ads>\n" +
             "    </Person>\n" +
             "</Persons>";
