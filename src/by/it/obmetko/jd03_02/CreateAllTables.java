@@ -38,7 +38,7 @@ public class CreateAllTables {
             statement.executeUpdate("DROP TABLE IF EXISTS `obmetko`.`Catalog` ;");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `obmetko`.`Catalog` (\n" +
                     "`ID` INT(11) NOT NULL AUTO_INCREMENT,\n" +
-                    "`Name` VARCHAR(4000) NULL DEFAULT NULL,\n" +
+                    "`catalogName` VARCHAR(4000) NULL DEFAULT NULL,\n" +
                     "PRIMARY KEY (`ID`))\n" +
                     "ENGINE = InnoDB\n" +
                     "DEFAULT CHARACTER SET = utf8;");
@@ -60,7 +60,7 @@ public class CreateAllTables {
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `obmetko`.`Books` (\n" +
                     "`ID` INT(11) NOT NULL AUTO_INCREMENT,\n" +
                     "`name` VARCHAR(4000) NULL DEFAULT NULL,\n" +
-                    "`autor` VARCHAR(4000) NULL DEFAULT NULL,\n" +
+                    "`author` VARCHAR(4000) NULL DEFAULT NULL,\n" +
                     "`price` DOUBLE NULL DEFAULT NULL,\n" +
                     "`Category_ID` INT(11) NOT NULL,\n" +
                     "PRIMARY KEY (`ID`),\n" +
@@ -92,16 +92,16 @@ public class CreateAllTables {
                     "ON UPDATE NO ACTION)\n" +
                     "ENGINE = InnoDB\n" +
                     "DEFAULT CHARACTER SET = utf8;");
-            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `Name`) VALUES (DEFAULT, 'каталог книг');");
-            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `Name`) VALUES (DEFAULT, 'каталог манги и комиксов');");
+            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `catalogName`) VALUES (DEFAULT, 'каталог книг');");
+            statement.executeUpdate("INSERT INTO `obmetko`.`catalog` (`ID`, `catalogName`) VALUES (DEFAULT, 'каталог манги и комиксов');");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'художественная', 1);");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'программирование', 1);");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'комиксы', 2);");
             statement.executeUpdate("INSERT INTO `obmetko`.`category` (`ID`, `CategoryName`, `catalog_ID`) VALUES (DEFAULT, 'манга', 2);");
-            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Ведьмак', 'Анжей Сапковский', '100', 1);");
-            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Java для начинающих. Объектно-ориентированный подход', 'Барт Бэзинс', '55', 2);");
-            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Тор. Бог грома', 'Джейсон Аарон', '49', 3);");
-            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `autor`, `price`, `Category_ID`) VALUES (DEFAULT, 'Волчица и пряности. Том 1', 'Исуна Хасэкура', '18', 4);");
+            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `author`, `price`, `Category_ID`) VALUES (DEFAULT, 'Ведьмак', 'Анжей Сапковский', '100', 1);");
+            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `author`, `price`, `Category_ID`) VALUES (DEFAULT, 'Java для начинающих. Объектно-ориентированный подход', 'Барт Бэзинс', '55', 2);");
+            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `author`, `price`, `Category_ID`) VALUES (DEFAULT, 'Тор. Бог грома', 'Джейсон Аарон', '49', 3);");
+            statement.executeUpdate("INSERT INTO `obmetko`.`books` (`ID`, `name`, `author`, `price`, `Category_ID`) VALUES (DEFAULT, 'Волчица и пряности. Том 1', 'Исуна Хасэкура', '18', 4);");
             statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'admin');");
             statement.executeUpdate("INSERT INTO `obmetko`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'buyer');");
             statement.executeUpdate("INSERT INTO `obmetko`.`buyers` (`ID`, `login`, `password`, `email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'admin', 'admin@tut.by', 1);");
