@@ -17,17 +17,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Order complex type.
+ * <p>Java class for Orders complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Order">
+ * &lt;complexType name="Orders">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="Cost" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         &lt;element name="Goods" type="{http://jd02_09.kurmaz.it.by}Goods" maxOccurs="unbounded"/>
+ *         &lt;element name="Products" type="{http://jd02_09.kurmaz.it.by}Products" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Order", propOrder = {
+@XmlType(name = "Orders", propOrder = {
     "cost",
     "goods"
 })
@@ -45,7 +45,7 @@ public class Order {
 
     @XmlElement(name = "Cost")
     protected double cost;
-    @XmlElement(name = "Goods", required = true)
+    @XmlElement(name = "Products", required = true)
     protected List<Goods> goods;
 
     /**
@@ -95,7 +95,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orders{" +
                 "cost=" + cost +
                 ", goods=" + goods +
                 '}' + "\n";

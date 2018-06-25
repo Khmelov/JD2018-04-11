@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Ad", propOrder = {
+@XmlType(name = "Orders", propOrder = {
         "product",
         "price",
         "description",
@@ -56,7 +56,7 @@ public class Ad {
 
     @Override
     public String toString() {
-        return "\n\tAd{" +
+        return "\n\tOrders{" +
 
                 "product='" + product + '\'' +
                 ", price=" + price +
