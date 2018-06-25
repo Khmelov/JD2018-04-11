@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jd02_09.kasiyanov.it.by"
+        xmlns:tns="http://jd02_09.kasiyanov.it.by"
+        elementFormDefault="qualified">
+    <element name="TravelAgents">
+        <complexType>
+            <sequence>
+                <element name="TravelAgent"
+                         type="tns:TravelAgent"
+                         minOccurs="1"
+                         maxOccurs="unbounded">
+                </element>
+            </sequence>
+
+        </complexType>
+    </element>
+    <complexType name="TravelAgent">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="Login" type="string"/>
+            <element name="Pasword" type="string"/>
+            <element name="Email" type="string"/>
+            <element name="TravelOffers" type="tns:TravelOffers"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TravelOffers">
+        <choice>
+            <element name="TravelOffer"
+                     type="tns:TravelOffer"
+                     minOccurs="1"
+                     maxOccurs="unbounded"></element>
+        </choice>
+    </complexType>
+
+    <complexType name="TravelOffer">
+        <sequence>
+            <element name="Description" type="string"/>
+            <element name="TypeOfTrevel" type="string"/>
+            <element name="Destination" type="string"/>
+            <element name="Hotel" type="string"/>
+            <element name="LevelOfAccommodation" type="string"/>
+            <element name="NumberOfNight" type="integer"/>
+            <element name="Price" type="double"/>
+        </sequence>
+    </complexType>
+</schema>

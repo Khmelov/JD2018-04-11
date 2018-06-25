@@ -8,8 +8,8 @@ import java.io.File;
 
 
 public class TaskA {
-    private static final String XML=System.getProperty("user.dir") + "src/by/it/krivenkova/jd02_07/Users+xsd.xml";
-    private static final String XMLOUT=System.getProperty("user.dir") + "src/by/it/krivenkova/jd02_09/out.xml";
+    private static final String XML="src/by/it/krivenkova/jd02_07/Users+xsd.xml";
+    private static final String XMLOUT="src/by/it/krivenkova/jd02_09/out.xml";
 
     public static void main(String[] args) {
         try {
