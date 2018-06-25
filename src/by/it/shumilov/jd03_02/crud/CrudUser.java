@@ -19,12 +19,18 @@ public class CrudUser {
                 Statement statement = connection.createStatement()){
 
 
-            String sql = String.format(Locale.US, "INSERT INTO `dbusers` (`login`, `password`, `email`, `dbRoles_id`) VALUES ('%s','%s','%s','%d')",
+            String sql = String.format(Locale.US, "INSERT INTO `users` (`login`, `password`, `email`, `roles_id`) VALUES ('%s','%s','%s','%d')",
                     user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id());
 
-            return 1==statement.executeUpdate(sql);
+            if (1 == statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ResultSet generatedKeys = statement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    user.setId(generatedKeys.getLong(1));
+                    return true;
+                }
+            }
         }
-
+        return false;
 
     }
 
@@ -35,7 +41,7 @@ public class CrudUser {
         try(
         Connection connection = DbConnection.getConnection();
         Statement statement = connection.createStatement()){
-            String sql = String.format(Locale.US, " SELECT  `id`, `login`, `password`, `email`, `dbRoles_id`  FROM `dbusers` WHERE id=%d", id);
+            String sql = String.format(Locale.US, " SELECT  `id`, `login`, `password`, `email`, `roles_id`  FROM `users` WHERE id=%d", id);
             ResultSet resultSet = statement.executeQuery(sql);
             if(resultSet.next()){
                 user = new User(
@@ -43,7 +49,7 @@ public class CrudUser {
                         resultSet.getString("login"),
                         resultSet.getString("password"),
                         resultSet.getString("email"),
-                        resultSet.getLong("dbRoles_id")  );
+                        resultSet.getLong("roles_id")  );
 
             }
         }
@@ -57,7 +63,7 @@ public class CrudUser {
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement()){
 
-            String sql = String.format(Locale.US, " UPDATE  `dbusers` SET  `login`='%s', `password`='%s', `email`='%s', `dbRoles_id`=%d  WHERE id=%d",
+            String sql = String.format(Locale.US, " UPDATE  `users` SET  `login`='%s', `password`='%s', `email`='%s', `roles_id`=%d  WHERE id=%d",
                     user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id(), user.getId());
 
             return 1==statement.executeUpdate(sql);
@@ -71,7 +77,7 @@ public class CrudUser {
         try(
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement()){
-            String sql = String.format(Locale.US, " DELETE FROM `dbusers`  WHERE id=%d", user.getId());
+            String sql = String.format(Locale.US, " DELETE FROM `users`  WHERE id=%d", user.getId());
 
 
             return 1==statement.executeUpdate(sql);
