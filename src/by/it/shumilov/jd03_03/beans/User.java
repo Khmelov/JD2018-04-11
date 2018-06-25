@@ -1,4 +1,4 @@
-package by.it.shumilov.jd03_02.beans;
+package by.it.shumilov.jd03_03.beans;
 
 public class User {
     private long id;
