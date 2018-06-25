@@ -39,13 +39,13 @@ public class Runner {
         //Test Permission
         Permission permission=new Permission(
                 0,
-                true,
-                2,
                 1,
-                false
+                1,
+                1,
+                1
         );
         dao.permission.create(permission);
-        permission.setPemissionAccess(false);
+        permission.setPemissionAccess(0);
         dao.permission.update(permission);
         dao.permission.delete(permission);
         System.out.println(permission);
@@ -53,7 +53,7 @@ public class Runner {
         //Test Labrary
         Labrary labrary = new Labrary(
                 0,
-                " It's some infarmation about sports",
+                " It is some infarmation about sports",
                 " You have a pay subscription, sou you have a lot of information about sports"
         );
         dao.labrary.create(labrary);

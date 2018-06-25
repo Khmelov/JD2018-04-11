@@ -1,7 +1,7 @@
 package by.it.rogov.jd03_02;
 
 
-import by.it.rogov.jd03_02.beans.Role;
+
 import by.it.rogov.jd03_02.connection.DBConnection;
 import by.it.rogov.jd03_02.crud.CrudRole;
 import java.sql.Connection;

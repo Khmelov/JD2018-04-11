@@ -18,8 +18,8 @@ public class C_Reset {
             statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
             statement.executeUpdate("DROP TABLE IF EXISTS `roles`");
             statement.executeUpdate("DROP TABLE IF EXISTS `users`");
-            statement.executeUpdate("DROP TABLE IF EXISTS `biblioteca`");
-            statement.executeUpdate("DROP TABLE IF EXISTS `user_biblioteca`");
+            statement.executeUpdate("DROP TABLE IF EXISTS `labrary`");
+            statement.executeUpdate("DROP TABLE IF EXISTS `permission`");
             System.out.println("Drop All Table");
         }
 
