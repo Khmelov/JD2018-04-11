@@ -1,4 +1,4 @@
-package by.it.akhmelev.project.java.controller;
+package by.it.akhmelev.project05.java.controller;
 
 public enum Actions {
     INDEX {

@@ -1,4 +1,4 @@
-package by.it.akhmelev.project.java.controller;
+package by.it.akhmelev.project04.java.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
