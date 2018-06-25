@@ -60,5 +60,5 @@ public enum Actions {
     };
 
     Cmd cmd = new CmdError();
-    String jsp="/error.jsp";
+    String jsp="/" + this.toString().toLowerCase() + ".jsp";
 }

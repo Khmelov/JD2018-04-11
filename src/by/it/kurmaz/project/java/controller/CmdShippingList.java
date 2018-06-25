@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 class CmdShippingList extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Actions execute(HttpServletRequest req) {
         return null;
     }
 }
