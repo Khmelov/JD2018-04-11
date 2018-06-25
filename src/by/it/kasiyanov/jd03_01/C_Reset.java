@@ -22,7 +22,7 @@ public class C_Reset {
             Statement statement = connection.createStatement()
             ) {
 
-			statement.executeUpdate("DROP TABLE IF EXISTS `kasiyanov`.`trawelOffers`;");
+			statement.executeUpdate("DROP TABLE IF EXISTS `kasiyanov`.`travelOffers`;");
 			statement.executeUpdate("DROP TABLE IF EXISTS `kasiyanov`.`users`;");
 			statement.executeUpdate("DROP TABLE IF EXISTS `kasiyanov`.`roles`;");
 

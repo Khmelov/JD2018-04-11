@@ -45,7 +45,7 @@ public class C_Init {
                     "    ON DELETE RESTRICT\n" +
                     "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB;");
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `kasiyanov`.`trawelOffers` (\n" +
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `kasiyanov`.`travelOffers` (\n" +
                     "  `ID` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `Description` VARCHAR(5000) NULL,\n" +
                     "  `TypeOfTravel` VARCHAR(50) NULL,\n" +
@@ -64,11 +64,11 @@ public class C_Init {
                     "    ON UPDATE CASCADE)\n" +
                     "ENGINE = InnoDB;");
             statement.executeUpdate("INSERT INTO `kasiyanov`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'Administrator');");
-            statement.executeUpdate("INSERT INTO `kasiyanov`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'User');");
-            statement.executeUpdate("INSERT INTO `kasiyanov`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'Guest');");
+            statement.executeUpdate("INSERT INTO `kasiyanov`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'TravelAgent');");
+            statement.executeUpdate("INSERT INTO `kasiyanov`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'Buyer');");
             statement.executeUpdate("INSERT INTO `kasiyanov`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'padmin', 'admin@it.by', 1);");
-            statement.executeUpdate("INSERT INTO `kasiyanov`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'user', 'puser', 'user@it.by', 2);");
-            statement.executeUpdate("INSERT INTO `kasiyanov`.`trawelOffers` (`ID`, `Description`, `TypeOfTravel`, `Destination`, `Hotel`, `LevelOfAccommodation`, `NumberOfNights`, `Price`, `users_ID`) VALUES (DEFAULT, 'Magnificent sandy beaches', 'Holiday', 'Malta', 'Hilton', '5 Stars', 7, 445.0, 2);");
+            statement.executeUpdate("INSERT INTO `kasiyanov`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'travelAgent', 'ptravelAgent', 'travelAgent@it.by', 2);");
+            statement.executeUpdate("INSERT INTO `kasiyanov`.`travelOffers` (`ID`, `Description`, `TypeOfTravel`, `Destination`, `Hotel`, `LevelOfAccommodation`, `NumberOfNights`, `Price`, `users_ID`) VALUES (DEFAULT, 'Magnificent sandy beaches', 'Holiday', 'Malta', 'Hilton', '5 Stars', 7, 445.0, 2);");
 
         }catch (SQLException e) {
             e.printStackTrace();
