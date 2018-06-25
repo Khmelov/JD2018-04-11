@@ -1,28 +1,18 @@
-package by.it.rogov.jd03_01;
+package by.it.rogov.jd03_03.utiles;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
+
+import by.it.rogov.jd03_03.connection.DBConnection;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class C_Init {
-    public static void main(String[] args) {
+    public static void creatTables() throws SQLException {
 
-        try {
-            DriverManager.registerDriver(new FabricMySQLDriver());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try (Connection connection =
-                     DriverManager.getConnection
-                             (CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
-             Statement statement = connection.createStatement()
-        ) {
-
-            // drop schema and create new schema and new date
+        try(Connection connection= DBConnection.getConnection();
+            Statement statement=connection.createStatement()
+        ){
             statement.executeUpdate("DROP SCHEMA IF EXISTS `rogov`");
             statement.executeUpdate("CREATE SCHEMA IF NOT EXISTS `rogov` DEFAULT CHARACTER SET utf8");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `rogov`.`roles` (\n" +
@@ -71,18 +61,7 @@ public class C_Init {
                     "    ON DELETE CASCADE\n" +
                     "    ON UPDATE CASCADE)\n" +
                     "ENGINE = InnoDB");
-            statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Administator')");
-            statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'User')");
-            statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Guest')");
-            statement.executeUpdate("INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `phone`, `roles_ID`)" +
-                    " VALUES (DEFAULT, 'admin', 'pasadmin', 'admin@mail@ru', 123456, 1)");
-            statement.executeUpdate("INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `phone`, `roles_ID`) " +
-                    "VALUES (DEFAULT, 'user', 'pasuser', 'user@mail.ru', 234567, 2)");
-            statement.executeUpdate("INSERT INTO `rogov`.`biblioteca` (`ID`, `artaical1`, `artaical2`) " +
-                    "VALUES (DEFAULT, 'some text', 'some text2')");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Creat All Table");
         }
 
     }
