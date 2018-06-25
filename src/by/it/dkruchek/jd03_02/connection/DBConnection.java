@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static Connection connection;
+    private static volatile Connection connection = null;
 
     // static block to load driver
     static {

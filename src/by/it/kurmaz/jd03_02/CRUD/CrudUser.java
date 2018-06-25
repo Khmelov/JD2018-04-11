@@ -14,7 +14,7 @@ public class CrudUser {
         User user = null;
         Connection connection = dbConnection.getConnection();
         Statement statement = connection.createStatement();
-        String sql = String.format(Locale.US, "" + "SELECT `ID`, `Login`, `Password`, `Email`, `Phone Number`, `Carma`, `Roles_ID` FROM `users` WHERE id=%d", id);
+        String sql = String.format(Locale.US, "" + "SELECT `ID`, `Login`, `Password`, `Email`, `Phone`, `Carma`, `Roles_ID` FROM `users` WHERE id=%d", id);
         ResultSet resultSet = statement.executeQuery(sql);
         if (resultSet.next()) {
             user = new User(
@@ -22,7 +22,7 @@ public class CrudUser {
                     resultSet.getString("Login"),
                     resultSet.getString("Password"),
                     resultSet.getString("Email"),
-                    resultSet.getString("Phone Number"),
+                    resultSet.getString("Phone"),
                     resultSet.getString("Carma"),
                     resultSet.getLong("Roles_ID")
             );
@@ -33,7 +33,7 @@ public class CrudUser {
     public boolean create(User user) throws SQLException {
         try (Connection connection = dbConnection.getConnection();
                 Statement statement = connection.createStatement()) {
-            String sql = String.format(Locale.US,"INSERT INTO `users`(`Login`, `Password`, `Email`, `Phone Number`, `Carma`, `Roles_ID`)" +
+            String sql = String.format(Locale.US,"INSERT INTO `users`(`Login`, `Password`, `Email`, `Phone`, `Carma`, `Roles_ID`)" +
                             "VALUES ('%s','%s','%s','%s','%s', %d)",
                     user.getLogin(), user.getPassword(), user.getEmail(), user.getPhone(), user.getCarma(), user.getRoles_id());
             if (1 == statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -51,7 +51,7 @@ public class CrudUser {
         try (Connection connection = dbConnection.getConnection();
                 Statement statement = connection.createStatement()) {
             String sql = String.format(Locale.US,
-                    "UPDATE `users` SET `Login`='%s', `Password`='%s', `Email`='%s', `Phone Number`='%s', `Carma`='%s', `Roles_ID`='%d' WHERE id=%d",
+                    "UPDATE `users` SET `Login`='%s', `Password`='%s', `Email`='%s', `Phone`='%s', `Carma`='%s', `Roles_ID`='%d' WHERE id=%d",
                     user.getLogin(), user.getPassword(), user.getEmail(), user.getPhone(), user.getCarma(), user.getRoles_id(), user.getId());
             return 1 == statement.executeUpdate(sql);
         }
