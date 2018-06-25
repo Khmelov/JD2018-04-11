@@ -1,5 +1,6 @@
 package by.it.shekh.jd03_03;
 
+import by.it.shekh.jd03_03.beans.FacadeGeneral;
 import by.it.shekh.jd03_03.beans.Order;
 import by.it.shekh.jd03_03.beans.Role;
 import by.it.shekh.jd03_03.beans.User;
@@ -28,15 +29,34 @@ public class Runner {
         dao.user.update(user);
         dao.user.delete(user);
         System.out.println(user);
-
-        Order order = new Order(
-                 0L,
-                "2018-06-24",
-                2);
-        dao.order.create(order);
-        order.setDate("2018-06-25");
-        dao.order.update(order);
-        dao.order.delete(order);
-        System.out.println(order);
+//
+//        Order order = new Order(
+//                 0L,
+//                "2018-06-25",
+//                3);
+//        dao.order.create(order);
+////        order.setDate("2018-06-25");
+////        dao.order.update(order);
+//        System.out.println(order);
+//
+//        FacadeGeneral facade = new FacadeGeneral(
+//                0L,
+//                "Retro",
+//                "1x1 m2",
+//                "MDF facade",
+//                145.0,
+//                "Best facade for now");
+//        dao.facadeGeneral.create(facade);
+//        facade.setId_facade(1L);
+//        facade.setFacade_price(131.15);
+//        dao.facadeGeneral.update(facade);
+//        FacadeGeneral facade1=new FacadeGeneral();
+//        facade1.setFacade_price(140.11);
+//        facade1.setFacade_description("Cutted mdf facade");
+//        facade1.setFacade_dimensions("1 m2");
+//        facade1.setFacade_specs("Beautiful and colourful");
+//        facade1.setId_facade(2L);
+//        facade1.setFacade_name("Nord");
+//        dao.facadeGeneral.update(facade1);
     }
 }
