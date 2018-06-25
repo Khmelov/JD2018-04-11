@@ -1,4 +1,4 @@
-package by.it.tayanovskii.jd03_02.beans;
+package by.it.tayanovskii.jd03_03.beans;
 
 public class Role {
     private long id;
@@ -27,6 +27,7 @@ public class Role {
     public void setRole(String role) {
         this.role = role;
     }
+
 
     @Override
     public String toString() {
