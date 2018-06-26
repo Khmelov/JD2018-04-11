@@ -33,11 +33,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `rogov`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `rogov`.`users` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Login` VARCHAR(45) NULL,
-  `Password` VARCHAR(45) NULL,
-  `Email` VARCHAR(45) NULL,
-  `Phone` INT NULL,
+  `ID` INT NOT NULL,
+  `login` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `phone` INT NULL,
   `roles_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_users_roles_idx` (`roles_ID` ASC),
@@ -110,8 +110,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `rogov`;
-INSERT INTO `rogov`.`users` (`ID`, `Login`, `Password`, `Email`, `Phone`, `roles_ID`) VALUES (DEFAULT, 'admin', 'pasadmin', 'admin@mail@ru', 123456, 1);
-INSERT INTO `rogov`.`users` (`ID`, `Login`, `Password`, `Email`, `Phone`, `roles_ID`) VALUES (DEFAULT, 'user', 'pasuser', 'user@mail.ru', 234567, 2);
+INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `phone`, `roles_ID`) VALUES (DEFAULT, 'admin', 'pasadmin', 'admin@mail@ru', 123456, 1);
+INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `phone`, `roles_ID`) VALUES (DEFAULT, 'user', 'pasuser', 'user@mail.ru', 234567, 2);
 
 COMMIT;
 
@@ -122,6 +122,16 @@ COMMIT;
 START TRANSACTION;
 USE `rogov`;
 INSERT INTO `rogov`.`biblioteca` (`ID`, `artaical1`, `artaical2`) VALUES (DEFAULT, 'some text', 'some text2');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `rogov`.`user_biblioteca`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `rogov`;
+INSERT INTO `rogov`.`user_biblioteca` (`ID`, `permission`, `users_ID`, `biblioteca_ID`, `update permission`) VALUES (DEFAULT, true, 1, 1, true);
 
 COMMIT;
 
