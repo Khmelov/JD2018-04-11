@@ -1,8 +1,14 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-<%@ include file="include/menu.htm" %>
-<p>ERROR1: ${message}</p>
+<div class="container">
+    <%@ include file="include/menu.htm" %>
+    <hr>
+    <p>ERROR:<br> ${errMessage}</p>
+    <hr>
+    <p>STACK:<br> ${errStack}</p>
+    <hr>
+ </div>
 </body>
 </html>
 

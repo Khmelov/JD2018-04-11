@@ -13,11 +13,13 @@ import java.io.IOException;
 
 public class FromtController extends HttpServlet {
 
-    ActionFactory actionFactory;
+    private ActionFactory actionFactory;
+    private ServletContext servletContext;
 
     @Override
     public void init() throws ServletException {
         actionFactory = new ActionFactory();
+        servletContext = getServletContext();
     }
 
     @Override
@@ -33,13 +35,15 @@ public class FromtController extends HttpServlet {
 
 
     private  void  serv(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+        try{
         resp.setHeader("Cache-Control", "no-store");
-        Actions action = actionFactory.defineAction(req);
-       Cmd nexAction = action.cmd.execute(req);
+        Action action = actionFactory.defineAction(req);
+       Action nexAction = action.cmd.execute(req);
 
        if (nexAction == null){
-           ServletContext servletContext = getServletContext();
+
            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
+
            requestDispatcher.forward(req, resp);
 
        }
@@ -47,6 +51,25 @@ public class FromtController extends HttpServlet {
 
            resp.sendRedirect("do?command"+ nexAction.toString().toLowerCase());
        }
+        }
+       catch (Exception e){
+           showError(req, resp, e);
+       }
+    }
+
+    private void showError(HttpServletRequest req, HttpServletResponse resp, Exception e) throws ServletException, IOException {
+        req.setAttribute("errMessage",e.toString());
+        StringBuilder sb = new StringBuilder();
+        StackTraceElement[] stackTrace = e.getStackTrace();
+        for (StackTraceElement element : stackTrace) {
+            sb.append(element).append("<br>");
+            if(element.toString().contains(".FrontController."))
+                break;
+        }
+        req.setAttribute("errStack",sb.toString());
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(Action.ERROR.jsp);
+
+        requestDispatcher.forward(req, resp);
     }
 
 
