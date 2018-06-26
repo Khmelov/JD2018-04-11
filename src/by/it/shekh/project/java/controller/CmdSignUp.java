@@ -1,11 +1,28 @@
 package by.it.shekh.project.java.controller;
 
 
-import javax.servlet.http.HttpServletRequest;
+import by.it.shekh.project.java.beans.User;
+import by.it.shekh.project.java.dao.Dao;
 
-public class CmdSignUp extends Cmd{
+import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
+
+public class CmdSignUp extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) throws Exception {
+        if (Util.isPost(req)) {
+            String login = Util.getString(req, "login");
+            String email = Util.getString(req, "email");
+            String pass = Util.getString(req, "password");
+
+            if (login != null && email != null && pass != null) {
+                User user = new User(0, login, pass, email, 2);
+                Dao.getDao().user.create(user);
+
+                if (user.getId() > 0)
+                    return Action.LOGIN;
+            }
+        }
         return null;
     }
 }
