@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Users xmlns="http://it.by/krivenkova/xmlschema"
+<Users xmlns="http://jd02_09.krivenkova.it.by"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://it.by/krivenkova/xmlschema Schema.xsd">
+       xsi:schemaLocation="http://jd02_09.krivenkova.it.by} Schema.xsd">
         <User>
             <Login>Kira</Login>
             <Password>moon</Password>
