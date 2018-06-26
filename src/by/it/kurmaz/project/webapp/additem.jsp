@@ -7,7 +7,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Form Name</legend>
+<legend>Adding Item to Catalog</legend>
 
 <!-- Text input-->
 <div class="form-group">

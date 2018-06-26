@@ -7,15 +7,15 @@
     <fieldset>
 
     <!-- Form Name -->
-    <legend>Index</legend>
+    <legend>Select Profile Type</legend>
 
     <!-- Select Basic -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="select">Select Profile Type</label>
       <div class="col-md-4">
         <select id="select" name="select" class="form-control">
-          <option value="1">Admin</option>
-          <option value="2">User</option>
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
         </select>
       </div>
     </div>

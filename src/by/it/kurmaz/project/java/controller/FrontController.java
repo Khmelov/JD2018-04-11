@@ -32,12 +32,15 @@ public class FrontController extends HttpServlet {
     private void serv (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             Actions action = actionFactory.defineAction(req);
-            Actions nextAction = action.cmd.execute(req);
-            if (nextAction == null) {
+            ActionResult result = action.cmd.execute(req, resp);
+            if (result == null) {
                 RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
                 requestDispatcher.forward(req, resp);
+            } else if (result.nextAction == null) {
+                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(result.jsp);
+                requestDispatcher.forward(req, resp);
             } else {
-                resp.sendRedirect("do?command=" + nextAction.toString().toLowerCase());
+                resp.sendRedirect("do?command=" + result.nextAction.toString().toLowerCase());
             }
         }
         catch (Exception e) {
