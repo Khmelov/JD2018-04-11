@@ -6,10 +6,14 @@ import by.it.rogov.jd03_03.beans.Permission;
 import by.it.rogov.jd03_03.beans.Role;
 import by.it.rogov.jd03_03.beans.User;
 import by.it.rogov.jd03_03.dao.Dao;
+import by.it.rogov.jd03_03.utiles.C_Init;
+import by.it.rogov.jd03_03.utiles.C_Reset;
 
 import java.sql.SQLException;
 
 public class Runner {
+
+  // Table is empty,so you need use jd03_02.TaskC- you get full  the table
     public static void main(String[] args) throws SQLException {
         Dao dao=Dao.getDao();
 

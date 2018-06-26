@@ -3,20 +3,20 @@ package by.it.rogov.jd03_02.beans;
 public class Permission {
     // переделать на булион в таблицах в сех инты
     private long id;
-    private boolean pemissionAccess;
+    private int pemissionAccess;
+    private int permissionUpdate;
     private long users_id;
-    private long library_id;
-    private boolean permissionUpdate;
+    private long labrary_ID;
 
     public Permission() {
     }
 
-    public Permission(long id, boolean pemissionAccess, long users_id, long library_id, boolean permissionUpdate) {
+    public Permission(long id, int pemissionAccess, int permissionUpdate, long users_id, long labrary_ID) {
         this.id = id;
         this.pemissionAccess = pemissionAccess;
-        this.users_id = users_id;
-        this.library_id = library_id;
         this.permissionUpdate = permissionUpdate;
+        this.users_id = users_id;
+        this.labrary_ID = labrary_ID;
     }
 
     public long getId() {
@@ -27,11 +27,11 @@ public class Permission {
         this.id = id;
     }
 
-    public boolean isPemissionAccess() {
+    public int isPemissionAccess() {
         return pemissionAccess;
     }
 
-    public void setPemissionAccess(boolean pemissionAccess) {
+    public void setPemissionAccess(int pemissionAccess) {
         this.pemissionAccess = pemissionAccess;
     }
 
@@ -40,14 +40,14 @@ public class Permission {
     }
 
     public long getLibrary_id() {
-        return library_id;
+        return labrary_ID;
     }
 
-    public boolean isPermissionUpdate() {
+    public int isPermissionUpdate() {
         return permissionUpdate;
     }
 
-    public void setPermissionUpdate(boolean permissionUpdate) {
+    public void setPermissionUpdate(int permissionUpdate) {
         this.permissionUpdate = permissionUpdate;
     }
 
@@ -56,9 +56,9 @@ public class Permission {
         return "Permission{" +
                 "id=" + id +
                 ", pemissionAccess=" + pemissionAccess +
-                ", users_id=" + users_id +
-                ", library_id=" + library_id +
                 ", permissionUpdate=" + permissionUpdate +
+                ", users_id=" + users_id +
+                ", library_id=" + labrary_ID +
                 '}';
     }
 }

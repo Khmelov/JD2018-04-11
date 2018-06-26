@@ -3,7 +3,8 @@ package by.it.rogov.jd03_02;
 
 
 import by.it.rogov.jd03_02.connection.DBConnection;
-import by.it.rogov.jd03_02.crud.CrudRole;
+import by.it.rogov.jd03_02.utiles.CrudCount;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import java.sql.Statement;
 import java.util.Locale;
 
 public class TaskB {
+
     public static void main(String[] args) throws SQLException {
         int countUsers=0;
         try(Connection connection= DBConnection.getConnection();
@@ -25,7 +27,7 @@ public class TaskB {
             }
             }
         System.out.println("Count users is: "+countUsers);
-        System.out.println("Count roles: "+new CrudRole().readCountRole());
+        System.out.println("Count roles: "+new CrudCount().readCountRole());
         }
 
     }

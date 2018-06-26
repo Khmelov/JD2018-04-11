@@ -8,6 +8,7 @@ public class Labrary {
     public Labrary() {
     }
 
+    
     public Labrary(long id, String textFree, String textPay) {
         this.id = id;
         this.textFree = textFree;
