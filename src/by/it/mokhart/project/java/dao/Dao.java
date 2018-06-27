@@ -1,4 +1,4 @@
-package by.it.mokhart.jd03_03.dao;
+package by.it.mokhart.project.java.dao;
 
 public class Dao {
 

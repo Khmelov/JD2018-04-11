@@ -1,4 +1,4 @@
-package by.it.mokhart.jd03_03.beans;
+package by.it.mokhart.project.java.beans;
 
 public class Role {
     private long id;

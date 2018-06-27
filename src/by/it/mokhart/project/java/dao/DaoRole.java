@@ -1,7 +1,7 @@
-package by.it.mokhart.jd03_03.dao;
+package by.it.mokhart.project.java.dao;
 
-import by.it.mokhart.jd03_03.beans.Role;
-import by.it.mokhart.jd03_03.connection.DbConnection;
+import by.it.mokhart.project.java.beans.Role;
+import by.it.mokhart.project.java.connection.DbConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
