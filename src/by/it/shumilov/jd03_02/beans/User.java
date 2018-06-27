@@ -1,11 +1,11 @@
 package by.it.shumilov.jd03_02.beans;
 
 public class User {
-    long id;
-    String login;
-    String password;
-    String email;
-    long roles_id;
+    private long id;
+    private String login;
+    private String password;
+    private String email;
+    private long roles_id;
 
 
     public User(){
@@ -68,10 +68,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "Users{id=" + id
-                + ", login="+login
-                +", password=" + password
-                +", email="+email
-                +", roles_id="+ roles_id+"}";
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", roles_id=" + roles_id +
+                '}';
     }
 }
