@@ -8,11 +8,11 @@ public class C_ResetTable {
 
     static void reset(Connection connection){
         try (Statement statement = connection.createStatement()) {
-            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`dbRoles` ;");
-            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`dbUsers` ;");
-            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`dbAvtos` ;");
-            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`dbOrders` ;");
-            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`dbPassports` ;");
+            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`roles` ;");
+            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`users` ;");
+            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`avtos` ;");
+            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`orders` ;");
+            statement.executeUpdate("DROP TABLE IF EXISTS `Shumilov`.`passports` ;");
 
 
         } catch (SQLException e) {
