@@ -1,7 +1,7 @@
-package by.it.kashayed.Project.dao;
+package by.it.kashayed.Project.java.dao;
 
-import by.it.kashayed.Project.DBC.DBConnection;
-import by.it.kashayed.Project.bean.Owner;
+import by.it.kashayed.Project.java.DBC.DBConnection;
+import by.it.kashayed.Project.java.bean.Owner;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

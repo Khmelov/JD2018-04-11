@@ -1,4 +1,4 @@
-package by.it.kashayed.Project.dao;
+package by.it.kashayed.Project.java.dao;
 
 import java.sql.SQLException;
 import java.util.List;
