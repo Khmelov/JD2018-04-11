@@ -25,6 +25,12 @@ public enum Action {
 
     }
     },
+    CREATEAVTO {
+        {
+            cmd = new CmdCreateAvto();
+
+        }
+    },
     ERROR {
         {
             cmd = new CmdError();

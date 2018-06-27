@@ -49,7 +49,7 @@ public class FromtController extends HttpServlet {
        }
        else  {
 
-           resp.sendRedirect("do?command"+ nexAction.toString().toLowerCase());
+           resp.sendRedirect("do?command="+ nexAction.toString().toLowerCase());
        }
         }
        catch (Exception e){

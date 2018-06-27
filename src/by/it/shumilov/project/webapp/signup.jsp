@@ -8,14 +8,14 @@
     <fieldset>
 
     <!-- Form Name -->
-    <legend>Form Name</legend>
+    <legend>Sign Up</legend>
 
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="login">Login</label>
       <div class="col-md-4">
       <input id="login" name="login" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">login</span>
+      <span class="help-block">${help_login}</span>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
       <label class="col-md-4 control-label" for="email">Email</label>
       <div class="col-md-4">
       <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
-      <span class="help-block">email</span>
+      <span class="help-block">${help_email}</span>
       </div>
     </div>
 
@@ -33,7 +33,7 @@
       <label class="col-md-4 control-label" for="password">Password</label>
       <div class="col-md-4">
         <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
-        <span class="help-block">password</span>
+        <span class="help-block">${help_password}</span>
       </div>
     </div>
 
@@ -41,7 +41,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="button"></label>
       <div class="col-md-4">
-        <button id="button" name="button" class="btn btn-success">SignUp</button>
+        <button id="submit" name="submit" class="btn btn-success">SignUp</button>
       </div>
     </div>
 

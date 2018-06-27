@@ -10,15 +10,16 @@ public class CmdSignUp extends Cmd {
 
     @Override
     Action execute(HttpServletRequest req) throws Exception {
-        if(req.getMethod().equalsIgnoreCase("post")){
+        if(Util.isPost(req)){
             String login = req.getParameter("login");
             String email = req.getParameter("email");
             String password = req.getParameter("password");
-
-            User user = new User(0,login,password,email,2);
-            Dao.getDao().user.create(user);
-            if(user.getId() > 0)
-                return  Action.LOGIN;
+            if (login != null && email != null && password != null) {
+                User user = new User(0,login,password,email,2);
+                Dao.getDao().user.create(user);
+                if(user.getId() > 0)
+                    return  Action.LOGIN;
+            }
         }
         return null;
     }
