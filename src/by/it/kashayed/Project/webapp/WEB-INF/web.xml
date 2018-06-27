@@ -6,12 +6,12 @@
          metadata-complete="true">
     <display-name>Сервлет Controller</display-name>
     <servlet>
-        <servlet-name>FrontServlet</servlet-name>
+        <servlet-name>FrontController</servlet-name>
         <servlet-class>by.it.kashayed.Project.java.controller.FrontController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>FrontServlet</servlet-name>
+        <servlet-name>FrontController</servlet-name>
         <url-pattern>/do</url-pattern>
     </servlet-mapping>
 </web-app>

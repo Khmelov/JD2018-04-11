@@ -6,10 +6,14 @@ import by.it.rogov.jd03_03.beans.Permission;
 import by.it.rogov.jd03_03.beans.Role;
 import by.it.rogov.jd03_03.beans.User;
 import by.it.rogov.jd03_03.dao.Dao;
+import by.it.rogov.jd03_03.utiles.C_Init;
+import by.it.rogov.jd03_03.utiles.C_Reset;
 
 import java.sql.SQLException;
 
 public class Runner {
+
+  // Table is empty,so you need use jd03_02.TaskC- you get full  the table
     public static void main(String[] args) throws SQLException {
         Dao dao=Dao.getDao();
 
@@ -39,13 +43,13 @@ public class Runner {
         //Test Permission
         Permission permission=new Permission(
                 0,
-                true,
-                2,
                 1,
-                false
+                1,
+                1,
+                1
         );
         dao.permission.create(permission);
-        permission.setPemissionAccess(false);
+        permission.setPemissionAccess(0);
         dao.permission.update(permission);
         dao.permission.delete(permission);
         System.out.println(permission);
@@ -53,7 +57,7 @@ public class Runner {
         //Test Labrary
         Labrary labrary = new Labrary(
                 0,
-                " It's some infarmation about sports",
+                " It is some infarmation about sports",
                 " You have a pay subscription, sou you have a lot of information about sports"
         );
         dao.labrary.create(labrary);

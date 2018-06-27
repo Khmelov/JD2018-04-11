@@ -1,7 +1,6 @@
 package by.it.rogov.jd03_02.crud;
 
 import by.it.rogov.jd03_02.beans.Role;
-import by.it.rogov.jd03_02.beans.User;
 import by.it.rogov.jd03_02.connection.DBConnection;
 
 import java.sql.Connection;
@@ -12,8 +11,7 @@ import java.util.Locale;
 
 public class CrudRole {
 
-    String role;
-    int countRole;
+
 
     public Role read(long id) throws SQLException {
         Role role = null;
@@ -33,20 +31,6 @@ public class CrudRole {
         return role;
     }
 
-    public int readCountRole() throws SQLException {
-
-        try (Connection connection = DBConnection.getConnection();
-             Statement statement = connection.createStatement()
-        ) {
-            String sql = String.format(Locale.US, "SELECT COUNT(id) FROM `roles` ");
-            ResultSet resultSet = statement.executeQuery(sql);
-            if (resultSet.next()) {
-                countRole = resultSet.getInt(1);
-                return countRole;
-            }
-        }
-        return 0;
-    }
 
     public boolean create(Role role) throws SQLException {
         try (Connection connection = DBConnection.getConnection();

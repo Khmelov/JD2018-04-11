@@ -1,10 +1,18 @@
 package by.it.kurmaz.project.java.controller;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 class CmdIndex extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+        if (Util.isPost(req)) {
+            String select = Util.getString(req,"select");
+            if (select.equals("user"))
+                return new ActionResult(Actions.LOGIN);
+            else if (select.equals("admin"))
+                return new ActionResult(Actions.ADMLOGIN);
+        }
         return null;
     }
 }
