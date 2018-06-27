@@ -18,7 +18,8 @@ public class C_Init {
             System.out.println("Error loading driver: " + e);
         }
     }
-    public static void main(String[] args) {
+
+       public static void main(String[] args) {
         try (Connection connection =
                      DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              Statement statement = connection.createStatement()
@@ -28,7 +29,7 @@ public class C_Init {
             statement.executeUpdate("CREATE SCHEMA IF NOT EXISTS `gavrilchik` DEFAULT CHARACTER SET utf8 ;");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `gavrilchik`.`roles` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
-                    "  `roles` VARCHAR(100) NULL,\n" +
+                    "  `role` VARCHAR(100) NULL,\n" +
                     "  PRIMARY KEY (`id`))\n" +
                     "ENGINE = InnoDB;");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `gavrilchik`.`users` (\n" +
@@ -63,9 +64,9 @@ public class C_Init {
                     "    ON DELETE CASCADE\n" +
                     "    ON UPDATE CASCADE)\n" +
                     "ENGINE = InnoDB;");
-            statement.executeUpdate("INSERT INTO `gavrilchik`.`roles` (`id`, `roles`) VALUES (DEFAULT, 'admin');\n");
-            statement.executeUpdate("INSERT INTO `gavrilchik`.`roles` (`id`, `roles`) VALUES (DEFAULT, 'user');\n");
-            statement.executeUpdate("INSERT INTO `gavrilchik`.`roles` (`id`, `roles`) VALUES (DEFAULT, 'guest');\n");
+            statement.executeUpdate("INSERT INTO `gavrilchik`.`roles` (`id`, `role`) VALUES (DEFAULT, 'admin');\n");
+            statement.executeUpdate("INSERT INTO `gavrilchik`.`roles` (`id`, `role`) VALUES (DEFAULT, 'user');\n");
+            statement.executeUpdate("INSERT INTO `gavrilchik`.`roles` (`id`, `role`) VALUES (DEFAULT, 'guest');\n");
             statement.executeUpdate("INSERT INTO `gavrilchik`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'admin', 'padmin', 'admin@it.by', 1);\n");
             statement.executeUpdate("INSERT INTO `gavrilchik`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'user', 'puser', 'user@it.by', 2);\n");
             statement.executeUpdate("INSERT INTO `gavrilchik`.`ads` (`id`, `description`, `flat`, `flats`, `rooms`, `area`, `price`, `address`, `users_id`) VALUES (DEFAULT, 'Test appartment', 1, 5, 2, 44, 66666, 'Minsk Lenina 1, app 1', 2);\n");
