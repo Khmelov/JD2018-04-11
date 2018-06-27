@@ -15,12 +15,12 @@ class CmdLogin extends Cmd {
             String login = Util.getString(req, "login");
             String pass = Util.getString(req, "password");
             if (login != null && pass != null) {
-                String were = String.format(Locale.US,
+                String where = String.format(Locale.US,
                         "WHERE login='%s' AND password='%s'", login, pass);
-                List<Owner> owners = Dao.getDao().owner.getAll(were);
+                List<Owner> owners = Dao.getDao().owner.getAll(where);
                 if (owners.size() > 0) {
                     Owner owner = owners.get(0);
-                    req.setAttribute("user", owner);
+                    req.setAttribute("owner", owner);
                 }
             }
         }

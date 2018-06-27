@@ -7,20 +7,17 @@
     <form class="form-horizontal" method="post" action="do?command=SignUp">
         <fieldset>
 
-            <!-- Form Name -->
             <legend>Sign Up Form</legend>
 
-            <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
+                <label class="col-md-4 control-label" for="Login">Login</label>
                 <div class="col-md-4">
-                    <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
+                    <input id="Login" name="Login" type="text" placeholder="" class="form-control input-md"
                     value="testLogin">
                     <span class="help-block">${help_login}</span>
                 </div>
             </div>
 
-            <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email">Email</label>
                 <div class="col-md-4">
@@ -30,17 +27,17 @@
                 </div>
             </div>
 
-            <!-- Password input-->
+
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
+                <label class="col-md-4 control-label" for="Password">Password</label>
                 <div class="col-md-4">
-                    <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
+                    <input id="Password" name="Password" type="Password" placeholder="" class="form-control input-md" required=""
                     value="testPassword">
                     <span class="help-block">${help_password}</span>
                 </div>
             </div>
 
-            <!-- Button -->
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
