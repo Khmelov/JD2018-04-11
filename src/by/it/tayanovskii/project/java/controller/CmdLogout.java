@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class CmdLogout extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) {
         return null;
     }
 }
