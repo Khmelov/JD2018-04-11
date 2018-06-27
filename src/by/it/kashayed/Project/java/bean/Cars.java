@@ -1,4 +1,4 @@
-package by.it.kashayed.Project.bean;
+package by.it.kashayed.Project.java.bean;
 
 public class Cars {
     public Cars() {

@@ -1,4 +1,4 @@
-package by.it.kashayed.Project.dao;
+package by.it.kashayed.Project.java.dao;
 
 public class Dao {
     private static Dao dao;

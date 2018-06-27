@@ -1,8 +1,8 @@
-package by.it.kashayed.Project.dao;
+package by.it.kashayed.Project.java.dao;
 
-import by.it.kashayed.Project.bean.Cars;
-import by.it.kashayed.Project.bean.Owner;
-import by.it.kashayed.Project.bean.Owners;
+import by.it.kashayed.Project.java.bean.Cars;
+import by.it.kashayed.Project.java.bean.Owner;
+import by.it.kashayed.Project.java.bean.Owners;
 
 import java.sql.SQLException;
 
