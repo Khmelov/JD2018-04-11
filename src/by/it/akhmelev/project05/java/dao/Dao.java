@@ -1,24 +1,25 @@
-package by.it.tarasiuk.jd03_03.dao;
+package by.it.akhmelev.project05.java.dao;
 
 public class Dao {
+
     private static Dao dao;
-    public RoleDao role;
-    public UserDao user;
-    public AdvertDao advert;
 
     private Dao() {
-        role = new RoleDao();
-        user = new UserDao();
-        advert = new AdvertDao();
+        role = new DaoRole();
+        user = new DaoUser();
+        ad = new DaoAd();
     }
 
+    public DaoRole role;
+    public DaoUser user;
+    public DaoAd ad;
+
     public static Dao getDao() {
-        if (dao == null) {
+        if (dao == null)
             synchronized (Dao.class) {
                 if (dao == null)
                     dao = new Dao();
             }
-        }
         return dao;
     }
 }

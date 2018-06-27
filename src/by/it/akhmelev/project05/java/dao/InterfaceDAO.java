@@ -1,16 +1,14 @@
-package by.it.tarasiuk.jd03_03.dao;
+package by.it.akhmelev.project05.java.dao;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface InterfaceDao<Bean> {
-    boolean create(Bean bean) throws SQLException;
+public interface InterfaceDAO<Bean> {
 
     Bean read(long id) throws SQLException;
-
+    boolean create(Bean bean) throws SQLException;
     boolean update(Bean bean) throws SQLException;
-
     boolean delete(Bean bean) throws SQLException;
-
     List<Bean> getAll(String whereAndOrder) throws SQLException;
+
 }
