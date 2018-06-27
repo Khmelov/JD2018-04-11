@@ -15,11 +15,11 @@ public class UserDao extends AbstractDao implements InterfaceDao<User> {
     @Override
     public boolean create(User user) throws SQLException {
         String sql = String.format(
-                "INSERT INTO 'users'(" +
-                        "'login', " +
-                        "'password', " +
-                        "'email', " +
-                        "'roles_id')" +
+                "INSERT INTO `users`(" +
+                        "`login`, " +
+                        "`password`, " +
+                        "`email`, " +
+                        "`roles_id`)" +
                         "\n VALUES ('%s','%s','%s','%d')",
                 user.getLogin(),
                 user.getPassword(),
@@ -41,12 +41,12 @@ public class UserDao extends AbstractDao implements InterfaceDao<User> {
     @Override
     public boolean update(User user) throws SQLException {
         String sql = String.format(
-                "UPDATE 'users' SET " +
-                        "'login'='%s', " +
-                        "'password'='%s', " +
-                        "'email'='%s', " +
-                        "'roles_id')='%d' " +
-                        "WHERE 'users'.'id'=%d",
+                "UPDATE `users` SET " +
+                        "`login`='%s', " +
+                        "`password`='%s', " +
+                        "`email`='%s', " +
+                        "`roles_id`='%d' " +
+                        "WHERE `users`.`id`=%d",
                 user.getLogin(),
                 user.getPassword(),
                 user.getEmail(),
