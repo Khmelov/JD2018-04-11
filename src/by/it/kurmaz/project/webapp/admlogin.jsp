@@ -3,11 +3,11 @@
 <body>
 <div class="container">
 <%@ include file="include/menu.htm" %>
-<form class="form-horizontal" method="post" action="do?command=login">
+<form class="form-horizontal" method="post" action="do?command=admlogin">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Log In</legend>
+<legend>Admin Log In</legend>
 
 <!-- Text input-->
 <div class="form-group">
