@@ -8,6 +8,7 @@ import by.it.lanevich.jd03_02.crud.CrudRole;
 import java.sql.SQLException;
 
 public class RunnerTaskA {
+    //fix
     public static void main(String[] args) throws SQLException {
         CrudUser crud = new CrudUser();
         CrudRole role = new CrudRole();

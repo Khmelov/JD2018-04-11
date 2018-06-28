@@ -1,5 +1,5 @@
 package by.it.kurmaz.jd03_02;
-import by.it._examples_.jd02_04.Calc;
+
 import by.it.kurmaz.jd03_02.CRUD.*;
 import by.it.kurmaz.jd03_02.beans.Address;
 import by.it.kurmaz.jd03_02.beans.Admin;
