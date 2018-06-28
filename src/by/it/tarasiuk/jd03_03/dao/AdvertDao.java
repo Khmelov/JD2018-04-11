@@ -16,17 +16,17 @@ public class AdvertDao extends AbstractDao implements InterfaceDao<Advert> {
     @Override
     public boolean create(Advert advert) throws SQLException {
         String sql = String.format(Locale.US,
-                "INSERT INTO 'adverts'(" +
-                        "'brand', " +
-                        "'model', " +
-                        "'year', " +
-                        "'type', " +
-                        "'grade', " +
-                        "'color', " +
-                        "'price', " +
-                        "'description', " +
-                        "'users_id')" +
-                        "\n VALUES ('%s','%s','%d','%s','%s','%s','%.2f','%s','%d')",
+                "INSERT INTO `adverts`(" +
+                        "`brand`, " +
+                        "`model`, " +
+                        "`year`, " +
+                        "`type`, " +
+                        "`grade`, " +
+                        "`color`, " +
+                        "`price`, " +
+                        "`description`, " +
+                        "`users_id`)" +
+                        "\n VALUES ('%s','%s',%d,'%s','%s','%s',%.2f,'%s',%d)",
                 advert.getBrand(),
                 advert.getModel(),
                 advert.getYear(),
@@ -52,17 +52,17 @@ public class AdvertDao extends AbstractDao implements InterfaceDao<Advert> {
     @Override
     public boolean update(Advert advert) throws SQLException {
         String sql = String.format(Locale.US,
-                "UPDATE 'adverts' SET " +
-                        "'brand'='%s', " +
-                        "'model'='%s', " +
-                        "'year'='%d', " +
-                        "'type'='%s', " +
-                        "'grade'='%s', " +
-                        "'color'='%s', " +
-                        "'price'='%.2f', " +
-                        "'description'='%s', " +
-                        "'users_id')='%d' " +
-                        "WHERE 'adverts'.'id'=%d",
+                "UPDATE `adverts` SET " +
+                        "`brand`='%s', " +
+                        "`model`='%s', " +
+                        "`year`=%d, " +
+                        "`type`='%s', " +
+                        "`grade`='%s', " +
+                        "`color`='%s', " +
+                        "`price`=%.2f, " +
+                        "`description`='%s', " +
+                        "`users_id`=%d " +
+                        "WHERE `adverts`.`id`=%d",
                 advert.getBrand(),
                 advert.getModel(),
                 advert.getYear(),
@@ -98,7 +98,7 @@ public class AdvertDao extends AbstractDao implements InterfaceDao<Advert> {
                         resultSet.getLong("id"),
                         resultSet.getString("brand"),
                         resultSet.getString("model"),
-                        resultSet.getShort("year"),
+                        resultSet.getInt("year"),
                         resultSet.getString("type"),
                         resultSet.getString("grade"),
                         resultSet.getString("color"),

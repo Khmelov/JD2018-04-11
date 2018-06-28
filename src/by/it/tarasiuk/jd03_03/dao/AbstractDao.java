@@ -10,16 +10,20 @@ import java.sql.Statement;
 class AbstractDao {
 
     long executeUpdate(String sql) throws SQLException {
-        long result;
-        try (Connection connection = DbConnection.getConnection();
-             Statement statement = connection.createStatement()) {
-            result = statement.executeUpdate(sql);
+        try (
+                Connection connection = DbConnection.getConnection();
+                Statement statement = connection.createStatement()
+        ) {
             if (sql.trim().toUpperCase().startsWith("INSERT")) {
-                statement.executeUpdate(sql,statement.RETURN_GENERATED_KEYS);
-                ResultSet generatedKeys = statement.getGeneratedKeys();
-                if (generatedKeys.next()) result = generatedKeys.getLong(1);
-            }
+                if (1 == statement.executeUpdate(sql, statement.RETURN_GENERATED_KEYS)) {
+                    ResultSet generatedKeys = statement.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        return generatedKeys.getLong(1);
+                    }
+                }
+            } else
+                return statement.executeUpdate(sql);
         }
-        return result;
+        return 0;
     }
 }

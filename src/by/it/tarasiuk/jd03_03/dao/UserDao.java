@@ -20,7 +20,7 @@ public class UserDao extends AbstractDao implements InterfaceDao<User> {
                         "`password`, " +
                         "`email`, " +
                         "`roles_id`)" +
-                        "\n VALUES ('%s','%s','%s','%d')",
+                        "\n VALUES ('%s','%s','%s',%d)",
                 user.getLogin(),
                 user.getPassword(),
                 user.getEmail(),
@@ -45,7 +45,7 @@ public class UserDao extends AbstractDao implements InterfaceDao<User> {
                         "`login`='%s', " +
                         "`password`='%s', " +
                         "`email`='%s', " +
-                        "`roles_id`='%d' " +
+                        "`roles_id`=%d " +
                         "WHERE `users`.`id`=%d",
                 user.getLogin(),
                 user.getPassword(),

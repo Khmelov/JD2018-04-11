@@ -4,7 +4,7 @@ public class Advert {
     private long id;
     private String brand;
     private String model;
-    private short year;
+    private int year;
     private String type;
     private String grade;
     private String color;
@@ -15,7 +15,7 @@ public class Advert {
     public Advert() {
     }
 
-    public Advert(long id, String brand, String model, short year, String type, String grade, String color, double price, String description, long users_id) {
+    public Advert(long id, String brand, String model, int year, String type, String grade, String color, double price, String description, long users_id) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -52,11 +52,11 @@ public class Advert {
         this.model = model;
     }
 
-    public short getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(short year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
