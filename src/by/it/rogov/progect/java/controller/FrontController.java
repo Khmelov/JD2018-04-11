@@ -1,4 +1,4 @@
-package by.it.rogov.jd03_04.java.controller;
+package by.it.rogov.progect.java.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
