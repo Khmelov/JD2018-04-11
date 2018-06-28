@@ -11,7 +11,7 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Catalog</h3>
+              <h3 class="panel-title">Shipping List</h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -19,8 +19,8 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Item</td>
-                        <td>${catalogItems}</td>
+                        <td>Shipping List</td>
+                        <td>${itemlist}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -30,6 +30,7 @@
           </div>
         </div>
     </div>
+
     <form class="form-horizontal" method="post" action="do?command=profile">
     <fieldset>
     <div class="form-group">
@@ -41,3 +42,5 @@
     </fieldset>
     </form>
 </body>
+</html>
+

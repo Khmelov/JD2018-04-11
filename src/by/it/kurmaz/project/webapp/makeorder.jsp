@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -28,15 +29,6 @@
   <label class="col-md-4 control-label" for="amount">Amount</label>
   <div class="col-md-4">
   <input id="amount" name="amount" type="text" placeholder="enter amount here" class="form-control input-md">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="user_id">Your ID</label>
-  <div class="col-md-4">
-  <input id="user_id" name="user_id" type="text" placeholder="enter id here" class="form-control input-md">
 
   </div>
 </div>

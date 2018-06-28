@@ -5,7 +5,8 @@ public enum Actions {
         {
             cmd = new CmdIndex();
         }
-    }, LOGIN{
+    },
+    LOGIN{
         {
             cmd = new CmdLogin();
         }
@@ -27,9 +28,14 @@ public enum Actions {
             cmd = new CmdError();
         }
     },
-    LOGOUT{
+    PROFILE{
         {
-            cmd = new CmdLogout();
+            cmd = new CmdProfile();
+        }
+    },
+    RESET{
+        {
+            cmd = new CmdReset();
         }
     },
     VIEWCATALOG {

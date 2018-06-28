@@ -1,5 +1,7 @@
 package by.it.kurmaz.project.java.DAO;
 
+import by.it.kurmaz.project.java.resetDB.Runner;
+
 public class DAO {
 
     private static DAO dao;
@@ -33,5 +35,9 @@ public class DAO {
                 dao = new DAO();
             }
             return dao;
+    }
+
+    public static void reset(){
+        Runner.main(new String[]{});
     }
 }
