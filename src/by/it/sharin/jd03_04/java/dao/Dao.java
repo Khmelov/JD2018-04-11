@@ -1,5 +1,7 @@
 package by.it.sharin.jd03_04.java.dao;
 
+import by.it.sharin.jd03_04.java.dao.resetdb.C_Init;
+
 public class Dao {
 
     private static Dao dao;
@@ -13,6 +15,10 @@ public class Dao {
     public DaoRole role;
     public DaoUser user;
     public DaoAd ad;
+
+    public static void reset(){
+        C_Init.main(new String[]{});
+    }
 
     public static Dao getDao() {
         if (dao == null)
