@@ -140,7 +140,7 @@ public class Ad implements Serializable{
 
     @Override
     public String toString() {
-        return "Ad{" +
+        return "Orders{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
                 ", address='" + address + '\'' +

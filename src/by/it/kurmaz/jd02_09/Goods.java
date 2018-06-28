@@ -16,12 +16,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Goods complex type.
+ * <p>Java class for Products complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Goods">
+ * &lt;complexType name="Products">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Goods", propOrder = {
+@XmlType(name = "Products", propOrder = {
     "name",
     "price",
     "quantity",
@@ -153,7 +153,7 @@ public class Goods {
 
     @Override
     public String toString() {
-        return "Goods{" +
+        return "Products{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +

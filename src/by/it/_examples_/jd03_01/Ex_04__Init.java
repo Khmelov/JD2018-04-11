@@ -29,7 +29,7 @@ public class Ex_04__Init {
             statement.executeUpdate(
                     "CREATE TABLE IF NOT EXISTS `akhmelev`.`roles` (\n" +
                             "  `ID` INT(11) NOT NULL AUTO_INCREMENT,\n" +
-                            "  `Role` VARCHAR(45) NULL DEFAULT NULL,\n" +
+                            "  `Roles` VARCHAR(45) NULL DEFAULT NULL,\n" +
                             "  PRIMARY KEY (`ID`))\n" +
                             "ENGINE = InnoDB\n" +
                             "AUTO_INCREMENT = 1\n" +
@@ -74,11 +74,11 @@ public class Ex_04__Init {
                             "DEFAULT CHARACTER SET = utf8;\n"
             );
             //заполнение строками
-            statement.executeUpdate("INSERT INTO `akhmelev`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'Admin');\n");
-            statement.executeUpdate("INSERT INTO `akhmelev`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'User');\n");
-            statement.executeUpdate("INSERT INTO `akhmelev`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'Guest');\n");
+            statement.executeUpdate("INSERT INTO `akhmelev`.`roles` (`ID`, `Roles`) VALUES (DEFAULT, 'Admin');\n");
+            statement.executeUpdate("INSERT INTO `akhmelev`.`roles` (`ID`, `Roles`) VALUES (DEFAULT, 'Users');\n");
+            statement.executeUpdate("INSERT INTO `akhmelev`.`roles` (`ID`, `Roles`) VALUES (DEFAULT, 'Guest');\n");
             statement.executeUpdate("INSERT INTO `akhmelev`.`users` (`ID`, `Login`, `Password`, `Email`, `FK_roles`) VALUES (DEFAULT, 'Admin', 'admin', 'adm@it.by', 1);\n");
-            statement.executeUpdate("INSERT INTO `akhmelev`.`users` (`ID`, `Login`, `Password`, `Email`, `FK_roles`) VALUES (DEFAULT, 'User', 'user', 'user@it.by', 2);\n");
+            statement.executeUpdate("INSERT INTO `akhmelev`.`users` (`ID`, `Login`, `Password`, `Email`, `FK_roles`) VALUES (DEFAULT, 'Users', 'user', 'user@it.by', 2);\n");
             statement.executeUpdate("INSERT INTO `akhmelev`.`ads` (`ID`, `RoomCount`, `Floor`, `Floors`, `Price`, `Area`, `Description`, `Address`, `FK_users`) VALUES (DEFAULT, 1, 2, 5, 55555, 50, 'Тестовое объявление', 'Кнорина 9', 2);\n");
 
         } catch (Exception e) {

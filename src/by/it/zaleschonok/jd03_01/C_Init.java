@@ -46,7 +46,7 @@ public class C_Init{
                     "    ON DELETE RESTRICT\n" +
                     "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB;");
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `zaleschonok`.`goods` (\n" +
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `zaleschonok`.`products` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `product` VARCHAR(100) NULL,\n" +
                     "  `price` INT NULL,\n" +
@@ -56,18 +56,18 @@ public class C_Init{
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `amount` INT NULL,\n" +
                     "  `users_id` INT NOT NULL,\n" +
-                    "  `goods_id` INT NOT NULL,\n" +
+                    "  `products_id` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`id`),\n" +
                     "  INDEX `fk_orders_users1_idx` (`users_id` ASC),\n" +
-                    "  INDEX `fk_orders_goods1_idx` (`goods_id` ASC),\n" +
+                    "  INDEX `fk_orders_products1_idx` (`products_id` ASC),\n" +
                     "  CONSTRAINT `fk_orders_users1`\n" +
                     "    FOREIGN KEY (`users_id`)\n" +
                     "    REFERENCES `zaleschonok`.`users` (`id`)\n" +
                     "    ON DELETE CASCADE\n" +
                     "    ON UPDATE CASCADE,\n" +
-                    "  CONSTRAINT `fk_orders_goods1`\n" +
-                    "    FOREIGN KEY (`goods_id`)\n" +
-                    "    REFERENCES `zaleschonok`.`goods` (`id`)\n" +
+                    "  CONSTRAINT `fk_orders_products1`\n" +
+                    "    FOREIGN KEY (`products_id`)\n" +
+                    "    REFERENCES `zaleschonok`.`products` (`id`)\n" +
                     "    ON DELETE RESTRICT\n" +
                     "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB;");
@@ -75,13 +75,13 @@ public class C_Init{
 
 
             statement.executeUpdate("INSERT INTO `zaleschonok`.`roles` (`id`, `role`) VALUES (DEFAULT, 'Admin');");
-            statement.executeUpdate("INSERT INTO `zaleschonok`.`roles` (`id`, `role`) VALUES (DEFAULT, 'User');");
+            statement.executeUpdate("INSERT INTO `zaleschonok`.`roles` (`id`, `role`) VALUES (DEFAULT, 'Users');");
             statement.executeUpdate("INSERT INTO `zaleschonok`.`users` (`id`, `login`, `password`, `roles_id`) VALUES (DEFAULT, 'UserVasia', 'passVasia', 1);");
             statement.executeUpdate("INSERT INTO `zaleschonok`.`users` (`id`, `login`, `password`, `roles_id`) VALUES (DEFAULT, 'UserPetya', 'passPertya', 2);");
-            statement.executeUpdate("INSERT INTO `zaleschonok`.`goods` (`id`, `product`, `price`) VALUES (DEFAULT, 'Product100', 100);");
-            statement.executeUpdate("INSERT INTO `zaleschonok`.`goods` (`id`, `product`, `price`) VALUES (DEFAULT, 'Product200', 200);");
-            statement.executeUpdate("INSERT INTO `zaleschonok`.`orders` (`id`, `amount`, `users_id`, `goods_id`) VALUES (DEFAULT, 1, 1, 1);");
-            statement.executeUpdate("INSERT INTO `zaleschonok`.`orders` (`id`, `amount`, `users_id`, `goods_id`) VALUES (DEFAULT, 2, 2, 2);");
+            statement.executeUpdate("INSERT INTO `zaleschonok`.`products` (`id`, `product`, `price`) VALUES (DEFAULT, 'Product100', 100);");
+            statement.executeUpdate("INSERT INTO `zaleschonok`.`products` (`id`, `product`, `price`) VALUES (DEFAULT, 'Product200', 200);");
+            statement.executeUpdate("INSERT INTO `zaleschonok`.`orders` (`id`, `amount`, `users_id`, `products_id`) VALUES (DEFAULT, 1, 1, 1);");
+            statement.executeUpdate("INSERT INTO `zaleschonok`.`orders` (`id`, `amount`, `users_id`, `products_id`) VALUES (DEFAULT, 2, 2, 2);");
 
             System.out.println("Database successfully created");
         } catch (SQLException e) {

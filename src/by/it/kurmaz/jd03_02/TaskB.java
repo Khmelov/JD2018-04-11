@@ -35,7 +35,7 @@ public class TaskB {
             }
             System.out.println("Admins total: " + counter);
 
-            sql = "SELECT COUNT(Role) FROM roles";
+            sql = "SELECT COUNT(Roles) FROM roles";
             resultSet = statement.executeQuery(sql);
             if (resultSet.next())
                 System.out.println("Roles total: " + resultSet.getInt(1));

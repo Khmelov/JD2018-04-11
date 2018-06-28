@@ -72,7 +72,7 @@ public class C_Init {
                     "    ON UPDATE CASCADE)\n" +
                     "ENGINE = InnoDB");
             statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Administator')");
-            statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'User')");
+            statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Users')");
             statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Guest')");
             statement.executeUpdate("INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `phone`, `roles_ID`)" +
                     " VALUES (DEFAULT, 'admin', 'pasadmin', 'admin@mail@ru', 123456, 1)");

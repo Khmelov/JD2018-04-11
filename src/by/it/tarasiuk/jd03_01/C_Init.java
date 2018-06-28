@@ -71,7 +71,7 @@ class C_Init {
             statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'watcher1', '321', 'watcher@tut.by', 3);");
 
             statement.executeUpdate("INSERT INTO `tarasiuk`.`ads` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
-                    "VALUES (DEFAULT, 'AIST', 'Turbo', 2017, 'adult', 'highway', 'blue', 300, 'Good bike!', 2);");
+                    "VALUES (DEFAULT, 'AIST', 'Turbo', 2017, 'adult', 'highway', 'blue', 300, 'Products bike!', 2);");
         } catch (SQLException e) {
             e.printStackTrace();
         }

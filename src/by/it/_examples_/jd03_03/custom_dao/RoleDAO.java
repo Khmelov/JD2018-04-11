@@ -43,7 +43,7 @@ public class RoleDAO extends AbstractDAO implements InterfaceDAO<Role> {
     @Override
     public boolean create(Role role) {
         String sql = String.format(
-                "insert INTO role(Role) values('%s',);",role.getRole()
+                "insert INTO role(Roles) values('%s',);",role.getRole()
         );
         role.setId(executeUpdate(sql));
         return (role.getId()>0);
@@ -52,7 +52,7 @@ public class RoleDAO extends AbstractDAO implements InterfaceDAO<Role> {
     @Override
     public boolean update(Role role) {
         String sql = String.format(
-                "UPDATE `role` SET `Role` = '%s', WHERE `roles`.`ID` = %d",
+                "UPDATE `role` SET `Roles` = '%s', WHERE `roles`.`ID` = %d",
                 role.getRole(), role.getId()
         );
         return (0 < executeUpdate(sql));
