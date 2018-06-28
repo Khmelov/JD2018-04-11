@@ -3,6 +3,10 @@ package by.it.kurmaz.project.java.controller;
 import by.it.kurmaz.project.java.DAO.DAO;
 import by.it.kurmaz.project.java.beans.Address;
 import by.it.kurmaz.project.java.beans.User;
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.net.BCodec;
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,7 +16,7 @@ import java.util.Locale;
 
 class CmdLogin extends Cmd {
     @Override
-    ActionResult execute(HttpServletRequest req , HttpServletResponse resp) throws SQLException {
+    ActionResult execute(HttpServletRequest req , HttpServletResponse resp) throws SQLException, EncoderException {
         if (Util.isPost(req)) {
             String login = Util.getString(req,"login");
             String password = Util.getString(req,"password");
@@ -28,8 +32,18 @@ class CmdLogin extends Cmd {
                     List<Address> addresses = DAO.getDao().address.getAll(where);
                     Address address = addresses.get(0);
                     HttpSession session = req.getSession();
+                    BCodec codec = new BCodec();
+                    String encode = codec.encode(user.getPassword());
+                    user.setPassword(encode);
                     session.setAttribute("address", address);
                     session.setAttribute("user", user);
+                    session.setMaxInactiveInterval(30);
+                    Cookie sessionID = new Cookie("sessionId", session.getId());
+                    resp.addCookie(sessionID);
+                    Cookie passwordCookie = new Cookie("password", encode);
+                    Cookie loginCookie = new Cookie("login", user.getLogin());
+                    passwordCookie.setMaxAge(60); loginCookie.setMaxAge(60);
+                    resp.addCookie(loginCookie); resp.addCookie(passwordCookie);
                     return new ActionResult(Actions.PROFILE);
                 }
             }

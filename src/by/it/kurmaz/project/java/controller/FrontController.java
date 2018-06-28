@@ -3,6 +3,7 @@ package by.it.kurmaz.project.java.controller;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ public class FrontController extends HttpServlet {
     private ServletContext servletContext;
 
     @Override
-    public void init() throws ServletException {
+    public void init(){
         actionFactory = new ActionFactory();
         servletContext = getServletContext();
     }
@@ -32,6 +33,15 @@ public class FrontController extends HttpServlet {
     private void serv (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             Actions action = actionFactory.defineAction(req);
+            if (req.getParameter("sessionID") != null) {
+                Cookie sessionID = new Cookie("sessionID", req.getParameter("sessionID"));
+                resp.addCookie(sessionID);
+            }
+            else {
+                String ID = req.getSession().getId();
+                Cookie sessionID = new Cookie("sessionID", ID);
+                resp.addCookie(sessionID);
+            }
             ActionResult result = action.cmd.execute(req, resp);
             if (result == null) {
                 RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
