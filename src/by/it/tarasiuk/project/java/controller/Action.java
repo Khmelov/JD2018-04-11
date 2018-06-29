@@ -31,6 +31,11 @@ enum Action {
 //            jsp = "/createadvert.jsp";
         }
     },
+    RESETDB {
+        {
+            cmd = new CmdResetDb();
+        }
+    },
     ERROR {
         {
             cmd = new CmdError();

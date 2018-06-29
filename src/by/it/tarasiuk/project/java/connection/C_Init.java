@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-class C_Init {
+public class C_Init {
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -14,7 +14,7 @@ class C_Init {
         }
     }
 
-    static void db_init() {
+    public static void db_init() {
         try (Connection connection =
                      DriverManager.getConnection(CN.DB_URL, CN.DB_USER, CN.DB_PASSWORD);
              Statement statement = connection.createStatement()

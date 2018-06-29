@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-class C_Reset {
+public class C_Reset {
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -13,7 +13,7 @@ class C_Reset {
         }
     }
 
-    static void db_reset() {
+    public static void db_reset() {
         try (Connection connection =
                      DriverManager.getConnection(CN.DB_URL, CN.DB_USER, CN.DB_PASSWORD);
              Statement statement = connection.createStatement()) {

@@ -35,11 +35,11 @@ public class Util {
     }
 
     static Double getDouble(HttpServletRequest req, String filed) {
-        String valeu = getString(req, filed, DOUBLE);
-        if (valeu == null) {
+        String value = getString(req, filed, DOUBLE);
+        if (value == null) {
             return null;
         } else {
-            return Double.valueOf(valeu);
+            return Double.valueOf(value);
         }
     }
 }

@@ -1,5 +1,7 @@
 package by.it.tarasiuk.project.java.dao;
 
+import by.it.tarasiuk.project.java.connection.*;
+
 public class Dao {
     private static Dao dao;
     public RoleDao role;
@@ -11,6 +13,8 @@ public class Dao {
         user = new UserDao();
         advert = new AdvertDao();
     }
+
+    public static void reset() {C_Init.db_init();}
 
     public static Dao getDao() {
         if (dao == null) {
