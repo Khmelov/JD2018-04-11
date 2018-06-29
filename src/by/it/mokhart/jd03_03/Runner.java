@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class Runner {
     public static void main(String[] args) throws SQLException {
         Dao dao=Dao.getDao();
-        //проверим роль
-        Role role=new Role(0,"roleTest");
+
+        Role role=new Role();
         dao.role.create(role);
         role.setRole("updateRole");
         dao.role.update(role);
@@ -35,6 +35,12 @@ public class Runner {
         Ad ad=new Ad();
         ad.setDescription("testAd");
         ad.setUsers_id(1);
+        ad.setPrice(3.0);
+        ad.setSize("testL");
+        ad.setFabric("testFabric");
+        ad.setColour("testColour");
+        ad.setSex("testSex");
+        ad.setProducer("testProducer");
         dao.ad.create(ad);
         ad.setDescription("updateAd");
         dao.ad.update(ad);
@@ -44,6 +50,6 @@ public class Runner {
 
         System.out.println(dao.role.getAll(""));
         System.out.println(dao.user.getAll(""));
-        System.out.println(dao.ad.getAll(""));
+        //System.out.println(dao.ad.getAll(""));
     }
 }
