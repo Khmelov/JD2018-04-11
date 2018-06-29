@@ -13,9 +13,21 @@ public enum Action {
 
         }
     },
+    PROFILE {
+        {
+            cmd = new CmdProfile();
+
+        }
+    },
     SIGNUP {
         {
             cmd = new CmdSignUp();
+
+        }
+    },
+    RESETDB {
+        {
+            cmd = new CmdResetBD();
 
         }
     },
@@ -28,6 +40,12 @@ public enum Action {
     CREATEAVTO {
         {
             cmd = new CmdCreateAvto();
+
+        }
+    },
+    CREATEORDER {
+        {
+            cmd = new CmdCreateOrder();
 
         }
     },

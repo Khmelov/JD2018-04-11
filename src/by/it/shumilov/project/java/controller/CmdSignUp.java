@@ -2,11 +2,15 @@ package by.it.shumilov.project.java.controller;
 
 import by.it.shumilov.project.java.beans.User;
 import by.it.shumilov.project.java.dao.Dao;
-
+//import org.apache.commons.codec.digest.*;
 import javax.servlet.http.HttpServletRequest;
-import java.sql.SQLException;
+
+//import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA3_512;
+
 
 public class CmdSignUp extends Cmd {
+
+
 
     @Override
     Action execute(HttpServletRequest req) throws Exception {
@@ -14,6 +18,8 @@ public class CmdSignUp extends Cmd {
             String login = req.getParameter("login");
             String email = req.getParameter("email");
             String password = req.getParameter("password");
+            //password = new DigestUtils(SHA3_512).digestAsHex(password);
+
             if (login != null && email != null && password != null) {
                 User user = new User(0,login,password,email,2);
                 Dao.getDao().user.create(user);
