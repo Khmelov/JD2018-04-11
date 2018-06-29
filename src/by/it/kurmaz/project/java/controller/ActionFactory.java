@@ -10,6 +10,6 @@ class ActionFactory {
             return Actions.valueOf(command.toUpperCase());
         }
         else
-            return Actions.ERROR;
+            return Actions.MYINDEX;
     }
 }

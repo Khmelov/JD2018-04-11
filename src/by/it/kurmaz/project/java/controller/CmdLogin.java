@@ -5,7 +5,6 @@ import by.it.kurmaz.project.java.beans.Address;
 import by.it.kurmaz.project.java.beans.User;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.net.BCodec;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
