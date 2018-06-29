@@ -1,5 +1,7 @@
 package by.it.shumilov.project.java.dao;
 
+import by.it.shumilov.project.java.dao.resetDB.C_init;
+
 public class Dao {
 
     private static Dao dao;
@@ -28,4 +30,8 @@ public class Dao {
         return  dao;
     }
 
+
+    public static void reset(){
+        C_init.main(new String[]{});
+    }
 }

@@ -19,7 +19,7 @@ public class Test {
         md.reset();
         final Base64 base64 = new Base64();
         System.out.println(new String(base64.encode("Testtesre".getBytes())));
-        md.update("Testtesttefdsfdsdfdsfdwcasdcewgewfsxvdsfgvewcvdscvdsvsdvsdcvdxvzdbzdfbdfbdndbdbdbdsfbvwsb".getBytes());
+        md.update("".getBytes());
 
         final byte[] enbytes = base64.encode(md.digest());
         //MessageDigest tc1 = (MessageDigest) md.clone();

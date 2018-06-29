@@ -2,10 +2,12 @@ package by.it.shumilov.project.java.controller;
 
 import by.it.shumilov.project.java.beans.User;
 import by.it.shumilov.project.java.dao.Dao;
-//import org.apache.commons.codec.digest.*;
-import javax.servlet.http.HttpServletRequest;
+//import org.apache.commons.codec.binary.Base64;
 
-//import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA3_512;
+import javax.servlet.http.HttpServletRequest;
+//import java.security.MessageDigest;
+
+
 
 
 public class CmdSignUp extends Cmd {
@@ -18,10 +20,16 @@ public class CmdSignUp extends Cmd {
             String login = req.getParameter("login");
             String email = req.getParameter("email");
             String password = req.getParameter("password");
-            //password = new DigestUtils(SHA3_512).digestAsHex(password);
+
+            /*MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.reset();
+            final Base64 base64 = new Base64();
+            md.update(password.getBytes());
+
+            final byte[] enbytes = base64.encode(md.digest());*/
 
             if (login != null && email != null && password != null) {
-                User user = new User(0,login,password,email,2);
+                User user = new User(0,login,password.toString(),email,2);
                 Dao.getDao().user.create(user);
                 if(user.getId() > 0)
                     return  Action.LOGIN;

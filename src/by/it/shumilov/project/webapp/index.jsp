@@ -4,7 +4,7 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>INDEX: ${message}</p>
+    <p>INDEX: ${avtos}</p>
 </div>
 </body>
 </html>
