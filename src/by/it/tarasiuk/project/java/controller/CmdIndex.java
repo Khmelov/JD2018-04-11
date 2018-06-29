@@ -1,10 +1,17 @@
 package by.it.tarasiuk.project.java.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import by.it.tarasiuk.project.java.beans.Advert;
+import by.it.tarasiuk.project.java.dao.Dao;
 
-public class CmdIndex extends Cmd {
+import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
+import java.util.List;
+
+class CmdIndex extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) throws SQLException {
+        List<Advert> adverts = Dao.getDao().advert.getAll("");
+        req.setAttribute("adverts",adverts);
         return null;
     }
 }

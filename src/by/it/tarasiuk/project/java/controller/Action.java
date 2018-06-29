@@ -1,31 +1,43 @@
 package by.it.tarasiuk.project.java.controller;
 
-public enum Action {
+enum Action {
     INDEX {
         {
             cmd = new CmdIndex();
-            jsp = "/index.jsp";
+//            jsp = "/index.jsp";
         }
     },
     LOGIN {
         {
             cmd = new CmdLogin();
-            jsp = "/login.jsp";
+//            jsp = "/login.jsp";
         }
     },
     SIGNUP {
         {
             cmd = new CmdSignUp();
-            jsp = "/signup.jsp";
+//            jsp = "/signup.jsp";
+        }
+    },
+    PROFILE {
+        {
+            cmd = new CmdProfile();
+//            jsp = "/profile.jsp";
+        }
+    },
+    CREATEADVERT {
+        {
+            cmd = new CmdCreateAdvert();
+//            jsp = "/createadvert.jsp";
         }
     },
     ERROR {
         {
             cmd = new CmdError();
-            jsp = "/error.jsp";
+//            jsp = "/error.jsp";
         }
     };
     Cmd cmd = new CmdError();
-    String jsp = "/error.jsp";
+    String jsp = "/" + this.toString().toLowerCase() + ".jsp";
 
 }
