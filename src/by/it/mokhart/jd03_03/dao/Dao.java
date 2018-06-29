@@ -2,7 +2,7 @@ package by.it.mokhart.jd03_03.dao;
 
 public class Dao {
 
-    private static Dao dao;
+    static Dao dao;
 
     private Dao() {
         role = new DaoRole();
