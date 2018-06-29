@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 %@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
@@ -22,7 +23,7 @@
                                 <td>${book.name}</td>
                                 <td>${book.price}</td>
                                 <td>
-                                    <c:if test="${user!=null}">
+                                    <c:if test="${buyer!=null}">
                                         <button id="toBasket" value="toBasket" name="toBasket" class="btn btn-success">
                                             в корзину
                                         </button>

@@ -5,13 +5,7 @@
          version="3.0"
          metadata-complete="true">
     <display-name>Сервлет Controller</display-name>
-    <description>MySQL my_sql_obmetko</description>
-    <resource-ref>
-        <description>my_sql_obmetko</description>
-        <res-ref-name>jdbc/my_sql_obmetko</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-    </resource-ref>
+
     <servlet>
         <servlet-name>FrontController</servlet-name>
         <servlet-class>by.it.obmetko.project.java.controller.FrontController</servlet-class>
