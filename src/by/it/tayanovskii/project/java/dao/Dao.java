@@ -1,4 +1,5 @@
 package by.it.tayanovskii.project.java.dao;
+import by.it.tayanovskii.project.java.dao.resetdb.C_Init;
 
 public class Dao {
 
@@ -23,5 +24,9 @@ public class Dao {
                     dao = new Dao();
             }
         return dao;
+    }
+
+    public static void reset(){
+        C_Init.main(new String[]{});
     }
 }

@@ -1,10 +1,14 @@
 package by.it.tayanovskii.project.java.controller;
 
+
+import by.it.tayanovskii.project.java.dao.Dao;
+
 import javax.servlet.http.HttpServletRequest;
 
-class CmdSetPermission extends Cmd {
+class CmdResetDB extends Cmd {
     @Override
     Action execute(HttpServletRequest req) {
-        return null;
+        Dao.reset();
+        return Action.LOGIN;
     }
 }

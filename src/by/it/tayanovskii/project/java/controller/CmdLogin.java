@@ -4,6 +4,7 @@ import by.it.tayanovskii.project.java.beans.User;
 import by.it.tayanovskii.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
@@ -21,7 +22,9 @@ class CmdLogin extends Cmd {
                 List<User> users = Dao.getDao().user.getAll(where);
                 if (users.size() > 0) {
                     User user = users.get(0);
-                    req.setAttribute("user", user);
+                    HttpSession session = req.getSession();
+                    session.setAttribute("user", user);
+                    return Action.PROFILE;
                 }
             }
         }

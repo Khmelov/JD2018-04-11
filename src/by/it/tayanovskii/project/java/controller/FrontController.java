@@ -10,27 +10,25 @@ import java.io.IOException;
 
 public class FrontController extends HttpServlet{
 
-    ActionFactory actionFactory;
+    private ActionFactory actionFactory;
     private ServletContext servletContext;
 
     @Override
     public void init() throws ServletException {
-        actionFactory=new ActionFactory();
+        actionFactory = new ActionFactory();
         servletContext = getServletContext();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
-        serv(req,resp);
+        serv(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
-        serv(req,resp);
+        serv(req, resp);
     }
 
     private void serv(HttpServletRequest req, HttpServletResponse resp)
@@ -50,7 +48,6 @@ public class FrontController extends HttpServlet{
             showError(req, resp, e);
         }
     }
-
 
     private void showError(HttpServletRequest req, HttpServletResponse resp, Exception e) throws ServletException, IOException {
         req.setAttribute("errMessage", e.toString());

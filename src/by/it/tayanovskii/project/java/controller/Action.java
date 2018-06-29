@@ -6,6 +6,11 @@ enum Action {
             cmd = new CmdIndex();
         }
     },
+    RESETDB {
+        {
+            cmd = new CmdResetDB();
+        }
+    },
     LOGIN {
         {
             cmd = new CmdLogin();
@@ -16,14 +21,9 @@ enum Action {
             cmd = new CmdSignUp();
         }
     },
-    LOGOUT {
+    PROFILE {
         {
-            cmd = new CmdLogout();
-        }
-    },
-    READPUBLICATION{
-        {
-            cmd = new CmdReadPublication();
+            cmd = new CmdProfile();
         }
     },
     CREATEPUBLICATION{
@@ -31,12 +31,6 @@ enum Action {
             cmd = new CmdCreatePublication();
         }
     },
-    SETPERMISSION{
-        {
-            cmd = new CmdSetPermission();
-        }
-    },
-
     ERROR {
         {
             cmd = new CmdError();
