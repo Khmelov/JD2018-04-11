@@ -1,10 +1,15 @@
 package by.it.mokhart.project.java.controller;
 
-public enum Actions {
+enum Actions {
     INDEX {
         {
             cmd = new CmdIndex();
             //jsp = "/index.jsp";
+        }
+    },
+    CREATEAD {
+        {
+            cmd = new CmdCreateAd();
         }
     },
     LOGIN {
@@ -13,20 +18,30 @@ public enum Actions {
             //jsp = "/login.jsp";
         }
     },
+    PROFILE {
+        {
+            cmd = new CmdProfile();
+        }
+    },
     SIGNUP {
         {
             cmd = new CmdSignUp();
             //jsp = "/signup.jsp";
         }
     },
+    RESETDB {
+        {
+            cmd = new CmdResetDB();
+        }
+    },
     ERROR {
         {
             cmd = new CmdError();
-           // jsp = "/error.jsp";
+            // jsp = "/error.jsp";
         }
     };
     Cmd cmd = new CmdError();
-    String jsp = "/"+this.toString().toLowerCase()+".jsp";
+    String jsp = "/" + this.toString().toLowerCase() + ".jsp";
     //String jsp = "/error.jsp";
 
 }
