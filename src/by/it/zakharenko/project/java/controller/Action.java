@@ -16,6 +16,21 @@ enum Action {
             cmd = new CmdSignUp();
         }
     },
+    LOGOUT {
+        {
+            cmd = new CmdLogOut();
+        }
+    },
+    CREATEBOOK {
+        {
+            cmd = new CmdCreateBook();
+        }
+    },
+    READBOOK {
+        {
+            cmd = new CmdReadBook();
+        }
+    },
     ERROR {
         {
             cmd = new CmdError();
