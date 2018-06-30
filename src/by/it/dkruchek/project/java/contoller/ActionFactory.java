@@ -2,12 +2,13 @@ package by.it.dkruchek.project.java.contoller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ActionFactory {
+class ActionFactory {
 
-    Actions defineAction(HttpServletRequest req) {
+    Action defineAction(HttpServletRequest req) {
         String command = req.getParameter("command");
+        //System.out.println("command=" + command);
         if (command != null && !command.isEmpty()) {
-            return Actions.valueOf(command.toUpperCase());
-        } else return Actions.ERROR;
+            return Action.valueOf(command.toUpperCase());
+        } else return Action.ERROR;
     }
 }
