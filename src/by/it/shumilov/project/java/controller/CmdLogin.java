@@ -3,8 +3,7 @@ package by.it.shumilov.project.java.controller;
 import by.it.shumilov.project.java.beans.User;
 import by.it.shumilov.project.java.dao.Dao;
 //import org.apache.commons.codec.binary.Base64;
-//import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
-
+import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_256;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

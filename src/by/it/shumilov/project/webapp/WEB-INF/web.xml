@@ -4,7 +4,9 @@
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0"
          metadata-complete="true">
-
+<welcome-file-list>
+    <welcome-file>index</welcome-file>
+</welcome-file-list>
 
     <display-name>Сервлет Controller</display-name>
 
@@ -39,6 +41,7 @@
     <servlet-mapping>
         <servlet-name>FromtController</servlet-name>
         <url-pattern>/do</url-pattern>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
 

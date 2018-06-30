@@ -4,10 +4,15 @@ import by.it.shumilov.project.java.beans.Avto;
 import by.it.shumilov.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class CmdCreateAvto extends Cmd{
     @Override
     Action execute(HttpServletRequest req) throws Exception {
+        HttpSession session = req.getSession();
+        Object objUser = session.getAttribute("user");
+        if(objUser == null)
+            return Action.LOGIN;
         if(Util.isPost(req)){
             String mark = req.getParameter("mark");
             String model = req.getParameter("model");

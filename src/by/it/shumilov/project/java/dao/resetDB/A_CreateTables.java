@@ -35,7 +35,7 @@ public class A_CreateTables {
                     "  `year` INT NULL,\n" +
                     "  `ngos` VARCHAR(9) NULL,\n" +
                     "  `rate` DOUBLE NULL,\n" +
-                    "  `foto` VARCHAR(45) NULL DEFAULT 'defaul.jpg',\n" +
+                    "  `foto` VARCHAR(45) NULL DEFAULT 'default.jpg',\n" +
                     "  PRIMARY KEY (`id`))\n" +
                     "ENGINE = InnoDB;");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Shumilov`.`orders` (\n" +
