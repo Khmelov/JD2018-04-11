@@ -77,15 +77,69 @@
         </div>
     </div>
 
-<form class="form-horizontal" method="post" action="do?command=profile">
-<fieldset>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="logout">Log Out</label>
-  <div class="col-md-4">
-    <button id="logout" name="logout" class="btn btn-primary">Press here</button>
-  </div>
-</div>
-</fieldset>
-</form>
+    <form class="form-horizontal" method="post" action="do?command=profile">
+        <fieldset>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="logout">Log Out</label>
+          <div class="col-md-4">
+            <button id="logout" name="logout" class="btn btn-primary">Press here</button>
+          </div>
+        </div>
+        </fieldset>
+        </form>
+
+<form class="form-horizontal">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Update</legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="login">Login</label>
+      <div class="col-md-4">
+      <input id="login" name="login" type="text" placeholder="enter login here" class="form-control input-md" value="${user.login}">
+      <span class="help-block">${help_login}</span>
+      </div>
+    </div>
+
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="password">Password</label>
+      <div class="col-md-4">
+        <input id="password" name="password" type="password" placeholder="enter password here" class="form-control input-md" value="${user.password}">
+        <span class="help-block">${help_password}</span>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="E-mail">E-mail</label>
+      <div class="col-md-4">
+      <input id="E-mail" name="E-mail" type="text" placeholder="enter e-mail here" class="form-control input-md" value="${user.email}">
+      <span class="help-block">${help_E-mail}</span>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="phone">Phone Number</label>
+      <div class="col-md-4">
+      <input id="phone" name="phone" type="text" placeholder="enter phone number here" class="form-control input-md" value="${user.phone}">
+      <span class="help-block">+375.....</span>
+      </div>
+    </div>
+    </fieldset>
+    </form>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="update">Update</label>
+      <div class="col-md-4">
+        <button id="update" name="update" class="btn btn-primary">Press here</button>
+      </div>
+    </div>
+    </fieldset>
+    </form>
+
 </body>
 </html>

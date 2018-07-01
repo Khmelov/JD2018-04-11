@@ -12,6 +12,14 @@ class CmdProfile extends Cmd {
             session.invalidate();
             return new ActionResult(Actions.INDEX);
         }
+        if (Util.isPost(req)){
+            if (req.getParameter("update") != null) {
+                String login = Util.getString(req,"login");
+                String password = Util.getString(req,"password");
+                String email = Util.getString(req,"email");
+                String phone = Util.getString(req,"phone");
+            }
+        }
         Object isUser = session.getAttribute("user");
         Object isAdmin = session.getAttribute("admin");
         if (isUser == null && isAdmin == null)
