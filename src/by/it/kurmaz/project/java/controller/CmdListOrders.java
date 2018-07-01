@@ -23,8 +23,7 @@ class CmdListOrders extends Cmd {
             int user_id = (int) user.getId();
             String where = String.format(Locale.US, "WHERE users_ID='%d'", user_id);
             List<Order> orders = DAO.getDao().order.getAll(where);
-            session.setAttribute("orders", orders);
-            return new ActionResult("listorders");
+            req.setAttribute("orders", orders);
         }
         return null;
     }

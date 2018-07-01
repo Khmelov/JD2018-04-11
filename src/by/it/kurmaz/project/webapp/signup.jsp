@@ -33,7 +33,6 @@
       <label class="col-md-4 control-label" for="E-mail">E-mail</label>
       <div class="col-md-4">
       <input id="E-mail" name="E-mail" type="text" placeholder="enter e-mail here" class="form-control input-md">
-      <span class="help-block">${help_E-mail}</span>
       </div>
     </div>
 

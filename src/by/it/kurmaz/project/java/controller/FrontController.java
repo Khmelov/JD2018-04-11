@@ -33,15 +33,6 @@ public class FrontController extends HttpServlet {
     private void serv (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             Actions action = actionFactory.defineAction(req);
-            if (req.getParameter("sessionID") != null) {
-                Cookie sessionID = new Cookie("sessionID", req.getParameter("sessionID"));
-                resp.addCookie(sessionID);
-            }
-            else {
-                String ID = req.getSession().getId();
-                Cookie sessionID = new Cookie("sessionID", ID);
-                resp.addCookie(sessionID);
-            }
             ActionResult result = action.cmd.execute(req, resp);
             if (result == null) {
                 RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);

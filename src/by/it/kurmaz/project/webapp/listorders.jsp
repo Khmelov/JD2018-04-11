@@ -14,18 +14,29 @@
               <h3 class="panel-title">User Orders</h3>
             </div>
             <div class="panel-body">
+             <c:forEach items="${orders}" var="order">
               <div class="row">
-                <div class=" col-md-9 col-lg-9 ">
-                  <table class="table table-user-information">
+                <div class=" col-md-12 col-lg-12">
+                  <table class="table table-order-information">
                     <tbody>
                       <tr>
-                        <td>User Orders</td>
-                        <td>${orders}</td>
+                        <td>Order number</td>
+                        <td>${order.id}</td>
                       </tr>
+                      <tr>
+                          <td>Order Status</td>
+                          <td>
+                          <c:choose>
+                          <c:when test="${order.completed < 1}">Not completed</c:when>
+                          <c:otherwise>Completed</c:otherwise>
+                          </c:choose>
+                          </td>
+                        </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
+              </c:forEach>
             </div>
           </div>
         </div>

@@ -6,11 +6,6 @@ public enum Actions {
             cmd = new CmdIndex();
         }
     },
-    MYINDEX {
-        {
-            cmd = new CmdMyIndex();
-        }
-    },
     LOGIN{
         {
             cmd = new CmdLogin();
@@ -61,6 +56,21 @@ public enum Actions {
     ADDCATALOGITEM {
         {
             cmd = new CmdAddItem();
+        }
+    },
+    USEREDIT{
+        {
+            cmd = new CmdUserEdit();
+        }
+    },
+    EDITUSERS{
+        {
+            cmd = new CmdEditUsers();
+        }
+    },
+    EDITORDERS{
+        {
+            cmd = new CmdEditOrders();
         }
     },
     GETSHIPPINGLIST {

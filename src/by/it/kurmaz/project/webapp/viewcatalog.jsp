@@ -8,36 +8,35 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
     <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Catalog</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class=" col-md-9 col-lg-9 ">
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Item</td>
-                        <td>${catalogItems}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <table class="table">
+         <thead>
+           <tr>
+             <th scope="col">#</th>
+             <th scope="col">Название</th>
+             <th scope="col">Количество</th>
+             <th scope="col">Цена</th>
+           </tr>
+         </thead>
+         <tbody>
+         <c:forEach items="${catalogItems}" var="item">
+           <tr>
+             <th scope="row">#</th>
+             <td>${item.name}</td>
+             <td>${item.amount}</td>
+             <td>${item.price}</td>
+           </tr>
+          </c:forEach>
+         </tbody>
+       </table>
+       <form class="form-horizontal" method="post" action="do?command=profile">
+           <fieldset>
+           <div class="form-group">
+             <label class="col-md-4 control-label" for="return"></label>
+             <div class="col-md-4">
+               <button id="return" name="return" class="btn btn-primary">Return</button>
+             </div>
+           </div>
+           </fieldset>
+       </form>
     </div>
-    <form class="form-horizontal" method="post" action="do?command=profile">
-    <fieldset>
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="return"></label>
-      <div class="col-md-4">
-        <button id="return" name="return" class="btn btn-primary">Return</button>
-      </div>
-    </div>
-    </fieldset>
-    </form>
 </body>

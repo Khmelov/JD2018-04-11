@@ -2,8 +2,8 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
+<%@ include file="include/adminka.htm" %>
 <div class="container">
-<%@ include file="include/menu.htm" %>
 <form class="form-horizontal" method="post" action="do?command=admlogin">
 <fieldset>
 

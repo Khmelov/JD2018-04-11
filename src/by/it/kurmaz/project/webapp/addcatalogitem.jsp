@@ -3,7 +3,7 @@
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
-<%@ include file="include/menu.htm" %>
+<%@ include file="include/adminka.htm" %>
 <form class="form-horizontal"  method="post" action="do?command=addcatalogitem">
 <fieldset>
 

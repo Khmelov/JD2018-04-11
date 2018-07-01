@@ -2,8 +2,10 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
+<div class="welcome">
+<h1 align="center">Welcome!</h1>
+</div>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
     <form class="form-horizontal"  method="post" action="do?command=index">
     <fieldset>
 
