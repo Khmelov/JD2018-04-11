@@ -15,7 +15,7 @@ public class CmdSignUp extends Cmd {
             String pass = Util.getString(req, "Password");
             String name = Util.getString(req, "Name");
             if (login != null && email != null && pass != null) {
-                Owner owner = new Owner(0, login, email, pass, name, 2);
+                Owner owner = new Owner(0, login, email, pass, null, 2);
                 Dao.getDao().owner.create(owner);
                 if (owner.getId() > 0) return Action.LOGIN;
             }
