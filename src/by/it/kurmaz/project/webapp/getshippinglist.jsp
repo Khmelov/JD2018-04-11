@@ -2,45 +2,47 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-<%@ include file="include/adminka.htm" %>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-    <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Shipping List</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class=" col-md-9 col-lg-9 ">
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Shipping List</td>
-                        <td>${itemlist}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <form class="form-horizontal" method="post" action="do?command=profile">
-    <fieldset>
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="return"></label>
-      <div class="col-md-4">
-        <button id="return" name="return" class="btn btn-primary">Return</button>
-      </div>
-    </div>
-    </fieldset>
-    </form>
+<c:choose>
+    <c:when test="${user==null}">
+    <%@ include file="include/adminka.htm" %><div class="container">
+    </c:when>
+    <c:when test="${admin==null}">
+        <%@ include file="include/menu.htm" %><div class="container">
+    </c:when>
+</c:choose>
+     <div class="container">
+         <div class="row">
+             <div class=col-md-2>Наименование</div>
+             <div class=col-md-2>Количество</div>
+             <div class=col-md-2>Цена</div>
+             <div class=col-md-2>Номер заказа</div>
+         </div>
+     </div>
+     <div class="container">
+         <c:forEach items="${itemlist}" var="item">
+             <div class="row">
+                 <div class=col-md-2>
+                     <p>${item.name}</p>
+                 </div>
+                 <div class=col-md-2>
+                     <p>${item.amount}</p>
+                 </div>
+                 <div class=col-md-2>
+                      <p>${item.price}</p>
+                 </div>
+                 <div class=col-md-2>
+                   <p>${item.order_id}</p>
+                 </div>
+             </div>
+             <p></p>
+         </c:forEach>
+     </div>
+         <form class="update-list" action="do?command=profile" method=POST>
+         <button id="Return" value="Return" name="Return" class="btn btn-success col-md-2">
+             Вернуться
+         </button>
+         </form>
+ </div>
 </body>
 </html>
 

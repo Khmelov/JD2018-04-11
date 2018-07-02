@@ -2,8 +2,8 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-<div class="container">
 <%@ include file="include/adminka.htm" %>
+<div class="container">
 <form class="form-horizontal"  method="post" action="do?command=addcatalogitem">
 <fieldset>
 

@@ -63,6 +63,11 @@ public enum Actions {
             cmd = new CmdUserEdit();
         }
     },
+    EDITCATALOG{
+        {
+            cmd = new CmdEditCatalog();
+        }
+    },
     EDITUSERS{
         {
             cmd = new CmdEditUsers();

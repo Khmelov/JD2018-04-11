@@ -20,24 +20,24 @@ class CmdShippingList extends Cmd {
             return new ActionResult(Actions.INDEX);
         else if (isAdmin != null)
         {
-            List<ShippingList> list = DAO.getDao().shippingList.getAll("");
+            String where = "WHERE Completed = 0";
+            List<ShippingList> list = DAO.getDao().shippingList.getAll(where);
             List<ShippingItem> itemList = new ArrayList<>();
-            String where;
             for (ShippingList ship: list) {
                 int catalogID = ship.getCatalog_ID();
                 where = String.format(Locale.US, "WHERE ID='%d'", catalogID);
                 List<Catalog> catalogList = DAO.getDao().catalog.getAll(where);
                 Catalog catalogItem = catalogList.get(0);
-                ShippingItem item = new ShippingItem(catalogItem.getName(), Integer.parseInt(ship.getQuantity()), catalogItem.getPrice());
+                ShippingItem item = new ShippingItem(catalogItem.getName(), Integer.parseInt(ship.getQuantity()), catalogItem.getPrice(), ship.getOrder_ID());
                 itemList.add(item);
             }
-            session.setAttribute("itemlist", itemList);
+            req.setAttribute("itemlist", itemList);
             return new ActionResult("getshippinglist");
         }
         else {
             User user = (User) isUser;
             int user_ID = (int) user.getId();
-            String where = String.format(Locale.US, "WHERE Users_ID='%d'", user_ID);
+            String where = String.format(Locale.US, "WHERE Completed = 0 AND Users_ID='%d'", user_ID);
             List<Order> orderList = DAO.getDao().order.getAll(where);
             List<ShippingItem> itemList = new ArrayList<>();
             for (Order order: orderList) {
@@ -49,11 +49,11 @@ class CmdShippingList extends Cmd {
                     where = String.format(Locale.US, "WHERE ID='%d'", catalogID);
                     List<Catalog> catalogList = DAO.getDao().catalog.getAll(where);
                     Catalog catalogItem = catalogList.get(0);
-                    ShippingItem item = new ShippingItem(catalogItem.getName(), Integer.parseInt(ship.getQuantity()), catalogItem.getPrice());
+                    ShippingItem item = new ShippingItem(catalogItem.getName(), Integer.parseInt(ship.getQuantity()), catalogItem.getPrice(), ship.getOrder_ID());
                     itemList.add(item);
                 }
             }
-            session.setAttribute("itemlist", itemList);
+            req.setAttribute("itemlist", itemList);
             return new ActionResult("getshippinglist");
         }
     }
