@@ -6,10 +6,10 @@
 <div class="container">
     <div class="userdata">
         <div class="row">
-            <div class=col-md-2>Имя</div>
-            <div class=col-md-2>Пароль</div>
+            <div class=col-md-2>Name</div>
+            <div class=col-md-2>Password</div>
             <div class=col-md-2>Email</div>
-            <div class=col-md-2>Телефон</div>
+            <div class=col-md-2>Phone</div>
         </div>
     </div>
 
@@ -33,11 +33,11 @@
                         <input id="phone" class="form-control input-md" name="phone"
                                 value="${user.phone}"/>
                     </div>
-                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
-                        Обновить
+                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-2">
+                        Update
                     </button>
-                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
-                        Удалить
+                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-2">
+                        Delete
                     </button>
                 </div>
             </form>
@@ -48,11 +48,11 @@
 
     <div class="address">
                 <div class="row">
-                    <div class=col-md-2>Страна</div>
-                    <div class=col-md-2>Город</div>
-                    <div class=col-md-2>Улица</div>
-                    <div class=col-md-2>Здание</div>
-                    <div class=col-md-2>Квартира</div>
+                    <div class=col-md-2>Country</div>
+                    <div class=col-md-2>City</div>
+                    <div class=col-md-2>Street</div>
+                    <div class=col-md-2>Building</div>
+                    <div class=col-md-2>Apt</div>
                     <div class=col-md-2>ZIP</div>
                 </div>
             </div>
@@ -87,8 +87,8 @@
                         </div>
                     </div>
                     <p></p>
-                    <button id="AddUpdate" value="Update" name="AddUpdate" class="btn btn-success col-md-1">
-                         Обновить
+                    <button id="AddUpdate" value="Update" name="AddUpdate" class="btn btn-success col-md-2">
+                         Update
                     </button>
                 </form>
                 <p></p>

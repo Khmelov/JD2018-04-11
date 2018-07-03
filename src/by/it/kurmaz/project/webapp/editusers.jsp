@@ -13,7 +13,6 @@
             <div class=col-md-2>Карма</div>
         </div>
     </div>
-
     <div class="container">
         <c:forEach items="${users}" var="user">
             <form class="update-user-${user.id}" action="do?command=editUsers" method=POST>
@@ -44,11 +43,9 @@
                           <option selected="${user.carma}">${user.carma}</option>
                         </select>
                     </div>
-
                     <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
                         Обновить
                     </button>
-
                     <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
                         Удалить
                     </button>

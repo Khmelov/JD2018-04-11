@@ -12,10 +12,10 @@
     <div class="container">
         <div class="catalog">
             <div class="row">
-                <div class=col-md-2>Название</div>
-                <div class=col-md-2>Кол-во на складе</div>
-                <div class=col-md-2>Цена</div>
-                <div class=col-md-2>Заказать</div>
+                <div class=col-md-2>Name</div>
+                <div class=col-md-2>Stock Amount</div>
+                <div class=col-md-2>Price</div>
+                <div class=col-md-2>Order!</div>
             </div>
         </div>
        <div class="catalog">
@@ -34,10 +34,10 @@
                        </div>
                        <div class=col-md-2>
                            <input id="amount" class="form-control input-md" name="amount"
-                                   value="0"/>
+                           value="0"/>
                        </div>
                        <button id="add" value="add" name="add" class="btn btn-success col-md-1">
-                           Заказать
+                           Order!
                        </button>
                    </div>
                </form>

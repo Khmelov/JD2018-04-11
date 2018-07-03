@@ -16,7 +16,7 @@ class CmdEditUsers extends Cmd {
             int id = Util.getInteger(req, "id");
             String login = Util.getString(req, "login");
             String email = Util.getEmail(req, "email");
-            String password = Util.getString(req, "password");
+            String password = req.getParameter("password");
             String phone = Util.getString(req, "phone");
             String carma = Util.getString(req, "carma");
             User user = new User(id, login, password, email, phone, carma, 2);

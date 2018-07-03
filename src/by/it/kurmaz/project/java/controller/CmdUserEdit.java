@@ -22,7 +22,7 @@ class CmdUserEdit extends Cmd {
             else if (req.getParameter("Update") != null) {
                 String login = Util.getString(req, "login");
                 String email = Util.getEmail(req, "email");
-                String password = Util.getString(req, "password");
+                String password = req.getParameter("password");
                 String phone = Util.getString(req, "phone");
                 user.setPassword(password);
                 user.setEmail(email);

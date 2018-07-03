@@ -2,7 +2,6 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-<h1 align = "center">Welcome!<span class="badge badge-secondary">Under Construction</span></h1>
 <div class="container">
     <form class="form-horizontal"  method="post" action="do?command=index">
     <fieldset>

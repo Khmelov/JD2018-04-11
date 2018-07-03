@@ -4,14 +4,11 @@
 <body>
 <%@ include file="include/adminka.htm" %>
 <div class="container">
-    <div class="container">
-        <div class="row">
-            <div class=col-md-2>Название</div>
-            <div class=col-md-2>Остаток</div>
-            <div class=col-md-2>Цена</div>
-        </div>
+    <div class="row">
+        <div class=col-md-2>Название</div>
+        <div class=col-md-2>Остаток</div>
+        <div class=col-md-2>Цена</div>
     </div>
-    <div class="container">
         <c:forEach items="${items}" var="item">
             <form class="update-item-${item.ID}" action="do?command=EditCatalog" method=POST>
                 <div class="row">
@@ -28,17 +25,18 @@
                         <input id="price" class="form-control input-md" name="price"
                         value="${item.price}"/>
                     </div>
-                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
-                        Обновить
-                    </button>
-                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
-                        Удалить
-                    </button>
+                    <div class=col-md-4>
+                        <button id="Update" value="Update" name="Update" class="btn btn-success col-md-4">
+                            Обновить
+                        </button>
+                        <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-4">
+                            Удалить
+                        </button>
+                    </div>
                 </div>
             </form>
             <p></p>
         </c:forEach>
-    </div>
 </div>
 </body>
 </html>

@@ -11,38 +11,37 @@
     </c:when>
 </c:choose>
      <div class="container">
-         <div class="row">
-             <div class=col-md-2>Наименование</div>
-             <div class=col-md-2>Количество</div>
-             <div class=col-md-2>Цена</div>
-             <div class=col-md-2>Номер заказа</div>
-         </div>
-     </div>
-     <div class="container">
-         <c:forEach items="${itemlist}" var="item">
-             <div class="row">
-                 <div class=col-md-2>
-                     <p>${item.name}</p>
-                 </div>
-                 <div class=col-md-2>
-                     <p>${item.amount}</p>
-                 </div>
-                 <div class=col-md-2>
-                      <p>${item.price}</p>
-                 </div>
-                 <div class=col-md-2>
-                   <p>${item.order_id}</p>
-                 </div>
+        <div class="col-md-9 col-lg-9 col-md-offset-2 col-lg-offset-2 toppad" >
+           <div class="panel panel-info">
+             <div class="panel-heading">
+               <h3 class="panel-title">Ordered Goods</h3>
              </div>
-             <p></p>
-         </c:forEach>
+              <div class="panel-body">
+                <table class="table table-order-information">
+                    <tbody>
+                        <tr>
+                           <td>Name</td>
+                           <td>Amount</td>
+                           <td>Price</td>
+                           <td>Order #</td>
+                        </tr>
+                        <c:forEach items="${itemlist}" var="item">
+                        <tr>
+                           <td>${item.name}</td>
+                           <td>${item.amount}</td>
+                           <td>${item.price}</td>
+                           <td>${item.order_id}</td>
+                        </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+              </div>
+           </div>
+           <form class="update-list" action="do?command=profile" method=POST>
+            <button id="return" name="return" class="btn btn-primary">Return</button>
+           </form>
+        </div>
      </div>
-         <form class="update-list" action="do?command=profile" method=POST>
-         <button id="Return" value="Return" name="Return" class="btn btn-success col-md-2">
-             Вернуться
-         </button>
-         </form>
- </div>
 </body>
 </html>
 
