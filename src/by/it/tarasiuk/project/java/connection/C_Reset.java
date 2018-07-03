@@ -15,7 +15,7 @@ public class C_Reset {
 
     public static void db_reset() {
         try (Connection connection =
-                     DriverManager.getConnection(CN.DB_URL, CN.DB_USER, CN.DB_PASSWORD);
+                     DriverManager.getConnection(DB.DB_URL, DB.DB_USER, DB.DB_PASSWORD);
              Statement statement = connection.createStatement()) {
             statement.executeUpdate("DROP SCHEMA IF EXISTS `tarasiuk`;");
         } catch (Exception e) {

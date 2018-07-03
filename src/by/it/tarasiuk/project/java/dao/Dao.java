@@ -14,7 +14,13 @@ public class Dao {
         advert = new AdvertDao();
     }
 
-    public static void reset() {C_Init.db_init();}
+    public static void init() {
+        C_Init.db_init();
+    }
+
+    public static void reset() {
+        C_Reset.db_reset();
+    }
 
     public static Dao getDao() {
         if (dao == null) {

@@ -4,31 +4,36 @@ enum Action {
     INDEX {
         {
             cmd = new CmdIndex();
-//            jsp = "/index.jsp";
         }
     },
     LOGIN {
         {
             cmd = new CmdLogin();
-//            jsp = "/login.jsp";
         }
     },
     SIGNUP {
         {
             cmd = new CmdSignUp();
-//            jsp = "/signup.jsp";
         }
     },
     PROFILE {
         {
             cmd = new CmdProfile();
-//            jsp = "/profile.jsp";
         }
     },
     CREATEADVERT {
         {
             cmd = new CmdCreateAdvert();
-//            jsp = "/createadvert.jsp";
+        }
+    },
+    EDITUSERS {
+        {
+            cmd = new CmdEditUsers();
+        }
+    },
+    INITDB {
+        {
+            cmd = new CmdInitDb();
         }
     },
     RESETDB {
@@ -39,7 +44,6 @@ enum Action {
     ERROR {
         {
             cmd = new CmdError();
-//            jsp = "/error.jsp";
         }
     };
     Cmd cmd = new CmdError();

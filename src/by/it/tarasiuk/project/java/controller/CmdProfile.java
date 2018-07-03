@@ -18,17 +18,26 @@ class CmdProfile extends Cmd {
         if (objUser == null)
             return Action.LOGIN;
 
+        User user = (User) objUser;
+
         if (Util.isPost(req)) {
-            if (req.getParameter("logout") != null) {
+            if (req.getParameter("update") != null) {
+                String login = Util.getString(req, "login");
+                String password = Util.getString(req, "password");
+                String email = Util.getString(req, "email");
+                user.setLogin(login);
+                user.setEmail(email);
+                user.setPassword(password);
+                Dao.getDao().user.update(user);
+            } else if (req.getParameter("logout") != null) {
                 session.invalidate();
                 return Action.LOGIN;
             }
         }
 
-        User user = (User) objUser;
         String where = String.format(Locale.US, " WHERE users_id=%d", user.getId());
         List<Advert> adverts = Dao.getDao().advert.getAll(where);
-        req.setAttribute("adverts",adverts);
+        req.setAttribute("adverts", adverts);
         return null;
     }
 }

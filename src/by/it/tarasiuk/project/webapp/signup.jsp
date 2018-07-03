@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
@@ -9,7 +10,7 @@
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Sign Up Form</legend>
+            <legend>Регистрация нового пользователя</legend>
 
             <!-- Text input-->
             <div class="form-group">
@@ -35,7 +36,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email">Email</label>
                 <div class="col-md-4">
-                    <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
+                    <input id="email" name="email" type="email" placeholder="" class="form-control input-md" required=""
                     value="newEmail@email.com">
                     <span class="help-block">${help_email}</span>
                 </div>
@@ -45,7 +46,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
+                    <button id="submit" name="submit" class="btn btn-success">Зарегистрироваться</button>
                 </div>
             </div>
 
