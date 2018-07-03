@@ -1,31 +1,39 @@
 package by.it.rogov.progect.java.controller;
 
-public enum Actions {
+ enum Action {
     INDEX {
         {
             cmd = new CmdIndex();
-            jsp = "/index.jsp";
         }
     },
     LOGIN {
         {
             cmd = new CmdLogin();
-            jsp = "/login.jsp";
         }
     },
+     RESETDB {
+        {
+            cmd = new CmdResetDB();
+
+        }
+    },
+     LABRARY {
+         {
+             cmd = new CmdLabrary();
+
+         }
+     },
     SIGNUP {
         {
             cmd = new CmdSignUp();
-            jsp = "/signup.jsp";
         }
     },
     ERROR {
         {
             cmd = new CmdError();
-            jsp = "/error.jsp";
         }
     };
-    Cmd cmd = new CmdError();
-    String jsp = "/error.jsp";
+     Cmd cmd = new CmdError();
+     String jsp = "/"+this.toString().toLowerCase()+".jsp";
 
 }

@@ -1,7 +1,9 @@
-package by.it.rogov.jd03_04.utiles;
+package by.it.rogov.progect.java.dao.utiles;
 
 
-import by.it.rogov.jd03_04.connection.DBConnection;
+
+
+import by.it.rogov.progect.java.connection.DBConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
