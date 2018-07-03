@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+%@ page  language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -19,11 +20,11 @@
                     <c:forEach items="${books_in_category}" var="book">
                         <form class="form-horizontal" action="do?command=category&categoryId=${category.id}&bookToBasketId=${book.id}" method="post">
                             <tr>
-                                <td>${book.author}</td>
-                                <td>${book.name}</td>
-                                <td>${book.price}</td>
+                                <td>${books.author}</td>
+                                <td>${books.name}</td>
+                                <td>${books.price}</td>
                                 <td>
-                                    <c:if test="${buyer!=null}">
+                                    <c:if test="${user!=null}">
                                         <button id="toBasket" value="toBasket" name="toBasket" class="btn btn-success">
                                             в корзину
                                         </button>

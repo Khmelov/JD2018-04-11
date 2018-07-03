@@ -16,7 +16,7 @@ public class BookDAO extends DAO implements I_DAO<Book> {
     public boolean create(Book book) throws SQLException {
         book.setId(0);
         int id = executeUpdate(String.format("INSERT INTO `books`(`name`, `author`, `price`, `Category_id`) " +
-                        "VALUES ('%s','%s','%s','%d')",
+                        "VALUES ('%s','%s','%d','%d')",
                 book.getName(), book.getAuthor(), book.getPrice(), book.getCategory_id()));
         if (id > 0) book.setId(id);
         return id > 0;
@@ -32,7 +32,7 @@ public class BookDAO extends DAO implements I_DAO<Book> {
     public boolean update(Book book) throws SQLException {
         return 1 == executeUpdate(
                 String.format("UPDATE `books` " +
-                                "SET `name`='%s',`author`='%s',`price`='%s',`Category_id`='%d' WHERE id=%d",
+                                "SET `name`='%s',`author`='%s',`price`='%d',`Category_id`='%d' WHERE id=%d",
                         book.getName(), book.getAuthor(), book.getPrice(), book.getCategory_id(), book.getId()));
     }
 
@@ -45,23 +45,24 @@ public class BookDAO extends DAO implements I_DAO<Book> {
     @Override
     public List<Book> getAll(String where) throws SQLException {
         List<Book> bookList = new ArrayList<>();
-        String sql = "SELECT * FROM `books`" + where + ";";
+                String sql = "SELECT * FROM `books`" + where + ";";
         try (Connection connection = DbConnection.getConnection();
+
              Statement statement = connection.createStatement();
-            ResultSet books = statement.executeQuery(sql)
-                  ) {
-            while (books.next()) {
-                bookList.add(
-                        new Book(
-                                books.getInt("id"),
-                                books.getString("name"),
-                                books.getString("author"),
-                                books.getInt("price"),
-                                books.getInt("Category_id")
-                        )
-                );
+             ResultSet books = statement.executeQuery(sql)
+                            ) {
+                while (books.next()) {
+                    bookList.add(
+                            new Book(
+                                    books.getInt("id"),
+                                    books.getString("name"),
+                                    books.getString("author"),
+                                    books.getInt("price"),
+                                    books.getInt("Category_id")
+                            )
+                    );
+                }
             }
+            return bookList;
         }
-        return bookList;
     }
-}

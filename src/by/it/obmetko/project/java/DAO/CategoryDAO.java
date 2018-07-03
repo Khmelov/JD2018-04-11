@@ -16,7 +16,7 @@ public class CategoryDAO extends DAO implements I_DAO<Category> {
     public boolean create(Category category) throws SQLException {
         category.setId(0);
         int id = executeUpdate(
-                String.format("INSERT INTO `category`(`CategoryName`, `Catalog_id`) VALUES ('%s','%d')",
+                String.format("INSERT INTO `category`(`categoryName`, `Catalog_id`) VALUES ('%s','%d')",
                         category.getCategoryName(), category.getCatalog_id()));
         if (id > 0) category.setId(id);
         return id > 0;
@@ -31,7 +31,7 @@ public class CategoryDAO extends DAO implements I_DAO<Category> {
     @Override
     public boolean update(Category category) throws SQLException {
         return 1 == executeUpdate(
-                String.format("UPDATE `category` SET `CategoryName`='%s',`Catalog_id`='%d' WHERE id=%d",
+                String.format("UPDATE `category` SET `categoryName`='%s',`Catalog_id`='%d' WHERE id=%d",
                         category.getCategoryName(), category.getCatalog_id(), category.getId()));
     }
 
@@ -44,21 +44,21 @@ public class CategoryDAO extends DAO implements I_DAO<Category> {
     @Override
     public List<Category> getAll(String where) throws SQLException {
         List<Category> categoryList = new ArrayList<>();
-        String sql = "SELECT * FROM `category`" + where + ";";
+                String sql = "SELECT * FROM `category`" + where + ";";
         try (Connection connection = DbConnection.getConnection();
-             Statement statement = connection.createStatement();
-            ResultSet categories = statement.executeQuery(sql)
-            ) {
-            while (categories.next()) {
-                categoryList.add(
-                        new Category(
-                                categories.getInt("id"),
-                                categories.getString("CategoryName"),
-                                categories.getInt("Catalog_id")
-                        )
-                );
+                        Statement statement = connection.createStatement();
+                         ResultSet categories = statement.executeQuery(sql)
+                            ) {
+                while (categories.next()) {
+                    categoryList.add(
+                            new Category(
+                                    categories.getInt("id"),
+                                    categories.getString("categoryName"),
+                                    categories.getInt("Catalog_id")
+                            )
+                    );
+                }
             }
+            return categoryList;
         }
-        return categoryList;
     }
-}

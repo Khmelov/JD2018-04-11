@@ -14,7 +14,7 @@ public class CommandInitDB extends ActionCommand {
             CreateAllTables.main(null);
             req.setAttribute(Msg.MESSAGE, "База данных восстановлена!!!");
         }
-            return Action.INITDB.command;
+            return Actions.INITDB.command;
         }
 
 }

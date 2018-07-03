@@ -19,7 +19,7 @@
                         <input id="id" class="form-control input-md" name="id"
                                value="${role.id}"/>
                     </div>
-                    <div class=col-md-3>
+                    <div class=col-md-2>
                         <input id="role" class="form-control input-md" name="role"
                                value="${role.role}"/>
                     </div>
@@ -57,7 +57,7 @@
                        <input id="id" class="form-control input-md" name="id"
                               value="0"/>
                    </div>
-                   <div class=col-md-3>
+                   <div class=col-md-2>
                        <input id="role" class="form-control input-md" name="role"/>
                    </div>
 

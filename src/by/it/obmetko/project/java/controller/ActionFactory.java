@@ -8,10 +8,10 @@ public class ActionFactory {
         ActionCommand command;
         String action=req.getParameter("command");
         try {
-            Action currentEnum = Action.valueOf(action.toUpperCase());
+            Actions currentEnum = Actions.valueOf(action.toUpperCase());
             command=currentEnum.command;
         }catch (IllegalArgumentException e){
-            command=Action.ERROR.command;
+            command=Actions.ERROR.command;
         }
         return command;
     }

@@ -111,7 +111,7 @@ public class Runner {
         System.out.println("чтение всех: " + dao.listOfPurchasesDAO.getAll(""));
         dao.listOfPurchasesDAO.delete(list);
         System.out.println("удаление: " + list);*/
-        System.out.println(new BuyerDAO().read("TestLogin","TestPassword"));
+        //System.out.println(new UserDAO().read("TestLogin","TestPassword"));
 
     }
 }

@@ -118,7 +118,7 @@
                            <select id="Category_id" name="Category_id" class="form-control">
                                <c:forEach items="${categories}" var="category">
                                    <option value="${category.id}" role=${category.id} "selected"}>
-                                           ${category.CategoryName}
+                                           ${category.categoryName}
                                    </option>
                                </c:forEach>
                            </select>

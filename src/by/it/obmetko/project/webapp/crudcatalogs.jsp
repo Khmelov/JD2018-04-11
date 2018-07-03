@@ -5,7 +5,8 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-<div class="row">
+<div class="container">
+    <div class="row">
          <div class=col-md-1>ID</div>
          <div class=col-md-2>catalogName</div>
     </div>
@@ -66,8 +67,7 @@
                </div>
             </form>
         </div>
-    </div>
-
+        </div>
 </div>
 </body>
 </html>

@@ -16,7 +16,7 @@ public class RoleDAO extends DAO implements I_DAO<Role> {
     public boolean create(Role role) throws SQLException {
         role.setId(0);
         int id = executeUpdate(
-                String.format("INSERT INTO `obmetko`.`roles`(`role`) VALUES ('%s')", role.getRole()));
+                String.format("INSERT INTO `roles`(`role`) VALUES ('%s')", role.getRole()));
         if (id > 0) role.setId(id);
         return id > 0;
     }
@@ -42,20 +42,21 @@ public class RoleDAO extends DAO implements I_DAO<Role> {
     @Override
     public List<Role> getAll(String where) throws SQLException {
         List<Role> roleList = new ArrayList<>();
-        String sql = "SELECT * FROM `roles`" + where + ";";
-        try (Connection connection = DbConnection.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet roles = statement.executeQuery(sql)
+        String sql = "SELECT * FROM `Roles`" + where + ";";
+
+        try (
+                Connection connection = DbConnection.getConnection();
+                Statement statement = connection.createStatement();
+                ResultSet Roles = statement.executeQuery(sql)
+
         ) {
-            while (roles.next()) {
+            while (Roles.next()) {
                 roleList.add(
                         new Role(
-                                roles.getInt("id"),
-                                roles.getString("role")
-                        )
-                );
+                                Roles.getInt("id"),
+                                Roles.getString("role")));
             }
         }
         return roleList;
+        }
     }
-}

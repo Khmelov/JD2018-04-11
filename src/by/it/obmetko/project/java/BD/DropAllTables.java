@@ -27,7 +27,7 @@ public class DropAllTables {
             statement.executeUpdate("DROP TABLE IF EXISTS `Books` ;");
             statement.executeUpdate("DROP TABLE IF EXISTS `Category` ;");
             statement.executeUpdate("DROP TABLE IF EXISTS `Catalog` ;");
-            statement.executeUpdate("DROP TABLE IF EXISTS `Buyers` ;");
+            statement.executeUpdate("DROP TABLE IF EXISTS `Users` ;");
             statement.executeUpdate("DROP TABLE IF EXISTS `Roles` ;");
 
             // удаление всей БД сразу

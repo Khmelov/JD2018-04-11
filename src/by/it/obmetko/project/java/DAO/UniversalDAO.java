@@ -91,47 +91,47 @@ public class UniversalDAO<T> extends DAO implements I_DAO<T> {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        return 0 < executeUpdate(sql.toString());
+
+               return 0 < executeUpdate(sql.toString());
     }
 
     public List<T> getAll(String where) throws SQLException {
         List<T> beanList = new ArrayList<>();
-        String sql = "SELECT * FROM `" + tableName + "` " + where + ";";
+                String sql = "SELECT * FROM `" + tableName + "` " + where + ";";
         try (Connection connection = DbConnection.getConnection();
              Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql)
-                        ) {
-            while (resultSet.next()) {
-                T newBean = (T) bean.getClass().newInstance();
-                for (int i = 1; i < fields.size() + 1; i++) {
-                    Field field = fields.get(i - 1);
-                    field.setAccessible(true);
-                    String type = field.getType().toString();
-                    if (field.getType() == Boolean.class || type.equals("boolean"))
-                        field.set(newBean, resultSet.getBoolean(field.getName()));
-                    if (field.getType() == Byte.class || type.equals("byte"))
-                        field.set(newBean, resultSet.getByte(field.getName()));
-                    if (field.getType() == Integer.class || type.equals("int"))
-                        field.set(newBean, resultSet.getInt(field.getName()));
-                    if (field.getType() == Double.class || type.equals("double"))
-                        field.set(newBean, resultSet.getDouble(field.getName()));
-                    if (field.getType() == Float.class || type.equals("float"))
-                        field.set(newBean, resultSet.getFloat(field.getName()));
-                    if (field.getType() == Long.class || type.equals("long"))
-                        field.set(newBean, resultSet.getLong(field.getName()));
-                    if (field.getType() == Short.class || type.equals("short"))
-                        field.set(newBean, resultSet.getShort(field.getName()));
-                    if (field.getType() == String.class)
-                        field.set(newBean, resultSet.getString(field.getName()));
-                    if (field.getType() == Date.class)
-                        field.set(newBean, resultSet.getDate(field.getName()));
+                         ResultSet resultSet = statement.executeQuery(sql)
+                            ) {
+                while (resultSet.next()) {
+                    T newBean = (T) bean.getClass().newInstance();
+                    for (int i = 1; i < fields.size() + 1; i++) {
+                        Field field = fields.get(i - 1);
+                        field.setAccessible(true);
+                        String type = field.getType().toString();
+                        if (field.getType() == Boolean.class || type.equals("boolean"))
+                            field.set(newBean, resultSet.getBoolean(field.getName()));
+                        if (field.getType() == Byte.class || type.equals("byte"))
+                            field.set(newBean, resultSet.getByte(field.getName()));
+                        if (field.getType() == Integer.class || type.equals("int"))
+                            field.set(newBean, resultSet.getInt(field.getName()));
+                        if (field.getType() == Double.class || type.equals("double"))
+                            field.set(newBean, resultSet.getDouble(field.getName()));
+                        if (field.getType() == Float.class || type.equals("float"))
+                            field.set(newBean, resultSet.getFloat(field.getName()));
+                        if (field.getType() == Long.class || type.equals("long"))
+                            field.set(newBean, resultSet.getLong(field.getName()));
+                        if (field.getType() == Short.class || type.equals("short"))
+                            field.set(newBean, resultSet.getShort(field.getName()));
+                        if (field.getType() == String.class)
+                            field.set(newBean, resultSet.getString(field.getName()));
+                        if (field.getType() == Date.class)
+                            field.set(newBean, resultSet.getDate(field.getName()));
+                    }
+                    beanList.add(newBean);
                 }
-                beanList.add(newBean);
+            } catch (IllegalAccessException | InstantiationException e) {
+                e.printStackTrace();
             }
-        } catch (IllegalAccessException | InstantiationException e) {
-            e.printStackTrace();
+            return beanList;
         }
-        return beanList;
     }
-}
-

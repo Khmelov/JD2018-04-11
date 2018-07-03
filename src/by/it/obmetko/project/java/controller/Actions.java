@@ -3,7 +3,7 @@ package by.it.obmetko.project.java.controller;
 import by.it.obmetko.project.java.commands.*;
 import by.it.obmetko.project.java.commands.crud.*;
 
-public enum Action {
+public enum Actions {
     LOGIN {
         {
             this.command = new CommandLogIn();
@@ -52,9 +52,9 @@ public enum Action {
             {
                 this.command = new CommandCrudCatalogs();
             }
-        },CRUDBuyerS{
+        },CRUDUSERS{
             {
-                this.command = new CommandCrudBuyer();
+                this.command = new CommandCrudUsers();
             }
         },CRUDBOOKS{
             {
@@ -69,6 +69,10 @@ public enum Action {
                 this.command = new CommandCrudListOfPurchases();
             }
             };
+/*},CATALOG{
+        {
+        this.command = new CommandCatalog();
+        }*/
 
     public ActionCommand command;
 

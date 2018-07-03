@@ -5,9 +5,10 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-<div class="row">
+<div class="container">
+    <div class="row">
          <div class=col-md-1>ID</div>
-         <div class=col-md-2>buyers_id</div>
+         <div class=col-md-2>users_id</div>
          <div class=col-md-2>books_id</div>
     </div>
 </div>
@@ -22,8 +23,8 @@
                     </div>
 
                     <div class=col-md-2>
-                        <input id="buyers_id" class="form-control input-md" name="buyers_id"
-                               value="${list.buyers_id}"/>
+                        <input id="users_id" class="form-control input-md" name="users_id"
+                               value="${list.users_id}"/>
                     </div>
                     <div class=col-md-2>
                         <input id="books_id" class="form-control input-md" name="books_id"
@@ -53,7 +54,7 @@
             <div class="container">
                 <div class="row">
                      <div class=col-md-1>ID</div>
-                     <div class=col-md-2>buyers_id</div>
+                     <div class=col-md-2>users_id</div>
                      <div class=col-md-2>books_id</div>
                 </div>
             </div>
@@ -66,8 +67,8 @@
                     </div>
 
                     <div class=col-md-2>
-                        <input id="buyers_id" class="form-control input-md" name="buyers_id"
-                               value="${list.buyers_id}"/>
+                        <input id="users_id" class="form-control input-md" name="users_id"
+                               value="${list.users_id}"/>
                     </div>
                     <div class=col-md-2>
                         <input id="books_id" class="form-control input-md" name="books_id"
@@ -81,8 +82,6 @@
             </form>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

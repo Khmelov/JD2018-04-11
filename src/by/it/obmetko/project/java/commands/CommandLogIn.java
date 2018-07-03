@@ -1,7 +1,7 @@
 package by.it.obmetko.project.java.commands;
 
-import by.it.obmetko.project.java.DAO.BuyerDAO;
-import by.it.obmetko.project.java.DAO.beens.Buyer;
+import by.it.obmetko.project.java.DAO.DAO;
+import by.it.obmetko.project.java.DAO.beens.User;
 import by.it.obmetko.project.java.controller.*;
 import org.apache.commons.codec.binary.Base64;
 
@@ -12,42 +12,40 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class CommandLogIn extends ActionCommand {
 
     @Override
-    public ActionCommand execute(HttpServletRequest req, HttpServletResponse resp) throws ParseException, SQLException {       HttpSession session = req.getSession();
-        if (session.getAttribute(Msg.BUYER) != null) {
-            CommandError.errorMassage = "Вы уже вошли на сайт";
-            CommandError.errorDetails = "<h5>details:</h5>" + Arrays.toString(new Exception().getStackTrace());
-            return Action.ERROR.command;
+    public ActionCommand execute(HttpServletRequest req, HttpServletResponse resp) throws ParseException, SQLException {
+            if (FormUtil.isPost(req)) {
+                String login = FormUtil.getString(req, "login");
+                String password = FormUtil.getString(req, "password");
+                if (login != null && password != null) {
+                    String where = String.format(Locale.US,
+                            " WHERE login='%s' AND password='%s' ",
+                            login, password);
+                    List<User> users = DAO.getDao().userDAO.getAll(where);
+                    if (users.size() > 0) {
+                        User user = users.get(0);
+                        HttpSession session = req.getSession();
+                        session.setAttribute("user", user);
+                        setCookies(resp, user);
+                        setCookies(resp, user);
+                        return Actions.PROFILE.command;
+                    }
+                }
+            }
+            return null;
+
         }
-        if (!FormUtil.isPost(req)) return Action.LOGIN.command;
 
-              String login = FormUtil.getString(req.getParameter("email"), req.getParameter("Login"));
-                String password = FormUtil.getString(req.getParameter("email"), req.getParameter("Password"));
-        try {
-                      Buyer buyer = new BuyerDAO().read(new BuyerDAO().read(login, password));
-            session.setAttribute(Msg.BUYER, buyer);
-            session.setMaxInactiveInterval(30);
-            req.setAttribute(Msg.MESSAGE, "Залогинился пользователь" + buyer.getLogin());
 
-            setCookies(resp, buyer);
-
-        } catch (NullPointerException e) {
-            CommandError.errorMassage = "Такого пользователя не существует";
-            CommandError.errorDetails = "<h5>details:</h5>" + Arrays.toString(e.getStackTrace());
-            return Action.ERROR.command;
-        }
-        return Action.PROFILE.command;
-    }
-
-    void setCookies(HttpServletResponse resp, Buyer buyer) {
+    void setCookies(HttpServletResponse resp, User user) {
         List<Cookie> cookies = new ArrayList<>(2);
-        cookies.add(new Cookie("loginCookie", encodeCookie(buyer.getLogin())));
-        cookies.add(new Cookie("passwordCookie", encodeCookie(buyer.getPassword())));
+        cookies.add(new Cookie("loginCookie", encodeCookie(user.getLogin())));
+        cookies.add(new Cookie("passwordCookie", encodeCookie(user.getPassword())));
         cookies.get(0).setMaxAge(60);
         cookies.get(1).setMaxAge(60);
         resp.addCookie(cookies.get(0));

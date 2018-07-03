@@ -5,41 +5,35 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-<form class="form-horizontal"  action="do?command=InitDB" method="post">
-     <p><b><c:out value="${buyer.login}"/>У вас в корзине:</b></p>
-             <table class="table">
-                 <thead>
-                     <tr>
-                         <th scope="col">Автор</th>
-                         <th scope="col">Название</th>
-                         <th scope="col">Цена</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <c:forEach items="${purchases}" var="book">
-                         <tr>
-                             <td>${book.author}</td>
-                             <td>${book.name}</td>
-                             <td>${book.price}</td>
-                         </tr>
-                     </c:forEach>
-                 </tbody>
-             </table>
+ <p><b><c:out value="${user.login}"/>, у вас в корзине:</b></p>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th scope="col">Автор</th>
+                      <th scope="col">Название</th>
+                      <th scope="col">Цена</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <c:forEach items="${purchases}" var="book">
+                      <tr>
+                          <td>${book.author}</td>
+                          <td>${book.name}</td>
+                          <td>${book.price}</td>
+                      </tr>
+                  </c:forEach>
+              </tbody>
+          </table>
+          <br><br>
 
+             <c:if test="${user!=null}">
+                  <button id="No action" value="No action" name="No action" class="btn btn-success" disabled>
+                      Оформить заказ
+                  </button>
+              </c:if>
+          <br><br>
 
-             <br><br>
-                 <c:if test="${buyer!=null}">
-                     <button id="No action" value="No action" name="No action" class="btn btn-success" disabled>
-                         Оформить заказ
-                     </button>
-                 </c:if>
-             <br><br>
-
-
-          <div class="row">
-              <mytag:paginator count="${size}" step="5" urlprefix="do?command=basket&step=5&start="/>
-          </div>
-
+  <!--<p><b>${purchases_table}</b></p>-->
 
 </div>
 </body>

@@ -1,6 +1,6 @@
 package by.it.obmetko.project.java.commands;
 
-import by.it.obmetko.project.java.controller.Action;
+import by.it.obmetko.project.java.controller.Actions;
 import by.it.obmetko.project.java.controller.ActionCommand;
 import by.it.obmetko.project.java.controller.Msg;
 
@@ -17,6 +17,6 @@ public class CommandError extends ActionCommand {
     @Override
     public ActionCommand execute(HttpServletRequest req, HttpServletResponse resp) throws ParseException, SQLException {      req.setAttribute(Msg.ERROR, errorMassage);
                 req.setAttribute(Msg.ERROR_DETAILS, errorDetails);
-                return Action.ERROR.command;
+                return Actions.ERROR.command;
             }
 }

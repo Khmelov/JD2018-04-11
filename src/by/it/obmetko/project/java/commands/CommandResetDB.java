@@ -15,7 +15,7 @@ public class CommandResetDB extends ActionCommand {
             DropAllTables.main(null);
             req.setAttribute(Msg.MESSAGE, "База данных удалена!!!");
         }
-            return Action.RESETDB.command;
+            return Actions.RESETDB.command;
         }
 
 }

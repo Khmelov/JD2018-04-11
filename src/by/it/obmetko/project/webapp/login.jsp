@@ -6,7 +6,7 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <p>Buyer: ${buyer}</p>
+    <p>User: ${user}</p>
 
     <form class="form-horizontal" method="post" action="do?command=Login">
         <fieldset>
@@ -23,6 +23,15 @@
                     <span class="help-block">${help_login}</span>
                 </div>
             </div>
+            <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="email">Email</label>
+                            <div class="col-md-4">
+                                <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
+                                       value="TestEmail@google.com">
+                                <span class="help-block">${help_email}</span>
+                            </div>
+                        </div>
 
             <!-- Password input-->
             <div class="form-group">
@@ -38,7 +47,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
+                    <button id="submit" name="submit" class="btn btn-success">Войти</button>
                 </div>
             </div>
 
@@ -48,4 +57,5 @@
 </div>
 </body>
 </html>
+
 

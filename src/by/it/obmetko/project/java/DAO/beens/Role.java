@@ -7,8 +7,6 @@ public class Role implements Serializable {
     private int id;
     private String role;
 
-    public Role() {
-    }
 
     public Role(int id, String role) {
         this.id = id;
@@ -35,9 +33,9 @@ public class Role implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Role role1 = (Role) o;
-        return id == role1.id &&
-                Objects.equals(role, role1.role);
+        Role role = (Role) o;
+        return id == role.id &&
+                Objects.equals(role, role.role);
     }
 
     @Override

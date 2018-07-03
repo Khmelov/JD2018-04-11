@@ -6,52 +6,50 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <form class="form-horizontal" method="post" action="do?command=SignUp">
-        <fieldset>
+    <form class="form-horizontal" action="do?command=Signup" method="post">
+         <fieldset>
 
-            <!-- Form Name -->
-            <legend>Sign Up Form</legend>
+             <!-- Form Name -->
+             <legend>Form Signup</legend>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
-                <div class="col-md-4">
-                    <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
-                    value="testLogin">
-                    <span class="help-block">${help_login}</span>
-                </div>
-            </div>
+             <!-- Text input-->
+             <div class="form-group">
+                 <label class="col-md-4 control-label" for="Login">Login</label>
+                 <div class="col-md-4">
+                     <input id="Login" name="Login" type="text" placeholder="" class="form-control input-md" required=""
+                     value="TestLogin">
+                 </div>
+             </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="email">Email</label>
-                <div class="col-md-4">
-                    <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
-                    value="testEmail@email.com">
-                    <span class="help-block">${help_email}</span>
-                </div>
-            </div>
+             <!-- Text input-->
+             <div class="form-group">
+                 <label class="col-md-4 control-label" for="Email">Email</label>
+                 <div class="col-md-4">
+                     <input id="Email" name="Email" type="text" placeholder="your Email" class="form-control input-md" required=""
+                     value="TestEmail@google.com" >
+                 </div>
+             </div>
 
-            <!-- Password input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
-                <div class="col-md-4">
-                    <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
-                    value="testPassword">
-                    <span class="help-block">${help_password}</span>
-                </div>
-            </div>
+             <!-- Password input-->
+             <div class="form-group">
+                 <label class="col-md-4 control-label" for="Password">Password</label>
+                 <div class="col-md-4">
+                     <input id="Password" name="Password" type="text" placeholder="placeholder" class="form-control input-md" required=""
+                     value="TestPassword">
+                     <span class="help-block">(min 6 symbols)</span>
+                 </div>
+             </div>
 
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-                <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
-                </div>
-            </div>
+             <!-- Button -->
+             <div class="form-group">
+                 <label class="col-md-4 control-label" for="singlebutton"></label>
+                 <div class="col-md-4">
+                     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Зарегистрироваться</button>
+                 </div>
+             </div>
 
-        </fieldset>
-    </form>
+         </fieldset>
+     </form>
 
 
 
