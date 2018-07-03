@@ -25,9 +25,9 @@ public class DaoUser extends AbstractDao implements InterfaceDAO<User> {
 
     @Override
     public boolean create(User user) throws SQLException {
-        String sql = String.format(Locale.US,"INSERT INTO `users`(`login`, `password`, `email`,  `roles_ID`) " +
+        String sql = String.format(Locale.US, "INSERT INTO `users`(`login`, `password`, `email`,  `roles_ID`) " +
                         "VALUES ('%s','%s','%s',%d)",
-                user.getLogin(),user.getPassword(),user.getEmail(),user.getRoles_id());
+                user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id());
         long id = executeUpdate(sql);
         if (id > 0) {
             user.setId(id);
@@ -41,7 +41,7 @@ public class DaoUser extends AbstractDao implements InterfaceDAO<User> {
         String sql = String.format(Locale.US,
                 "UPDATE `users` SET `login`='%s',`password`='%s',`email`='%s',`roles_ID`=%d " +
                         "WHERE id=%d",
-                user.getLogin(),user.getPassword(),user.getEmail(),user.getRoles_id(),user.getId());
+                user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id(), user.getId());
         return executeUpdate(sql) > 0;
     }
 
@@ -60,7 +60,7 @@ public class DaoUser extends AbstractDao implements InterfaceDAO<User> {
                 Connection connection = DBConnection.getConnection();
                 Statement statement = connection.createStatement()
         ) {
-            String sql = String.format(Locale.US,"SELECT `ID`, `login`, `password`, `email`, `phone`, `roles_ID` FROM `users` %s",
+            String sql = String.format(Locale.US, "SELECT `ID`, `login`, `password`, `email`, `roles_ID` FROM `users` %s",
                     whereAndOrder);
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {

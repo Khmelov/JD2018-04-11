@@ -23,6 +23,18 @@ package by.it.rogov.progect.java.controller;
 
          }
      },
+     EDITUSER {
+         {
+             cmd = new CmdEditUser();
+
+         }
+     },
+     CREATETEXT {
+         {
+             cmd = new CmdCreateText();
+
+         }
+     },
     SIGNUP {
         {
             cmd = new CmdSignUp();

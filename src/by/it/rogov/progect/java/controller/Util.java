@@ -8,6 +8,7 @@ class Util {
     private static final String STRING = ".+";
     private static final String INTEGER = "-?[0-9]+";
     private static final String DOUBLE = "-?[0-9]+\\.?([0-9]*)";
+    private static final String LONG = "-?[0-9]+";
 
 
     private static String getString(HttpServletRequest req, String field, String pattern) {
@@ -15,9 +16,14 @@ class Util {
         if (value.matches(pattern))
             return value;
         else {
-            req.setAttribute("help_"+field, field+" incorrect");
+            req.setAttribute("help_" + field, field + " incorrect");
             return null;
         }
+    }
+
+     static Long getLONG(HttpServletRequest reg, String field) {
+        String value = getString(reg, field, LONG);
+        return value == null ? null : Long.valueOf(value);
     }
 
     static boolean isPost(HttpServletRequest req) {
