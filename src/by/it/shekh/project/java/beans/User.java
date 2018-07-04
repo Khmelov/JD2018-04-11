@@ -63,11 +63,19 @@ public class User {
         this.email = email;
     }
 
-    public Long getRoles_id() {
+    public Long getId_users() {
+        return id_users;
+    }
+
+    public void setId_users(Long id_users) {
+        this.id_users = id_users;
+    }
+
+    public Long getId_roles() {
         return id_roles;
     }
 
-    public void setRoles_id(long id_roles) {
+    public void setId_roles(Long id_roles) {
         this.id_roles = id_roles;
     }
 }

@@ -1,5 +1,7 @@
 package by.it.shekh.project.java.dao;
 
+import by.it.shekh.project.java.dao.resetdb.C_Init;
+
 public class Dao {
     private static Dao dao;
 
@@ -18,6 +20,11 @@ public class Dao {
     public DaoFacadeOrders facadeOrders;
     public DaoFacadePictures facadePictures;
     public DaoOrder order;
+
+
+    public static void reset(){
+        C_Init.main(new String[]{});
+    }
 
     public static Dao getDao() {
         if (dao == null)

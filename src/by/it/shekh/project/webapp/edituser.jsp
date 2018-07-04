@@ -6,13 +6,12 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <p>Roles: ${roles}</p>
-
     <div class="container">
         <div class="row">
             <div class=col-md-2>Имя</div>
             <div class=col-md-2>Пароль</div>
             <div class=col-md-3>Email</div>
+            <div class=col-md-2>Роль</div>
         </div>
     </div>
 
@@ -34,6 +33,15 @@
                                value="${user.email}"/>
                     </div>
 
+                <div class=col-md-2>
+                    <select id="roles_id" name="roles_id" class="form-control">
+                        <c:forEach items="${roles}" var="role">
+                            <option value="${role.id_roles}" role=${role.id_roles} ${role.id_roles==user.id_roles?"selected":""}>
+                                ${role.role}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
 
 
 
