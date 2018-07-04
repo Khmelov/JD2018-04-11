@@ -14,7 +14,7 @@ public class FrontController extends HttpServlet {
     private ServletContext servletContext;
 
     @Override
-    public void init() throws ServletException {
+    public void init(){
         actionFactory = new ActionFactory();
         servletContext = getServletContext();
     }
