@@ -38,8 +38,8 @@ public class DaoFacadeGeneral extends AbstractDao implements InterfaceDao<Facade
     @Override
     public boolean update(FacadeGeneral entity) throws SQLException {
         String sql = String.format(Locale.US,
-                "UPDATE facade_general " +
-                        " SET facade_name='%s', facade_dimensions='%s', facade_description='%s'," +
+                "UPDATE `facade_general` " +
+                        " SET `facade_name`='%s', `facade_dimensions`='%s', `facade_description`='%s'," +
                         " facade_price='%f', facade_specs='%s' " +
                         "WHERE id_facade='%d'", entity.getFacade_name(), entity.getFacade_dimensions(),
                 entity.getFacade_description(), entity.getFacade_price(), entity.getFacade_specs(), entity.getId_facade());

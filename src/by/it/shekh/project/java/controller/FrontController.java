@@ -16,6 +16,7 @@ public class FrontController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         actionFactory = new ActionFactory();
+        servletContext = getServletContext();
     }
 
     @Override
@@ -37,11 +38,8 @@ public class FrontController extends HttpServlet {
             Action nextAction = action.cmd.execute(req);
             if (nextAction == null) {
                 //show view.jsp
-                servletContext = getServletContext();
                 RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
                 requestDispatcher.forward(req, resp);
-
-
             } else {
                 //перенаправление web-browser на другую команду
                 resp.sendRedirect("do?command=" + nextAction.toString().toLowerCase());
@@ -49,7 +47,6 @@ public class FrontController extends HttpServlet {
         } catch (Exception e) {
             showError(req, resp, e);
         }
-
     }
 
     private void showError(HttpServletRequest req, HttpServletResponse resp, Exception e) throws ServletException, IOException {
@@ -61,9 +58,9 @@ public class FrontController extends HttpServlet {
             if (element.toString().contains(".FrontController."))
                 break;
         }
-
         req.setAttribute("errStack", sb.toString());
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(Action.ERROR.jsp);
+        RequestDispatcher requestDispatcher =
+                servletContext.getRequestDispatcher(Action.ERROR.jsp);
         requestDispatcher.forward(req, resp);
     }
 }

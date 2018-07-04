@@ -1,9 +1,35 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>INDEX: ${message}</p>
+    <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Размеры</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Дополнительные сведения</th>
+            </tr>
+            </thead>
+            <tbody>
+                    <c:forEach var="facade" items="${facades}">
+                        <tr>
+                            <td>${facade.facade_name}</td>
+                            <td>${facade.facade_dimensions}</td>
+                            <td>${facade.facade_description}</td>
+                            <td>${facade.facade_price}</td>
+                            <td>${facade.facade_specs}</td>
+                        </tr>
+                    </c:forEach>
+
+
+            </tbody>
+
+        </table>
 </div>
 </body>
 </html>
