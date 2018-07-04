@@ -22,7 +22,7 @@ public enum Actions {
     LOGOUT {
         {
             cmd = new CmdLogout();
-            jsp = "/logout.jsp";
+            jsp = "/profile.jsp";
         }
     },
     ERROR {
