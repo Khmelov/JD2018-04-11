@@ -7,12 +7,12 @@
     <%@ include file="include/menu.htm" %>
 
     <p>User: ${user}</p>
-
+<center>
     <form class="form-horizontal" method="post" action="do?command=Login">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Login Form</legend>
+            <legend>Вход</legend>
 
             <!-- Text input-->
             <div class="form-group">
@@ -44,6 +44,7 @@
 
         </fieldset>
     </form>
+</center>
 
 </div>
 </body>

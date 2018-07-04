@@ -5,13 +5,13 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-   <p>Пользователь: ${user}</p>
-
+    <p>Пользователь: ${user}</p>
+<center>
        <form class="form-horizontal" method="post" action="do?command=Profile">
            <fieldset>
 
               <!-- Form Name -->
-                          <legend>Sign Up Form</legend>
+                          <legend>Редактировать профиль</legend>
 
                           <!-- Text input-->
                           <div class="form-group">
@@ -53,7 +53,7 @@
 
            </fieldset>
        </form>
-
+</center>
        <h2>Мои объявления</h2>
            <table class="table table-striped">
                 <thead>
@@ -84,13 +84,11 @@
                </tbody>
            </table>
 
-
            <form class="form-horizontal" method="post" action="do?command=Profile">
                <fieldset>
 
                    <!-- Form Name -->
                    <legend>Выход</legend>
-
                    <!-- Button -->
                    <div class="form-group">
                        <label class="col-md-4 control-label" for="logout"></label>
@@ -101,6 +99,7 @@
 
                </fieldset>
            </form>
+
 </div>
 </body>
 </html>
