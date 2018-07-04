@@ -4,61 +4,86 @@ public enum Actions {
     INDEX {
         {
             cmd = new CmdIndex();
-            jsp = "/index.jsp";
         }
-    }, LOGIN{
+    },
+    LOGIN{
         {
             cmd = new CmdLogin();
-            jsp = "/login.jsp";
         }
-    }, SIGNUP{
+    },
+    ADMLOGIN{
+        {
+            cmd = new CmdAdminLogin();
+        }
+    },SIGNUP{
         {
             cmd = new CmdSignUp();
-            jsp = "/signup.jsp";
+        }
+    },ADDRESS{
+        {
+            cmd = new CmdAddress();
         }
     }, ERROR{
         {
             cmd = new CmdError();
-            jsp = "/error.jsp";
         }
     },
-    LOGOUT{
+    PROFILE{
         {
-            cmd = new CmdLogout();
-            jsp = "/logout.jsp";
+            cmd = new CmdProfile();
+        }
+    },
+    RESET{
+        {
+            cmd = new CmdReset();
         }
     },
     VIEWCATALOG {
         {
             cmd = new CmdViewCatalog();
-            jsp = "/catalog.jsp";
         }
     },
-    VIEWORDER {
+    MAKEORDER {
         {
             cmd = new CmdOrder();
-            jsp = "/order.jsp";
         }
     },
     LISTORDERS {
         {
             cmd = new CmdListOrders();
-            jsp = "/listorder.jsp";
         }
     },
     ADDCATALOGITEM {
         {
             cmd = new CmdAddItem();
-            jsp = "/additem.jsp";
+        }
+    },
+    USEREDIT{
+        {
+            cmd = new CmdUserEdit();
+        }
+    },
+    EDITCATALOG{
+        {
+            cmd = new CmdEditCatalog();
+        }
+    },
+    EDITUSERS{
+        {
+            cmd = new CmdEditUsers();
+        }
+    },
+    EDITORDERS{
+        {
+            cmd = new CmdEditOrders();
         }
     },
     GETSHIPPINGLIST {
         {
             cmd = new CmdShippingList();
-            jsp = "/shippinglist.jsp";
         }
     };
 
     Cmd cmd = new CmdError();
-    String jsp="/error.jsp";
+    String jsp="/" + this.toString().toLowerCase() + ".jsp";
 }

@@ -17,7 +17,7 @@ enum Actions {
     LOGOUT {
         {
             this.command = new CommandLogout();
-            this.jsp ="/logout.jsp";
+            this.jsp ="/profile.jsp";
         }
     },
     ERROR {

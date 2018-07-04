@@ -40,7 +40,7 @@ class C_Init {
                     "    ON DELETE RESTRICT\n" +
                     "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB;");
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `tarasiuk`.`ads` (\n" +
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `tarasiuk`.`adverts` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `brand` VARCHAR(20) NULL,\n" +
                     "  `model` VARCHAR(20) NULL,\n" +
@@ -52,8 +52,8 @@ class C_Init {
                     "  `description` VARCHAR(2500) NULL,\n" +
                     "  `users_id` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`id`),\n" +
-                    "  INDEX `fk_ads_users_idx` (`users_id` ASC),\n" +
-                    "  CONSTRAINT `fk_ads_users`\n" +
+                    "  INDEX `fk_adverts_users_idx` (`users_id` ASC),\n" +
+                    "  CONSTRAINT `fk_adverts_users`\n" +
                     "    FOREIGN KEY (`users_id`)\n" +
                     "    REFERENCES `tarasiuk`.`users` (`id`)\n" +
                     "    ON DELETE CASCADE\n" +
@@ -70,7 +70,7 @@ class C_Init {
             statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'ololoshka321', 'fghffh03', 'Lucy01@ya.ru', 2);");
             statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'watcher1', '321', 'watcher@tut.by', 3);");
 
-            statement.executeUpdate("INSERT INTO `tarasiuk`.`ads` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
+            statement.executeUpdate("INSERT INTO `tarasiuk`.`adverts` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
                     "VALUES (DEFAULT, 'AIST', 'Turbo', 2017, 'adult', 'highway', 'blue', 300, 'Good bike!', 2);");
         } catch (SQLException e) {
             e.printStackTrace();

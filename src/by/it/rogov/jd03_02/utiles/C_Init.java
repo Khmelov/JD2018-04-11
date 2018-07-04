@@ -35,32 +35,32 @@ public class C_Init {
                     "    ON DELETE RESTRICT\n" +
                     "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB");
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `rogov`.`biblioteca` (\n" +
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `rogov`.`labrary` (\n" +
                     "  `ID` INT NOT NULL AUTO_INCREMENT,\n" +
-                    "  `artaical1` VARCHAR(10000) NULL,\n" +
-                    "  `artaical2` VARCHAR(10000) NULL,\n" +
+                    "  `textFree` VARCHAR(10000) NULL,\n" +
+                    "  `textPay` VARCHAR(10000) NULL,\n" +
                     "  PRIMARY KEY (`ID`))\n" +
-                    "ENGINE = InnoDB");
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `rogov`.`user_biblioteca` (\n" +
+                    "ENGINE = InnoDB;");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `rogov`.`permission` (\n" +
                     "  `ID` INT NOT NULL AUTO_INCREMENT,\n" +
-                    "  `permission` INT NULL,\n" +
-                    "  `biblioteca_ID` INT NOT NULL,\n" +
-                    "  `update permission` INT NULL,\n" +
+                    "  `pemissionAccess` INT NULL,\n" +
+                    "  `permissionUpdate` INT NULL,\n" +
                     "  `users_ID` INT NOT NULL,\n" +
+                    "  `labrary_ID` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`ID`),\n" +
-                    "  INDEX `fk_user_biblioteca_biblioteca1_idx` (`biblioteca_ID` ASC),\n" +
-                    "  INDEX `fk_user_biblioteca_users1_idx` (`users_ID` ASC),\n" +
-                    "  CONSTRAINT `fk_user_biblioteca_biblioteca1`\n" +
-                    "    FOREIGN KEY (`biblioteca_ID`)\n" +
-                    "    REFERENCES `rogov`.`biblioteca` (`ID`)\n" +
-                    "    ON DELETE CASCADE\n" +
-                    "    ON UPDATE CASCADE,\n" +
-                    "  CONSTRAINT `fk_user_biblioteca_users1`\n" +
+                    "  INDEX `fk_permission_users1_idx` (`users_ID` ASC),\n" +
+                    "  INDEX `fk_permission_labrary1_idx` (`labrary_ID` ASC),\n" +
+                    "  CONSTRAINT `fk_permission_users1`\n" +
                     "    FOREIGN KEY (`users_ID`)\n" +
                     "    REFERENCES `rogov`.`users` (`ID`)\n" +
                     "    ON DELETE CASCADE\n" +
+                    "    ON UPDATE CASCADE,\n" +
+                    "  CONSTRAINT `fk_permission_labrary1`\n" +
+                    "    FOREIGN KEY (`labrary_ID`)\n" +
+                    "    REFERENCES `rogov`.`labrary` (`ID`)\n" +
+                    "    ON DELETE CASCADE\n" +
                     "    ON UPDATE CASCADE)\n" +
-                    "ENGINE = InnoDB");
+                    "ENGINE = InnoDB;");
             System.out.println("Creat All Table");
         }
 
