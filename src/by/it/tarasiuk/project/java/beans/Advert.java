@@ -1,4 +1,4 @@
-package by.it.tarasiuk.jd03_02.beans;
+package by.it.tarasiuk.project.java.beans;
 
 public class Advert {
     private long id;

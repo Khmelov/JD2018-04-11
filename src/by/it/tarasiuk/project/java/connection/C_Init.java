@@ -1,11 +1,11 @@
-package by.it.tarasiuk.jd03_01;
+package by.it.tarasiuk.project.java.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-class C_Init {
+public class C_Init {
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -14,9 +14,9 @@ class C_Init {
         }
     }
 
-    static void db_init() {
+    public static void db_init() {
         try (Connection connection =
-                     DriverManager.getConnection(CN.DB_URL, CN.DB_USER, CN.DB_PASSWORD);
+                     DriverManager.getConnection(DB.DB_URL, DB.DB_USER, DB.DB_PASSWORD);
              Statement statement = connection.createStatement()
         ) {
             statement.executeUpdate("DROP SCHEMA IF EXISTS `tarasiuk` ;");
