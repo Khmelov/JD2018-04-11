@@ -13,22 +13,18 @@ class CmdCreateCar extends Cmd {
     @Override
     Action execute(HttpServletRequest req) throws SQLException {
         HttpSession session = req.getSession();
-        Object oUser = session.getAttribute("owner");
-        if (oUser == null)
+        Object oOwner = session.getAttribute("owner");
+        if (oOwner == null)
             return Action.LOGIN;
-        Owner user = (Owner) oUser;
+        Owner owner = (Owner) oOwner;
         if (Util.isPost(req)) {
             String model = Util.getString(req, "model");
             int year = Util.getInteger(req, "year");
             String color = Util.getString(req, "color");
-            double vengine = Util.getInteger(req, "vengine");
+            double vengine = Util.getDouble(req, "vengine");
             double price = Util.getDouble(req, "price");
-            Cars ad = new Cars(0,
-                    model,
-                    year, color,
-                    vengine, price,
-                    user.getId());
-            Dao.getDao().cars.create(ad);
+            Cars cars = new Cars(0,model,year,color,vengine,price,owner.getId());
+            Dao.getDao().cars.create(cars);
             return Action.PROFILE;
         }
         return null;

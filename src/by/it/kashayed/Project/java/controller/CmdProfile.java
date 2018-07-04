@@ -25,8 +25,10 @@ class CmdProfile extends Cmd {
                 String login = Util.getString(req, "Login");
                 String email = Util.getString(req, "email");
                 String password = Util.getString(req, "Password");
+                String name = Util.getString(req, "Name");
                 owner.setLogin(login);
                 owner.setEmail(email);
+                owner.setName(name);
                 owner.setPass(password);
                 Dao.getDao().owner.update(owner);
             }
@@ -36,7 +38,7 @@ class CmdProfile extends Cmd {
             }
         }
 
-        String where = String.format(Locale.US, " WHERE users_id=%d", owner.getId());
+        String where = String.format(Locale.US, " WHERE owner_id=%d", owner.getId());
         List<Cars> cars = Dao.getDao().cars.getAll(where);
         req.setAttribute("cars",cars);
         return null;
