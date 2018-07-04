@@ -3,16 +3,28 @@ package by.it.rogov.progect.java.dao.utiles;
 
 
 
-import by.it.rogov.progect.java.connection.DBConnection;
+
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class C_Init {
+
+    static {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error loading driver: " + e);
+        }
+    }
+
+
     public static void creatTables() throws SQLException {
 
-        try(Connection connection= DBConnection.getConnection();
+        try(Connection connection=
+                    DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
             Statement statement=connection.createStatement()
         ){
             statement.executeUpdate("DROP SCHEMA IF EXISTS `rogov`");
