@@ -3,6 +3,7 @@ package by.it.shumilov.project.java.controller;
 
 
 import by.it.shumilov.project.java.beans.User;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -11,7 +12,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 
-public class FromtController extends HttpServlet {
+public class FrontController extends HttpServlet {
 
     private ActionFactory actionFactory;
     private ServletContext servletContext;
@@ -36,22 +37,34 @@ public class FromtController extends HttpServlet {
 
     private  void  serv(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         try{
+            User user = null;
 
             HttpSession session = req.getSession();
             Object oUser = session.getAttribute("user");
             if(oUser!=null){
-                User user = (User) oUser;
+                user = (User) oUser;
                 Cookie cookieName = new Cookie("user",user.getLogin());
                 cookieName.setMaxAge(60);
-                Cookie cookiePass = new Cookie("password",user.getPassword());
+
+                Cookie cookiePass = new Cookie("password",DigestUtils.sha256Hex(user.getPassword()));
                 cookiePass.setMaxAge(60);
                 resp.addCookie(cookieName);
                 resp.addCookie(cookiePass);
             }
 
         resp.setHeader("Cache-Control", "no-store");
+
+
         Action action = actionFactory.defineAction(req);
-       Action nexAction = action.cmd.execute(req);
+
+
+//        if (action == Action.PASSPORTS && user!=null){
+//            CmdPassports.getPasports(resp, user.getId());
+//            return;
+//        }
+
+
+        Action nexAction = action.cmd.execute(req);
 
        if (nexAction == null){
 

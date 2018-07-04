@@ -1,13 +1,14 @@
 package by.it.shumilov.project.java.beans;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Order {
     private long id;
-
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     /*
     for date
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
     Date c= sdf.parse("2015-05-26");
     String date=sdf.format(c);
     System.out.println(date);
@@ -22,9 +23,9 @@ public class Order {
     private int discount;
     private double realcost;
     private long avtos_id;
-    private long users_id;
+    private long passports_id;
 
-    public Order(long id, Date startorder, int tenancy, Date endorder, double cost, int discount, double realcost, long avtos_id, long users_id) {
+    public Order(long id, Date startorder, int tenancy, Date endorder, double cost, int discount, double realcost, long avtos_id, long passports_id) {
         this.id = id;
         this.startorder = startorder;
         this.tenancy = tenancy;
@@ -33,7 +34,7 @@ public class Order {
         this.discount = discount;
         this.realcost = realcost;
         this.avtos_id = avtos_id;
-        this.users_id = users_id;
+        this.passports_id = passports_id;
     }
 
     public long getId() {
@@ -100,26 +101,26 @@ public class Order {
         this.avtos_id = avtos_id;
     }
 
-    public long getUsers_id() {
-        return users_id;
+    public long getPassports_id() {
+        return passports_id;
     }
 
-    public void setUsers_id(long users_id) {
-        this.users_id = users_id;
+    public void setPassports_id(long users_id) {
+        this.passports_id = users_id;
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", startorder=" + startorder +
+                ", startorder=" + sdf.format(startorder) +
                 ", tenancy=" + tenancy +
                 ", endorder=" + endorder +
                 ", cost=" + cost +
                 ", discount=" + discount +
                 ", realcost=" + realcost +
                 ", avtos_id=" + avtos_id +
-                ", users_id=" + users_id +
+                ", passports_id=" + passports_id +
                 '}';
     }
 }
