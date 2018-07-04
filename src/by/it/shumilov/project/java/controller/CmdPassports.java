@@ -9,6 +9,7 @@ import by.it.shumilov.project.java.dao.Dao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Locale;
 
 
 public class CmdPassports extends Cmd{
@@ -56,7 +57,8 @@ public class CmdPassports extends Cmd{
                 //return  Action.CREATEAVTO;
             }
         }
-        List<Passport> passports = dao.passport.getAll("");
+
+        List<Passport> passports = dao.passport.getAll(String.format(Locale.US, "where users_id='%d'", user.getId()));
 
         req.setAttribute("passports", passports);
         return null;

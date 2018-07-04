@@ -37,8 +37,12 @@ public class CmdProfile extends Cmd {
 
 
 
-        String where = String.format(Locale.US, " WHERE `passports_id` IN (SELECT id FROM `passports` WHERE `users_id`=2)", user.getId());
+        String where = String.format(Locale.US, " WHERE passports_id IN (SELECT id FROM passports WHERE users_id=%d)", user.getId());
+        System.out.println(where);
+        String where1 = String.format(Locale.US, " WHERE passports_id=2)", user.getId());
+        System.out.println(where1);
         List<Order> orders = Dao.getDao().order.getAll(where);
+
         req.setAttribute("orders",orders);
         return null;
     }

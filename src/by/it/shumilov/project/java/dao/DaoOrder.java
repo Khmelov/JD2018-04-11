@@ -107,11 +107,13 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()){
+
+                String endorder = resultSet.getString("endorder");
                 Order order = new Order(
                         resultSet.getLong("id"),
                         sdf.parse(resultSet.getString("startorder")),
                         resultSet.getInt("tenancy"),
-                        sdf.parse(resultSet.getString("endorder")),
+                        (endorder==null)?null:sdf.parse(resultSet.getString("endorder")),
                         resultSet.getDouble("cost"),
                         resultSet.getInt("discount"),
                         resultSet.getDouble("realcost"),

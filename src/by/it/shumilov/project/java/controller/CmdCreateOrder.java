@@ -25,7 +25,7 @@ public class CmdCreateOrder extends  Cmd {
             user = (User) objUser;
 //            String json = new Gson().toJson(Dao.getDao().
 //                                    passport.getAll( String.format(Locale.US,"where id='%d'", user.getId())));
-            List<Passport> allPass = Dao.getDao().passport.getAll(String.format(Locale.US, "where id='%d'", user.getId()));
+            List<Passport> allPass = Dao.getDao().passport.getAll(String.format(Locale.US, "where users_id='%d'", user.getId()));
             req.setAttribute("pass",allPass);
         }
         else {
@@ -39,20 +39,25 @@ public class CmdCreateOrder extends  Cmd {
                 req.setAttribute("avto",avto.get(0));
 
 
-            System.out.println(req.getAttribute("startorder"));
+            //System.out.println(req.getAttribute("startorder").toString()+"atr");
             Long id = Util.getLong(req, "id");
+
             Date startorder = Util.getData(req,"startorder");
+
             Integer tenancy = Util.getInteger(req, "tenancy");
+
             Double cost = Util.getDouble(req, "cost");
+
             Integer discount = Util.getInteger(req, "discount");
+
             Double realcost = Util.getDouble(req, "realcost");
+
             Long avtos_id = Util.getLong(req, "avtos_id");
+
             Long pasports_id = Util.getLong(req, "pasports_id");
 
-            System.out.println(cost);
-            /* + startorder.toString()
-                    + cost.toString()  + discount.toString() + realcost.toString()
-                    + avtos_id.toString() + pasports_id.toString());*/
+
+
 
             if (startorder != null && tenancy != null && cost != null && discount != null && realcost != null && avtos_id != null ) {
                 Order order = new Order(0,startorder,tenancy,null,cost,discount,realcost,avtos_id,pasports_id);

@@ -57,13 +57,13 @@ class Util {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         String value = getString(req,field,STRING);
-
+        System.out.println(value);
         try {
-            System.out.println(1);
+
             return sdf.parse(value);
 
         } catch (Exception ex) {
-            System.out.println(2);
+
             req.setAttribute("help_"+field, field + " incorrect");
             return new Date();
         }

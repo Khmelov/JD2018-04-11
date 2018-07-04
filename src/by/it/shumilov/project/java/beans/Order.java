@@ -1,13 +1,14 @@
 package by.it.shumilov.project.java.beans;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Order {
     private long id;
-
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     /*
     for date
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
     Date c= sdf.parse("2015-05-26");
     String date=sdf.format(c);
     System.out.println(date);
@@ -112,7 +113,7 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", startorder=" + startorder +
+                ", startorder=" + sdf.format(startorder) +
                 ", tenancy=" + tenancy +
                 ", endorder=" + endorder +
                 ", cost=" + cost +

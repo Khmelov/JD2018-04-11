@@ -55,9 +55,9 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="discont">Скидка</label>
+      <label class="col-md-4 control-label" for="discount">Скидка</label>
       <div class="col-md-4">
-      <input id="discont" name="discont" type="text" placeholder="" class="form-control input-md">
+      <input id="discount" name="discount" type="text" placeholder="" class="form-control input-md">
       <span class="help-block">${help_login}</span>
       </div>
     </div>
@@ -72,7 +72,7 @@
     </div>
 
 
-<select id="pasports_id" name="pasports_id" class="form-control">
+      <select id="pasports_id" name="pasports_id" class="form-control">
                             <c:forEach items="${pass}" var="pas">
                                 <option value="${pas.id}" pasport=${pas.id} }>
                                         ${pas.pasportid}
