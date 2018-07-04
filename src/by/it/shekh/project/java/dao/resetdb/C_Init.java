@@ -1,6 +1,6 @@
 package by.it.shekh.project.java.dao.resetdb;
 
-import by.it.shekh.project.java.connection.CN;
+import by.it.shekh.project.java.dao.resetdb.CN;
 import by.it.shekh.project.java.connection.DbConnection;
 
 import java.sql.Connection;
