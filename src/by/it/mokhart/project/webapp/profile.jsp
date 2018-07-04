@@ -6,7 +6,6 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
    <p>Пользователь: ${user}</p>
-       <p>Данные: ${ads}</p>
 
        <form class="form-horizontal" method="post" action="do?command=Profile">
            <fieldset>
@@ -56,9 +55,8 @@
        </form>
 
        <h2>Мои объявления</h2>
-           <table class="table">
-           <thead class="thead-dark">
-                //<thead>
+           <table class="table table-striped">
+                <thead>
                <tr>
                    <th scope="col">Описание</th>
                     <th scope="col">Цена</th>
