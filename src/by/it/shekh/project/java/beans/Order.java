@@ -3,12 +3,12 @@ package by.it.shekh.project.java.beans;
 public class Order {
     Long idOrders;
     String date;
-    long id_users;
+    Long id_users;
 
     public Order(){
     }
 
-    public Order(Long idOrders, String date, long id_users) {
+    public Order(Long idOrders, String date, Long id_users) {
         this.idOrders = idOrders;
         this.date = date;
         this.id_users = id_users;
@@ -30,7 +30,7 @@ public class Order {
         this.date = date;
     }
 
-    public long getId_users() {
+    public Long getId_users() {
         return id_users;
     }
 

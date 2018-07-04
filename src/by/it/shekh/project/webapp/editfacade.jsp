@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
@@ -20,7 +21,7 @@
         <c:forEach items="${facades}" var="facade">
             <form class="update-facade-${facade.id_facade}" action="do?command=EditFacade" method=POST>
                 <div class="row">
-                    <input name="id" value="${facade.id_facade}"/>
+                    <input name="id" type="hidden" value="${facade.id_facade}"/>
                     <div class=col-md-2>
                         <input id="facade_name" class="form-control input-md" name="name"
                                value="${facade.facade_name}"/>
@@ -54,7 +55,9 @@
             </form>
             <p></p>
         </c:forEach>
+        <mytag:paginator count="${count}" step="5" urlprefix="?command=EditFacade&start="/>
     </div>
+
 
 </div>
 </body>

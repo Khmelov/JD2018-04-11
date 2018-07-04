@@ -10,11 +10,11 @@
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Sign Up Form</legend>
+
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
+                <label class="col-md-4 control-label" for="login">Логин</label>
                 <div class="col-md-4">
                     <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
                            value="${user.login}">
@@ -34,7 +34,7 @@
 
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
+                <label class="col-md-4 control-label" for="password">Пароль</label>
                 <div class="col-md-4">
                     <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
                            value="${user.password}">
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="update"></label>
                 <div class="col-md-4">
-                    <button id="update" name="update" class="btn btn-success">Обновить</button>
+                    <button id="update" name="update" class="btn btn-success">Обновить данные</button>
                 </div>
             </div>
 

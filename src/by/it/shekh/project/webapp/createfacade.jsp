@@ -58,9 +58,9 @@
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="submit">Добавить фасад</label>
+                <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-primary">Button</button>
+                    <button id="submit" name="submit" class="btn btn-primary">Добавить фасад</button>
                 </div>
             </div>
 

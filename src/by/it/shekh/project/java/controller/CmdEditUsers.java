@@ -13,18 +13,13 @@ class CmdEditUsers extends Cmd {
     Action execute(HttpServletRequest req) throws SQLException {
         Dao dao = Dao.getDao();
         if (Util.isPost(req)) {
-            long id = Util.getLong(req, "id_users");
-            System.out.println(id);
+            Long id = Util.getLong(req, "id");
             String login = Util.getString(req, "login");
             String email = Util.getString(req, "email");
             String password = Util.getString(req, "password");
-            long rolesId = Util.getLong(req, "id_roles");
-            System.out.println(rolesId);
-            User user = new User(id, login, password, email, rolesId);
+            //Long rolesId = Util.getLong(req, "roles_id");
+            User user = new User(id, login, password, email, 2L);
             if (req.getParameter("Update") != null) {
-                /*user.setLogin(login);
-                user.setEmail(email);
-                user.setPassword(password);*/
                 dao.user.update(user);
             } else if (req.getParameter("Delete") != null) {
                 dao.user.delete(user);

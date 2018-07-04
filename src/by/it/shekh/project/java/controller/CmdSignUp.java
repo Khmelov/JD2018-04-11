@@ -14,7 +14,7 @@ class CmdSignUp extends Cmd {
             String email = Util.getString(req, "email");
             String pass = Util.getString(req, "password");
             if (login != null && email != null && pass != null) {
-                User user = new User(0, login, pass, email, 2);
+                User user = new User(0L, login, pass, email, 2L);
                 Dao.getDao().user.create(user);
                 if (user.getId() > 0)
                     return Action.LOGIN;

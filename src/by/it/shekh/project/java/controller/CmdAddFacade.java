@@ -20,9 +20,9 @@ public class CmdAddFacade extends Cmd{
             String description = Util.getString(req, "description");
             String name = Util.getString(req, "name");
             String dimensions = Util.getString(req, "dimensions");
-            double price = Util.getDouble(req, "price");
+            Double price = Util.getDouble(req, "price");
             String specs = Util.getString(req, "facade_specs");
-            FacadeGeneral facadeGeneral = new FacadeGeneral(0,
+            FacadeGeneral facadeGeneral = new FacadeGeneral(0L,
                     name,
                     dimensions, description,
                     price, specs);

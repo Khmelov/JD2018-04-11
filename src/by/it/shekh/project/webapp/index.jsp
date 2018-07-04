@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
@@ -23,13 +24,15 @@
                             <td>${facade.facade_description}</td>
                             <td>${facade.facade_price}</td>
                             <td>${facade.facade_specs}</td>
+                            <c:if test="${user.getRoles_id()!=1 && user.getRoles_id()!=null}">
+                                    <td>Кнопка</td>
+                            </c:if>
                         </tr>
                     </c:forEach>
-
-
             </tbody>
-
         </table>
+
+        <mytag:paginator count="${count}" step="5" urlprefix="?start="/>
 </div>
 </body>
 </html>

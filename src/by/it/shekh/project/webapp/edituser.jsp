@@ -6,6 +6,8 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
+    <p>Roles: ${roles}</p>
+
     <div class="container">
         <div class="row">
             <div class=col-md-2>Имя</div>
@@ -31,6 +33,8 @@
                         <input id="email" class="form-control input-md" name="email"
                                value="${user.email}"/>
                     </div>
+
+
 
 
                     <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">

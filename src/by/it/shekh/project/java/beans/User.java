@@ -1,17 +1,17 @@
 package by.it.shekh.project.java.beans;
 
 public class User {
-    long id_users;
+    Long id_users;
     String login;
     String password;
     String email;
-    long id_roles;
+    Long id_roles;
 
     public User() {
 
     }
 
-    public User(long id_users, String login, String password, String email, long id_roles) {
+    public User(Long id_users, String login, String password, String email, Long id_roles) {
         this.id_users = id_users;
         this.login = login;
         this.password = password;
@@ -31,7 +31,7 @@ public class User {
                 '}';
     }
 
-    public long getId() {
+    public Long getId() {
         return id_users;
     }
 
@@ -63,7 +63,7 @@ public class User {
         this.email = email;
     }
 
-    public long getRoles_id() {
+    public Long getRoles_id() {
         return id_roles;
     }
 

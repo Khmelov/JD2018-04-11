@@ -1,18 +1,18 @@
 package by.it.shekh.project.java.beans;
 
 public class FacadeGeneral {
-    long id_facade;
+    Long id_facade;
     String facade_name;
     String facade_dimensions;
     String facade_description;
-    double facade_price;
+    Double facade_price;
     String facade_specs;
 
     public FacadeGeneral() {
 
     }
 
-    public FacadeGeneral(long id_facade, String facade_name, String facade_dimensions, String facade_description, double facade_price, String facade_specs) {
+    public FacadeGeneral(Long id_facade, String facade_name, String facade_dimensions, String facade_description, Double facade_price, String facade_specs) {
         this.id_facade = id_facade;
         this.facade_name = facade_name;
         this.facade_dimensions = facade_dimensions;
@@ -21,11 +21,11 @@ public class FacadeGeneral {
         this.facade_specs = facade_specs;
     }
 
-    public long getId_facade() {
+    public Long getId_facade() {
         return id_facade;
     }
 
-    public void setId_facade(long id_facade) {
+    public void setId_facade(Long id_facade) {
         this.id_facade = id_facade;
     }
 

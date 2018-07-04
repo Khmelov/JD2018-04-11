@@ -59,7 +59,7 @@ public class DaoFacadeOrders extends AbstractDao implements InterfaceDao<FacadeO
             ResultSet resultSet = statement.executeQuery(sql);
             FacadeOrders facadeOrder = null;
             while (resultSet.next()) {
-                facadeOrder = new FacadeOrders(resultSet.getInt("idfacade_orders"),
+                facadeOrder = new FacadeOrders(resultSet.getLong("idfacade_orders"),
                         resultSet.getLong("id_facade"),
                         resultSet.getLong("idOrders"));
                 facadeOrders.add(facadeOrder);

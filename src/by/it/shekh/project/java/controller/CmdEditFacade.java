@@ -13,11 +13,11 @@ class CmdEditFacade extends Cmd {
     Action execute(HttpServletRequest req) throws SQLException {
         Dao dao = Dao.getDao();
         if (Util.isPost(req)) {
-            Long id = Util.getLong(req, "id_facade");
-            String name = Util.getString(req, "facade_name");
-            String description = Util.getString(req, "facade_description");
-            String dimensions = Util.getString(req, "facade_dimensions");
-            Double price = Util.getDouble(req, "facade_price");
+            Long id = Util.getLong(req, "id");
+            String name = Util.getString(req, "name");
+            String description = Util.getString(req, "description");
+            String dimensions = Util.getString(req, "dimensions");
+            Double price = Util.getDouble(req, "price");
             String specs = Util.getString(req, "facade_specs");
             FacadeGeneral facade =
                     new FacadeGeneral(id, name, dimensions, description, price, specs);
@@ -27,7 +27,14 @@ class CmdEditFacade extends Cmd {
                 dao.facadeGeneral.delete(facade);
             }
         }
-        List<FacadeGeneral> facades = dao.facadeGeneral.getAll("");
+        req.setAttribute("count", Dao.getDao().facadeGeneral.getAll("").size());
+        int start = 0;
+        String strStart = req.getParameter("start");
+        if (strStart != null) {
+            start = Integer.valueOf(strStart);
+        }
+        String limit = String.format(" LIMIT %d, 5", start);
+        List<FacadeGeneral> facades = dao.facadeGeneral.getAll(limit);
         req.setAttribute("facades", facades);
         return null;
 

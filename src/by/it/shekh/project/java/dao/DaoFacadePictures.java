@@ -59,7 +59,7 @@ public class DaoFacadePictures extends AbstractDao implements InterfaceDao<Facad
             ResultSet resultSet = statement.executeQuery(sql);
             FacadePictures facadePicture = null;
             while (resultSet.next()) {
-                facadePicture = new FacadePictures(resultSet.getInt("id_pictures"),
+                facadePicture = new FacadePictures(resultSet.getLong("id_pictures"),
                         resultSet.getString("picture_path"),
                         resultSet.getLong("id_facade"));
                 facadePictures.add(facadePicture);

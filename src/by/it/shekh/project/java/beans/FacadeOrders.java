@@ -2,15 +2,15 @@ package by.it.shekh.project.java.beans;
 
 public class FacadeOrders {
 
-    long idfacade_order;
-    long id_facade;
-    long idOrder;
+    Long idfacade_order;
+    Long id_facade;
+    Long idOrder;
 
     public FacadeOrders() {
 
     }
 
-    public FacadeOrders(long idfacade_order, Long id_facade, Long idOrder) {
+    public FacadeOrders(Long idfacade_order, Long id_facade, Long idOrder) {
         this.idfacade_order = idfacade_order;
         this.id_facade = id_facade;
         this.idOrder = idOrder;

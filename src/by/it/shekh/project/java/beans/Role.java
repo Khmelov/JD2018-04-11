@@ -1,14 +1,14 @@
 package by.it.shekh.project.java.beans;
 
 public class Role {
-    long id_roles;
+    Long id_roles;
     String role;
 
     public Role(){
 
     }
 
-    public Role(long id_roles, String role) {
+    public Role(Long id_roles, String role) {
         this.id_roles = id_roles;
         this.role = role;
     }
@@ -21,7 +21,7 @@ public class Role {
                 '}';
     }
 
-    public long getId_roles() {
+    public Long getId_roles() {
         return id_roles;
     }
 

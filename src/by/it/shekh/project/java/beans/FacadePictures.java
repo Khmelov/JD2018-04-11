@@ -1,25 +1,25 @@
 package by.it.shekh.project.java.beans;
 
 public class FacadePictures {
-    long id_pictures;
+    Long id_pictures;
     String picture_path;
-    long id_facade;
+    Long id_facade;
 
     public FacadePictures() {
 
     }
 
-    public FacadePictures(long id_pictures, String picture_path, long id_facade) {
+    public FacadePictures(Long id_pictures, String picture_path, Long id_facade) {
         this.id_pictures = id_pictures;
         this.picture_path = picture_path;
         this.id_facade = id_facade;
     }
 
-    public long getId_pictures() {
+    public Long getId_pictures() {
         return id_pictures;
     }
 
-    public void setId_pictures(long id_pictures) {
+    public void setId_pictures(Long id_pictures) {
         this.id_pictures = id_pictures;
     }
 
@@ -31,11 +31,11 @@ public class FacadePictures {
         this.picture_path = picture_path;
     }
 
-    public long getId_facade() {
+    public Long getId_facade() {
         return id_facade;
     }
 
-    public void setId_facade(long id_facade) {
+    public void setId_facade(Long id_facade) {
         this.id_facade = id_facade;
     }
 
