@@ -7,11 +7,10 @@
     </button>
     <div class="collapse navbar-collapse " id="navbarNav" style="justify-content: space-between">
         <ul class="nav navbar-nav">
-
             <c:choose>
                 <c:when test="${user!=null}">
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="do?command=CreateOrder">Арендовать авто</a>
+                        <a class="nav-link disabled" href="do?command=Passports">Добавить паспортные данные</a>
                     </li>
                 </c:when>
 
@@ -23,11 +22,11 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="do?command=CreateAvto">Добавить авто</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="do?command=EditUsers">Редактирование пользователей</a>
+                    </li>
                 </c:when>
             </c:choose>
-
-
-
 
         </ul>
 

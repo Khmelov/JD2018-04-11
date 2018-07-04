@@ -1,11 +1,20 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
+
 <body>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
-     <p>Order: ${order}</p>
-    <form class="form-horizontal" method="post" action="do?command=CreateOrder">
+   <%@ include file="include/menu.htm" %>
+
+
+
+ <p>Avto: "${avto}"</p>
+
+
+
+
+    <form class="form-horizontal" method="post" action="do?command=CreateOrders">
     <fieldset>
 
     <!-- Form Name -->
@@ -14,8 +23,8 @@
 
 
     <!-- Text input-->
-     <input type="hidden" name="avtos_id" value="${avtos_id}">
 
+     <input type="hidden" name="avtos_id" value=${avto.id}>
 
     <!-- Text input-->
     <div class="form-group">
@@ -63,55 +72,22 @@
     </div>
 
 
-<
+<select id="pasports_id" name="pasports_id" class="form-control">
+                            <c:forEach items="${pass}" var="pas">
+                                <option value="${pas.id}" pasport=${pas.id} }>
+                                        ${pas.pasportid}
+                                </option>
+                            </c:forEach>
+      </select>
 
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="firstname">Фамилия</label>
-      <div class="col-md-4">
-      <input id="firstname" name="firstname" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
-      </div>
-    </div>
-
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="lastname">Имя</label>
-      <div class="col-md-4">
-      <input id="lastname" name="lastname" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
-      </div>
-    </div>
-
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="passporsid">Номер паспорта</label>
-      <div class="col-md-4">
-      <input id="passporsid" name="passporsid" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
-      </div>
-    </div>
-
-
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="phone">Номер телефона</label>
-      <div class="col-md-4">
-      <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
-      </div>
-    </div>
 
 
 
     <!-- Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="button"></label>
+      <label class="col-md-4 control-label" for="Add"></label>
       <div class="col-md-4">
-        <button id="submit" name="submit" class="btn btn-success">Подтвердть заказ</button>
+        <button id="Add" name="Add" class="btn btn-success">Сделать заказ</button>
       </div>
     </div>
 

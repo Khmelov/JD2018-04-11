@@ -5,7 +5,6 @@ import by.it.shumilov.project.java.dao.Dao;
 //import org.apache.commons.codec.binary.Base64;
 import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_256;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +20,8 @@ public class CmdLogin extends Cmd{
             String login = req.getParameter("login");
             String password = req.getParameter("password");
 
-            /*MessageDigest md = MessageDigest.getInstance("SHA-256");
+            /*String test = DigestUtils.sha256Hex("test");
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.reset();
             Base64 base64 = new Base64();
             md.update(password.getBytes());

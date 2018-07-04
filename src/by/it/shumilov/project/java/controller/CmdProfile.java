@@ -1,5 +1,6 @@
 package by.it.shumilov.project.java.controller;
 
+import by.it.shumilov.project.java.beans.Avto;
 import by.it.shumilov.project.java.beans.Order;
 import by.it.shumilov.project.java.beans.User;
 import by.it.shumilov.project.java.dao.Dao;
@@ -16,14 +17,27 @@ public class CmdProfile extends Cmd {
         Object objUser = session.getAttribute("user");
         if(objUser == null)
             return Action.LOGIN;
-        if(req.getParameter("logout") != null){
-            session.invalidate();
 
-            return Action.LOGIN;
+        List<Avto> avtos = Dao.getDao().avto.getAll("");
+        req.setAttribute("avtos",avtos);
+        User user = (User) objUser;
+
+        if (Util.isPost(req)) {
+            if (req.getParameter("Update") != null) {
+                String login = Util.getString(req, "login");
+                String email = Util.getString(req, "email");
+                String password = Util.getString(req, "password");
+                user.setLogin(login);
+                user.setEmail(email);
+                user.setPassword(password);
+                Dao.getDao().user.update(user);
+            }
+
         }
 
-        User user = (User) objUser;
-        String where = String.format(Locale.US, " WHERE users_id=%d", user.getId());
+
+
+        String where = String.format(Locale.US, " WHERE `passports_id` IN (SELECT id FROM `passports` WHERE `users_id`=2)", user.getId());
         List<Order> orders = Dao.getDao().order.getAll(where);
         req.setAttribute("orders",orders);
         return null;

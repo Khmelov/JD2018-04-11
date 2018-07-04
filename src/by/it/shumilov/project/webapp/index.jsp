@@ -28,6 +28,9 @@
         <th scope="col">
             Тариф
         </th>
+         <th scope="col">
+
+         </th>
      </tr>
     </thead>
     <tbody>
@@ -52,6 +55,14 @@
             <td>
                 ${avto.rate}
             </td>
+            <td>
+                <form class="update-user-${user.id}" action="do?command=CreateOrders" method=POST>
+                    <button id="AddAvto" value=${avto.id} name="AddAvto" class="btn btn-danger col-md-7">
+                        Заказать
+                    </button>
+                </form>
+
+            </td>
     </tr>
     </c:forEach>
 
@@ -60,5 +71,9 @@
     </table>
 
 </div>
+
+
+
+
 </body>
 </html>

@@ -1,10 +1,77 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
+
 <body>
+<%@ include file="include/menu.htm" %>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
-     <p>Avto: ${avto}</p>
+
+
+    <div class="container">
+        <div class="row">
+            <div class=col-md-1>Mark</div>
+            <div class=col-md-2>Model</div>
+            <div class=col-md-1>Color</div>
+            <div class=col-md-2>Number VIN</div>
+            <div class=col-md-1>Year</div>
+            <div class=col-md-2>Gos Number</div>
+            <div class=col-md-1>Rate</div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <c:forEach items="${avtos}" var="avto">
+            <form class="update-avto-${avto.id}" action="do?command=CreateAvto" method=POST>
+                <div class="row">
+                    <input name="id" type="hidden" value="${avto.id}"/>
+                    <div class=col-md-1>
+                        <input id="mark" class="form-control input-md" name="mark"
+                               value="${avto.mark}"/>
+                    </div>
+                    <div class=col-md-2>
+                        <input id="model" class="form-control input-md" name="model"
+                               value="${avto.model}"/>
+                    </div>
+                    <div class=col-md-1>
+                        <input id="color" class="form-control input-md" name="color"
+                               value="${avto.color}"/>
+                    </div>
+                    <div class=col-md-2>
+                        <input id="nvin" class="form-control input-md" name="nvin"
+                               value="${avto.nvin}"/>
+                    </div>
+                    <div class=col-md-1>
+                        <input id="year" class="form-control input-md" name="year"
+                               value="${avto.year}"/>
+                    </div>                    
+                    <div class=col-md-2>
+                        <input id="ngos" class="form-control input-md" name="ngos"
+                               value="${avto.ngos}"/>
+                    </div>
+                    <div class=col-md-1>
+                        <input id="rate" class="form-control input-md" name="rate"
+                               value="${avto.rate}"/>
+                    </div>                    
+                                     
+
+                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
+                        Обновить
+                    </button>
+
+                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
+                        Удалить
+                    </button>
+                </div>
+            </form>
+            <p></p>
+        </c:forEach>
+    </div>
+
+</div>
+
+<div class="container">
+
     <form class="form-horizontal" method="post" action="do?command=CreateAvto">
     <fieldset>
 
@@ -77,9 +144,9 @@
 
     <!-- Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="button"></label>
+      <label class="col-md-4 control-label" for="Add"></label>
       <div class="col-md-4">
-        <button id="submit" name="submit" class="btn btn-success">SignUp</button>
+        <button id="Add" name="Add" class="btn btn-success">SignUp</button>
       </div>
     </div>
 

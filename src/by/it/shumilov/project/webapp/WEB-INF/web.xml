@@ -34,15 +34,16 @@
     Подключим точно так же второй сервлета-контроллер с именем FrontControllerServlet
     -->
    <servlet>
-       <servlet-name>FromtController</servlet-name>
-       <servlet-class>by.it.shumilov.project.java.controller.FromtController</servlet-class>
+       <servlet-name>FrontController</servlet-name>
+       <servlet-class>by.it.shumilov.project.java.controller.FrontController</servlet-class>
    </servlet>
 
     <servlet-mapping>
-        <servlet-name>FromtController</servlet-name>
+        <servlet-name>FrontController</servlet-name>
         <url-pattern>/do</url-pattern>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
 
 
 </web-app>

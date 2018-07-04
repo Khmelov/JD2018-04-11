@@ -30,14 +30,14 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
     public boolean create(Order order) throws SQLException {
 
 
-        String sql = String.format(Locale.US, "INSERT INTO `orders`(`startorder`, `tenancy`, `cost`, `discount`, `realcost`, `avtos_id`, `users_id`) VALUES ('%s','%d','%f','%d','%f','%d', %d)",
+        String sql = String.format(Locale.US, "INSERT INTO `orders`(`startorder`, `tenancy`, `cost`, `discount`, `realcost`, `avtos_id`, `passports_id`) VALUES ('%s','%d','%f','%d','%f','%d', %d)",
                 sdf.format(order.getStartorder()),
                 order.getTenancy(),
                 order.getCost(),
                 order.getDiscount(),
                 order.getRealcost(),
                 order.getAvtos_id(),
-                order.getUsers_id());
+                order.getPassports_id());
 
         long id = executeUpdate(sql);
         if(id>0) {
@@ -63,7 +63,7 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
                         "`discount`=%d," +
                         "`realcost`='%s'," +
                         "`avtos_id`=%d," +
-                        "`users_id`='%d' " +
+                        "`passports_id`='%d' " +
                         "WHERE id=%d",
                 sdf.format(order.getStartorder()),
                 order.getTenancy(),
@@ -72,7 +72,7 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
                 order.getDiscount(),
                 order.getRealcost(),
                 order.getAvtos_id(),
-                order.getUsers_id(),
+                order.getPassports_id(),
                 order.getId());
 
         return executeUpdate(sql) > 0;
@@ -102,7 +102,7 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
                     " `discount`, " +
                     "`realcost`, " +
                     "`avtos_id`, " +
-                    "`users_id` " +
+                    "`passports_id` " +
                     "FROM `orders` %s", whereAndOther);
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -116,7 +116,7 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
                         resultSet.getInt("discount"),
                         resultSet.getDouble("realcost"),
                         resultSet.getLong("avtos_id"),
-                        resultSet.getLong("users_id"));
+                        resultSet.getLong("passports_id"));
                 orders.add(order);
             }
 
