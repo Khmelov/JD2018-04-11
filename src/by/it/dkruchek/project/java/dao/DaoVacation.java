@@ -27,7 +27,7 @@ public class DaoVacation extends AbstractDAO implements InterfaceDAO<Vacation> {
     @Override
     public boolean create(Vacation vacation) throws SQLException {
         String sql = String.format(Locale.US,
-                "INSERT INTO `vacations` (`startdate`, `enddate`, `approved`, `employees_id`) VALUES ('%s','%s','%s','%s')",
+                "INSERT INTO `vacations` (`startdate`, `enddate`, `approved`, `employees_id`) VALUES ('%s','%s',%b,'%s')",
                 vacation.getStartdate(), vacation.getEnddate(), vacation.isApproved(), vacation.getEmployees_id());
         vacation.setId(executeUpdate(sql));
         return (vacation.getId() > 0);
@@ -36,7 +36,7 @@ public class DaoVacation extends AbstractDAO implements InterfaceDAO<Vacation> {
     @Override
     public boolean update(Vacation vacation) throws SQLException {
         String sql = String.format(Locale.US,
-                "UPDATE `vacations` " + "SET `startdate`='%s', `enddate`='%s',`approved`='%s'," + "`employees_id`=%d WHERE id=%d",
+                "UPDATE `vacations` " + "SET `startdate`='%s', `enddate`='%s',`approved`=%b," + "`employees_id`=%d WHERE id=%d",
                 vacation.getStartdate(), vacation.getEnddate(), vacation.isApproved(), vacation.getEmployees_id(), vacation.getId());
         return (0 < executeUpdate(sql));
     }

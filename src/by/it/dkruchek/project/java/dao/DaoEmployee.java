@@ -3,6 +3,7 @@ package by.it.dkruchek.project.java.dao;
 import by.it.dkruchek.project.java.abstractdao.AbstractDAO;
 import by.it.dkruchek.project.java.abstractdao.InterfaceDAO;
 import by.it.dkruchek.project.java.beans.Employee;
+import by.it.dkruchek.project.java.beans.Vacation;
 import by.it.dkruchek.project.java.connection.DBConnection;
 
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -69,5 +71,16 @@ public class DaoEmployee extends AbstractDAO implements InterfaceDAO<Employee> {
             }
         }
         return employees;
+    }
+
+    public HashMap<Employee, List<Vacation>> getFullList() throws SQLException{
+        HashMap<Employee, List<Vacation>> fullList = new HashMap<>();
+        List<Employee> employees = getAll("");
+        for (Employee employee : employees) {
+            String where = String.format(Locale.US, "WHERE employees_id=%d", employee.getId());
+            List<Vacation> vacations = Dao.getDao().vacation.getAll(where);
+            fullList.put(employee, vacations);
+        }
+        return fullList;
     }
 }
