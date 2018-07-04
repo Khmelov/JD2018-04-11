@@ -48,9 +48,9 @@
     <!-- копирование в рабочую директорию -->
     <target name="04copy" depends="03compile">
         <!-- копирование кофигурации -->
-        <copy todir="${build.dir}/WEB-INF">
-            <fileset dir="${conf.dir}"/>
-        </copy>
+        <!--<copy todir="${build.dir}/WEB-INF">-->
+            <!--<fileset dir="${conf.dir}"/>-->
+        <!--</copy>-->
         <!-- копирование jsp css и т.д.-->
         <copy todir="${build.dir}">
             <fileset dir="${web.content}"/>
