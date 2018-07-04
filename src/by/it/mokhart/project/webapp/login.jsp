@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -36,7 +37,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
+                    <button id="submit" name="submit" class="btn btn-success">Log in</button>
                 </div>
             </div>
 

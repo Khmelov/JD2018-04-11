@@ -6,6 +6,7 @@ import by.it.kurmaz.project.java.beans.Admin;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Locale;
 
@@ -22,7 +23,8 @@ class CmdAdminLogin extends Cmd {
                 List<Admin> admins = DAO.getDao().admin.getAll(where);
                 if (admins.size() > 0) {
                     Admin admin = admins.get(0);
-                    req.setAttribute("admin", admin);
+                    HttpSession session = req.getSession();
+                    session.setAttribute("admin", admin);
                     return new ActionResult("admin");
                 }
             }

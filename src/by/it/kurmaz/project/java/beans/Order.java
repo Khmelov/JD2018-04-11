@@ -17,7 +17,7 @@ public class Order {
         return id;
     }
 
-    public int isCompleted() {
+    public int getCompleted() {
         return completed;
     }
 
