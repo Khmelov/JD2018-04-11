@@ -21,6 +21,14 @@ enum Action {
         {
             cmd = new CmdVacation();
         }
+    }, PROFILE {
+        {
+            cmd = new CmdProfile();
+        }
+    }, RESETDB {
+        {
+            cmd = new CmdResetDB();
+        }
     };
 
     Cmd cmd = new CmdError();
