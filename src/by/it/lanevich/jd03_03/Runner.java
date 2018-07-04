@@ -37,11 +37,13 @@ public class Runner {
         //проверим good
         Good good=new Good();
         good.setDescription("test description");
-        good.setIdgood(1);
+        good.setIdgood(1245);
+        good.setGoodname("update name222");
+        good.setPiecies(4);
+        good.setPrice(45);
         dao.good.create(good);
-        good.setDescription("update description");
-      //  dao.good.update(good);
-        dao.good.delete(good);
+        dao.good.update(good);
+  //      dao.good.delete(good);
         System.out.println(good);
 
         //проверим order
@@ -49,8 +51,9 @@ public class Runner {
         order.setNumgood(2);
         order.setOrd_id(1);
         order.setUsers_id(1);
-        dao.order.create(order); //TODO FIX IT!!!
- //      dao.order.update(order); //TODO FIX IT!!!
+        order.setGoods_id(3);
+        dao.order.create(order);
+        dao.order.update(order);
         dao.order.delete(order);
         System.out.println(order);
 

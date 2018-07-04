@@ -1,14 +1,8 @@
-package by.it.lanevich.jd03_03.dao;
+package by.it.lanevich.project.java.dao;
 
-import by.it.lanevich.jd03_03.beans.Good;
+import by.it.lanevich.project.java.beans.Good;
+import by.it.lanevich.project.java.connection.DbConnection;
 
-//public class DaoGood extends UniversalDAO<Good>{
-//    public DaoGood() { super(new Good(), "goods"); }
-//}
-
-
-import by.it.lanevich.jd03_03.connection.DbConnection;
-import by.it.lanevich.jd03_03.dao.InterfaceDAO;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,6 +11,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+//public class DaoGood extends UniversalDAO<Good>{
+//    public DaoGood() { super(new Good(), "goods"); }
+//}
 
 public class DaoGood extends AbstractDao implements InterfaceDAO<Good> {
 

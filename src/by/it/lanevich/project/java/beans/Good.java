@@ -1,4 +1,4 @@
-package by.it.lanevich.jd03_03.beans;
+package by.it.lanevich.project.java.beans;
 
 public class Good {
     long id;
