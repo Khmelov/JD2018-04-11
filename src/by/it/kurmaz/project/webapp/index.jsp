@@ -28,6 +28,13 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="data">Create database</label>
+      <div class="col-md-4">
+        <button id="data" name="data" class="btn btn-secondary">Press here</button>
+      </div>
+    </div>
+
     </fieldset>
     </form>
 </div>

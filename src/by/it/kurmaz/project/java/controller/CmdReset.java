@@ -9,6 +9,6 @@ class CmdReset extends Cmd{
     @Override
     ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         DAO.reset();
-        return new ActionResult("admin");
+        return new ActionResult(Actions.INDEX);
     }
 }
