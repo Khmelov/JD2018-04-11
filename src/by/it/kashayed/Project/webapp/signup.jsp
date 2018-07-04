@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -29,13 +30,22 @@
 
 
             <div class="form-group">
-                <label class="col-md-4 control-label" for="Password">Password</label>
+                <label class="col-md-4 control-label" for="Password">Пароль</label>
                 <div class="col-md-4">
                     <input id="Password" name="Password" type="Password" placeholder="" class="form-control input-md" required=""
                     value="testPassword">
                     <span class="help-block">${help_password}</span>
                 </div>
             </div>
+
+            <div class="form-group">
+                            <label class="col-md-4 control-label" for="Name">Имя</label>
+                            <div class="col-md-4">
+                                <input id="Name" name="Name" type="text" placeholder="" class="form-control input-md" required=""
+                                value="testName">
+                                <span class="help-block">${help_password}</span>
+                            </div>
+                        </div>
 
 
             <div class="form-group">

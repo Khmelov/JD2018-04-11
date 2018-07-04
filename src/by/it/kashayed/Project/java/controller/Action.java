@@ -7,16 +7,33 @@ enum Action {
             //  jsp="/index.jsp";
         }
     },
+
     LOGIN {
         {
             cmd = new CmdLogin();
             // jsp="/login.jsp";
         }
     },
+
+    PROFILE {
+        {
+            cmd = new CmdProfile();
+        }
+    },
     SIGNUP {
         {
             cmd = new CmdSignUp();
             // jsp="/signup.jsp";
+        }
+    },
+    CREATECAR {
+        {
+            cmd = new CmdCreateCar();
+        }
+    },
+    RESETDB {
+        {
+            cmd = new CmdResetDB();
         }
     },
     ERROR {
