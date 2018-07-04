@@ -25,6 +25,10 @@ public enum Action {
         {
             cmd = new CmdEditUsers();
         }
+    }, RESETDB {
+        {
+            cmd = new CmdResetDB();
+        }
     }, EDITFACADE {
         {
             cmd = new CmdEditFacade();

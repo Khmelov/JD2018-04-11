@@ -31,7 +31,7 @@ public class DaoUser extends AbstractDao implements InterfaceDao<User> {
                 "INSERT INTO " +
                         "`users`(`login`, `password`, `email`, `id_roles`) " +
                         "VALUES ('%s','%s','%s',%d)",
-                user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id());
+                user.getLogin(), user.getPassword(), user.getEmail(), user.getId_roles());
         long id = executeUpdate(sql);
         if (id > 0) {
             user.setId(id);
@@ -46,7 +46,7 @@ public class DaoUser extends AbstractDao implements InterfaceDao<User> {
                 "UPDATE `users` " +
                         "SET `login`='%s', `password`='%s',`email`='%s'," +
                         "`id_roles`=%d WHERE id_users=%d",
-                user.getLogin(), user.getPassword(), user.getEmail(), user.getRoles_id(), user.getId());
+                user.getLogin(), user.getPassword(), user.getEmail(), user.getId_roles(), user.getId());
         return executeUpdate(sql) > 0;
     }
 

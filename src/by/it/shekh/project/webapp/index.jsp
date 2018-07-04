@@ -24,7 +24,7 @@
                             <td>${facade.facade_description}</td>
                             <td>${facade.facade_price}</td>
                             <td>${facade.facade_specs}</td>
-                            <c:if test="${user.getRoles_id()!=1 && user.getRoles_id()!=null}">
+                            <c:if test="${user.getId_roles()!=1 && user.getId_roles()!=null}">
                                     <td>Кнопка</td>
                             </c:if>
                         </tr>
