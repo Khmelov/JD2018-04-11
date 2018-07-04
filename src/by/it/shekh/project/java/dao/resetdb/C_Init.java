@@ -1,8 +1,10 @@
 package by.it.shekh.project.java.dao.resetdb;
 
+import by.it.shekh.project.java.dao.resetdb.CN;
 import by.it.shekh.project.java.connection.DbConnection;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,7 +21,7 @@ public class C_Init {
 
     public static void main(String[] args) {
         try (
-                Connection connection = DbConnection.getConnection();
+                Connection connection = DriverManager.getConnection(CN.DB_URL,CN.DB_USER,CN.DB_PASS);
                 Statement statement = connection.createStatement()
         ) {
             statement.executeUpdate("DROP DATABASE IF EXISTS `shekh`");
