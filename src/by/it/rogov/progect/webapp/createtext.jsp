@@ -14,20 +14,19 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
+                <label class="col-md-4 control-label" for="login">Заглавие</label>
                 <div class="col-md-4">
-                    <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
-                           value="testLogin">
+                    <input id="textFree" name="textFree" type="text" placeholder="" class="form-control input-md">
                     <span class="help-block">${help_login}</span>
                 </div>
             </div>
 
-            <!-- Password input-->
+            <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
-                <div class="col-md-4">
-                    <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
-                           value="testPassword">
+                <label class="col-md-4 control-label" for="password">Содержание</label>
+                <div class="col-md-12">
+                    <textarea rows="15" id="textPay" name="textPay" type="text" placeholder="" class="form-control input-md" >
+                    </textarea>
                     <span class="help-block">${help_password}</span>
                 </div>
             </div>
@@ -36,7 +35,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
+                    <button id="submit" name="submit" class="btn btn-success">Создать</button>
                 </div>
             </div>
 
