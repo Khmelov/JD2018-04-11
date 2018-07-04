@@ -26,7 +26,7 @@ public class OrderDAO extends AbstractDAO implements DaoInterface<Order> {
     public boolean create(Order order) throws SQLException {
         String sql = String.format(Locale.US,"INSERT INTO `orders`(`Completed`, `Users_ID`)" +
                         "VALUES ('%d','%d')",
-                order.isCompleted(), order.getUsers_ID());
+                order.getCompleted(), order.getUsers_ID());
         long id = executeUpdate(sql);
         if (id > 0) {
             order.setId(id);
@@ -39,7 +39,7 @@ public class OrderDAO extends AbstractDAO implements DaoInterface<Order> {
     public boolean update(Order order) throws SQLException {
         String sql = String.format(Locale.US,
                 "UPDATE `orders` SET `Completed`=%d, `Users_ID`=%d WHERE id=%d",
-                order.isCompleted(), order.getUsers_ID(), order.getId());
+                order.getCompleted(), order.getUsers_ID(), order.getId());
         return (executeUpdate(sql) > 0);
     }
 

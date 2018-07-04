@@ -2,13 +2,14 @@ package by.it.kasiyanov.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ActionFactory {
-    Actions defineActions (HttpServletRequest req){
+class ActionFactory {
+    Action defineAction(HttpServletRequest req) {
         String command = req.getParameter("command");
-        if (command!=null && !command.isEmpty()) {
-            return Actions.valueOf(command.toUpperCase());
+        System.out.println("command="+command);
+        if (command != null && !command.isEmpty()) {
+            return Action.valueOf(command.toUpperCase());
         }else
-            return Actions.ERROR;
+            return Action.INDEX;
 
     }
 }
