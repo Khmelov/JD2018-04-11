@@ -1,7 +1,7 @@
-package by.it.kasiyanov.jd03_03.dao;
+package by.it.kasiyanov.project.java.dao;
 
-import by.it.kasiyanov.jd03_03.beans.TravelOffers;
-import by.it.kasiyanov.jd03_03.connection.DbConnection;
+import by.it.kasiyanov.project.java.beans.TravelOffers;
+import by.it.kasiyanov.project.java.connection.DbConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

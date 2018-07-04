@@ -1,31 +1,42 @@
 package by.it.kasiyanov.project.java.controller;
 
-public enum Actions {
+public enum Action {
     INDEX{
         {
             cmd = new CmdIndex();
-            jsp = "/index.jsp";
+        }
+    },
+    CREATEOFFER{
+        {
+            cmd = new CmdCreateOffer();
         }
     },
     LOGIN{
         {
             cmd = new CmdLogin();
-            jsp = "/login.jsp";
+        }
+    },
+    PROFILE {
+        {
+            cmd = new CmdProfile();
         }
     },
     SIGNUP{
         {
             cmd = new CmdSignUp();
-            jsp = "/signup.jsp";
+        }
+    },
+    RESETDB {
+        {
+            cmd = new CmdResetDB();
         }
     },
     ERROR{
         {
             cmd = new CmdError();
-            jsp = "/error.jsp";
         }
     };
 
     Cmd cmd = new CmdError();
-    String jsp = "/error.jsp";
+    String jsp = "/"+this.toString().toLowerCase()+".jsp";
 }
