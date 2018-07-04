@@ -8,7 +8,7 @@
     out.println("Page:");
     out.println("<nav aria-label='Page navigation example'>");
     out.println("<ul class='pagination'>");
-    
+
     for (int i = 0; i <= (count - 1) / step; i++) {
         out.println(String.format("&nbsp<li class='page-item'><a class='page-link' href='%s%d'>%d</a></li>", urlprefix, i * step, i+1));
     }
