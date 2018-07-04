@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
@@ -26,7 +27,7 @@
                 <label class="col-md-4 control-label" for="email">Email</label>
                 <div class="col-md-4">
                     <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
-                    value="testEmail@email.com">
+                    value="test@mail.ru">
                     <span class="help-block">${help_email}</span>
                 </div>
             </div>

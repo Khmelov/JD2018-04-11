@@ -6,14 +6,19 @@ enum Action {
             cmd = new CmdIndex();
         }
     },
+    CREATEBOOK {
+        {
+            cmd = new CmdCreateBook();
+        }
+    },
+    EDITUSERS{
+        {
+            cmd=new CmdEditUsers();
+        }
+    },
     LOGIN {
         {
             cmd = new CmdLogin();
-        }
-    },
-    SIGNUP {
-        {
-            cmd = new CmdSignUp();
         }
     },
     PROFILE {
@@ -21,9 +26,9 @@ enum Action {
             cmd = new CmdProfile();
         }
     },
-    CREATEBOOK {
+    SIGNUP {
         {
-            cmd = new CmdCreateBook();
+            cmd = new CmdSignUp();
         }
     },
     RESETDB {

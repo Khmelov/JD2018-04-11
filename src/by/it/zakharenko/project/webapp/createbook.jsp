@@ -1,10 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>User: ${user}</p>
     <form class="form-horizontal" method="post" action="do?command=CreateBook">
         <fieldset>
 
@@ -55,15 +55,15 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="price">Цена</label>
                 <div class="col-md-4">
-                    <input id="price" name="price" type="text" placeholder="" class="form-control input-md">
+                    <input value="9" id="price" name="price" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="createbook">Create book</label>
+                <label class="col-md-4 control-label" for="submit">Create book</label>
                 <div class="col-md-4">
-                    <button id="createbook" name="createbook" class="btn btn-success">Create book</button>
+                    <button id="submit" name="submit" class="btn btn-primary">Create book</button>
                 </div>
             </div>
 
