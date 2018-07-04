@@ -14,7 +14,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="login">Login</label>
   <div class="col-md-4">
-  <input id="login" name="login" type="text" placeholder="enter login here" class="form-control input-md">
+  <input id="login" name="login" type="text" placeholder="enter login here" class="form-control input-md" value="Admin1">
   <span class="help-block">${help_login}</span>
   </div>
 </div>
@@ -23,7 +23,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="password">Password</label>
   <div class="col-md-4">
-    <input id="password" name="password" type="password" placeholder="enter password here" class="form-control input-md">
+    <input id="password" name="password" type="password" placeholder="enter password here" class="form-control input-md" value="admin1">
     <span class="help-block">${help_password}</span>
   </div>
 </div>

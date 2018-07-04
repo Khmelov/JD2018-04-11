@@ -7,6 +7,8 @@ class CmdIndex extends Cmd {
     @Override
     ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
         if (Util.isPost(req)) {
+            if(req.getParameter("data") != null)
+                return new ActionResult(Actions.RESET);
             if (req.getParameter("select") != null) {
                 String select = Util.getString(req, "select");
                 if (select.equals("user"))
