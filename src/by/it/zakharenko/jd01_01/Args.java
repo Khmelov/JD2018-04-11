@@ -1,13 +1,14 @@
 package by.it.zakharenko.jd01_01;
 
-class Args {
+public class Args {
+
     private String[] args;
 
-    Args(String[] args) {
+    public Args(String[] args) {
         this.args = args;
     }
 
-    void printArgs() {
+    public void printArgs() {
         int i = 1;
         for (String arg : args) {
             i = i + 1;

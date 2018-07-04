@@ -16,9 +16,9 @@ enum Action {
             cmd = new CmdSignUp();
         }
     },
-    LOGOUT {
+    PROFILE {
         {
-            cmd = new CmdLogOut();
+            cmd = new CmdProfile();
         }
     },
     CREATEBOOK {
@@ -26,9 +26,9 @@ enum Action {
             cmd = new CmdCreateBook();
         }
     },
-    READBOOK {
+    RESETDB {
         {
-            cmd = new CmdReadBook();
+            cmd = new CmdResetDB();
         }
     },
     ERROR {
