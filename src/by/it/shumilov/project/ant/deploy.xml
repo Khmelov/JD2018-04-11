@@ -32,6 +32,7 @@
         <echo>Creating the build directory</echo>
         <mkdir dir="${build.dir}/WEB-INF/classes"/>
         <mkdir dir="${build.dir}/WEB-INF/lib"/>
+
     </target>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - -  - - -  -->

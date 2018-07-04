@@ -4,7 +4,8 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>INDEX: ${avtos}</p>
+    <p>Пользователь: ${user}</p>
+    <p>Заказы: ${orders}</p>
 </div>
 </body>
 </html>
