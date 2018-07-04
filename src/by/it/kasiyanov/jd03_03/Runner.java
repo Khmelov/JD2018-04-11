@@ -33,12 +33,21 @@ public class Runner {
         dao.user.delete(user);
         System.out.println(user);
 
-        TravelOffers travelOffers = new TravelOffers();
-        travelOffers.setDescription("testAd");
+        TravelOffers travelOffers = new TravelOffers(
+                0,
+                "Offer",
+                "Holiday",
+                "Iland",
+                "Hotel",
+                "4 Stars",
+                12,
+                724,
+                2);
+        travelOffers.setDescription("testOffer");
         travelOffers.setUsers_id(1);
         dao.travelOffers.create(travelOffers);
-        travelOffers.setDescription("updateAd");
-        //dao.travelOffers.update(travelOffers);
+        travelOffers.setDescription("updatOffer");
+        dao.travelOffers.update(travelOffers);
         System.out.println(dao.travelOffers.getAll(""));
         dao.travelOffers.delete(travelOffers);
         System.out.println(travelOffers);

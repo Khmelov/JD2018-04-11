@@ -1,11 +1,11 @@
 package by.it.kurmaz.project.java.controller;
 import by.it.kurmaz.project.java.DAO.DAO;
 import by.it.kurmaz.project.java.beans.User;
+import org.apache.commons.codec.net.BCodec;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 
 class CmdSignUp extends Cmd {
     @Override
@@ -15,8 +15,10 @@ class CmdSignUp extends Cmd {
             String email = Util.getEmail(req,"E-mail");
             String password = Util.getString(req,"password");
             String phone = Util.getString(req, "phone");
+            BCodec codec = new BCodec();
+            String encode = codec.encode(password);
             if (login != null && email != null && password != null && phone !=null) {
-                User user = new User(0, login, password, email, phone, "regular", 2);
+                User user = new User(0, login, encode, email, phone, "regular", 2);
                 DAO.getDao().user.create(user);
                 if (user.getId() > 0) {
                     resp.addCookie(new Cookie("user_id", "" + user.getId()));

@@ -1,10 +1,15 @@
 package by.it.tayanovskii.project.java.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import by.it.tayanovskii.project.java.beans.Publication;
+import by.it.tayanovskii.project.java.dao.Dao;
 
-public class CmdError extends Cmd {
+import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
+import java.util.List;
+
+class CmdError extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) {
         return null;
     }
 }
