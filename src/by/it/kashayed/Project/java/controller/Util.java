@@ -11,7 +11,8 @@ class Util {
 
     public static String getString(HttpServletRequest req, String field, String pattern) {
         String value = req.getParameter(field);
-        if (value.matches(pattern)) return value;
+        if (value !=null && value.matches(pattern))
+            return value;
         else {
             req.setAttribute("help_" + field, field + "incorrect");
             return null;
@@ -37,11 +38,11 @@ class Util {
     }
 
     static Double getDouble(HttpServletRequest req, String filed) {
-        String valeu = getString(req, filed, DOUBLE);
-        if (valeu == null) {
+        String value = getString(req, filed, DOUBLE);
+        if (value == null) {
             return null;
         } else {
-            return Double.valueOf(valeu);
+            return Double.valueOf(value);
         }
     }
 }

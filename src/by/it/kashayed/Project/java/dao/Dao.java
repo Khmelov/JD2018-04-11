@@ -1,5 +1,7 @@
 package by.it.kashayed.Project.java.dao;
 
+import by.it.kashayed.Project.java.dao.resetDB.ResetDB;
+
 public class Dao {
     private static Dao dao;
     public DaoOwner owner;
@@ -10,6 +12,9 @@ public class Dao {
         owners = new DaoOwners();
         owner = new DaoOwner();
         cars = new DaoCars();
+    }
+    public static void reset(){
+        ResetDB.main(new String[]{});
     }
 
     public static Dao getDao() {
