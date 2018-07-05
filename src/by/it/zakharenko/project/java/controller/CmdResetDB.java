@@ -8,6 +8,6 @@ public class CmdResetDB extends Cmd {
     @Override
     Action execute(HttpServletRequest req) {
         Dao.reset();
-        return Action.LOGIN;
+        return Action.INDEX;
     }
 }

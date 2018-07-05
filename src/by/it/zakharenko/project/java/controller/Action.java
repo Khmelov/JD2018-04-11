@@ -43,5 +43,4 @@ enum Action {
     };
     Cmd cmd = new CmdError();
     String jsp = "/" + this.toString().toLowerCase() + ".jsp";
-
 }

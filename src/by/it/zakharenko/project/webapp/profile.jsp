@@ -10,12 +10,9 @@
         <form class="form-horizontal" method="post" action="do?command=Profile">
             <fieldset>
 
-                <!-- Form Name -->
-                <legend>Sign Up Form</legend>
-
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="login">Login</label>
+                    <label class="col-md-4 control-label" for="login">Login:</label>
                     <div class="col-md-4">
                         <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
                                value="${user.login}">
@@ -25,7 +22,7 @@
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="email">Email</label>
+                    <label class="col-md-4 control-label" for="email">Email:</label>
                     <div class="col-md-4">
                         <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
                                value="${user.email}">
@@ -35,7 +32,7 @@
 
                 <!-- Password input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="password">Password</label>
+                    <label class="col-md-4 control-label" for="password">Password:</label>
                     <div class="col-md-4">
                         <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
                                value="${user.password}">
@@ -54,7 +51,7 @@
             </fieldset>
         </form>
 
-            <h2>Мои объявления</h2>
+            <h2>Мои заказы</h2>
             <table class="table">
                 <thead>
         <tr>
@@ -77,7 +74,6 @@
                  <td>${book.price}</td>
                     </tr>
                 </c:forEach>
-
 
                 </tbody>
             </table>

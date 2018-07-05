@@ -5,16 +5,15 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-
     <form class="form-horizontal" method="post" action="do?command=SignUp">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Sign Up Form</legend>
+            <legend><b>Регистрация</b></legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
+                <label class="col-md-4 control-label" for="login">Login:</label>
                 <div class="col-md-4">
                     <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
                     value="testLogin">
@@ -24,7 +23,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="email">Email</label>
+                <label class="col-md-4 control-label" for="email">Email:</label>
                 <div class="col-md-4">
                     <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
                     value="test@mail.ru">
@@ -34,7 +33,7 @@
 
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
+                <label class="col-md-4 control-label" for="password">Password:</label>
                 <div class="col-md-4">
                     <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
                     value="testPassword">
@@ -46,7 +45,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
+                    <button id="submit" name="submit" class="btn btn-success">Зарегистрироваться</button>
                 </div>
             </div>
 

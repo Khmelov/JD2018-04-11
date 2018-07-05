@@ -10,7 +10,6 @@ class Util {
     private static final String DOUBLE = "-?[0-9]+\\.?([0-9]*)";
     private static final String LONG = "-?[0-9]+";
 
-
     private static String getString(HttpServletRequest req, String field, String pattern) {
         String value = req.getParameter(field);
         if (value.matches(pattern))
@@ -44,5 +43,4 @@ class Util {
         String value = getString(req, field, LONG);
         return value == null ? null : Long.valueOf(value);
     }
-
 }

@@ -9,11 +9,11 @@
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Создание объявления</legend>
+            <legend><b>Заказ книг</b></legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="description">Описание</label>
+                <label class="col-md-4 control-label" for="description">Описание:</label>
                 <div class="col-md-4">
                     <input value="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
                 </div>
@@ -21,7 +21,7 @@
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Название</label>
+                <label class="col-md-4 control-label" for="name">Название:</label>
                 <div class="col-md-4">
                     <input value="name" id="name" name="name" type="text" placeholder="" class="form-control input-md">
                 </div>
@@ -29,7 +29,7 @@
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="author">Автор</label>
+                <label class="col-md-4 control-label" for="author">Автор:</label>
                 <div class="col-md-4">
                     <input value="author" id="author" name="author" type="text" placeholder="" class="form-control input-md">
                 </div>
@@ -37,7 +37,7 @@
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="genre">Жанр</label>
+                <label class="col-md-4 control-label" for="genre">Жанр:</label>
                 <div class="col-md-4">
                     <input value="genre" id="genre" name="genre" type="text" placeholder="" class="form-control input-md">
                 </div>
@@ -45,7 +45,7 @@
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="pages">Количество страниц</label>
+                <label class="col-md-4 control-label" for="pages">Количество страниц:</label>
                 <div class="col-md-4">
                     <input value="130" id="pages" name="pages" type="text" placeholder="" class="form-control input-md">
                 </div>
@@ -53,7 +53,7 @@
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="price">Цена</label>
+                <label class="col-md-4 control-label" for="price">Цена:</label>
                 <div class="col-md-4">
                     <input value="9" id="price" name="price" type="text" placeholder="" class="form-control input-md">
                 </div>
@@ -61,9 +61,9 @@
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="submit">Create book</label>
+                <label class="col-md-4 control-label" for="submit">Order book</label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-primary">Create book</button>
+                    <button id="submit" name="submit" class="btn btn-primary">Заказать книгу</button>
                 </div>
             </div>
 
