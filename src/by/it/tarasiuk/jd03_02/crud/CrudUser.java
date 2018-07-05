@@ -38,7 +38,7 @@ public class CrudUser {
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement()
         ) {
-            String sql = String.format(Locale.US, "" +
+            String sql = String.format(Locale.US,
                     "SELECT `id`, `login`, `password`, `email`, `roles_id` FROM `users` WHERE id=%d", id);
             ResultSet resultSet = statement.executeQuery(sql);
             if (resultSet.next()) {

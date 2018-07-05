@@ -1,6 +1,5 @@
 package by.it.mokhart.project.java.dao;
 
-
 import by.it.mokhart.project.java.connection.DbConnection;
 
 import java.sql.Connection;

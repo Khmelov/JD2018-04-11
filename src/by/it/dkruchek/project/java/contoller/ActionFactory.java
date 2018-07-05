@@ -9,6 +9,6 @@ class ActionFactory {
         //System.out.println("command=" + command);
         if (command != null && !command.isEmpty()) {
             return Action.valueOf(command.toUpperCase());
-        } else return Action.ERROR;
+        } else return Action.INDEX;
     }
 }

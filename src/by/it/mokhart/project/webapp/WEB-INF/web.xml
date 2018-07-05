@@ -5,6 +5,10 @@
          version="3.0"
          metadata-complete="true">
 
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
+
     <display-name>Сервлет Controller</display-name>
     <servlet>
         <servlet-name>FrontController</servlet-name>
@@ -14,5 +18,20 @@
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
         <url-pattern>/do</url-pattern>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>FilterUTF8</filter-name>
+        <filter-class>by.it.mokhart.project.java.filters.FilterUTF8</filter-class>
+        <init-param>
+            <param-name>encode</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterUTF8</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>

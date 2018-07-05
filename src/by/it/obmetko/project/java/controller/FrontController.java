@@ -1,5 +1,6 @@
 package by.it.obmetko.project.java.controller;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -7,43 +8,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.Arrays;
 
-public class FrontController extends HttpServlet{
+public class FrontController extends HttpServlet {
 
-    ActionFactory actionFactory;
+
 
     @Override
-    public void init() throws ServletException {
-        actionFactory=new ActionFactory();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        process(req, resp);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        serv(req,resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        process(req, resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        serv(req,resp);
-    }
-
-    private void serv(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate, max-age=0");
-        Actions action = actionFactory.defineAction(req);
-        Cmd nextAction = action.cmd.execute(req);
-        if (nextAction==null){
-            //show view jsp
-            ServletContext servletContext = getServletContext();
-            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
-            requestDispatcher.forward(req,resp);
+    private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ActionFactory factory = new ActionFactory();
+        ActionCommand command = factory.defineCommand(req);
+        ActionCommand nextStep = null;
+        ServletContext servletContext = getServletContext();
+        try {
+            nextStep = command.execute(req,resp);
+        } catch (SQLException | ParseException | NullPointerException e) {
+            req.setAttribute(Msg.ERROR, "FC:" + e);
+            req.setAttribute(Msg.ERROR_DETAILS, "<h5>details:</h5>" + Arrays.toString(e.getStackTrace()));
+            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(Actions.ERROR.command.getJSP());
+            requestDispatcher.forward(req, resp);
         }
-        else
-        {
-            //redirect wb to other cmd
-            resp.sendRedirect("do?command="+nextAction.toString().toLowerCase());
-        }
+        if (nextStep == null || nextStep == command) {
+            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(command.getJSP());
+            requestDispatcher.forward(req, resp);
+        } else resp.sendRedirect("do?command=" + nextStep);
+
     }
-}
+    }

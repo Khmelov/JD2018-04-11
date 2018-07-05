@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `obmetko`.`catalog` ;
 
 CREATE TABLE IF NOT EXISTS `obmetko`.`catalog` (
   `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(4000) NULL DEFAULT NULL,
+  `CatalogName` VARCHAR(4000) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -143,8 +143,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `obmetko`;
-INSERT INTO `obmetko`.`catalog` (`ID`, `Name`) VALUES (DEFAULT, 'каталог книг');
-INSERT INTO `obmetko`.`catalog` (`ID`, `Name`) VALUES (DEFAULT, 'каталог манги и комиксов');
+INSERT INTO `obmetko`.`catalog` (`ID`, `CatalogName`) VALUES (DEFAULT, 'каталог книг');
+INSERT INTO `obmetko`.`catalog` (`ID`, `CatalogName`) VALUES (DEFAULT, 'каталог манги и комиксов');
 
 COMMIT;
 
