@@ -35,6 +35,12 @@ package by.it.rogov.progect.java.controller;
 
          }
      },
+     EDITELABRARY {
+         {
+             cmd = new CmdEditeLabrary();
+
+         }
+     },
     SIGNUP {
         {
             cmd = new CmdSignUp();

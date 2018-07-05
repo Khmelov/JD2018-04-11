@@ -15,7 +15,7 @@ import java.util.Locale;
 class CmdLabrary extends Cmd {
     @Override
     Action execute(HttpServletRequest req) throws Exception {
-        int test=1;
+        int test;
         HttpSession session = req.getSession();
 
         Object oUser = session.getAttribute("user");
@@ -43,8 +43,6 @@ class CmdLabrary extends Cmd {
         if (req.getParameter("back")!=null){
             test=0;
             session.setAttribute("test",test);
-
-
         }
         User user =(User) oUser;
         if(req.getParameter("permission")!=null){
@@ -56,8 +54,6 @@ class CmdLabrary extends Cmd {
             Dao.getDao().permission.create(permission);
             session.setAttribute("permission",permission);
         }
-
-
         String where = String.format(Locale.US, " WHERE users_id=%d", 1);
         List<LabraryLittle> textFrees = Dao.getDao().labrary.getTextFree(where);
         session.setAttribute("textFrees",textFrees);

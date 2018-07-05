@@ -25,8 +25,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textPay">Содержание</label>
                 <div class="col-md-12">
-                    <textarea rows="5" id="textPay" name="textPay" type="text" placeholder="" class="form-control input-md" >
-                    </textarea>
+                    <textarea rows="5" id="textPay" name="textPay" type="text" placeholder="" class="form-control input-md" ></textarea>
                     <span class="help-block">${help_password}</span>
                 </div>
             </div>

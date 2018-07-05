@@ -55,7 +55,7 @@
             <fieldset>
 
                 <!-- Form Name -->
-                <legend>Выход${permission}</legend>
+                <legend>Выход</legend>
 
                 <!-- Button -->
                 <div class="form-group">
