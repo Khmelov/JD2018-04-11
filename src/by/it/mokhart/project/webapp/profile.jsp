@@ -54,7 +54,7 @@
            </fieldset>
        </form>
 </center>
-       <h2>Мои объявления</h2>
+       <h2>Мои товары</h2>
            <table class="table table-striped">
                 <thead>
                <tr>
