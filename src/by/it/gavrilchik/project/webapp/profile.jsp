@@ -5,7 +5,7 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>Пользователь: ${user}</p>
+
     <h2>Данные профиля</h2>
     <form class="form-horizontal" method="post" action="do?command=Profile">
         <fieldset>

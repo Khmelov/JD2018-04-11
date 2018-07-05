@@ -32,9 +32,12 @@
             </tr>
         </c:forEach>
 
+<img src="include/pics/realt1.jpg" width="1110" height="440" >
+
 
         </tbody>
     </table>
 </div>
 </body>
+
 </html>
