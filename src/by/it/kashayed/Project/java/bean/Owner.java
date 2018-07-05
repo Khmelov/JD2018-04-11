@@ -5,15 +5,15 @@ public class Owner {
     }
     private int id;
     private String login;
-    private String emali;
+    private String email;
     private String pass;
     private String name;
     private int owners_id;
 
-    public Owner(int id, String login, String emali, String pass, String name, int owners_id) {
+    public Owner(int id, String login, String email, String pass, String name, int owners_id) {
         this.id = id;
         this.login = login;
-        this.emali = emali;
+        this.email = email;
         this.pass = pass;
         this.name = name;
         this.owners_id = owners_id;
@@ -35,12 +35,12 @@ public class Owner {
         this.login = login;
     }
 
-    public String getEmali() {
-        return emali;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmali(String emali) {
-        this.emali = emali;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPass() {
@@ -72,7 +72,7 @@ public class Owner {
         return "Owner{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
-                ", emali='" + emali + '\'' +
+                ", email='" + email + '\'' +
                 ", pass='" + pass + '\'' +
                 ", name='" + name + '\'' +
                 ", owners_id=" + owners_id +

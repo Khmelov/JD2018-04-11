@@ -27,7 +27,7 @@ public class DaoOwner extends DaoAbstract implements DaoInterface<Owner> {
                 "INSERT INTO " +
                         "`owner`(`Login`, `email`, `Password`, `Name`, `Owners_id`) " +
                         "VALUES ('%s','%s','%s','%s',%d)",
-                owner.getLogin(), owner.getEmali(), owner.getPass(), owner.getName(), owner.getOwners_id());
+                owner.getLogin(), owner.getEmail(), owner.getPass(), owner.getName(), owner.getOwners_id());
         int id = executeUpdate(sql);
         if (id > 0) {
             owner.setId(id);
@@ -40,7 +40,7 @@ public class DaoOwner extends DaoAbstract implements DaoInterface<Owner> {
         String sql = String.format(Locale.US,
                 "UPDATE `owner` " +
                         "SET `Login`='%s',`email`='%s',`Password`='%s',`Name`='%s',`Owners_id`=%d WHERE id=%d",
-                owner.getLogin(),owner.getEmali(),owner.getPass(),owner.getName(),owner.getOwners_id(),owner.getId());
+                owner.getLogin(),owner.getEmail(),owner.getPass(),owner.getName(),owner.getOwners_id(),owner.getId());
         return executeUpdate(sql)>0;
     }
 

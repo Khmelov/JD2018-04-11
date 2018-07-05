@@ -1,8 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
     <form class="form-horizontal"  method="post" action="do?command=index">
     <fieldset>
 
@@ -25,6 +25,13 @@
       <label class="col-md-4 control-label" for="singlebutton">Select</label>
       <div class="col-md-4">
         <button id="singlebutton" name="singlebutton" class="btn btn-primary">Press here</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="data">Create database</label>
+      <div class="col-md-4">
+        <button id="data" name="data" class="btn btn-secondary">Press here</button>
       </div>
     </div>
 

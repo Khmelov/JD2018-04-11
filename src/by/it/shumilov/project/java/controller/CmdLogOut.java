@@ -1,11 +1,15 @@
 package by.it.shumilov.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class CmdLogOut extends Cmd {
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) {
 
-        return null;
+        HttpSession session = req.getSession();
+        session.invalidate();
+
+        return Action.LOGIN;
     }
 }

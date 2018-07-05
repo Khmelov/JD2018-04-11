@@ -6,13 +6,13 @@ public class Good {
     String goodname;
     String description;
     int piecies;
-    double price;
+    int price;
 
 
     public Good() {
     }
 
-    public Good(long id, long idgood, String goodname, String description, int piecies, double price) {
+    public Good(long id, long idgood, String goodname, String description, int piecies, int price) {
         this.id = id;
         this.idgood = idgood;
         this.goodname = goodname;
@@ -52,9 +52,9 @@ public class Good {
         this.piecies = piecies;
     }
 
-    public double getPrice() { return price; }
+    public int getPrice() { return price; }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
