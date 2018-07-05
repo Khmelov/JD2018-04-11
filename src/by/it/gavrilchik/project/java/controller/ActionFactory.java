@@ -3,11 +3,12 @@ package by.it.gavrilchik.project.java.controller;
 import javax.servlet.http.HttpServletRequest;
 
 public class ActionFactory {
-    Actions defineAction(HttpServletRequest req){
+    Action defineAction(HttpServletRequest req) {
         String command = req.getParameter("command");
-        if (command!=null && !command.isEmpty()){
-            Actions actions=Actions.valueOf(command.toUpperCase()); //perepisat with else
-        }
-        return Actions.ERROR;
+        System.out.println("command="+command);
+        if (command != null && !command.isEmpty())
+            return Action.valueOf(command.toUpperCase());
+        else
+            return Action.INDEX;
     }
 }

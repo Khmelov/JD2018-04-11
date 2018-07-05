@@ -31,8 +31,8 @@ public class FrontController extends HttpServlet {
     private void serv(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
 
-            Actions action = actionFactory.defineAction(req);
-            Cmd nextAction = action.cmd.execute(req);
+            Action action = actionFactory.defineAction(req);
+            Action nextAction = action.cmd.execute(req);
             if (nextAction == null) {
 
                 RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(action.jsp);
@@ -51,7 +51,7 @@ public class FrontController extends HttpServlet {
                     break;
             }
             req.setAttribute("errStack",sb.toString());
-            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(Actions.ERROR.jsp);
+            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(Action.ERROR.jsp);
             requestDispatcher.forward(req, resp);
         }
     }

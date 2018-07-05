@@ -1,10 +1,25 @@
 package by.it.gavrilchik.project.java.controller;
 
+import by.it.gavrilchik.project.java.DAO.Dao;
+import by.it.gavrilchik.project.java.beans.User;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class CmdSignUp extends Cmd{
+
     @Override
-    Cmd execute(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) throws Exception {
+        if (Util.isPost(req)) {
+            String login = Util.getString(req, "login");
+            String email = Util.getString(req, "email");
+            String password = Util.getString(req, "password");
+            if (login != null && email != null && password != null) {
+                User user = new User(0, login, password, email, 2);
+                Dao.getDao().user.create(user);
+                if (user.getId() > 0)
+                    return Action.LOGIN;
+            }
+        }
         return null;
     }
 }
