@@ -4,18 +4,18 @@ public class Ad {
 
     private long id;
     private String marka;
-    private double price;
     private String model;
+    private double price;
     private long users_id;
 
     public Ad() {
     }
 
-    public Ad(long id, String marka, double price, String model, long users_id) {
+    public Ad(long id, String marka, String model, double price, long users_id) {
         this.id = id;
         this.marka = marka;
-        this.price = price;
         this.model = model;
+        this.price = price;
         this.users_id = users_id;
     }
 
