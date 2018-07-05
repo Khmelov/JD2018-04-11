@@ -76,7 +76,31 @@ public class C_Init {
     statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Administator')");
     statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'User')");
     statement.executeUpdate("INSERT INTO `rogov`.`roles` (`ID`, `role`) VALUES (DEFAULT, 'Guest')");
-    statement.executeUpdate("INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'pasadmin', 'admin@mail@ru', 1)");
+    statement.executeUpdate("INSERT INTO `rogov`.`users` (`ID`, `login`, `password`, `email`, `roles_ID`) " +
+            "VALUES (DEFAULT, 'admin', 'pasadmin', 'admin@mail@ru', 1)");
+    statement.executeUpdate("INSERT INTO `rogov`.`labrary` (`ID`, `textFree`, `textPay`, `users_ID`) VALUES\n" +
+            "(1, 'СПОРТИВНОЕ ПИТАНИЕ: АМИНОКИСЛОТЫ', 'Аминокислоты – это те кирпичики, которые строят весь наш " +
+            "огранизм: от мышц до мозга. Они помогают восстановить мышечную ткань после тренировок, тем самым " +
+            "снизив болевые ощущения и подготовив мышцы к дальнейшим нагрузкам.', 1)");
+    statement.executeUpdate("INSERT INTO `rogov`.`labrary` (`ID`, `textFree`, `textPay`, `users_ID`) VALUES\n" +
+            "(2, 'СПОРТИВНОЕ ПИТАНИЕ: ЖИРОСЖИГАТЕЛИ', 'Жиросжигатели и в частности, L-карнитин, помогают сжигать " +
+            "жиры. Они работают только при наличии физических нагрузок и помогают ускорить процесс похудения.  '," +
+            " 1)");
+    statement.executeUpdate("INSERT INTO `rogov`.`labrary` (`ID`, `textFree`, `textPay`, `users_ID`) VALUES\n" +
+            "(3, 'СПОРТИВНОЕ ПИТАНИЕ: ЭНЕРГЕТИКИ', 'При усиленных тренировках, когда организм не успевает " +
+            "восстановить силы, в бой вступают энергетики. Они состоят из быстрых углеводов и моментально наполняют " +
+            "организм энергией. Именно энергетики в зале пьют накачанные ребята во время тренировки.', 1)");
+    statement.executeUpdate("INSERT INTO `rogov`.`labrary` (`ID`, `textFree`, `textPay`, `users_ID`) VALUES\n" +
+            "(4, 'СПОРТИВНОЕ ПИТАНИЕ: ГЕЙНЕР', 'Гейнер –  углеводно-белковая смесь для наращивания массы и " +
+            "восстановление энергетического баланса. Его употребляют в период активных тренировок, для того," +
+            "чтобы мышцы росли быстрее. А также гейнер – отличный вариант для людей, у которых не смотря на " +
+            "регулярные тренировки, не сложился нормальный режим питания.', 1)");
+    statement.executeUpdate("INSERT INTO `rogov`.`labrary` (`ID`, `textFree`, `textPay`, `users_ID`) VALUES\n" +
+            "(5, 'СПОРТИВНОЕ ПИТАНИЕ: ПРОТЕИН', 'Протеиновые продукты – это продукты с высоким содержанием белка " +
+            "и почти нулевым содержанием углеводов. Белок – основной строитель и защитник мышечной ткани. Так, если " +
+            "Вы наращиваете мышцы, без белка они просто не будут расти. При похудении организм также может терять " +
+            "мышечную ткань вместо жира, и именно белок сможет гарантировать Вам, что жир уйдет, а мышцы останутся.'," +
+            " 1)");
             System.out.println("Create All Table");
         }
 

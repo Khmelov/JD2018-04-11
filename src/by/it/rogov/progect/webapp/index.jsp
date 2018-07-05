@@ -6,7 +6,7 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
     <p>Содержание </p>
-<div class=col-md-2>
+<div class=col-md-4>
     <div class="list-group" ${hidden}>
         <c:forEach items="${textFrees}" var="textFree">
                <li  class="list-group-item" name="${textFree.id}" id="Selecte">

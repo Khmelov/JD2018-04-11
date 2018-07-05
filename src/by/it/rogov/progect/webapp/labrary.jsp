@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class=col-md-2>
+        <div class=col-md-4>
             <div class="list-group">
                 <c:forEach items="${textFrees}" var="textFree">
                     <button  class="btn btn-success-action" name="read"
