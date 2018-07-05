@@ -11,6 +11,7 @@ class CmdIndex extends Cmd {
     @Override
     Action execute(HttpServletRequest req) throws SQLException {
         List<Publication> publications = Dao.getDao().publication.getAll("");
+        System.out.println("Ghbdtn");
         req.setAttribute("publications", publications);
         return null;
     }

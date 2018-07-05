@@ -1,6 +1,8 @@
 package by.it.tayanovskii.project.java.controller;
 
+import by.it.tayanovskii.project.java.beans.Publication;
 import by.it.tayanovskii.project.java.beans.User;
+import by.it.tayanovskii.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,9 +26,13 @@ public class CmdProfile extends Cmd {
         }
 
         User user = (User) oUser;
-        //String where = String.format(Locale.US, " WHERE users_id=%d", user.getId());
-        //List<Ad> ads = Dao.getDao().ad.getAll(where);
-        //req.setAttribute("ads",ads);
+        String where = String.format(Locale.US, " , `permissions`, `users` " +
+                        "WHERE users.id=%d " +
+                        "AND publications.id=permissions.publications_id " +
+                        "AND permissions.users_id=users.id AND permissions.access=true",
+                user.getId());
+        List<Publication> publications = Dao.getDao().publication.getAll(where);
+        req.setAttribute("publications",publications);
         return null;
     }
 }
