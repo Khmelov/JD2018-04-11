@@ -1,6 +1,7 @@
 package by.it.rogov.progect.java.controller;
 
 import by.it.rogov.progect.java.beans.Labrary;
+import by.it.rogov.progect.java.beans.LabraryLittle;
 import by.it.rogov.progect.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,9 +44,10 @@ public class CmdEditeLabrary extends Cmd {
             dao.labrary.delete(labrary);
             edit=0;
             session.setAttribute("edit",edit);
-            return Action.LABRARY;
         }
-
+        String where = String.format(Locale.US, " WHERE users_id=%d", 1);
+        List<LabraryLittle> textFrees = Dao.getDao().labrary.getTextFree(where);
+        session.setAttribute("textFrees",textFrees);
 
         return null;
     }
