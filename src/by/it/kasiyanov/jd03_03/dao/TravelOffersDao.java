@@ -49,7 +49,7 @@ public class TravelOffersDao extends AbstractDao implements InterfaceDAO<TravelO
                         "`price`=%f, `users_id`=%d WHERE id=%d",
                 travelOffers.getDescription(), travelOffers.getTypeOfTravel(), travelOffers.getDestination(),
                 travelOffers.getHotel(), travelOffers.getLevelOfAccommodation(), travelOffers.getNumberOfNights(),
-                travelOffers.getPrice(), travelOffers.getUsers_id());
+                travelOffers.getPrice(), travelOffers.getUsers_id(), travelOffers.getId());
         return executeUpdate(sql) > 0;
     }
 

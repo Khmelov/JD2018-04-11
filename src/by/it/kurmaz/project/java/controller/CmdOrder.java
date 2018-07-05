@@ -1,43 +1,57 @@
 package by.it.kurmaz.project.java.controller;
 
 import by.it.kurmaz.project.java.DAO.DAO;
-import by.it.kurmaz.project.java.beans.Order;
-import by.it.kurmaz.project.java.beans.ShippingList;
-import by.it.kurmaz.project.java.connection.dbConnection;
-
+import by.it.kurmaz.project.java.beans.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.ResultSet;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 class CmdOrder extends Cmd {
     @Override
-    ActionResult execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
+    ActionResult execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException{
+        HttpSession session = req.getSession();
+        if (session.getAttribute("admin") != null)
+            return new ActionResult(Actions.INDEX);
         if (Util.isPost(req)) {
-            String name = Util.getString(req,"select");
-            String amount = Util.getString(req,"amount");
-            int id = Util.getInteger(req, "user_id");
-            if (name != null && amount != null) {
-                Order order = new Order(0, 0, id);
+            Object isUser = session.getAttribute("user");
+            List<Catalog> orderList = (List<Catalog>) session.getAttribute("orderList");
+            User user = (User) isUser;
+            int user_id = (int) user.getId();
+            long order_id;
+            if (orderList == null) {
+                orderList = new ArrayList<Catalog>(){};
+                session.setAttribute("orderList", orderList);
+            }
+            if(req.getParameter("add") != null) {
+                int item_id = Util.getInteger(req, "id");
+                int amount = Util.getInteger(req, "amount");
+                String where = String.format(Locale.US, "WHERE ID='%d'", item_id);
+                List<Catalog> items = DAO.getDao().catalog.getAll(where);
+                Catalog item = items.get(0);
+                Catalog orderItem = new Catalog(item_id, amount, item.getName(), item.getPrice());
+                orderList.add(orderItem);
+                item.setAmount(item.getAmount() - amount);
+                DAO.getDao().catalog.update(item);
+            }
+            if (req.getParameter("create") != null) {
+                Order order = new Order(0, 0, user_id);
                 DAO.getDao().order.create(order);
-                long order_id = order.getId();
-                String sql = String.format(Locale.US, "" + "SELECT `ID` FROM `catalog` WHERE `NAME`='%s'", name);
-                ResultSet resultSet = dbConnection.getConnection().createStatement().executeQuery(sql);
-                int catalog_id = 0;
-                if (resultSet.next())
-                    catalog_id = resultSet.getInt(1);
-                ShippingList list = new ShippingList(0, amount, catalog_id, (int)order_id);
-                DAO.getDao().shippingList.create(list);
-                if (list.getId() > 0) {
-                    PrintWriter respWriter = resp.getWriter();
-                    respWriter.println("Order created! <br>");
+                session.setAttribute("order", order);
+                order_id = order.getId();
+                for (Catalog catalog : orderList) {
+                    ShippingList list = new ShippingList(0, String.valueOf(catalog.getAmount()), (int) catalog.getID(), (int) order_id);
+                    DAO.getDao().shippingList.create(list);
                 }
-                return new ActionResult(Actions.VIEWCATALOG);
+                orderList.clear();
+                return new ActionResult(Actions.LISTORDERS);
             }
         }
+        List<Catalog> items = DAO.getDao().catalog.getAll("");
+        req.setAttribute("catalogitems", items);
         return null;
     }
 }

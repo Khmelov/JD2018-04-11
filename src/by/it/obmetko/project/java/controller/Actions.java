@@ -1,31 +1,80 @@
 package by.it.obmetko.project.java.controller;
 
+import by.it.obmetko.project.java.commands.*;
+import by.it.obmetko.project.java.commands.crud.*;
+
 public enum Actions {
-    INDEX {
-        {
-            cmd = new CmdIndex();
-            jsp = "/index.jsp";
-        }
-    },
     LOGIN {
         {
-            cmd = new CmdLogin();
-            jsp = "/login.jsp";
+            this.command = new CommandLogIn();
         }
-    },
-    SIGNUP {
+    },LOGOUT{
         {
-            cmd = new CmdSignUp();
-            jsp = "/signup.jsp";
+            this.command = new CommandLogOut();
         }
-    },
-    ERROR {
+    },ERROR{
         {
-            cmd = new CmdError();
-            jsp = "/error.jsp";
+            this.command = new CommandError();
         }
-    };
-    Cmd cmd = new CmdError();
-    String jsp = "/error.jsp";
+    },SIGNUP{
+        {
+            this.command = new CommandSignUP();
+        }
+    },INDEX{
+        {
+            this.command = new CommandIndex();
+        }
+    },INITDB{
+        {
+            this.command = new CommandInitDB();
+        }
+    },RESETDB{
+        {
+            this.command = new CommandResetDB();
+        }
+    },PROFILE{
+        {
+            this.command = new CommandProfile();
+        }
+    },CATEGORY{
+        {
+            this.command = new CommandCategory();
+        }
+    },BASKET {
+        {
+            this.command = new CommandBasket();
+        } //-----------------------CRUD-------------------
+    },CRUDROLES{
+            {
+                this.command = new CommandCrudRoles();
+            }
+        },CRUDCATALOGS{
+            {
+                this.command = new CommandCrudCatalogs();
+            }
+        },CRUDUSERS{
+            {
+                this.command = new CommandCrudUsers();
+            }
+        },CRUDBOOKS{
+            {
+                this.command = new CommandCrudBooks();
+            }
+        },CRUDCATEGORIES{
+            {
+                this.command = new CommandCrudCategories();
+            }
+        },CRUDLISTOFPURCHASES{
+            {
+                this.command = new CommandCrudListOfPurchases();
+            }
+            };
+/*},CATALOG{
+        {
+        this.command = new CommandCatalog();
+        }*/
+
+    public ActionCommand command;
+
 
 }

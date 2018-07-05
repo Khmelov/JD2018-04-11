@@ -1,18 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <p>User: ${user}</p>
+    <p>Owner: ${owner}</p>
 
     <form class="form-horizontal" method="post" action="do?command=Login">
         <fieldset>
 
-            <!-- Form Name -->
+
             <legend>Login Form</legend>
 
-            <!-- Text input-->
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="login">Login</label>
                 <div class="col-md-4">
@@ -22,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- Password input-->
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="password">Password</label>
                 <div class="col-md-4">
@@ -32,11 +33,11 @@
                 </div>
             </div>
 
-            <!-- Button -->
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-success">Sign up</button>
+                    <button id="submit" name="submit" class="btn btn-success">Войти</button>
                 </div>
             </div>
 

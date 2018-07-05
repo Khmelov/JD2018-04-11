@@ -1,10 +1,17 @@
 package by.it.kasiyanov.project.java.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import by.it.kasiyanov.project.java.beans.TravelOffers;
+import by.it.kasiyanov.project.java.dao.Dao;
 
-public class CmdIndex extends Cmd {
+import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
+import java.util.List;
+
+class CmdIndex extends Cmd {
     @Override
-    Cmd execude(HttpServletRequest req) {
+    Action execute(HttpServletRequest req) throws SQLException {
+        List<TravelOffers> travelOffers = Dao.getDao().travelOffers.getAll("");
+        req.setAttribute("travelOffers", travelOffers);
         return null;
     }
 }

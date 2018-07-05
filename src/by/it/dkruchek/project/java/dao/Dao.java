@@ -1,5 +1,7 @@
 package by.it.dkruchek.project.java.dao;
 
+import by.it.dkruchek.project.java.dao.reset.C_Init;
+
 public class Dao {
 
     private static Dao dao;
@@ -23,4 +25,9 @@ public class Dao {
     }
     return dao;
 }
+
+    public static void reset(){
+        C_Init.main(new String[]{});
+    }
+
 }
