@@ -6,7 +6,7 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <form class="form-horizontal" method="post" action="do?command=CreateText">
+    <form class="form-horizontal" method="post" action="do?command=EditeLabrary">
         <fieldset>
 
             <!-- Form Name -->

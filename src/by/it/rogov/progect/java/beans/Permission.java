@@ -1,7 +1,7 @@
 package by.it.rogov.progect.java.beans;
 
 public class Permission {
-    // переделать на булион в таблицах в сех инты
+
     private long id;
     private int pemissionAccess;
     private long users_id;

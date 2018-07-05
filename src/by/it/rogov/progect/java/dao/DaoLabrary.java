@@ -3,6 +3,7 @@ package by.it.rogov.progect.java.dao;
 
 
 import by.it.rogov.progect.java.beans.Labrary;
+import by.it.rogov.progect.java.beans.LabraryLittle;
 import by.it.rogov.progect.java.connection.DBConnection;
 
 import java.sql.Connection;
@@ -75,6 +76,27 @@ public class DaoLabrary extends AbstractDao implements InterfaceDAO<Labrary> {
             }
         }
         return labraries;
+    }
+
+    public List<LabraryLittle> getTextFree(String whereAndOrder) throws SQLException {
+        List<LabraryLittle> textFrees = new ArrayList<>();
+
+        try (
+                Connection connection = DBConnection.getConnection();
+                Statement statement = connection.createStatement()
+        ) {
+            String sql = String.format(Locale.US,"SELECT `ID`, `textFree` FROM `labrary` %s",
+                    whereAndOrder);
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                LabraryLittle labraryLittle = new LabraryLittle(
+                        resultSet.getInt("ID"),
+                        resultSet.getString("textFree")
+                );
+                textFrees.add(labraryLittle);
+            }
+        }
+        return textFrees;
     }
 }
 

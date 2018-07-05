@@ -62,7 +62,7 @@ public class DaoPermission extends AbstractDao implements InterfaceDAO<Permissio
                 Connection connection = DBConnection.getConnection();
                 Statement statement = connection.createStatement()
         ) {
-            String sql = String.format(Locale.US,"SELECT `ID`, `pemissionAccess`, `permissionUpdate`, `users_ID`, `labrary_ID` FROM `permission` %s",
+            String sql = String.format(Locale.US,"SELECT `ID`, `pemissionAccess`, `users_ID` FROM `permission` %s",
                     whereAndOrder);
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {

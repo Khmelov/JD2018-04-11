@@ -1,5 +1,6 @@
 package by.it.rogov.progect.java.controller;
 
+import by.it.rogov.progect.java.beans.Permission;
 import by.it.rogov.progect.java.beans.User;
 import by.it.rogov.progect.java.dao.Dao;
 
@@ -22,6 +23,14 @@ import java.util.Locale;
                 if(users.size()>0){
                     User user =users.get(0);
                     HttpSession session = req.getSession();
+                    where=String.format(Locale.US," WHERE users_id=%d ",
+                            user.getId());
+                    List<Permission> permissions=Dao.getDao().permission.getAll(where);
+                    if(permissions.size()>0) {
+                      Permission  permission =permissions.get(0);
+                        session.setAttribute("permission",permission);
+
+                    }
                     session.setAttribute("user",user);
                     return Action.LABRARY;
                 }

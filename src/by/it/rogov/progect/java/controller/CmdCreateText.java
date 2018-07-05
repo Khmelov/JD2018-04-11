@@ -15,10 +15,6 @@ class CmdCreateText extends Cmd {
         Object ObUser = session.getAttribute("user");
         if (ObUser == null) {
             return Action.LOGIN;
-        }
-        User user = (User) ObUser;
-        if (user.getRoles_id() != 1) {
-            return Action.LABRARY;
 
         } else {
             if (Util.isPost(req)) {
