@@ -69,9 +69,17 @@ public class C_Init {
             statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'ZiZi', 'qwerty', 'zohan@gmail.com', 2);");
             statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'ololoshka321', 'fghffh03', 'Lucy01@ya.ru', 2);");
             statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'watcher1', '321', 'watcher@tut.by', 3);");
+            statement.executeUpdate("INSERT INTO `tarasiuk`.`users` (`id`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, '1', '1', '1@1.1', 2);");
+
 
             statement.executeUpdate("INSERT INTO `tarasiuk`.`adverts` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
-                    "VALUES (DEFAULT, 'AIST', 'Turbo', 2017, 'adult', 'highway', 'blue', 300, 'Good bike!', 2);");
+                    "VALUES (DEFAULT, 'AIST', 'Turbo', 2017, 'adult', 'highway', 'blue', 300, 'Good bike!', 1);");
+            statement.executeUpdate("INSERT INTO `tarasiuk`.`adverts` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
+                    "VALUES (DEFAULT, 'Giant', 'Trance Advanced', 2016, 'adult', 'mountain', 'black', 5500, 'Extraordinary mountain bike!', 2);");
+            statement.executeUpdate("INSERT INTO `tarasiuk`.`adverts` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
+                    "VALUES (DEFAULT, 'Altair', 'City', 2006, 'childish', 'city', 'red', 58, 'Normal bicycle for children.', 2);");
+            statement.executeUpdate("INSERT INTO `tarasiuk`.`adverts` (`id`, `brand`, `model`, `year`, `type`, `grade`, `color`, `price`, `description`, `users_id`) " +
+                    "VALUES (DEFAULT, 'noName', 'n/a', 2000, 'n/a', 'n/a', 'n/a', 10, 'n/a', 3);");
         } catch (SQLException e) {
             e.printStackTrace();
         }
