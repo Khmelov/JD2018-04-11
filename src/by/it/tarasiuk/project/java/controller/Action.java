@@ -11,6 +11,11 @@ enum Action {
             cmd = new CmdLogin();
         }
     },
+    LOGOUT {
+        {
+            cmd = new CmdLogout();
+        }
+    },
     SIGNUP {
         {
             cmd = new CmdSignUp();
