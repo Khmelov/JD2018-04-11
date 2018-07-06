@@ -62,29 +62,59 @@
         </fieldset>
     </form>
 </div>
-<div class="container">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Артикул</th>
-            <th scope="col">Наименование</th>
-            <th scope="col">Описание</th>
-            <th scope="col">Количество деталей</th>
-            <th scope="col">Цена</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="good" items="${goods}">
-            <tr>
-                <td>${good.idgood}</td>
-                <td>${good.goodname}</td>
-                <td>${good.description}</td>
-                <td>${good.piecies}</td>
-                <td>${good.price}</td>
-            </tr>
+
+    <div class="container">
+        <div class="row">
+            <div class=col-md-2>Артикул</div>
+            <div class=col-md-2>Наименование</div>
+            <div class=col-md-2>Описание</div>
+            <div class=col-md-2>Количество деталей</div>
+            <div class=col-md-1>Цена</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <c:forEach items="${goods}" var="good">
+            <form class="update-good-${good.id}" action="do?command=EditGood" method=POST>
+                <div class="row">
+                    <input name="id" type="hidden" value="${good.id}"/>
+                    <div class=col-md-2>
+                        <input id="idgood" class="form-control input-md" name="idgood"
+                               value="${good.idgood}"/>
+                    </div>
+                    <div class=col-md-2>
+                        <input id="goodname" class="form-control input-md" name="goodname"
+                               value="${good.goodname}"/>
+                    </div>
+                    <div class=col-md-2>
+                        <input id="description" class="form-control input-md" name="description"
+                               value="${good.description}"/>
+                    </div>
+                    <div class=col-md-2>
+                        <input id="piecies" class="form-control input-md" name="piecies"
+                               value="${good.piecies}"/>
+                    </div>
+                    <div class=col-md-1>
+                        <input id="price" class="form-control input-md" name="price"
+                               value="${good.price}"/>
+                    </div>
+
+                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
+                        Обновить
+                    </button>
+
+                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
+                        Удалить
+                    </button>
+                </div>
+            </form>
+            <p></p>
         </c:forEach>
-        </tbody>
-    </table>
-</div>
+    </div>
+
+
+
+
+
 </body>
 </html>

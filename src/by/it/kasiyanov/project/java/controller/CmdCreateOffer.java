@@ -6,10 +6,11 @@ import by.it.kasiyanov.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 
 class CmdCreateOffer extends Cmd {
     @Override
-    Action execute(HttpServletRequest req) throws Exception {
+    Action execute(HttpServletRequest req) throws SQLException {
         HttpSession session = req.getSession();
         Object oUser = session.getAttribute("user");
         if (oUser == null){

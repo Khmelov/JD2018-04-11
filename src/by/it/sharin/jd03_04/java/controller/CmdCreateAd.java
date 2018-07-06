@@ -23,7 +23,8 @@ class CmdCreateAd extends by.it.sharin.jd03_04.java.controller.Cmd {
             double price = by.it.sharin.jd03_04.java.controller.Util.getDouble(req, "price");
             Ad ad = new Ad(0,
                     marka,
-                    price, model,
+                    model,
+                    price,
                     user.getId());
             Dao.getDao().ad.create(ad);
             return by.it.sharin.jd03_04.java.controller.Action.PROFILE;

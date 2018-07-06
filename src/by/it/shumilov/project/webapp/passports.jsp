@@ -82,7 +82,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="firstname">Фамилия</label>
       <div class="col-md-4">
-      <input id="firstname" name="firstname" type="text" placeholder="" class="form-control input-md">
+      <input id="firstname" name="firstname" type="text" placeholder="" value="firstname" class="form-control input-md">
       <span class="help-block">${help_firstname}</span>
       </div>
     </div>
@@ -92,8 +92,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="lastname">Имя</label>
       <div class="col-md-4">
-      <input id="lastname" name="lastname" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="lastname" name="lastname" type="text" placeholder="" value="lastname" class="form-control input-md">
+      <span class="help-block">${help_lastname}</span>
       </div>
     </div>
 
@@ -102,8 +102,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="pasportid">Номер паспорта</label>
       <div class="col-md-4">
-      <input id="pasportid" name="pasportid" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="pasportid" name="pasportid" type="text" placeholder="" value="123454435900987RB6" class="form-control input-md">
+      <span class="help-block">${help_pasportid}</span>
       </div>
     </div>
 
@@ -112,8 +112,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="phone">Номер телефона</label>
       <div class="col-md-4">
-      <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="phone" name="phone" type="text" placeholder="" value="375291234567" class="form-control input-md">
+      <span class="help-block">${help_phone}</span>
       </div>
     </div>
 

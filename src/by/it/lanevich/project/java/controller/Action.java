@@ -11,9 +11,19 @@ enum Action {
             cmd = new CmdCreateOrder();
         }
     },
+    EDITORDER {
+        {
+            cmd = new CmdEditOrder();
+        }
+    },
     CREATEGOOD {
         {
             cmd = new CmdCreateGood();
+        }
+    },
+    EDITGOOD {
+        {
+            cmd = new CmdEditGood();
         }
     },
     EDITUSERS{

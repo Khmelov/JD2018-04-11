@@ -18,7 +18,7 @@ public class Dao {
     public DaoOrder order;
     public DaoGood good;
 
-    public static void reset(){ C_Init.main(new String[]{}); }
+
 
     public static Dao getDao() {
         if (dao == null)
@@ -28,4 +28,5 @@ public class Dao {
             }
         return dao;
     }
+    public static void reset(){ C_Init.main(new String[]{}); }
 }
