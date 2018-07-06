@@ -37,8 +37,6 @@
                         <input id="Name" class="form-control input-md" name="Name"
                                value="${owner.name}"/>
                     </div>
-
-
                     <button id="Delete" value="Delete" name="Delete" class=" btn btn-danger col-md-1">
                         Удалить
                     </button>

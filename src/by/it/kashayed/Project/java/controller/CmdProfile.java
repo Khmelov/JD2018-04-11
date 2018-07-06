@@ -36,6 +36,10 @@ class CmdProfile extends Cmd {
                 session.invalidate();
                 return Action.LOGIN;
             }
+            else if (req.getParameter("delete") != null) {
+                Dao.getDao().owner.delete(owner);
+                return Action.LOGIN;
+            }
         }
 
         String where = String.format(Locale.US, " WHERE owner_id=%d", owner.getId());
