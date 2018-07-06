@@ -6,7 +6,6 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <p>User: ${user}</p>
 
     <form class="form-horizontal" method="post" action="do?command=Login">
         <fieldset>
