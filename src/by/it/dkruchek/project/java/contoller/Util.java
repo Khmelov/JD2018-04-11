@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class Util {
+class Util {
 
     private static final String POST = "POST";
     private static final String INTEGER = "-?[0-9]+";

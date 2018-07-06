@@ -1,4 +1,4 @@
-package by.it.shekh.project.java.controller;
+package by.it.lanevich.project.java.controller;
 
 public enum Actions {
     INDEX {
@@ -6,17 +6,20 @@ public enum Actions {
             cmd = new CmdIndex();
             jsp = "/index.jsp";
         }
-    }, LOGIN {
+    },
+    LOGIN {
         {
             cmd = new CmdLogin();
             jsp = "/login.jsp";
         }
-    }, SIGNUP {
+    },
+    SIGNUP {
         {
             cmd = new CmdSignUp();
             jsp = "/signup.jsp";
         }
-    }, ERROR {
+    },
+    ERROR {
         {
             cmd = new CmdError();
             jsp = "/error.jsp";
@@ -24,4 +27,5 @@ public enum Actions {
     };
     Cmd cmd = new CmdError();
     String jsp = "/error.jsp";
+
 }

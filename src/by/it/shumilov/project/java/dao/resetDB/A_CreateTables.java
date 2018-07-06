@@ -35,33 +35,10 @@ public class A_CreateTables {
                     "  `year` INT NULL,\n" +
                     "  `ngos` VARCHAR(9) NULL,\n" +
                     "  `rate` DOUBLE NULL,\n" +
-                    "  `foto` VARCHAR(45) NULL DEFAULT 'defaul.jpg',\n" +
+                    "  `foto` VARCHAR(45) NULL DEFAULT 'default.jpg',\n" +
                     "  PRIMARY KEY (`id`))\n" +
                     "ENGINE = InnoDB;");
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Shumilov`.`orders` (\n" +
-                    "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
-                    "  `startorder` DATE NULL,\n" +
-                    "  `tenancy` INT NULL,\n" +
-                    "  `endorder` DATE NULL,\n" +
-                    "  `cost` DOUBLE NULL,\n" +
-                    "  `discount` INT NULL,\n" +
-                    "  `realcost` DOUBLE NULL,\n" +
-                    "  `avtos_id` INT NOT NULL,\n" +
-                    "  `users_id` INT NOT NULL,\n" +
-                    "  PRIMARY KEY (`id`),\n" +
-                    "  INDEX `fk_orders_avtos_idx` (`avtos_id` ASC),\n" +
-                    "  INDEX `fk_orders_users_idx` (`users_id` ASC),\n" +
-                    "  CONSTRAINT `fk_orders_avtos`\n" +
-                    "    FOREIGN KEY (`avtos_id`)\n" +
-                    "    REFERENCES `Shumilov`.`avtos` (`id`)\n" +
-                    "    ON DELETE RESTRICT\n" +
-                    "    ON UPDATE RESTRICT,\n" +
-                    "  CONSTRAINT `fk_orders_users`\n" +
-                    "    FOREIGN KEY (`users_id`)\n" +
-                    "    REFERENCES `Shumilov`.`users` (`id`)\n" +
-                    "    ON DELETE CASCADE\n" +
-                    "    ON UPDATE CASCADE)\n" +
-                    "ENGINE = InnoDB;");
+
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Shumilov`.`passports` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `firstname` VARCHAR(100) NULL,\n" +
@@ -78,7 +55,30 @@ public class A_CreateTables {
                     "    ON UPDATE CASCADE)\n" +
                     "ENGINE = InnoDB;");
 
-
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Shumilov`.`orders` (\n" +
+                    "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
+                    "  `startorder` DATE NULL,\n" +
+                    "  `tenancy` INT NULL,\n" +
+                    "  `endorder` DATE NULL,\n" +
+                    "  `cost` DOUBLE NULL,\n" +
+                    "  `discount` INT NULL,\n" +
+                    "  `realcost` DOUBLE NULL,\n" +
+                    "  `avtos_id` INT NOT NULL,\n" +
+                    "  `passports_id` INT NOT NULL,\n" +
+                    "  PRIMARY KEY (`id`),\n" +
+                    "  INDEX `fk_orders_avtos_idx` (`avtos_id` ASC),\n" +
+                    "  INDEX `fk_orders_passports1_idx` (`passports_id` ASC),\n" +
+                    "  CONSTRAINT `fk_orders_avtos`\n" +
+                    "    FOREIGN KEY (`avtos_id`)\n" +
+                    "    REFERENCES `Shumilov`.`avtos` (`id`)\n" +
+                    "    ON DELETE RESTRICT\n" +
+                    "    ON UPDATE RESTRICT,\n" +
+                    "  CONSTRAINT `fk_orders_passports1`\n" +
+                    "    FOREIGN KEY (`passports_id`)\n" +
+                    "    REFERENCES `Shumilov`.`passports` (`id`)\n" +
+                    "    ON DELETE CASCADE\n" +
+                    "    ON UPDATE CASCADE)\n" +
+                    "ENGINE = InnoDB;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

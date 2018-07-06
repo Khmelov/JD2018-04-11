@@ -35,7 +35,13 @@ public enum Action {
         {
         cmd = new CmdLogOut();
 
-    }
+        }
+    },
+    EDITUSERS{
+        {
+            cmd = new CmdEditUsers();
+
+        }
     },
     CREATEAVTO {
         {
@@ -43,9 +49,15 @@ public enum Action {
 
         }
     },
-    CREATEORDER {
+    CREATEORDERS {
         {
             cmd = new CmdCreateOrder();
+
+        }
+    },
+    PASSPORTS {
+        {
+            cmd = new CmdPassports();
 
         }
     },

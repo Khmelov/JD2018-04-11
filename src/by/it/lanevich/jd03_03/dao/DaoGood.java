@@ -34,7 +34,7 @@ public class DaoGood extends AbstractDao implements InterfaceDAO<Good> {
         String sql = String.format(Locale.US,
                 "INSERT INTO " +
                         "`goods`(`idgood`, `goodname`, `description`, `piecies`, `price`) " +
-                        "VALUES ('%d','%s','%s','%s', '%s')",
+                        "VALUES ('%d','%s','%s','%s','%s')",
                 good.getIdgood(), good.getGoodname(),good.getDescription(), good.getPiecies(), good.getPrice());
         long id = executeUpdate(sql);
         if (id > 0) {
@@ -48,7 +48,7 @@ public class DaoGood extends AbstractDao implements InterfaceDAO<Good> {
     public boolean update(Good good) throws SQLException {
         String sql = String.format(Locale.US,
                 "UPDATE `goods` " +
-                        "SET `idgood`='%d', `goodname`='%s',`description`='%s', `piecies`='%s',`price`='%s'," +
+                        "SET `idgood`='%d', `goodname`='%s',`description`='%s', `piecies`='%d',`price`='%d'" +
                         "WHERE id=%d",
                 good.getIdgood(), good.getGoodname(),good.getDescription(), good.getPiecies(), good.getPrice(), good.getId());
         return executeUpdate(sql) > 0;
@@ -80,7 +80,7 @@ public class DaoGood extends AbstractDao implements InterfaceDAO<Good> {
                         resultSet.getString("goodname"),
                         resultSet.getString("description"),
                         resultSet.getInt("piecies"),
-                        resultSet.getDouble("price")
+                        resultSet.getInt("price")
 
                 );
                 goods.add(good);
