@@ -8,7 +8,7 @@
     <form class="form-horizontal" method="post" action="do?command=SignUp">
         <fieldset>
 
-            <legend>Sign Up Form</legend>
+            <legend>Регистрация</legend>
 
             <div class="form-group">
                 <label class="col-md-4 control-label" for="Login">Login</label>

@@ -12,7 +12,7 @@
     <display-name>Сервлет Controller</display-name>
     <servlet>
         <servlet-name>FrontController</servlet-name>
-        <servlet-class>by.it.akhmelev.project07.java.controller.FrontController</servlet-class>
+        <servlet-class>FrontController</servlet-class>
     </servlet>
 
     <servlet-mapping>
