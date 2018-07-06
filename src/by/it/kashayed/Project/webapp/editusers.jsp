@@ -8,16 +8,16 @@
 
     <div class="container">
         <div class="row">
-            <div class=col-md-2>Имя</div>
+            <div class=col-md-2>Логин</div>
             <div class=col-md-2>Пароль</div>
             <div class=col-md-3>email</div>
-             <div class=col-md-3>Имя</div>
-            <div class=col-md-2>Роль</div>
+             <div class=col-md-2>Имя</div>
+
         </div>
     </div>
 
     <div class="container">
-        <c:forEach items="${owners}" var="owner">
+        <c:forEach items="${owner}" var="owner">
             <form class="update-user-${owner.id}" action="do?command=EditUsers" method=POST>
                 <div class="row">
                     <input name="id" type="hidden" value="${owner.id}"/>
@@ -38,27 +38,18 @@
                                value="${owner.name}"/>
                     </div>
 
-                    <div class=col-md-2>
-                        <select id="owners_id" name="owners_id" class="form-control">
-                            <c:forEach items="${owners}" var="roles">
-                                <option value="${owners.id}" roles=${roles.id} ${roles.id==user.owners_id?"selected":""}>
-                                        ${roles.roles}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </div>
 
-                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
-                        Обновить
-                    </button>
-
-                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
+                    <button id="Delete" value="Delete" name="Delete" class=" btn btn-danger col-md-1">
                         Удалить
                     </button>
                 </div>
             </form>
             <p></p>
         </c:forEach>
+
+        <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
+           Обновить
+         </button>
     </div>
 
 </div>

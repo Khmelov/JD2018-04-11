@@ -14,12 +14,12 @@ class CmdEditUsers extends Cmd {
         Dao dao = Dao.getDao();
         if (Util.isPost(req)) {
             Integer id = Util.getInteger(req, "id");
-            String login = Util.getString(req, "Login");
+            String login = Util.getString(req, "login");
             String email = Util.getString(req, "email");
-            String password = Util.getString(req, "Password");
-            String name = Util.getString(req, "Name");
+            String password = Util.getString(req, "pass");
+            String name = Util.getString(req, "name");
             Integer ownersId = Util.getInteger(req, "owners_id");
-            Owner owner = new Owner(id, login, email,password, name, ownersId);
+            Owner owner = new Owner(id,login,email,password,name,ownersId);
             if (req.getParameter("Update") != null) {
                 dao.owner.update(owner);
             } else if (req.getParameter("Delete") != null) {
