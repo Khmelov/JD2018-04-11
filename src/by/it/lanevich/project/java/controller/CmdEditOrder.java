@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
-class CmdCreateOrder extends Cmd {
+class CmdEditOrder extends Cmd {
     @Override
     Action execute(HttpServletRequest req) throws SQLException {
         Dao dao = Dao.getDao();
@@ -22,23 +22,22 @@ class CmdCreateOrder extends Cmd {
             return Action.LOGIN;
         User user = (User) oUser;
         if (Util.isPost(req)) {
-//           String where = String.format(Locale.US, " WHERE id='%d'", Util.getLong(req,"goods"));
+//            String where = String.format(Locale.US, " WHERE id='%d'", Util.getLong(req,"goods"));
 //            List<Good> goods = dao.good.getAll(where);
 //            if (goods.size()>0)
- //               req.setAttribute("goods", where);
-      //      Long id = Util.getLong(req, "id");
+//                req.setAttribute("goods", goods.get(0));
+            Long id = Util.getLong(req, "id");
             Long ord_id = Util.getLong(req, "ord_id");
             Long numgood = Util.getLong(req, "numgood");
-   //         Long usersId = Util.getLong(req, "users_id");
-            Long goods_id = Util.getLong(req, "goods_id");
-                 Order order = new Order(0,
-                         ord_id,
-                         numgood,
- //                        usersId,
-                         user.getId(),
- //                        good.getId()); //TODO вставить ид выбранного товара
-                         goods_id);
-  //      2);
+            Long usersId = Util.getLong(req, "users_id");
+            Long goodsId = Util.getLong(req, "goods_id");
+            Order order = new Order(id,
+                    ord_id,
+                    numgood,
+                    usersId,
+                    //                        good.getId()); //TODO вставить ид выбранного товара
+                    goodsId);
+            //      2);
             if (req.getParameter("submit") != null) {
                 dao.order.create(order);
                 return Action.PROFILE;

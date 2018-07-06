@@ -32,7 +32,7 @@ public class DaoOrder extends AbstractDao implements InterfaceDAO<Order> {
         String sql = String.format(Locale.US,
                 "INSERT INTO " +
                         "`orders`(`ord_id`, `numgood`, `users_id`, `goods_id`) " +
-                        "VALUES ('%d','%d',2,3)",//TODO fix dis!!!  get no values
+                        "VALUES ('%d','%d','%d','%d')",//TODO fix dis!!!  get no values
                 order.getOrd_id(), order.getNumgood(), order.getUsers_id(), order.getGoods_id());
              //          "VALUES (1, 2, 2, 3) ");
 

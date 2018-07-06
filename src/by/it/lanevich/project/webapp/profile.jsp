@@ -5,8 +5,7 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>Пользователь: ${user}</p>
-    <h2>Данные профиля</h2>
+       <h2>Данные профиля</h2>
     <form class="form-horizontal" method="post" action="do?command=Profile">
         <fieldset>
 
@@ -42,6 +41,24 @@
                     <span class="help-block">${help_password}</span>
                 </div>
             </div>
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="phone">Phone</label>
+                <div class="col-md-4">
+                    <input id="phone" name="phone" type="phone" placeholder="" class="form-control input-md" required=""
+                           value="${user.phone}">
+                    <span class="help-block">${help_password}</span>
+                </div>
+            </div>
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="address">Phone</label>
+                <div class="col-md-4">
+                    <input id="address" name="address" type="address" placeholder="" class="form-control input-md" required=""
+                           value="${user.address}">
+                    <span class="help-block">${help_password}</span>
+                </div>
+            </div>
 
             <!-- Button -->
             <div class="form-group">
@@ -59,27 +76,24 @@
     <table class="table">
         <thead>
        <tr>
-                   <th scope="col">Артикул</th>
-                   <th scope="col">Наименование</th>
-                   <th scope="col">Описание</th>
-                   <th scope="col">Количество деталей</th>
-                   <th scope="col">Цена</th>
+                   <th scope="col">Номер заказа</th>
+                   <th scope="col">Количество товара</th>
+                   <th scope="col">goods_id</th>
                </tr>
                </thead>
                <tbody>
-               <c:forEach var="good" items="${goods}">
+               <c:forEach var="order" items="${orders}">
                    <tr>
-                       <td>${good.idgood}</td>
-                       <td>${good.goodname}</td>
-                       <td>${good.description}</td>
-                       <td>${good.piecies}</td>
-                       <td>${good.price}</td>
+                       <td>${order.ord_id}</td>
+                       <td>${order.numgood}</td>
+                       <td>${order.goods_id}</td>
                    </tr>
         </c:forEach>
 
 
         </tbody>
     </table>
+
 
 
     <form class="form-horizontal" method="post" action="do?command=Profile">
