@@ -22,7 +22,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="do?command=Profile">Профиль</a>
                     </li>
+                    <c:if test="${employee.id eq 1}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="do?command=EditUsers">Редактировать пользователей</a>
+                        </li>
+                    </c:if>
                 </c:when>
+
                 <c:otherwise>
                     <li class="nav-item">
                         <a class="nav-link" href="do?command=Login">Войти</a>
