@@ -5,13 +5,13 @@
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <p>Owner: ${owner}</p>
+   <!-- <p>Пользователь: ${owner}</p>-->
 
     <form class="form-horizontal" method="post" action="do?command=Login">
         <fieldset>
 
 
-            <legend>Login Form</legend>
+            <legend>Вход в систему</legend>
 
 
             <div class="form-group">
@@ -25,7 +25,7 @@
 
 
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Password</label>
+                <label class="col-md-4 control-label" for="password">Пароль</label>
                 <div class="col-md-4">
                     <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required=""
                            value="testPassword">
