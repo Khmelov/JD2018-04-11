@@ -25,13 +25,17 @@ public class CmdEditUsers extends Cmd {
             String email = Util.getString(req, "email");
             String password = Util.getString(req, "password");
             Long rolesId = Util.getLong(req, "roles_id");
-            User user = new User(id, login, password, email, rolesId);
-            
-            if (req.getParameter("Update") != null) {
-                dao.user.update(user);
-            } else if (req.getParameter("Delete") != null) {
-                dao.user.delete(user);
+
+
+            if(id!=null && login!=null && email!=null && password!=null && rolesId!=null){
+                User user = new User(id, login, password, email, rolesId);
+                if (req.getParameter("Update") != null) {
+                    dao.user.update(user);
+                } else if (req.getParameter("Delete") != null) {
+                    dao.user.delete(user);
+                }
             }
+
         }
         List<User> users = dao.user.getAll("");
         req.setAttribute("users", users);

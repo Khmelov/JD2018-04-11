@@ -6,8 +6,8 @@ import java.util.Date;
 
 class Util {
 
-    public static final String POST = "post";
-    public static final String STRING = ".+";
+    private static final String POST = "post";
+    private static final String STRING = ".+";
     private static final String INTEGER = "-?[0-9]+";
     private static final String LONG = "-?[0-9]+";
     private static final String DOUBLE = "-?[0-9]+\\.?([0-9]*)";
@@ -15,6 +15,9 @@ class Util {
                                             "|^(((19|2[0-9])[0-9]{2})-02-(0[1-9]|1[0-9]|2[0-8]))$" +
                                             "|^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$" +
                                             "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$";
+    private static final String EMAIL = "^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\\-+)|([A-Za-z0-9]+\\.+)" +
+                                            "|([A-Za-z0-9]+\\++))*[A-Za-z0-9]+" +
+                                            "@((\\w+\\-+)|(\\w+\\.))*\\w{1,63}\\.[a-zA-Z]{2,6})$";
 
     static  boolean isPost(HttpServletRequest req){
         return  req
@@ -42,6 +45,17 @@ class Util {
         return  value == null?null:Integer.valueOf(value);
     }
 
+
+    static String getNumber(HttpServletRequest req, String field){
+        String value = getString(req,field,INTEGER);
+        return  value == null?null:String.valueOf(value);
+    }
+
+    static String getEmail(HttpServletRequest req, String field){
+        String value = getString(req,field,EMAIL);
+        return  value == null?null:String.valueOf(value);
+    }
+
     static Double getDouble(HttpServletRequest req, String field){
         String value = getString(req,field,DOUBLE);
         return  value == null?null:Double.valueOf(value);
@@ -56,7 +70,7 @@ class Util {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        String value = getString(req,field,STRING);
+        String value = getString(req,field,DATE);
         System.out.println(value);
         try {
 

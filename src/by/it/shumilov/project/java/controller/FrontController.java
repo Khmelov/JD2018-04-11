@@ -3,6 +3,7 @@ package by.it.shumilov.project.java.controller;
 
 
 import by.it.shumilov.project.java.beans.User;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.RequestDispatcher;
@@ -46,7 +47,7 @@ public class FrontController extends HttpServlet {
                 Cookie cookieName = new Cookie("user",user.getLogin());
                 cookieName.setMaxAge(60);
 
-                Cookie cookiePass = new Cookie("password",DigestUtils.sha256Hex(user.getPassword()));
+                Cookie cookiePass = new Cookie("password",user.getPassword());
                 cookiePass.setMaxAge(60);
                 resp.addCookie(cookieName);
                 resp.addCookie(cookiePass);

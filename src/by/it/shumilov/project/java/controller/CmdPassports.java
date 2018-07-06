@@ -37,7 +37,7 @@ public class CmdPassports extends Cmd{
             String firstname = Util.getString(req,"firstname");
             String lastname = Util.getString(req,"lastname");
             String pasportid = Util.getString(req,"pasportid");
-            String phone = Util.getString(req,"phone");
+            String phone = Util.getNumber(req,"phone");
             System.out.println(id + firstname+lastname+pasportid+phone);
 
 

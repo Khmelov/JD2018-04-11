@@ -21,16 +21,17 @@ public class CmdCreateOrder extends  Cmd {
         User user = null;
         HttpSession session = req.getSession();
         Object objUser = session.getAttribute("user");
-        if(objUser != null){
-            user = (User) objUser;
-//            String json = new Gson().toJson(Dao.getDao().
-//                                    passport.getAll( String.format(Locale.US,"where id='%d'", user.getId())));
-            List<Passport> allPass = Dao.getDao().passport.getAll(String.format(Locale.US, "where users_id='%d'", user.getId()));
-            req.setAttribute("pass",allPass);
-        }
-        else {
+        if(objUser == null)
             return Action.LOGIN;
-        }
+
+
+        user = (User) objUser;
+//        String json = new Gson().toJson(Dao.getDao().
+//                                passport.getAll( String.format(Locale.US,"where id='%d'", user.getId())));
+        List<Passport> allPass = Dao.getDao().passport.getAll(String.format(Locale.US, "where users_id='%d'", user.getId()));
+        req.setAttribute("pass",allPass);
+
+
         if(Util.isPost(req)) {
 
             String where = String.format(Locale.US, " WHERE id='%d'", Util.getLong(req,"AddAvto"));
@@ -61,6 +62,7 @@ public class CmdCreateOrder extends  Cmd {
 
             if (startorder != null && tenancy != null && cost != null && discount != null && realcost != null && avtos_id != null ) {
                 Order order = new Order(0,startorder,tenancy,null,cost,discount,realcost,avtos_id,pasports_id);
+
                 System.out.println(order);
                 if (req.getParameter("Update") != null) {
                     dao.order.update(order);
