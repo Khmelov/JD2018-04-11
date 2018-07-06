@@ -25,9 +25,9 @@ public class CmdCreateAvto extends Cmd{
             String mark = Util.getString(req,"mark");
             String model = Util.getString(req,"model");
             String color = Util.getString(req,"color");
-            String nvin = Util.getString(req,"nvin");
-            Integer year = Util.getInteger(req,"year");
-            String ngos = Util.getString(req,"ngos");
+            String nvin = Util.getVin(req,"nvin");
+            Integer year = Util.getYear(req,"year");
+            String ngos = Util.getGos(req,"ngos");
             Double rate = Util.getDouble(req,"rate");
 
 
@@ -41,10 +41,7 @@ public class CmdCreateAvto extends Cmd{
                 } else  if (req.getParameter("Add") != null) {
                     dao.avto.create(avto);
                 }
-//                if(avto.getId() > 0)
-//
-//                    req.setAttribute("avto", avto);
-                    //return  Action.CREATEAVTO;
+
             }
         }
         List<Avto> avtos = dao.avto.getAll("");
