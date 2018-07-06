@@ -23,6 +23,11 @@ enum Actions {
             cmd = new CmdProfile();
         }
     },
+    EDITUSERS{
+        {
+            cmd=new CmdEditUsers();
+        }
+    },
     SIGNUP {
         {
             cmd = new CmdSignUp();
