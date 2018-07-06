@@ -28,22 +28,15 @@
                 </div>
             </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="goods_id">goods_id</label>
-                            <div class="col-md-4">
-                                <input value="2" id="goods_id" name="goods_id" type="text" placeholder="" class="form-control input-md">
-                            </div>
-                        </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="goods_id">goods_id</label>
+                <div class="col-md-4">
+                    <input value="1" id="goods_id" name="goods_id" type="text" placeholder="" class="form-control input-md">
+                </div>
+            </div>
 
 
- <!--     <select id="goods_id" name="goods_id" class="form-control">
-                            <c:forEach items="${goods}" var="goods">
-                                <option value="${goods.id}" goods=${goods.id} }>
-                                        ${goods.id}
-                                </option>
-                            </c:forEach>
-      </select>
--->
 
             <!-- Text input-->
 

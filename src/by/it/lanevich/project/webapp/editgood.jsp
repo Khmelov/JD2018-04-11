@@ -63,6 +63,7 @@
     </form>
 </div>
 
+
     <div class="container">
         <div class="row">
             <div class=col-md-2>Артикул</div>
@@ -111,10 +112,5 @@
             <p></p>
         </c:forEach>
     </div>
-
-
-
-
-
 </body>
 </html>
