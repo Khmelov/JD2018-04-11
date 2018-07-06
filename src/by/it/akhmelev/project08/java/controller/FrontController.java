@@ -1,5 +1,8 @@
 package by.it.akhmelev.project08.java.controller;
 
+import by.it.akhmelev.project08.java.beans.Role;
+import by.it.akhmelev.project08.java.dao.Dao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -7,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class FrontController extends HttpServlet {
 
@@ -17,6 +22,14 @@ public class FrontController extends HttpServlet {
     public void init() throws ServletException {
         actionFactory = new ActionFactory();
         servletContext = getServletContext();
+        List<Role> roles = null;
+        try {
+            roles = Dao.getDao().role.getAll("");
+            servletContext.setAttribute("roles", roles);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

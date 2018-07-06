@@ -1,4 +1,4 @@
-package by.it.gavrilchik.jd03_01;
+package by.it.mokhart.jd03_01;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

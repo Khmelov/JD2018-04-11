@@ -28,8 +28,6 @@ class CmdEditUsers extends Cmd {
         }
         List<User> users = dao.user.getAll("");
         req.setAttribute("users", users);
-        List<Role> roles = dao.role.getAll("");
-        req.setAttribute("roles", roles);
         return null;
     }
 }
