@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Locale;
 
-public class CmdBuyPublication extends Cmd {
-
+public class CmdSetPermission extends Cmd {
     @Override
     Action execute(HttpServletRequest req) throws SQLException {
         Dao dao = Dao.getDao();
@@ -21,17 +19,24 @@ public class CmdBuyPublication extends Cmd {
         if (oUser == null)
             return Action.LOGIN;
         User user = (User) oUser;
-        if (user.getRoles_id() == 1)
-            return Action.PROFILE;
+        if (user.getRoles_id() != 1)
+            return Action.SETPERMISSION;
         if (Util.isPost(req)) {
-            Long publications_id = Util.getLong(req, "id");
-            Permission permission = new Permission(0, true, user.getId(), publications_id);
-            if (req.getParameter("Buy") != null) {
+            Long publications_id = Util.getLong(req, "publications_id");
+            Long users_id = Util.getLong(req, "users_id");
+            if (req.getParameter("SetTrue") != null) {
+                Permission permission = new Permission(0, true, users_id, publications_id);
+                dao.permission.create(permission);
+            }
+            if (req.getParameter("SetFalse") != null) {
+                Permission permission = new Permission(0, false, users_id, publications_id);
                 dao.permission.create(permission);
             }
         }
         List<Publication> publications = dao.publication.getAll("");
+        List<User> users = dao.user.getAll("");
         req.setAttribute("publications", publications);
+        req.setAttribute("users",users);
         return null;
     }
 }

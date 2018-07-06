@@ -18,7 +18,7 @@
 
     <div class="container">
         <c:forEach items="${publications}" var="publication">
-            <form class="set-publications-${publication.id}" action="do?command=EditPublication" method=POST>
+            <form class="set-publications-${publication.id}" action="do?command=BuyPublication" method=POST>
                 <div class="row">
                     <input name="id" type="hidden" value="${publication.id}"/>
                     <div class=col-md-3>
@@ -39,11 +39,8 @@
                         <input id="price" class="form-control input-md" name="price"
                                value="${publication.price}"/>
                     </div>
-                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
-                        Обновить
-                    </button>
-                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
-                        Удалить
+                    <button id="Buy" value="Buy" name="Buy" class="btn btn-success col-md-1">
+                        Получить
                     </button>
 
                 </div>

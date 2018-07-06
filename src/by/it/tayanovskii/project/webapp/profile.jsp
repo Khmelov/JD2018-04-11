@@ -5,7 +5,6 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.html" %>
-    <p>Пользователь: ${user}</p>
     <h2>Доступные публикации</h2>
 
     <div class="form-group">

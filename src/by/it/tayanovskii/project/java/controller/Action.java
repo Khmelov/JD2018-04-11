@@ -46,6 +46,11 @@ enum Action {
             cmd = new CmdBuyPublication();
         }
     },
+    SETPERMISSION{
+        {
+            cmd = new CmdSetPermission();
+        }
+    },
     ERROR {
         {
             cmd = new CmdError();
