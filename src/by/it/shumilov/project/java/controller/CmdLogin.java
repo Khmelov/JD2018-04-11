@@ -20,14 +20,6 @@ public class CmdLogin extends Cmd{
             String login = Util.getString(req,"login");
             String password = Util.getString(req,"password");
 
-            /*String test = DigestUtils.sha256Hex("test");
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.reset();
-            Base64 base64 = new Base64();
-            md.update(password.getBytes());
-            byte[] enbytes = base64.encode(md.digest());*/
-
-
             if (login != null && password != null ) {
                 List<User> users = Dao.getDao().user.
                         getAll(String.format(Locale.US,

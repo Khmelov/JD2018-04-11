@@ -45,17 +45,7 @@
     .container {
 
         padding-right: 0px;
-        padding-left: 0px;}
-    .button_a{
-        display: block;
-        width: 180px;
-        height: 45px;
-        background: #4E9CAF;
-        padding: 10px;
-        text-align: center;
-        border-radius: 5px;
-        color: white;
-    }
+        padding-left: 0px;
 </style>
 
 
@@ -63,53 +53,15 @@
     <%@ include file="include/menu.htm" %>
 
 
-     <h1>Данные профиля ${user.login}</h1>
-         <form class="form-horizontal" method="post" action="do?command=Profile">
-             <fieldset>
-
-                 <!-- Text input-->
-                 <div class="form-group">
-                     <label class="col-md-4 control-label" for="login">Login</label>
-                     <div class="col-md-4">
-                         <input id="login" name="login" type="text" placeholder="" class="form-control input-md"
-                                value="${user.login}">
-                         <span class="help-block">${help_login}</span>
-                     </div>
-                 </div>
-
-                 <!-- Text input-->
-                 <div class="form-group">
-                     <label class="col-md-4 control-label" for="email">Email</label>
-                     <div class="col-md-4">
-                         <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""
-                                value="${user.email}">
-                         <span class="help-block">${help_email}</span>
-                     </div>
-                 </div>
 
 
 
-                 <!-- Button -->
-                 <div class="form-group">
-                     <label class="col-md-4 control-label" for="UpdateUser"></label>
-                     <div class="col-md-4">
-                         <button id="UpdateUser" name="UpdateUser" value="UpdateUser" class="btn btn-success">Обновить</button>
-                     </div>
-                 </div>
-
-             </fieldset>
-         </form>
-
-
-<br>
-<a class="button_a" href="do?command=Password">Изменить пароль</a>
-<br>
  <c:choose>
  <c:when test="${fn:length(orders)!=0}">
 
 
 
-    <p>Мои действующие заказы: </p>
+    <p>Действующие заказы: </p>
 <div class="container">
 
 
@@ -118,6 +70,7 @@
 
             <div class=col-md-2>Начало заказа</div>
             <div class=col-md-2>Длительность</div>
+            <div class=col-md-2>Окончание заказа</div>
             <div class=col-md-2>Стоимость</div>
             <div class=col-md-1>Скидка</div>
             <div class=col-md-1>Итоговая стоимость</div>
@@ -130,16 +83,20 @@
 
     <div class="container">
         <c:forEach items="${orders}" var="order">
-            <form class="update-order-${order.id}" action="do?command=profile" method=POST>
+            <form class="update-order-${order.id}" action="do?command=EditOrders" method=POST>
                 <div class="row">
                     <input name="id" type="hidden" value="${order.id}"/>
                     <div class=col-md-2>
                         <input id="startorder" class="form-control input-md" name="startorder" type="date"
-                               value=<fmt:formatDate value="${order.startorder}" pattern="yyyy-MM-dd" /> />
+                               value=<fmt:formatDate value="${order.startorder}" pattern="yyyy-MM-dd" /> readonly/>
                     </div>
                     <div class=col-md-2>
                         <input id="tenancy" class="form-control input-md" name="tenancy"
-                               value="${order.tenancy}"/>
+                               value="${order.tenancy}" readonly/>
+                    </div>
+                    <div class=col-md-2>
+                        <input id="endorder" class="form-control input-md" name="endorder" type="date"
+                               value==<fmt:formatDate value="${order.startorder}" pattern="yyyy-MM-dd" /> />
                     </div>
                     <div class=col-md-2>
                         <input id="cost" class="form-control input-md" name="cost"
@@ -153,28 +110,27 @@
                         <input id="realcost" class="form-control input-md" name="realcost"
                                value="${order.realcost}"/>
                     </div>
-
+                    <input name="avtos_id" type="hidden" value="${order.avtos_id}"/>
                     <div class=col-md-2>
-                        <select id="avtos_id" name="avtos_id" class="form-control">
-                            <c:forEach var="avto" items="${avtos}">
-
-                                <option value="${avto.id}" avto=${avto.id} ${avto.id==order.avtos_id?"selected":""}>
-                                        ${avto.mark} ${avto.model}, ${avto.ngos}
-                                </option>
-                            </c:forEach>
-                        </select>
+                    <c:forEach  var="avto" items="${avtos}">
+                          <c:if test="${avto.id == order.avtos_id}">
+                          <input id="avtos_idd" class="form-control input-md" name="avtos_idd"
+                                                         value="${avto.mark} ${avto.model}, ${avto.ngos}" readonly/>
+                          </c:if>
+                    </c:forEach>
                     </div>
 
+                    <input name="pasports_id" type="hidden" value="${order.passports_id}"/>
 
                     <div class=col-md-3>
-                        <select id="pasports_id" name="pasports_id" class="form-control">
-                            <c:forEach var="passport" items="${passports}">
+                     <c:forEach items="${passports}" var="passport">
+                         <c:if test="${passport.id == order.passports_id}">
+                               <input id="pasports_idd" class="form-control input-md" name="pasports_idd"
+                                                                         value="${passport.pasportid}" readonly/>
+                         </c:if>
 
-                                <option value="${passport.id}" passport=${passport.id} ${passport.id==order.passports_id?"selected":""}>
-                                        ${passport.pasportid}
-                                </option>
-                            </c:forEach>
-                        </select>
+                     </c:forEach>
+
                     </div>
 
 
@@ -182,9 +138,7 @@
                         Обновить
                     </button>
 
-                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
-                        Удалить
-                    </button>
+
                 </div>
             </form>
             <p></p>
@@ -204,7 +158,7 @@
 
  <c:choose>
   <c:when test="${fn:length(ordersend)!=0}">
-         <p>Мои завершённые заказы:</p>
+         <p>Завершённые заказы:</p>
 
                <table class="table">
                     <theorder>

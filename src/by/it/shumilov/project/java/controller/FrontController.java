@@ -4,8 +4,6 @@ package by.it.shumilov.project.java.controller;
 
 import by.it.shumilov.project.java.beans.User;
 
-import org.apache.commons.codec.digest.DigestUtils;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -57,13 +55,6 @@ public class FrontController extends HttpServlet {
 
 
         Action action = actionFactory.defineAction(req);
-
-
-//        if (action == Action.PASSPORTS && user!=null){
-//            CmdPassports.getPasports(resp, user.getId());
-//            return;
-//        }
-
 
         Action nexAction = action.cmd.execute(req);
 

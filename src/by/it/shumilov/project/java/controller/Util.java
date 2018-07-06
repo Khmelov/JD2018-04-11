@@ -2,12 +2,16 @@ package by.it.shumilov.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.Date;
 
 class Util {
-
+    private static final String NUMBER = "\\d{12}";
     private static final String POST = "post";
     private static final String STRING = ".+";
+    private static final String GOS = ".{9}";
+    private static final String YEAR = "\\d{4}";
+    private static final String VIN = ".{17}";
     private static final String INTEGER = "-?[0-9]+";
     private static final String LONG = "-?[0-9]+";
     private static final String DOUBLE = "-?[0-9]+\\.?([0-9]*)";
@@ -35,6 +39,8 @@ class Util {
         }
     }
 
+
+
     static String getString(HttpServletRequest req, String field){
         //to SQL-injection
        return  getString(req,field,STRING);
@@ -47,7 +53,7 @@ class Util {
 
 
     static String getNumber(HttpServletRequest req, String field){
-        String value = getString(req,field,INTEGER);
+        String value = getString(req,field,NUMBER);
         return  value == null?null:String.valueOf(value);
     }
 
@@ -66,12 +72,27 @@ class Util {
         return  value == null?null:Long.valueOf(value);
     }
 
+    static String getGos(HttpServletRequest req, String field){
+        //to SQL-injection
+        return  getString(req,field,GOS);
+    }
+
+    static String getVin(HttpServletRequest req, String field){
+        //to SQL-injection
+        return  getString(req,field,VIN);
+    }
+
+    static Integer getYear(HttpServletRequest req, String field){
+        String value = getString(req,field,YEAR);
+        return  value == null?null:Integer.valueOf(value);
+    }
+
+
     static Date getData(HttpServletRequest req, String field){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         String value = getString(req,field,DATE);
-        System.out.println(value);
         try {
 
             return sdf.parse(value);
@@ -79,7 +100,7 @@ class Util {
         } catch (Exception ex) {
 
             req.setAttribute("help_"+field, field + " incorrect");
-            return new Date();
+            return null;
         }
 
     }

@@ -3,9 +3,9 @@
 <%@ include file="include/head.htm" %>
 
 <body>
-<%@ include file="include/menu.htm" %>
-<div class="container">
 
+<div class="container">
+<%@ include file="include/menu.htm" %>
 
     <div class="container">
         <div class="row">
@@ -146,7 +146,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="Add"></label>
       <div class="col-md-4">
-        <button id="Add" name="Add" class="btn btn-success">SignUp</button>
+        <button id="Add" name="Add" class="btn btn-success">Add</button>
       </div>
     </div>
 

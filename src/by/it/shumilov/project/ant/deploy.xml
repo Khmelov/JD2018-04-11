@@ -16,7 +16,6 @@
         <fileset dir="${local.lib.dir}" includes="mysql-connector-java.jar"/>
         <fileset dir="${global.lib.dir}" includes="servlet-api.jar"/>
         <fileset dir="${local.lib.dir}" includes="commons-codec-1.11.jar"/>
-        <fileset dir="${local.lib.dir}" includes="gson-2.8.5.jar"/>
     </path>
 
     <!-- начинаем выполнять шаги (т.е. цели). -->

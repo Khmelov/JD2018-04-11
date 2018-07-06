@@ -81,7 +81,7 @@ public class DaoOrder extends AbstractDao implements DaoInterface<Order> {
     @Override
     public boolean delete(Order order) throws SQLException {
 
-        String sql = String.format(Locale.US, " DELETE FROM `passports`  WHERE id=%d", order.getId());
+        String sql = String.format(Locale.US, " DELETE FROM `orders`  WHERE id=%d", order.getId());
 
         return executeUpdate(sql) > 0;
     }

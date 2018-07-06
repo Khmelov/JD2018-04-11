@@ -115,7 +115,7 @@ public class Order {
                 "id=" + id +
                 ", startorder=" + sdf.format(startorder) +
                 ", tenancy=" + tenancy +
-                ", endorder=" + endorder +
+                ", endorder=" + ((endorder==null)?null:sdf.format(endorder)) +
                 ", cost=" + cost +
                 ", discount=" + discount +
                 ", realcost=" + realcost +
