@@ -28,8 +28,8 @@ class CmdProfile extends Cmd {
                 String name = Util.getString(req, "Name");
                 owner.setLogin(login);
                 owner.setEmail(email);
-                owner.setName(name);
                 owner.setPass(password);
+                owner.setName(name);
                 Dao.getDao().owner.update(owner);
             }
             else if (req.getParameter("logout") != null) {

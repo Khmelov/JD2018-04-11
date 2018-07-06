@@ -1,0 +1,4 @@
+msg.welcome=Welcome!
+msg.question=How do you do?
+res.author=Author of code
+res.name=Ivan Gavrilchik

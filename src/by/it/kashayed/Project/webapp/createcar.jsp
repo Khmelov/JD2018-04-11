@@ -14,7 +14,7 @@
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="model">Модель</label>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <input value="model" id="model" name="model" type="text" placeholder="" class="form-control input-md">
 
                 </div>
@@ -23,24 +23,24 @@
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="year">Год выпуска</label>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <input value="1965" id="year" name="year" type="text" placeholder="" class="form-control input-md">
 
                 </div>
             </div>
 
              <div class="form-group">
-                            <label class="col-md-4 control-label" for="color">Цвет</label>
-                            <div class="col-md-4">
-                                <input value="color" id="color" name="color" type="text" placeholder="" class="form-control input-md">
+                  <label class="col-md-4 control-label" for="color">Цвет</label>
+                  <div class="col-md-2">
+                      <input value="color" id="color" name="color" type="text" placeholder="" class="form-control input-md">
 
-                            </div>
-                        </div>
+                  </div>
+              </div>
 
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="vengine">Объем двигателя</label>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <input value="5.0" id="vengine" name="vengine" type="text" placeholder="" class="form-control input-md">
 
                 </div>
@@ -49,7 +49,7 @@
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="price">Цена</label>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <input value="60000" id="price" name="price" type="text" placeholder="" class="form-control input-md">
 
                 </div>
@@ -58,7 +58,7 @@
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit">Создать объявление</label>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <button id="submit" name="submit" class="btn btn-primary">Добавить</button>
                 </div>
             </div>

@@ -23,7 +23,7 @@ class CmdLogin extends Cmd {
                     Owner owner = owners.get(0);
                     HttpSession session = req.getSession();
                     session.setAttribute("owner", owner);
-                   // return Action.PROFILE;
+                    return Action.PROFILE;
                 }
             }
         }

@@ -63,8 +63,8 @@ public class DaoOwner extends DaoAbstract implements DaoInterface<Owner> {
                 Owner owner = new Owner(
                         resultSet.getInt("id"),
                         resultSet.getString("Login"),
-                        resultSet.getString("Password"),
                         resultSet.getString("email"),
+                        resultSet.getString("Password"),
                         resultSet.getString("Name"),
                         resultSet.getInt("Owners_id")
                         );
