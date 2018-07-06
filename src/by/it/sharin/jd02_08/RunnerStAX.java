@@ -25,7 +25,6 @@ public class RunnerStAX {
             XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
             XMLStreamReader reader = xmlInputFactory
                     .createXMLStreamReader(bufferedReader);
-            //start StAX
             while (reader.hasNext()) {
                 int type = reader.next();
                 switch (type) {

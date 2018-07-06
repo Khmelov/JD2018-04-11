@@ -11,6 +11,11 @@ enum Action {
             cmd = new CmdCreateAd();
         }
     },
+    EDITUSERS{
+        {
+            cmd=new CmdEditUsers();
+        }
+    },
     LOGIN {
         {
             cmd = new CmdLogin();
