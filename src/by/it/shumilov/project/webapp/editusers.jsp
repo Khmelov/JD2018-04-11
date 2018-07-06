@@ -9,7 +9,6 @@
     <div class="container">
         <div class="row">
             <div class=col-md-2>Имя</div>
-            <div class=col-md-2>Пароль</div>
             <div class=col-md-3>Email</div>
             <div class=col-md-2>Роль</div>
         </div>

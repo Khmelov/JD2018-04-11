@@ -59,7 +59,7 @@ public class CmdCreateOrder extends  Cmd {
 
 
 
-            if (startorder != null && tenancy != null && cost != null && discount != null && realcost != null && avtos_id != null ) {
+            if (startorder != null && tenancy != null && cost != null && discount != null && realcost != null && avtos_id != null && pasports_id != null) {
                 Order order = new Order(0,startorder,tenancy,null,cost,discount,realcost,avtos_id,pasports_id);
 
 
@@ -72,8 +72,8 @@ public class CmdCreateOrder extends  Cmd {
                     return  Action.PROFILE;
                 }
 
-            }
-
+            }else if (pasports_id == null && avto.size() == 0)
+                return Action.PASSPORTS;
 
         }
 
