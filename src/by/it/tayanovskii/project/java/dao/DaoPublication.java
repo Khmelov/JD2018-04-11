@@ -50,13 +50,13 @@ public class DaoPublication extends AbstractDao implements InterfaceDAO<Publicat
     @Override
     public List<Publication> getAll(String whereAndOrder) throws SQLException {
         List<Publication> publications = new ArrayList<>();
+        String sql = String.format(Locale.US, "" +
+                        "SELECT * FROM `publications` %s",
+                whereAndOrder);
         try (
                 Connection connection = DbConnection.getConnection();
                 Statement statement = connection.createStatement()
         ) {
-            String sql = String.format(Locale.US, "" +
-                            "SELECT * FROM `publications` %s",
-                    whereAndOrder);
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 Publication publication = new Publication(
