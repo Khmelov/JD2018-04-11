@@ -78,7 +78,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit">Создать объявление</label>
                 <div class="col-md-4">
-                    <button id="submit" name="submit" class="btn btn-primary">Button</button>
+                    <button id="submit" name="submit" class="btn btn-primary">Создать</button>
                 </div>
             </div>
 
