@@ -6,9 +6,24 @@ enum Action {
             cmd = new CmdIndex();
         }
     },
+    CREATEBOOK {
+        {
+            cmd = new CmdCreateBook();
+        }
+    },
+    EDITUSERS{
+        {
+            cmd=new CmdEditUsers();
+        }
+    },
     LOGIN {
         {
             cmd = new CmdLogin();
+        }
+    },
+    PROFILE {
+        {
+            cmd = new CmdProfile();
         }
     },
     SIGNUP {
@@ -16,19 +31,9 @@ enum Action {
             cmd = new CmdSignUp();
         }
     },
-    LOGOUT {
+    RESETDB {
         {
-            cmd = new CmdLogOut();
-        }
-    },
-    CREATEBOOK {
-        {
-            cmd = new CmdCreateBook();
-        }
-    },
-    READBOOK {
-        {
-            cmd = new CmdReadBook();
+            cmd = new CmdResetDB();
         }
     },
     ERROR {
@@ -38,5 +43,4 @@ enum Action {
     };
     Cmd cmd = new CmdError();
     String jsp = "/" + this.toString().toLowerCase() + ".jsp";
-
 }

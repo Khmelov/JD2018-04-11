@@ -24,9 +24,15 @@ public class CmdProfile extends Cmd {
                 String login = Util.getString(req, "login");
                 String email = Util.getString(req, "email");
                 String password = Util.getString(req, "password");
+                String surname = Util.getString(req, "surname");
+                String name = Util.getString(req, "name");
+                String patronymic = Util.getString(req, "patronymic");
                 user.setLogin(login);
                 user.setEmail(email);
                 user.setPassword(password);
+                user.setName(name);
+                user.setSurname(surname);
+                user.setPatronymic(patronymic);
                 Dao.getDao().user.update(user);
             }
             else if (req.getParameter("logout") != null) {

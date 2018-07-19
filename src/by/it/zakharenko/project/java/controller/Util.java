@@ -8,7 +8,7 @@ class Util {
     private static final String STRING = ".+";
     private static final String INTEGER = "-?[0-9]+";
     private static final String DOUBLE = "-?[0-9]+\\.?([0-9]*)";
-
+    private static final String LONG = "-?[0-9]+";
 
     private static String getString(HttpServletRequest req, String field, String pattern) {
         String value = req.getParameter(field);
@@ -39,4 +39,8 @@ class Util {
         return value == null ? null : Double.valueOf(value);
     }
 
+    static Long getLong(HttpServletRequest req, String field) {
+        String value = getString(req, field, LONG);
+        return value == null ? null : Long.valueOf(value);
+    }
 }

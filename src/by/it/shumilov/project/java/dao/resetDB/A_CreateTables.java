@@ -15,7 +15,7 @@ public class A_CreateTables {
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Shumilov`.`users` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `login` VARCHAR(45) NULL,\n" +
-                    "  `password` VARCHAR(45) NULL,\n" +
+                    "  `password` VARCHAR(65) NULL,\n" +
                     "  `email` VARCHAR(45) NULL,\n" +
                     "  `roles_id` INT NOT NULL DEFAULT 2,\n" +
                     "  PRIMARY KEY (`id`),\n" +

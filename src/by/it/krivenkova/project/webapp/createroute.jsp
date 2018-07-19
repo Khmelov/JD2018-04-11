@@ -5,7 +5,7 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <form class="form-horizontal" action="do?command=CreateRoute" method="post">
+     <form class="form-horizontal" action="do?command=CreateRoute" method="post">
         <fieldset>
 
             <!-- Form Name -->

@@ -55,6 +55,18 @@ public enum Action {
 
         }
     },
+    EDITORDERS {
+        {
+            cmd = new CmdEditOrders();
+
+        }
+    },
+    PASSWORD {
+        {
+            cmd = new CmdPassword();
+
+        }
+    },
     PASSPORTS {
         {
             cmd = new CmdPassports();

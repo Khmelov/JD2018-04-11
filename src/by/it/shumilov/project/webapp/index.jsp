@@ -1,12 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>Пользователь: ${user.roles_id}</p>
-    <c:out value="${user.roles_id}" />
+    <c:choose>
+        <c:when test="${user!=null}">
+        <h5>Пользователь: ${user.login}</h5>
+        </c:when>
+    </c:choose>
    <table class='table'>
     <thead>
     <tr>

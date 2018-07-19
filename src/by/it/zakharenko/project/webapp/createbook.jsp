@@ -1,68 +1,69 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>User: ${user}</p>
     <form class="form-horizontal" method="post" action="do?command=CreateBook">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Form Name</legend>
+            <legend><b>Заказ книг</b></legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="description">Description</label>
+                <label class="col-md-4 control-label" for="description">Описание:</label>
                 <div class="col-md-4">
-                    <input id="description" name="description" type="text" placeholder="" class="form-control input-md">
+                    <input value="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Name</label>
+                <label class="col-md-4 control-label" for="name">Название:</label>
                 <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
+                    <input value="name" id="name" name="name" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="author">Author</label>
+                <label class="col-md-4 control-label" for="author">Автор:</label>
                 <div class="col-md-4">
-                    <input id="author" name="author" type="text" placeholder="" class="form-control input-md">
+                    <input value="author" id="author" name="author" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="genre">Genre</label>
+                <label class="col-md-4 control-label" for="genre">Жанр:</label>
                 <div class="col-md-4">
-                    <input id="genre" name="genre" type="text" placeholder="" class="form-control input-md">
+                    <input value="genre" id="genre" name="genre" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="pages">Pages</label>
+                <label class="col-md-4 control-label" for="pages">Количество страниц:</label>
                 <div class="col-md-4">
-                    <input id="pages" name="pages" type="text" placeholder="" class="form-control input-md">
+                    <input value="130" id="pages" name="pages" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Text input -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="price">Price</label>
+                <label class="col-md-4 control-label" for="price">Цена:</label>
                 <div class="col-md-4">
-                    <input id="price" name="price" type="text" placeholder="" class="form-control input-md">
+                    <input value="9" id="price" name="price" type="text" placeholder="" class="form-control input-md">
                 </div>
             </div>
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="createbook">Create book</label>
+                <label class="col-md-4 control-label" for="submit">Order book</label>
                 <div class="col-md-4">
-                    <button id="createbook" name="createbook" class="btn btn-success">Create book</button>
+                    <button id="submit" name="submit" class="btn btn-primary">Заказать книгу</button>
                 </div>
             </div>
 

@@ -9,8 +9,10 @@
     <div class="container">
         <div class="row">
             <div class=col-md-2>Имя</div>
-            <div class=col-md-2>Пароль</div>
-            <div class=col-md-3>Email</div>
+            <div class=col-md-1>Пароль</div>
+            <div class=col-md-2>Email</div>
+            <div class=col-md-2>Phone</div>
+            <div class=col-md-3>Address</div>
             <div class=col-md-2>Роль</div>
         </div>
     </div>
@@ -24,15 +26,22 @@
                         <input id="login" class="form-control input-md" name="login"
                                value="${user.login}"/>
                     </div>
-                    <div class=col-md-2>
+                    <div class=col-md-1>
                         <input id="password" class="form-control input-md" name="password"
                                value="${user.password}"/>
                     </div>
-                    <div class=col-md-3>
+                    <div class=col-md-2>
                         <input id="email" class="form-control input-md" name="email"
                                value="${user.email}"/>
                     </div>
-
+                    <div class=col-md-2>
+                        <input id="phone" class="form-control input-md" name="phone"
+                               value="${user.phone}"/>
+                    </div>
+                    <div class=col-md-3>
+                        <input id="address" class="form-control input-md" name="address"
+                               value="${user.address}"/>
+                    </div>
                     <div class=col-md-2>
                         <select id="roles_id" name="roles_id" class="form-control">
                             <c:forEach items="${roles}" var="role">

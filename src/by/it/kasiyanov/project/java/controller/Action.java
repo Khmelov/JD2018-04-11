@@ -1,6 +1,6 @@
 package by.it.kasiyanov.project.java.controller;
 
-public enum Action {
+enum Action {
     INDEX{
         {
             cmd = new CmdIndex();
@@ -9,6 +9,11 @@ public enum Action {
     CREATEOFFER{
         {
             cmd = new CmdCreateOffer();
+        }
+    },
+    EDITUSERS{
+        {
+            cmd=new CmdEditUsers();
         }
     },
     LOGIN{

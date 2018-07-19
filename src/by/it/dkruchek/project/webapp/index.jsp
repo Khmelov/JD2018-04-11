@@ -15,13 +15,12 @@
         <li>${curr_month_name}<br><span style="font-size:18px">${curr_year}</span></li>
       </ul>
     </div>
-<table class="table" border="1">
+<table class="table" border="1" style="table-layout: fixed; width: 100%;">
   <tbody>
   <c:forEach var="entry" items="${full_list}">
     <tr>
-      <td class="employee">${entry.key.name} ${entry.key.lastname}</td>
+      <td class="employee" style="width: 20%;">${entry.key.name} ${entry.key.lastname}</td>
       <c:forEach begin="1" end="${curr_month_days}" varStatus="loop">
-
         <c:choose>
             <c:when test="${entry.value!=null}">
 

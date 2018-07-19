@@ -7,6 +7,7 @@ class Util {
     private static final String POST = "post";
     private static final String STRING = ".+";
     private static final String INTEGER = "-?[0-9]+";
+    private static final String LONG = "-?[0-9]+";
     private static final String DOUBLE = "-?[0-9]+\\.?([0-9]*)";
 
 
@@ -31,6 +32,11 @@ class Util {
     static Integer getInteger(HttpServletRequest req, String field) {
         String value = getString(req, field, INTEGER);
         return value == null ? null : Integer.valueOf(value);
+    }
+
+    static Long getLong(HttpServletRequest req, String field) {
+        String value = getString(req, field, LONG);
+        return value == null ? null : Long.valueOf(value);
     }
 
     static Double getDouble(HttpServletRequest req, String field) {

@@ -14,9 +14,9 @@ public class CmdCreateGood extends Cmd{
     @Override
     Action execute(HttpServletRequest req) throws SQLException {
         HttpSession session = req.getSession();
+        Dao dao = Dao.getDao();
         Object oUser = session.getAttribute("user");
-        List<Good> goods = Dao.getDao().good.getAll("");
-        req.setAttribute("goods", goods);
+
         if (oUser == null)
             return Action.LOGIN;
         User user = (User) oUser;
@@ -32,9 +32,16 @@ public class CmdCreateGood extends Cmd{
                     description,
                         piecies,
                       price);
-            Dao.getDao().good.create(good);
-            return Action.PROFILE;
+            if (req.getParameter("submit") != null) {
+                dao.good.create(good);
+               } else if (req.getParameter("Update") != null) {
+                dao.good.update(good);
+            } else if (req.getParameter("Delete") != null) {
+                dao.good.delete(good);
+            }
         }
+        List<Good> goods = dao.good.getAll("");
+        req.setAttribute("goods", goods);
         return null;
     }
 }

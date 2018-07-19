@@ -5,8 +5,8 @@ import by.it.shumilov.project.java.beans.Order;
 import by.it.shumilov.project.java.beans.Passport;
 import by.it.shumilov.project.java.beans.User;
 import by.it.shumilov.project.java.dao.Dao;
-import com.google.gson.Gson;
-import com.sun.org.apache.xpath.internal.operations.Or;
+
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,16 +21,16 @@ public class CmdCreateOrder extends  Cmd {
         User user = null;
         HttpSession session = req.getSession();
         Object objUser = session.getAttribute("user");
-        if(objUser != null){
-            user = (User) objUser;
-//            String json = new Gson().toJson(Dao.getDao().
-//                                    passport.getAll( String.format(Locale.US,"where id='%d'", user.getId())));
-            List<Passport> allPass = Dao.getDao().passport.getAll(String.format(Locale.US, "where users_id='%d'", user.getId()));
-            req.setAttribute("pass",allPass);
-        }
-        else {
+        if(objUser == null)
             return Action.LOGIN;
-        }
+
+
+        user = (User) objUser;
+
+        List<Passport> allPass = Dao.getDao().passport.getAll(String.format(Locale.US, "where users_id='%d'", user.getId()));
+        req.setAttribute("pass",allPass);
+
+
         if(Util.isPost(req)) {
 
             String where = String.format(Locale.US, " WHERE id='%d'", Util.getLong(req,"AddAvto"));
@@ -39,7 +39,7 @@ public class CmdCreateOrder extends  Cmd {
                 req.setAttribute("avto",avto.get(0));
 
 
-            //System.out.println(req.getAttribute("startorder").toString()+"atr");
+
             Long id = Util.getLong(req, "id");
 
             Date startorder = Util.getData(req,"startorder");
@@ -59,9 +59,10 @@ public class CmdCreateOrder extends  Cmd {
 
 
 
-            if (startorder != null && tenancy != null && cost != null && discount != null && realcost != null && avtos_id != null ) {
+            if (startorder != null && tenancy != null && cost != null && discount != null && realcost != null && avtos_id != null && pasports_id != null) {
                 Order order = new Order(0,startorder,tenancy,null,cost,discount,realcost,avtos_id,pasports_id);
-                System.out.println(order);
+
+
                 if (req.getParameter("Update") != null) {
                     dao.order.update(order);
                 } else if (req.getParameter("Delete") != null) {
@@ -70,12 +71,9 @@ public class CmdCreateOrder extends  Cmd {
                     dao.order.create(order);
                     return  Action.PROFILE;
                 }
-//                if(avto.getId() > 0)
-//
-//                    req.setAttribute("avto", avto);
-                //return  Action.CREATEAVTO;
-            }
 
+            }else if (pasports_id == null && avto.size() == 0)
+                return Action.PASSPORTS;
 
         }
 

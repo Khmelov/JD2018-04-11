@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
@@ -21,18 +22,18 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="price">Цена</label>
+                <label class="col-md-4 control-label" for="model">Модель</label>
                 <div class="col-md-4">
-                    <input value="18000" id="price" name="price" type="text" placeholder="" class="form-control input-md">
+                    <input value="rapid" id="model" name="model" type="text" placeholder="" class="form-control input-md">
 
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="model">Модель</label>
+                <label class="col-md-4 control-label" for="price">Цена</label>
                 <div class="col-md-4">
-                    <input value="rapid" id="model" name="model" type="text" placeholder="" class="form-control input-md">
+                    <input value="18000" id="price" name="price" type="text" placeholder="" class="form-control input-md">
 
                 </div>
             </div>

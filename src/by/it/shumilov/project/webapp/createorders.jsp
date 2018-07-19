@@ -9,7 +9,7 @@
 
 
 
- <p>Avto: "${avto}"</p>
+ <h4>Заказ автомобиля: ${avto.mark} ${avto.model}, ${avto.year}, ${avto.ngos}</h4>
 
 
 
@@ -30,8 +30,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="startorder">Start order</label>
       <div class="col-md-4">
-      <input id="startorder" name="startorder" type="date" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="startorder" name="startorder" type="date" placeholder="" value="2018-07-06" class="form-control input-md">
+      <span class="help-block">${help_startorder}</span>
       </div>
     </div>
 
@@ -39,8 +39,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="tenancy">Продолжительность</label>
       <div class="col-md-4">
-      <input id="tenancy" name="tenancy" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="tenancy" name="tenancy" type="text" placeholder="" value="10" class="form-control input-md">
+      <span class="help-block">${help_tenancy}</span>
       </div>
     </div>
 
@@ -48,17 +48,17 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="cost">Стоимость</label>
       <div class="col-md-4">
-      <input id="cost" name="cost" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="cost" name="cost" type="text" placeholder="" value="123.4" class="form-control input-md">
+      <span class="help-block">${help_cost}</span>
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="discount">Скидка</label>
+      <label class="col-md-4 control-label" for="discount">Скидка, %</label>
       <div class="col-md-4">
-      <input id="discount" name="discount" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="discount" name="discount" type="text" placeholder="" value="15" class="form-control input-md">
+      <span class="help-block">${help_discount}</span>
       </div>
     </div>
 
@@ -66,8 +66,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="realcost">Итоговая стоимость</label>
       <div class="col-md-4">
-      <input id="realcost" name="realcost" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">${help_login}</span>
+      <input id="realcost" name="realcost" type="text" placeholder="" value="115" class="form-control input-md">
+      <span class="help-block">${help_realcost}</span>
       </div>
     </div>
 

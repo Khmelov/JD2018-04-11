@@ -1,5 +1,6 @@
 package by.it.tayanovskii.project.java.controller;
 
+import by.it.tayanovskii.project.java.beans.Permission;
 import by.it.tayanovskii.project.java.beans.Publication;
 import by.it.tayanovskii.project.java.beans.User;
 import by.it.tayanovskii.project.java.dao.Dao;

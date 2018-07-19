@@ -9,7 +9,6 @@
     <div class="container">
         <div class="row">
             <div class=col-md-2>Имя</div>
-            <div class=col-md-2>Пароль</div>
             <div class=col-md-3>Email</div>
             <div class=col-md-2>Роль</div>
         </div>
@@ -20,13 +19,10 @@
             <form class="update-user-${user.id}" action="do?command=EditUsers" method=POST>
                 <div class="row">
                     <input name="id" type="hidden" value="${user.id}"/>
+                    <input name="password" type="hidden" value="${user.password}"/>
                     <div class=col-md-2>
                         <input id="login" class="form-control input-md" name="login"
                                value="${user.login}"/>
-                    </div>
-                    <div class=col-md-2>
-                        <input id="password" class="form-control input-md" name="password"
-                               value="${user.password}"/>
                     </div>
                     <div class=col-md-3>
                         <input id="email" class="form-control input-md" name="email"

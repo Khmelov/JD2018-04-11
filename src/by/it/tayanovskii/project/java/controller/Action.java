@@ -16,9 +16,19 @@ enum Action {
             cmd = new CmdLogin();
         }
     },
+    EDITUSERS{
+        {
+            cmd=new CmdEditUsers();
+        }
+    },
     SIGNUP {
         {
             cmd = new CmdSignUp();
+        }
+    },
+    EDITPUBLICATION {
+        {
+            cmd = new CmdEditPublication();
         }
     },
     PROFILE {
@@ -29,6 +39,16 @@ enum Action {
     CREATEPUBLICATION{
         {
             cmd = new CmdCreatePublication();
+        }
+    },
+    BUYPUBLICATION{
+        {
+            cmd = new CmdBuyPublication();
+        }
+    },
+    SETPERMISSION{
+        {
+            cmd = new CmdSetPermission();
         }
     },
     ERROR {

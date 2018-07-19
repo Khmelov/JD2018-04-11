@@ -29,6 +29,10 @@ enum Action {
         {
             cmd = new CmdResetDB();
         }
+    }, EDITUSERS {
+        {
+            cmd = new CmdEditUsers();
+        }
     };
 
     Cmd cmd = new CmdError();
