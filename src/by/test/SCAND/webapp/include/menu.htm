@@ -1,0 +1,52 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href=".">Главная</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <c:choose>
+                <c:when test="${user ==  null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=Login">Войти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=SignUp">Регистрация</a>
+                    </li>
+                </c:when>
+                <c:when test="${user !=  null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=Logout" >Выйти</a>
+                    </li>
+                </c:when>
+            </c:choose>
+        </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarRight">
+        <ul class="navbar-nav">
+            <c:choose>
+                <c:when test="${user !=  null}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=CreateAd">Создать объявление</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=Profile">Профиль</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=EditUsers">Редактировать пользователей</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=EditAd">Редактировать объявления</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="do?command=ResetDB">ResetDB</a>
+                    </li>
+                </c:when>
+            </c:choose>
+        </ul>
+    </div>
+
+</nav>
