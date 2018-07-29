@@ -80,15 +80,14 @@
                 <td>${cars.color}</td>
                 <td>${cars.vengine}</td>
                 <td>${cars.price}</td>
+
             </tr>
         </c:forEach>
-
-
         </tbody>
     </table>
 
 
-    <form class="form-horizontal" method="post" action="do?command=Profile">
+    <form class="form-horizontal" method="post" action="do?command=profile">
         <fieldset>
 
             <legend>Выход</legend>
@@ -103,6 +102,18 @@
 
         </fieldset>
     </form>
+    <form class="form-horizontal" method="post" action="do?command=profile">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="logout"></label>
+                    <div class="col-md-8">
+                        <button id="deleteprofile" name="deleteprofile" value="3" class="btn btn-danger col-md-3"> Удалить профиль</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+
 </div>
 </body>
 </html>

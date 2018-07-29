@@ -1,0 +1,36 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0"
+         metadata-complete="true">
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
+
+    <display-name>ServletController</display-name>
+    <servlet>
+        <servlet-name>ServletController</servlet-name>
+        <servlet-class>by.test.SCAND.java.controller.ServletController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletController</servlet-name>
+        <url-pattern>/do</url-pattern>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>FilterUTF8</filter-name>
+        <filter-class>by.test.SCAND.java.filterUTF8.FilterUTF8</filter-class>
+        <init-param>
+            <param-name>encode</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterUTF8</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+</web-app>

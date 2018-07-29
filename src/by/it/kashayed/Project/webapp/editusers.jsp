@@ -37,19 +37,18 @@
                         <input id="Name" class="form-control input-md" name="Name"
                                value="${owner.name}"/>
                     </div>
-
-
                     <button id="Delete" value="Delete" name="Delete" class=" btn btn-danger col-md-1">
                         Удалить
                     </button>
+                     <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
+                               Обновить
+                             </button>
                 </div>
             </form>
             <p></p>
         </c:forEach>
 
-        <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
-           Обновить
-         </button>
+
     </div>
 
 </div>

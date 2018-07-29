@@ -1,0 +1,110 @@
+<project name="Ant to SHOP" default="10deploy" basedir="..">
+    <property file="ant/deploy.properties"/>
+
+    <path id="classpath">
+        <fileset dir="${local.lib.dir}" includes="jstl-1.2.jar"/>
+        <fileset dir="${local.lib.dir}" includes="mysql-connector-java.jar"/>
+        <fileset dir="${global.lib.dir}" includes="servlet-api.jar"/>
+    </path>
+    <target name="01clean">
+        <echo>Cleaning the ${build.dir}</echo>
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="02init" depends="01clean">
+        <echo>Creating the build directory</echo>
+        <mkdir dir="${build.dir}/WEB-INF/classes"/>
+        <mkdir dir="${build.dir}/WEB-INF/lib"/>
+    </target>
+
+    <target name="03compile" depends="02init">
+        <echo>Compile the source files</echo>
+        <javac srcdir="${src.dir}" destdir="${build.dir}/WEB-INF/classes" debug="true">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <target name="04copy" depends="03compile">
+        <copy todir="${build.dir}/WEB-INF">
+            <fileset dir="${conf.dir}"/>
+        </copy>
+        <copy todir="${build.dir}">
+            <fileset dir="${web.content}"/>
+        </copy>
+        <copy todir="${build.dir}/WEB-INF/lib">
+            <fileset dir="${local.lib.dir}"/>
+        </copy>
+    </target>
+
+    <target name="05war" depends="04copy">
+        <echo>Building the war file</echo>
+        <war destfile="${dist.dir}/${web.root}.war" webxml="${build.dir}/WEB-INF/web.xml">
+            <fileset dir="${build.dir}"/>
+        </war>
+    </target>
+
+    <target name="06finalize" depends="05war">
+        <echo>Cleaning the ${build.dir}</echo>
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="07if-has-tomcat" depends="06finalize">
+        <property environment="env"/>
+        <condition property="has.tomcat">
+            <http url="${tomcat.base.url}"/>
+        </condition>
+    </target>
+
+
+    <target name="08check-if-deployed" depends="07if-has-tomcat" if="has.tomcat">
+        <condition property="is.webapp.olddeployed">
+            <http url="${tomcat.base.url}/${web.root}"/>
+        </condition>
+
+        <path id="tomcat.classpath">
+            <fileset dir="${global.lib.dir}">
+                <include name="khmelov_tomcat_lib.jar"/>
+            </fileset>
+
+        </path>
+
+        <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="tomcat.classpath"/>
+        <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="tomcat.classpath"/>
+        <taskdef name="list" classname="org.apache.catalina.ant.ListTask" classpathref="tomcat.classpath"/>
+        <taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="tomcat.classpath"/>
+        <taskdef name="findleaks" classname="org.apache.catalina.ant.FindLeaksTask" classpathref="tomcat.classpath"/>
+        <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask" classpathref="tomcat.classpath"/>
+        <taskdef name="start" classname="org.apache.catalina.ant.StartTask" classpathref="tomcat.classpath"/>
+        <taskdef name="stop" classname="org.apache.catalina.ant.StopTask" classpathref="tomcat.classpath"/>
+    </target>
+
+    <target name="09-Manual-Undeploy" depends="08check-if-deployed">
+    
+        <echo>Back bad deploy</echo>
+        <undeploy failonerror="false"
+                  url="${tomcat.manager.url}"
+                  username="${tomcat.user.name}"
+                  password="${tomcat.user.password}"
+                  path="/${web.root}"
+        />
+    </target>
+
+    <target name="10deploy" depends="09-Manual-Undeploy" if="has.tomcat">
+        <echo>Deploy ${war.fullpath}</echo>
+        <deploy
+                url="${tomcat.manager.url}"
+                username="${tomcat.user.name}"
+                password="${tomcat.user.password}"
+                path="/${web.root}"
+                war="${war.fullpath}"
+        />
+        <condition property="is.webapp.ok.deployed">
+            <http url="${tomcat.base.url}/${web.root}"/>
+        </condition>
+    </target>
+    <target name="Win browser" depends="10deploy">
+        <exec executable="cmd.exe" spawn="true">
+            <arg value="/k start ${tomcat.base.url}/${web.root}"/>
+        </exec>
+    </target>
+</project>
