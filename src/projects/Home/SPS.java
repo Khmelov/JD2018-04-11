@@ -26,7 +26,6 @@ class SPS {
                 list.addLast(br.readLine());
                 countStr++;
             }
-            System.out.println(list);
             int[][][] ints = timeSearch(pattern, countStr, list); // проверка и сортировка времени
             int max = Counting.maxPeople(ints); //получение максимального количества сотрудников
             System.out.println(max);
