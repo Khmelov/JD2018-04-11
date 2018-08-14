@@ -8,35 +8,34 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SPS {
-
-    private static String str(Class<?> cls) {
-        String name = cls.getName().replace(cls.getSimpleName(), "").replace(".", File.separator);
-        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator;
-        return path + name;
-    }
+class SPS {
 
     public static void main(String[] args) {
         //System.out.println(str(SPS.class));
         Pattern pattern = Pattern.compile("^(([0,1]?[0-9]|(2[0-3]))(:[0-5][0-9]))$");//паттерн для поиска времени (НН:ММ)
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner
+                .nextLine()//получение строки, пути к файлу
+                .replaceAll("\\p{C}", "");// удаление невидимых символов
         try (BufferedReader br = new BufferedReader(
-                new FileReader(str(SPS.class) + "input.txt")) // чтение файла
+                new FileReader(s)) // чтение файла
         ) {
-            int[][][] ints = timeSearch(pattern, br); // проверка и сортировка времени
+            int countStr = 0;
+            LinkedList<String> list = new LinkedList<>();//все посетители
+            while (br.ready()) {
+                list.addLast(br.readLine());
+                countStr++;
+            }
+            System.out.println(list);
+            int[][][] ints = timeSearch(pattern, countStr, list); // проверка и сортировка времени
             int max = Counting.maxPeople(ints); //получение максимального количества сотрудников
             System.out.println(max);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 
-    private static int[][][] timeSearch(Pattern pattern, BufferedReader br) throws IOException {
-        int countStr = 0;
-        LinkedList<String> list = new LinkedList<>();//все посетители
-        while (br.ready()) {
-            list.addLast(br.readLine());
-            countStr++;
-        }
+    static int[][][] timeSearch(Pattern pattern, int countStr, LinkedList<String> list) {
         int[][][] masTime = new int[countStr][2][2];//количество посетителей(countStr), время прихода (НН:ММ) и время ухода (НН:ММ)
         int i = 0;
         int j = 0;
