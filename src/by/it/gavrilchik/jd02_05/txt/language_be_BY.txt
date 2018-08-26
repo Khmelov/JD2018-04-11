@@ -1,4 +1,0 @@
-msg.welcome=Прывiтанне!
-msg.question=Як справы?
-res.author=Аутар коду
-res.name=Iван Гаурыльчык

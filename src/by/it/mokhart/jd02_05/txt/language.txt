@@ -1,4 +1,0 @@
-msg.welcome=Good afternoon!
-msg.question=How are you?
-res.author=Author of code
-res.name=Yury Mokhart

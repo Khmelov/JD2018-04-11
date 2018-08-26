@@ -1,4 +1,0 @@
-msg.welcome=Прывітанне!
-msg.question=Як справы?
-res.author=Аўтар коду
-res.name=Станіслаў Шэх

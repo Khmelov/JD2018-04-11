@@ -1,5 +1,0 @@
-[Log 1] 2018/06/10 15:01:30  5*12
-[Log 1] 2018/06/10 15:02:21  fdfsd
-[Log 2] 2018/06/10 15:02:24  erw5464fdsf
-[Log 3] 2018/06/10 15:02:27  456+dsfds
-[Log 4] ERROR by.it.krivenkova.calc.CalcException: ERROR: Невозможно обработать 456+dsfds

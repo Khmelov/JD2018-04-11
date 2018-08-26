@@ -1,4 +1,0 @@
-msg.welcome=Прывітанне!
-msg.question=Как делы?
-res.author=Аўтар кода
-res.name=Шумілаў Андрэй

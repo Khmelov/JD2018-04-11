@@ -1,4 +1,0 @@
-msg.welcome=Приветствую!
-msg.question=Как поживаешь?
-res.author=Автор:
-res.name=Ярослав

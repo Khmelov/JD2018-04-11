@@ -1,4 +1,0 @@
-msg.welcome=Hello!
-msg.question=How are you?
-res.author=Author:
-res.name=Yaroslav

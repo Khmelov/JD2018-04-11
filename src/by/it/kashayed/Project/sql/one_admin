@@ -1,2 +1,0 @@
-INSERT INTO `roles`(`Login`, `email`, `Password`, `Name`, `Owners_id`)
-VALUES ('Admin','admin','value-4','value-5',1);

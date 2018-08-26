@@ -1,4 +1,0 @@
-msg.welcome=Welcome!
-msg.question=How are you doing?
-res.author=Author of code
-res.name=Vladimir Kasiyanov

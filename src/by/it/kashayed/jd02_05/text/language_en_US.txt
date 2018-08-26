@@ -1,4 +1,0 @@
-msg1 = Welcome!
-msg2 = How are you?
-msg3 = Author
-msg4 = Yaroslav

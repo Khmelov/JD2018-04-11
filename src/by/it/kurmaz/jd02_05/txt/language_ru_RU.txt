@@ -1,4 +1,0 @@
-msg.welcome=Превед
-msg.question=Кагдила?
-res.author=Автор
-res.name=Павлег
